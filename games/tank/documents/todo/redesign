@@ -1,0 +1,409 @@
+
+
+------------------------------------------------------------------------------
+
+remove special case handling for default camera pos, light dir from
+grome export code
+
+new type "HelperObject", is ignored for rigid body creation on server
+
+
+------------------------------------------------------------------------------
+
+move checkCapabilities someplace else? into menu? feedback needed when
+trying to select unsupported items
+
+------------------------------------------------------------------------------
+
+proper stateset management for reflection, lod optimizations
+review grass layers too
+
+------------------------------------------------------------------------------
+
+move shader stuff from scene manager into own class
+
+------------------------------------------------------------------------------
+
+review exceptions in networkcommand::createfrompacket
+
+------------------------------------------------------------------------------
+
+
+velocity scale doesn't work reliably
+need access to RB
+
+find other solution for tracer orientation?
+
+------------------------------------------------------------------------------
+
+really need to cache particle effects?
+cache emitter, system and program instead?
+merge effects into bbm mechanism, just cache osg nodes
+-> particle manager, effect manager not resource managers anymore
+
+
+------------------------------------------------------------------------------
+
+better system for different hit particle effects
+
+------------------------------------------------------------------------------
+
+only do lm lighting of objects if near terrain surface? totally different concept?
+
+------------------------------------------------------------------------------
+
+use osg files to init stateset for objects
+avoid e.g. sky special case handling
+
+------------------------------------------------------------------------------
+
+handle firing feedback without hack in Tank::readStateFromBitstream
+
+------------------------------------------------------------------------------
+
+specify what can be saved in options menu
+own section?
+
+review ati reflection disable hack
+
+-) shadow enable / disable requires restart
+-) don't save targetfps
+solve mainmenu 30 fps problem
+
+------------------------------------------------------------------------------
+
+texture quality <-> shader quality 0-2 2-0
+
+------------------------------------------------------------------------------
+
+raycast for proper lighting of objects placed on terrain
+or need a second lightmap
+
+currently not possible due to buggy heightfield ray intersection
+
+------------------------------------------------------------------------------
+
+merge setDiffuse, set material color
+
+
+------------------------------------------------------------------------------
+
+
+don't set visual transform for static objects (objects gone to sleep)
+
+change callback semantics for single callback:
+return true: don't process further
+
+
+------------------------------------------------------------------------------
+
+
+
+
+local effect operator: specify whether to apply to forces too
+
+------------------------------------------------------------------------------
+
+
+
+remove libz dependency?
+
+
+------------------------------------------------------------------------------
+
+
+replace super_sections by elements with own name?
+ditch super_section mechanism...
+
+
+------------------------------------------------------------------------------
+
+use trimesh instead of heightfield, switch to ode 0.9?
+or use old heightfield code in 0.9
+
+
+------------------------------------------------------------------------------
+
+use raknet plugin for keeping track of sent traffic instead of current
+mechanism
+
+
+------------------------------------------------------------------------------
+
+
+
+virtual function for gameobjectvisual to visualize destruction?
+unify network handling
+problem: tank destruction stages?
+
+
+------------------------------------------------------------------------------
+
+review odegeom copy constructor
+print out when re-using callbacks
+find cleaner solution?
+
+water collision category?
+use same categories in replay simulator?
+need to set rules in replay sim...
+
+problem: only target bodies are instantiated in replay simulator....
+
+
+------------------------------------------------------------------------------
+
+
+review setLocation, shouldn't be set in gamelogic
+review isLocallyControlled
+
+------------------------------------------------------------------------------
+
+extract common shader functionality, include mechanism
+
+------------------------------------------------------------------------------
+
+check out http://sfml.sourceforge.net/index.php
+
+
+------------------------------------------------------------------------------
+
+better handling of grass density
+use cell size instead of density
+remove density factor
+
+------------------------------------------------------------------------------
+
+
+scaling objects currently is not possible because their transform is
+stored in oderigidbody, which doesn't support scaling
+
+
+------------------------------------------------------------------------------
+
+
+remove teamscore?
+
+
+------------------------------------------------------------------------------
+
+
+
+fix driving model, use 6 wheels? correctly position them in blender to
+improve visuals
+
+
+
+
+handle shallow light angle by changing shading calculation?
+use qhull for shadow computations
+
+
+
+------------------------------------------------------------------------------
+
+
+CONNECTION PROCESS
+
+transfer gamestate only after precaching is finished
+
+------------------------------------------------------------------------------
+
+
+team chat requires extensive redesign (move chat to gui)
+
+
+
+replace nvidia meshmender by osg TangentSpaceGenerator
+
+------------------------------------------------------------------------------
+
+
+split leveldata into two parts: 
+
+server: objects.xml, containing just list & placement of objects
+
+clients: level_data.xml
+- camera pos
+- texture mapping, scaling, rotation, offset
+- light dir
+- ambient
+- fog
+
+
+------------------------------------------------------------------------------
+
+
+
+solve conquered problem
+make beacons fixed or make base freeable
+
+------------------------------------------------------------------------------
+
+base class still needed?
+
+
+------------------------------------------------------------------------------
+
+use dirt spawning pos from tank model
+
+------------------------------------------------------------------------------
+
+keep track of kills, score separately
+
+review Score classes....
+
+------------------------------------------------------------------------------
+
+
+include directive for param files?
+common params for all tanks
+review tank param handling
+
+------------------------------------------------------------------------------
+
+revise desc file system
+put params into desc files, pass with init fun
+ParameterManager::loadDescriptionFile: put where? neccessary at all?
+specify object type in blender? really need desc files?
+specify default properties in blender, changeable in grome?
+
+
+ditch different desc files, different models for bases, starting
+positions etc
+
+use grome properties:
+
+-) export just a single starting pos / beacon
+-) use number, bool 
+
+
+------------------------------------------------------------------------------
+
+currently, are RigidBodies created in LocalPlayer::setLevelData ever
+deleted?? yes, in simulator destructor
+use detach mechanism here? only keep collection of geoms, no RBs
+
+
+
+
+
+
+
+review super_section usage for upgrades.xml
+put upgrade points directly into upgrades.xml?
+
+
+
+
+
+
+rewrite xml handling, systematically write save/load functions
+
+
+
+chat window to cegui
+need to unify input handling
+->team say
+
+
+specify object class directly in blender instead of in desc_file
+ditch desc files?
+
+
+tankappclient functionality to bluebeard?
+after chat is gone
+
+------------------------------------------------------------------------------
+
+BEACON CONNECTIONS
+
+completely rewrite connections
+problems:
+  -) blending even if nothing can be seen most of the time
+  -) issues with mipmapping and texture clamping
+
+alternative: 
+ -) really moving shapes
+ -) permanent shapes
+
+
+better ray visualization: specify velocity, spacing
+propagate through entire ray mesh? offset by distance to fixed beacon?
+
+twisting / turning in in beacon connection
+
+
+------------------------------------------------------------------------------
+
+UPGRADE SYSTEM
+
+redesign weapons: load from param file to have different types with
+same implementation
+same mechanism as tank?
+
+event-based upgrade machanism, traverse params in tank on load
+
+remove duplicate code
+
+assertion instead of ifs
+
+upgrade events:
+-) hitpoints (fill up hp)
+-) switches
+-) weapon system (load paramfile into system)
+
+------------------------------------------------------------------------------
+
+NEW HIERARCHY:
+
+
+use osgDB search path!
+
+- levels
+  - lvl_name
+    - textures
+    - objects
+      bbm
+      xml
+      desc_file
+    heightmap
+    colormap
+    detail tex map
+    lightmap
+    objects
+    resources?
+    minimap
+
+- game_objects
+  - textures
+  - objects
+    bbm
+    xml
+    desc_file
+
+- textures
+  - terrain
+  - hud
+  - particles
+
+
+
+------------------------------------------------------------------------------
+
+put category collisions into collision space, not in sim
+
+
+createFromFile / loadfromfile inconsistencies
+path inconsistencies (entity: specify full path)
+
+
+
+remove loadDescriptionFile, saveLevelResourceFile from parametermanager
+
+
+
+replace frameMove by stepPhysics where applicable
+stepPhysics
+frameMove
+rename frameMove to frameMovePhysics...
+consistency??

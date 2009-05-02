@@ -1,0 +1,44 @@
+
+
+
+don't equire config_common
+get rid of camera params in config_common
+defaults?
+setDefaultParameter function for ParameterManager
+
+
+
+config_viewer file to viewer dir in svn?
+link?
+
+
+
+reference model (skydome?) to allow for easier navigating
+or rotate view around object
+
+
+
+------------------------------------------------------------------------------
+
+PARTICLE viewer
+
+
+help command
+
+
+
+http://unity3d.com/support/documentation/Manual/Particle%20Systems.html
+
+
+-) shading - how is this possible?
+   depending on spawn location, shooting velocity?
+
+   dependent on
+   
+   -) light direction
+   -) position w.r.t placer center
+
+
+
+
+------------------------------------------------------------------------------

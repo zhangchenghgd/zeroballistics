@@ -1,0 +1,968 @@
+
+
+
+
+
+
+.MTPS_GlobalToolbar
+{
+	margin-top:-1px;
+}
+/* Default branding */
+.MTPS_BrandColor1 { background-color: #257BD5; }
+.MTPS_BrandColor2 { background-color: #0A6CCE; }
+.MTPS_BrandColor3 { background-color: #ffffff; }
+
+A.MTPS_GlobalToolbarLinks
+{
+	padding:2px;
+	border:1px solid #257BD5;
+	text-decoration:none;
+	color:#FFFFFF;
+	font: normal 10px Verdana;
+	vertical-align:middle;
+}
+
+A.MTPS_GlobalToolbarLinks:hover
+{
+	padding:2px;
+	border:1px solid #A1C6EB;
+	background-color:#3484D7;
+}
+
+.MTPS_GlobalToolbarSeparator
+{
+	vertical-align:middle; 
+	font:normal 10px verdana; 
+	color:#FFFFFF;
+}
+
+.GlobalizationTitle
+{
+	font-family: Verdana, Tahoma, Arial; 
+	font-size: 10pt; 
+	color: #555555;
+	white-space:nowrap;
+	margin-left:10px;
+}
+/* end default branding*/
+
+
+/* MSDN branding */
+.MTPS_BrandColor1_msdn { background-color: #3366cc; }
+.MTPS_BrandColor2_msdn { background-color: #ffffff; }
+.MTPS_BrandColor3_msdn { background-color: #6699ff; }
+
+A.MTPS_GlobalToolbarLinks_msdn, .MTPS_GlobalToolbarLinks_msdn
+{
+	padding:1px;
+	border:1px solid #3366CC;
+	text-decoration:none;
+	color: #FFFFFF;
+	font: normal 10px Verdana;
+	vertical-align:middle;
+}
+.MTPS_GlobalToolbarLinks_msdn
+{
+    cursor:pointer;
+}
+
+A.MTPS_GlobalToolbarLinks_msdn:hover {
+	padding:1px;
+	border:1px solid #ADC9FF;
+	background-color:#5781D5;
+	color: #FFFFFF;
+}
+
+A.MTPS_GlobalToolbarLinks_msdn:visited {
+	padding:1px;
+	text-decoration:none;
+	color: #FFFFFF;
+	font: normal 10px Verdana;
+	vertical-align:middle;
+}
+
+.MTPS_GlobalToolbarSeparator_msdn
+{
+	vertical-align:middle; 
+	font:normal 10px verdana; 
+	color:#FFFFFF;
+}
+/* end MSDN */
+
+
+/* Technet branding */
+.MTPS_BrandColor1_technet { background-color: #112E59; }
+.MTPS_BrandColor2_technet { background-color: #e0e0e0; }
+.MTPS_BrandColor3_technet { background-color: #ffffff; }
+
+A.MTPS_GlobalToolbarLinks_technet, .MTPS_GlobalToolbarLinks_technet
+{
+	padding: 1px;
+	border:1px solid #112E59;
+	text-decoration:none;
+	color: #FFFFFF;
+	font: normal 10px Verdana;
+	vertical-align:middle;
+
+}
+.MTPS_GlobalToolbarLinks_technet
+{
+    cursor:pointer;
+}
+
+A.MTPS_GlobalToolbarLinks_technet:hover {
+	padding:1px;
+	border:1px solid #ADC9FF;
+	background-color:#5781D5;
+	color: #FFFFFF;
+}
+
+A.MTPS_GlobalToolbarLinks_technet:visited {
+	padding:1px;
+	text-decoration:none;
+	color: #FFFFFF;
+	font: normal 10px Verdana;
+	vertical-align:middle;
+}
+
+.MTPS_GlobalToolbarSeparator_technet
+{
+	vertical-align:middle; 
+	font:normal 10px verdana; 
+	color:#FFFFFF;
+}
+
+/* End Technet */
+
+/* Search elements */
+.MTPS_GlobalSearchBar1
+{
+
+	height: 100%;	
+	width: 100%;
+}
+
+.SearchBarLabelText
+{
+	margin-top:5px;
+	vertical-align:bottom;
+	font-size:10px;
+	font-family:Verdana;
+	color:#FFFFFF;
+	width:auto;
+}
+
+.SearchBarTextbox1
+{
+	position: relative;
+	font-size:10px;
+	font-family:Verdana;
+	vertical-align:top;	
+	width:180px;
+/*	height: 19px; */
+	margin-top: 11px;
+}
+
+.SearchBarGoButton1
+{
+	
+	font-family:Verdana;
+	font-size:10px;
+	/*Bug 2481 vertical-align:top;*/
+	margin-top: 10px;
+	height: 21px;	
+	margin-right: 10px;
+}
+/* Search elements */
+
+/* Local toolbar */
+DIV.MPTS_ToolbarPane1
+{
+	font-size: 70%;	
+	width:auto;
+	background-color: #f0f0f0;
+	color: #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+	padding: 2px 2px 2px 2px;
+	margin:0px 0px 0px 0px;
+	text-align:left;
+	white-space: nowrap;
+}
+
+
+DIV.MPTS_ToolbarPane1 a
+{
+	font-family:Verdana;
+	text-decoration: none;
+	color: #000000;
+	padding-top:1px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:1px;
+	border: 1px solid #F0F0F0;
+	text-align: left;
+	vertical-align:middle;
+	
+}
+
+DIV.MPTS_ToolbarPane1 a:hover
+{
+	text-decoration: none;
+	color: #000000;
+	background-color: #cbcbcb;
+	border: 1px solid #909090;
+	
+}
+
+DIV.MPTS_ToolbarPane1 a:visited
+{
+
+	color: #000000;
+}
+
+.MPTS_ToolbarPane1_first_item
+{
+	width: 177;
+	font-family:Verdana;
+	text-decoration: none;
+	color: #000000;
+	padding-top:1px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:1px;
+	border: 1px solid #F0F0F0;
+	text-align: left;
+	vertical-align:middle;
+	
+}
+
+
+.tocPanel
+{
+background-image: url(/msdn/Controls/ResizableArea/en-us/TOCBg.jpg);
+background-repeat: repeat-y
+}
+
+.TreeView
+{
+	background-color:transparent;
+	width:100%;
+	z-index:-1000;
+	/* Cause IE7B2 issue of first child node layout being off
+	vertical-align:top;
+	*/
+}
+
+.TBLMAIN_MTPS_RatingCtrl_Footer
+{   
+  background-color:#f1f1f1;
+  width:100%;
+	border-bottom:0px solid #cccccc;
+	border-top:0px solid #cccccc;
+	border-left:0px solid #cccccc;
+	border-right:0px solid #cccccc;
+	font-family:Verdana;
+	color:#000000;
+
+}
+
+.TBLOUTER_MTPS_RatingCtrl_PrintMailFav_Footer
+{    
+    border-top: #999999 1px solid;
+    border-bottom: #999999 1px solid;
+    width:100%;  
+    height:23px;
+}
+
+.TDSPACE_MTPS_RatingCtrl_PrintMailFav_Footer
+{    
+    font-size:65%;
+    width:8px;    
+}
+
+.TD_MTPS_RatingCtrl_PrintMailFav_OnMouseOut_Footer
+{
+    color:#000000;
+    text-decoration: none;
+     cursor:pointer;
+}
+
+.TD_MTPS_RatingCtrl_PrintMailFav_OnMouseOver_Footer
+{
+    background-color:#CCCCCC;
+    padding:0px 0px 0px 0px; 
+    border:1px solid #999999;
+    text-decoration: none;     
+    cursor:pointer;
+         
+}
+
+.HLNK_MTPS_RatingCtrl_Footer
+{
+  font-size:65%;
+	color:#000000;
+	text-decoration:none;	
+	white-space:nowrap;
+	vertical-align:middle;
+}
+
+.TEXT_MTPS_RatingCtrl_Label_Footer
+{
+  font-size:65%;
+	color:#000000;
+}
+
+.TEXT_MTPS_RatingCtrl_Label_Header
+{
+	color:#000000;
+}
+
+.TEXT_MTPS_RatingCtrl_Button
+{
+    font-size:65%;
+    float:right;
+}
+
+.TEXT_PeopleRated
+{
+  font-size:65%;
+}
+
+.NUMBER_MTPS_RatingCtrl_Footer
+{	
+  font-size:65%;
+	text-align:center;
+}
+
+.IMG_MTPS_RatingCtrl_Footer
+{
+    margin-left:8px;
+    margin-right:8px;
+}
+
+.HIDE_MTPS_RatingCtrl_PrntEmailFav
+{
+    display:none;    
+}
+ 
+.RB_MTPS_RatingCtrl_Footer
+{
+   border-color:Blue;
+}
+
+.STATSTXT_MTPS_RatingCtrl_Footer
+{
+    vertical-align:text-bottom;
+    height:200px;
+}
+.DIV_MTPS_RatingCtrl_RHS_Footer
+{
+    height:210px;
+}
+
+.TBL_MTPS_RatingCtrl_Header
+{
+   width:auto;	   
+   margin-left:5px;
+   margin-right:5px;
+}
+
+.HLNK_MTPS_RatingCtrl_Header
+{
+	text-decoration:none;
+	padding-right:5px;
+}
+.HLNK_MTPS_RatingCtrl_Header:visited
+{
+    color:Blue;
+}
+
+.DIV_MTPS_RatingCtrl_Header
+{
+    width:100%;	
+	padding-right:0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color:#000000;
+	background-color: #f1f1f1;	
+	margin-bottom:10px;
+	margin-left:0px;
+	margin-right:0px;
+    text-align: right;
+	border-bottom:1px solid #cccccc;
+	border-top:0px solid #cccccc;
+	border-left:0px solid #cccccc;
+	border-right:0px solid #cccccc;
+}
+.WarningMessage_MTPS_RatingCtrl_Footer
+{
+  font-size:65%;
+	color:Red;
+}
+
+.FilterCtrl_ExpandCollapseArrow {
+	float:right;
+	margin-top:3px;
+	margin-right: 5px;
+	width: 7px;
+	height: 8px;	
+}
+.Padding_MTPS_RatingCtrl_Footer
+{
+    padding:0px 0px 0px 2px;
+}
+
+
+DIV.CrumbCtrlClass
+{
+ width:auto;
+ margin-top:5px;
+ margin-left:20px;
+ margin-right: 20px;
+ margin-bottom:3px;
+}
+
+DIV.CrumbCtrlClass A
+{
+ width:auto;
+ margin-top:0px;
+ margin-left:0px;
+ margin-right: 0px;
+ margin-bottom:0px;
+ padding-top:0px;
+ padding-left:0px;
+ padding-right:0px;
+ padding-bottom:0px;
+}
+
+
+DIV.CrumbCtrlClass A:hover
+{
+	color:#FF3300;
+}
+
+DIV.CrumbCtrlClass A:active
+{
+	color:#FF3300;
+}
+
+DIV.CrumbCtrlClass A:visited
+{
+	color:#800080;
+}
+
+
+
+.ExpandCollapseAllPanel
+{
+	background-color:transparent;
+	float:left;
+	padding-right:10px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-bottom:0px;
+}
+
+.ExpCoLinkBtn
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #000000;
+	vertical-align:middle;
+	padding-left:3px;
+	padding-right:10px;
+}
+
+IMG.ExpCoImgBtn
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #000000;
+	vertical-align:middle;
+}
+
+
+
+.DropDownFilterStyle
+{
+	position:relative;
+	width:auto;
+	float:left;
+}
+
+.MTPS_DropDownImage
+{
+	cursor:pointer;
+	text-align:center;
+	float:left;
+}
+
+.DropDownFilterOff
+{
+	cursor: pointer;
+	color: Black;
+	text-decoration:none;
+	float:left;
+	padding-left:5px;
+	padding-top:2px;
+}
+
+.MTPS_PopupDivPanel
+{
+	background-color: #dddddd;
+	position:absolute;
+	left:0px;
+	width:200px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:5px;
+	padding-bottom:1px;
+	margin-top:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	border: solid 1px #cccccc;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.codeHide
+{
+	display:none;
+}
+
+.DivCbxLabelLanguage
+{
+	background-color:transparent;
+	width:auto;
+	padding:0px;
+	margin:0px;
+}
+
+.DivCbxLabelLanguage input
+{
+	vertical-align:middle;	
+}
+
+.MTPS_SQL_info_ctrl
+{
+	width:200px;
+	background-color:Yellow;
+	padding:3px;
+	margin:0px;
+	vertical-align:middle;
+}
+
+.MTPS_SQL_info_ctrl IMG
+{
+	vertical-align:middle;
+}
+
+.SqlCenterMenuRootDiv
+{
+	position:absolute;
+	width:150px;
+	background-color: #e6e6e6;
+	border:solid 1px #CCCCCC;
+	color:#000000;	
+	display:none;
+	visibility:hidden;
+}
+
+.SqlCenterMenuLink
+{
+	width:150px;
+	padding:3px;
+	margin:0px;
+	color:#000000;
+	border-bottom:solid 1px #CCCCCC;
+}
+
+DIV.VSBar
+{
+	width: auto;
+	height:20px;
+	background-color: transparent;
+	border-bottom: solid 1px #e6e6e6;
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+}
+
+
+.MTPSPart
+{
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=white,endColorStr=Gainsboro); 
+	float:right; display:inline-table;
+	width:160px;
+	color:#000000;
+	background-color: #f1f1f1;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	padding:8px;
+	margin:15px;
+}
+
+.MTPSPart P
+{
+ font-weight:bold;
+}
+
+.MTPSPart UL 
+{ 
+	margin-bottom:5px; 
+	margin-left:18px;
+}
+
+.MTPSPart SPAN 
+{ 
+	color:#000000;	
+}
+
+.MTPSPart	UL LI
+{
+	margin-bottom:0.5em;
+	list-style-type: disc;
+	color:#cccccc; 
+	
+	margin: 0 0 5px 0;
+	background: url( '/msdn/MasterPages/DeepTreePageType/b.gif' ) no-repeat left top;
+	list-style-position: outside;
+	list-style-type: none;
+	padding: 0 0 0 10px;
+	line-height:140%;
+}
+
+
+/* Default branding */
+TD.MTPS_FooterFade
+{
+	height:57px; 
+	font:bold 70% verdana; color:#CCCCCC; 
+	padding-left:10px; 
+	border-top:1px solid #999999; 
+	background-color:#FFFFFF; 
+	background-image:url('/msdn/Controls/MTPS_FooterCtrl/en-us/mscomfooterfade.jpg'); 
+	background-position:right; 
+	background-repeat:repeat-y;
+}
+
+TD.MTPS_FooterLogo
+{
+	width:105px; background-color:#1E77D3; border-top:1px solid #999999;
+}
+
+DIV.MTPS_FooterLinks
+{
+	margin-bottom: 10px;
+}
+
+A.MTPS_FooterLinks, DIV.MTPS_FooterLinks A
+{
+	color: #0033cc;
+	font-weight: normal;
+}
+
+A.MTPS_FooterLinks:hover, DIV.MTPS_FooterLinks A:hover
+{
+	color: #ff6600;
+}
+
+.MTPS_FooterCopyright
+{
+	font-weight:normal; color:#000000;
+}
+/* end Default */
+
+/* MSDN branding */
+TD.MTPS_FooterFade_msdn
+{
+	height:57px; 
+	font:bold 70% verdana; color:#CCCCCC; 
+	padding-left:10px; 
+	border-top:1px solid #3366CC; 
+	background-color:#FFFFFF; 
+	background-image:url('/msdn/Controls/MTPS_FooterCtrl/en-us/msdnfooterfade.jpg'); 
+	background-position:right; 
+	background-repeat:repeat-y;
+}
+
+TD.MTPS_FooterLogo_msdn
+{
+	width:105px; background-color:#6699FF; border-top:1px solid #3366CC;
+}
+
+DIV.MTPS_FooterLinks_msdn
+{
+	margin-bottom: 10px;
+}
+
+A.MTPS_FooterLinks_msdn, DIV.MTPS_FooterLinks_msdn A
+{
+	color: #0033cc;
+	font-weight: normal;
+}
+
+A.MTPS_FooterLinks_msdn:hover, DIV.MTPS_FooterLinks_msdn A:hover
+{
+	color: #ff6600;
+}
+
+.MTPS_FooterCopyright_msdn
+{
+	font-weight:normal; color:#000000;
+}
+/* end MSDN */
+
+/* Technet branding */
+TD.MTPS_FooterFade_technet
+{
+	height:57px; 
+	font:bold 70% verdana; color:#CCCCCC; 
+	padding-left:10px; 
+	border-top:1px solid #999999; 
+	background-color:#FFFFFF; 
+	background-image:url('/msdn/Controls/MTPS_FooterCtrl/en-us/technetfooterfade.jpg'); 
+	background-position:right; 
+	background-repeat:repeat-y;
+}
+
+TD.MTPS_FooterLogo_technet
+{
+	width:105px; background-color:#CDCDCD; border-top:1px solid #999999;
+}
+
+DIV.MTPS_FooterLinks_technet
+{
+	margin-bottom: 10px;
+}
+
+A.MTPS_FooterLinks_technet, DIV.MTPS_FooterLinks_technet A
+{
+	color: #0033cc;
+	font-weight: normal;
+}
+
+A.MTPS_FooterLinks_technet:hover, DIV.MTPS_FooterLinks_technet A:hover
+{
+	color: #ff6600;
+}
+
+.MTPS_FooterCopyright_technet
+{
+	font-weight:normal; color:#000000;
+}
+/* End Technet */
+
+
+
+
+
+
+.FallbackContainer
+{
+    float: right;
+    font-size:100%;
+    width:200px;
+    margin-top:8px; 
+    margin-bottom:8px; 
+    margin-left:8px;
+    margin-right:8px; 
+    padding:8px;
+    background-color:#f1f1f1; 
+    border-bottom:1px solid #CCCCCC; 
+    border-top:1px solid #CCCCCC; 
+    border-left:1px solid #CCCCCC; 
+    border-right:1px solid #CCCCCC;
+}
+
+.FallbackHeaderLabel
+{
+    font-weight:bolder;
+}
+
+.FallbackLocale
+{
+   font-style:italic;
+}
+
+
+
+
+
+A.CollapseRegionLink, A.CollapseRegionLink:link, A.CollapseRegionLink:hover, A.CollapseRegionLink:visited
+{
+	Cursor:pointer;
+	color:#000000;
+	font-family:Verdana,tahoma,arial;
+	font-weight:700;
+	text-decoration: none;
+}
+
+ IMG.CollapseRegionImg
+ {
+	border:0px;
+	padding:0px;
+	margin-right:5px;
+	margin-top:0px;
+	margin-left:0px;
+	margin-bottom:0px;
+	vertical-align:top;
+ }
+ 
+ .MTPS_CollapsibleRegion
+ {
+	vertical-align:top;
+	padding-top:5px;
+	padding-left:1px;
+	padding-right:1px;
+	padding-bottom:5px;
+ }
+
+.MtpsMemberLink
+{
+	position:absolute;
+	padding-top:2px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:2px;
+	margin-top:0px;
+	margin-left:10px;
+	margin-right:0px;
+	margin-bottom:0px;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.CodeSnippetTitleBar
+{
+	background-color:#DDDDDD;
+	padding-top:3px;
+	padding-left:3px;
+	padding-right:3px;
+	padding-bottom:3px;
+	white-space:nowrap;
+	border-bottom:solid 1px #aaaaaa;
+	height:20px;
+}
+.CodeDisplayLanguage
+{
+	float:left;
+    text-align:left;
+}
+
+.CopyCodeButton
+{
+	float:right;
+    text-align:right; 
+}
+
+a.copyCode
+{
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+    text-align:right; 
+}
+
+
+
+.MTPS_PrinterFriendlyBanner_default
+{
+	border-bottom:1px solid #3366CC;
+}
+
+.MTPS_PrinterFriendlyBanner_msdn
+{
+	border-bottom:1px solid #3366CC;
+}
+
+.MTPS_PrinterFriendlyCopyrightText
+{
+	width: 100%;
+	text-align: right;
+	font-family: Verdana;
+}
+
+.PFB_Left
+{
+	text-align:left;
+	width:50%;
+}
+.PFB_Right
+{
+	text-align:right;
+	width:50%;
+	padding-right:10px;
+}
+
+
+.AltPageHeaderLabel
+{
+    font-size:200%;
+    width:auto;
+}
+
+.AltPageContentLabel
+{
+	width:auto;
+}
+
+.FlyOutMenuPanel A:visited
+{ 
+    cursor: hand;
+    color:#000000;
+
+}
+
+
+.FlyOutMenuPanel A:hover 
+{ 
+    cursor: hand;
+    color:#000000;
+
+}
+
+.FlyOutMenuPanel A:active
+{ 
+    cursor: hand;
+    color:#000000;
+
+}
+
+.FlyOutMenuBeforeHR {
+	position: absolute; 
+	left: 0;
+	width: 185px;
+	border-top: 1px solid #CCCCCC; 
+	height: 1px; 
+	margin-top: 17; 
+	margin-bottom: 2;
+}
+
+.FlyOutMenuAfterHR {
+	position: absolute; 
+	left: 0;
+	width: 185px;
+	border-top: 1px solid #CCCCCC; 
+	height: 1px; 
+	margin-top: 17; 
+	margin-bottom: 2;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+
+
+smb.conf:
+
+
+[resources]
+    path=/home/swentwicklung/resources
+    writeable = yes
+    create mask = 0775
+    directory mask = 0775
+
+
+
+------------------------------------------------------------------------------
+
+smbpasswd -a musch

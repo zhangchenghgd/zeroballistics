@@ -1,0 +1,227 @@
+
+
+
+------------------------------------------------------------------------------
+
+impact cannon fixed torque
+
+------------------------------------------------------------------------------
+
+conquer *all* outposts? attackers/beacons gain strength with each outpost taken
+
+
+
+immediately deploy dropped beacons?
+
+------------------------------------------------------------------------------
+
+make it easier to transport beacons? more than one?
+
+sound feedback for beacon deployment
+
+particle effect for hovering beacon
+
+------------------------------------------------------------------------------
+
+
+attacker needs more upgrade points
+
+------------------------------------------------------------------------------
+
+beacon dispenser needs to be easily accesible
+
+------------------------------------------------------------------------------
+
+
+healing to tank params, change with armor upgrade etc...
+
+
+------------------------------------------------------------------------------
+
+minimap zoom to scroll wheel?
+
+------------------------------------------------------------------------------
+
+implement new gamelogic with selectable spawning pos now?
+
+------------------------------------------------------------------------------
+
+
+how to reward player for placing beacon?
+difficult to avoid cheating
+heal player who places beacon?
+
+
+
+"fast lane" beacon connections
+reward placing player if his beacon is used for travelling
+
+
+explode tank immediately for full hit?
+
+
+stehenbleiben zum heilen, kein schießen möglich
+nanobots etc.
+
+
+select tank components when spawning
+- main, sec., tert. weapon
+- tank ( influences armor+speed )
+
+
+
+
+
+?stehenbleiben zum heilen, kein schießen möglich? heilproblematik anprechen
+nanobots etc.
+
+
+
+reuse football idea?
+
+
+
+keep track of kills per minute and other stats
+"godlike" and the like for killing sprees
+
+
+
+
+multi-shot as upgrade
+"cluster bomb"
+
+
+
+
+different crosshair, projectile, tracer, particle effect after weapon upgrades
+
+different engine sound after speed upgrade
+
+
+------------------------------------------------------------------------------
+
+get beacons from base
+transfer unused beacons to conquered base
+
+visualize beacon meter, especially if time based
+don't let defender frag beacon on dispenser
+only really create beacon if it is picked up to solve dispenser question
+
+------------------------------------------------------------------------------
+
+
+minigun into accuracy
+mine hits into accuracy
+
+
+gatling overheat
+
+
+turboboost (sprint)
+
+
+
+display spectators in score
+
+
+
+
+start game only if min. number of players connected
+need to press fire to spawn
+
+
+
+
+sound effects for area merge/break
+different sound effects when lifting/releasing box
+needs to know state
+
+
+
+
+
+stats at end:
+accuracy per weapon 
+efficiency
+kills
+deaths
+deployed beacons
+
+
+sound effect if no ammo
+
+
+teleporter
+
+
+scope, zoom
+
+
+use ccyl for cont coll det
+-> easier direct hits
+
+
+------------------------------------------------------------------------------
+
+verschiedene panzertypen
+
+fässer
+
+siege modus
+
+einschlagskamera
+
+splittergranate
+
+don't display team selection at new level
+
+nebel, smoke grenade
+
+unterschiedliche upgrade-pfade für attacker, defender
+
+------------------------------------------------------------------------------
+
+attacker vorteil im radius, defender im tempel
+
+------------------------------------------------------------------------------
+
+fix camera pos on game won
+define attacker and defender winning camera pos
+
+
+------------------------------------------------------------------------------
+
+old beacons can be carried forward -> make them static
+
+------------------------------------------------------------------------------
+
+rename speed upgrades to movement upgrades
+
+------------------------------------------------------------------------------
+
+
+beacon carrier less speed
+
+------------------------------------------------------------------------------
+
+
+strong front armor for ram upgrade
+separately specify front, side, back armor for tank
+
+let ram upgrade absorb frontal damage
+unify functionality to calc angle wrt tank (ram, hit marker, armor)?
+
+
+------------------------------------------------------------------------------
+
+display chosen upgrades on HUD
+
+
+------------------------------------------------------------------------------
+
+raise beacon damage
+reduce effect of inertia dampener
+
+------------------------------------------------------------------------------
+
+time extension, time limit into grome 

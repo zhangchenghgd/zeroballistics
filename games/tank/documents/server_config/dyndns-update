@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+#  /root/dyndns-update
+# 
+# start/stop
+
+case "$1" in
+    start)
+        echo -n "Starting ipcheck:"
+        cd /root/
+        python /usr/sbin/ipcheck.py -d baron.dat -l -r checkip.dyndns.org baronm racing baron.dyndns.org &
+        python /usr/sbin/ipcheck.py -d quanticode.dat -l -r checkip.dyndns.org baronm racing quanticode.dyndns.org &
+        echo "."
+        ;;
+    stop)
+        ;;
+    reload)
+        ;;
+    force-reload)
+        $0 restart
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    makedat)
+        cd /root/
+        python /usr/sbin/ipcheck.py --makedat -d baron.dat -l -r checkip.dyndns.org baronm racing baron.dyndns.org &
+        python /usr/sbin/ipcheck.py --makedat -d quanticode.dat -l -r checkip.dyndns.org baronm racing quanticode.dyndns.org &
+        echo "done creating ipcheck dat files."
+        ;;
+    *)
+        echo "Usage: dyndns-update {start|stop|reload|restart|makedat}"
+        exit 1
+        ;;
+esac
+
+
+
+exit 0
+
+
+
+
+
