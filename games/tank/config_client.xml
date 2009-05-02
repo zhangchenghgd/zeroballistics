@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<parameters>
+    <!-- 
+           CLIENT CONFIGURATION 
+
+
+Values in this file are overriden by config.xml which can be found
+
+on Vista:
+C:\Users\(Username here)\AppData\Roaming\Quanticode\Zero Ballistics
+
+on XP:
+C:\Document and Settings\(Username here)\Application Data\Quanticode\Zero Ballistics
+
+on Linux:
+~/.config/Quanticode/Zero Ballistics/
+
+
+
+    -->
+    <section name="client.logic">
+        <variable name="update_boundary_fps" value="10" type="float" />
+    </section>
+    <!--	
+	-->
+    <section name="client.app">
+        <variable name="target_fps" value="0" type="float" comment="0 for unrestricted fps" console="1" />
+        <variable name="min_fps" value="15" type="float" console="1" />
+        <variable name="fullscreen" value="0" type="bool" />     
+        <variable name="initial_window_width" value="1024" type="unsigned" />
+        <variable name="initial_window_height" value="768" type="unsigned" />
+        <variable name="total_profile" value="0" type="bool" console="1" />
+        <variable name="player_name" value="Player" type="string" />
+    </section>
+    <!--	
+	-->
+    <section name="client.intro">
+        <variable name="enable" value="0" type="bool" />
+        <variable name="movie" value="data/intro.avi" type="string" />
+    </section>
+    <!--	
+	-->    
+    <section name="client.input">
+        <variable name="mouse_sensitivity_pitch_factor" value="0.5" type="float" console="1" />
+        <variable name="mouse_sensitivity_min" value="0.001" type="float" console="1" />
+        <variable name="mouse_sensitivity_max" value="0.01" type="float" console="1" />
+        <variable name="mouse_sensitivity" value="0.111" type="float" console="1" />
+        <variable name="send_input_fps" value="20" type="float" />
+    </section>
+    <!--	
+	-->
+    <section name="client.network">
+        <variable name="host" value="baron.dyndns.org" type="string" />
+        <variable name="port" value="23500" type="unsigned" />
+        <variable name="sleep_timer" value="1" type="unsigned" />
+        <variable name="mtu_size" value="1460" type="unsigned" />
+        <!-- Network simulator stuff -->
+        <variable name="max_bps" value="0" type="float" />
+        <variable name="min_ping" value="0" type="unsigned" />
+        <variable name="extra_ping" value="0" type="unsigned" />
+        <!-- sim stuff end -->
+    </section>
+    <!--	
+	-->
+    <section name="client.sound">
+        <variable name="volume" value="1" type="float" />
+        <variable name="enabled" value="1" type="bool" />
+        <variable name="cull_distance" value="25" type="float" />
+        <variable name="list_available_devices" value="0" type="bool" />
+        <variable name="show_device_info" value="0" type="bool" />
+        <variable name="device_index" value="0" type="unsigned" />
+    </section>
+    <!--	
+	-->
+    <section name="client.music">
+        <variable name="enabled" value="1" type="bool" />
+        <variable name="menu" value="deadly.ogg" type="string" />
+    </section>
+    <!--	
+	-->
+    <section name="client.graphics">
+        <variable name="texture_quality" value="0" type="unsigned" />
+        <variable name="anisotropic_filtering" value="0" type="unsigned" />
+        <variable name="fsaa_samples" value="0" type="unsigned" />           
+
+        <variable name="lod_scale" value="0.7" type="float" console="1" />
+        <variable name="min_lod_scale" value="0.1" type="float" console="1" />
+        <variable name="max_lod_scale" value="0.7" type="float" console="1" />
+
+        <variable name="tank_flash_period" value="0.6" type="float" />
+        <variable name="tank_flash_percentage" value="0.7" type="float" />
+        <variable name="shader_quality" value="2" type="unsigned" />
+        <variable name="water_quality" value="0" type="unsigned"  />
+        <variable name="instance_batch_size" value="81" type="unsigned" />
+        <variable name="particle_lod_scale" value="0.1" type="float" console="1" comment="lower->higher quality" />
+
+        <variable name="cache_statesets" value="1" type="bool" />
+
+    </section>
+    <!--	
+	-->
+    <section name="lod_class">
+        <variable name="nolod"      value="[100000;100000;100000]" type="vector<float>" />
+        <variable name="building"   value="[10;50;300]" type="vector<float>" />
+        <variable name="tree"       value="[2;20;300]" type="vector<float>" />
+        <variable name="gameobject" value="[10;30;300]" type="vector<float>" />
+    </section>
+    <!--	
+	-->
+    <section name="client.border">
+        <variable name="height" value="0.3" type="float" />
+        <variable name="border_pan_speed" value="0.6" type="float" />
+        <variable name="connection_pan_speed" value="0.6" type="float" />
+    </section>
+    <!--	
+	-->
+    <section name="client.shadows">
+        <variable name="enabled" value="1" type="bool" />
+        <variable name="map_size" value="1024" type="unsigned" />
+        <variable name="polygon_offset_factor" value="1" type="float" console="1" />
+        <variable name="polygon_offset_units" value="0" type="float" console="1" />
+    </section>
+    <!--	
+	-->
+    <section name="client.log">
+        <variable name="filename" value="log_client.txt" type="string" />
+        <variable name="debug_classes" value="-" type="string" comment="possible values: idsrtNMlohH" console="1" />
+        <variable name="append" value="0" type="bool" />
+        <variable name="always_flush" value="1" type="bool" />
+        <variable name="osg_notify_level" value="0" type="unsigned" comment="0-6" />
+        <variable name="print_network_summary" value="0" type="bool" />
+    </section>
+    <!--	
+	-->
+    <section name="client.puppet_master">
+        <variable name="game_logic" value="GameLogicClientConqueror" type="string" />
+    </section>
+    <!--	
+	-->
+    <section name="terrain">
+        <variable name="start_grid" value="0" type="unsigned" />
+        <variable name="num_grids" value="4" type="unsigned" />
+        <!-- Grid size can be 1 to 5 (resolution then is 15 to 255) -->
+        <variable name="grid_size" value="4" type="unsigned" />
+        <variable name="morph_region_percentage" value="0.4" type="float" />
+    </section>
+    <section name="instances">
+        <variable name="num_layers" value="3" type="unsigned" />
+        <variable name="cell_resolution" value="7" type="unsigned" comment="Resolution of toroidal buffer"/>
+        <variable name="base_draw_distance" value="10.0" type="float" />
+        <variable name="density_factor" value="[2.5;2;0.7]" type="vector<float>" comment="density values from grome are multiplied with this value."/>
+        <variable name="user_density" value="1.0" type="float" />
+
+        <variable name="threshold_steepness" value="35.0" type="float" comment="in degree" />
+
+        <variable name="update_dt" value="0.05" type="float" />
+        <variable name="min_scale" value="0.7" type="float" />
+        <variable name="max_scale" value="1.0" type="float" />
+    </section>
+</parameters>

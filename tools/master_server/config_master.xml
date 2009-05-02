@@ -1,0 +1,38 @@
+
+<?xml version="1.0" ?>
+<parameters>
+
+    <section name="master">
+	<variable name="drop_server_delay" value="740" type="unsigned" />
+	<variable name="clear_contact_delay" value="10" type="float" />
+	<variable name="max_connection_duration" value="20" type="float" />
+	<variable name="max_nat_punchthrough_connections" value="128" type="unsigned" />
+
+	<variable name="new_player_cmd" value="/home/flaminggaming/master_server/on_new_player.sh" type="string" />
+	<variable name="new_server_cmd" value="/home/flaminggaming/master_server/on_new_server.sh" type="string" />
+
+    </section>
+
+    <section name="server.app">
+        <variable name="min_fps" value="5" type="float" />
+        <variable name="target_fps" value="60" type="float" />
+    </section>
+
+
+
+    <section name="network">
+        <variable name="listen_port" value="23501" type="unsigned" />
+	<variable name="sleep_timer" value="1" type="unsigned" />
+        <variable name="mtu_size" value="1460" type="unsigned" />    
+    </section>
+
+
+    <section name="master.log">
+        <variable name="filename" value="log_master.txt" type="string" />
+        <variable name="debug_classes" value="PHLN" comment="TPHLN" type="string" console="1"/>
+        <variable name="append" value="1" type="bool" />
+        <variable name="print_to_cout" value="1" type="bool" />
+        <variable name="always_flush" value="1" type="bool" />
+    </section>
+
+</parameters>

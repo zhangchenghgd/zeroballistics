@@ -1,0 +1,27 @@
+
+ode-0.7
+./configure --enable-release --disable-gyroscopic --enable-double-precision --enable-shared --disable-ice --disable-drawstuff
+
+SDL-1.2.12
+./configure --enable-X11-shared --disable-rpath --disable-ipod --disable-video-directfb --disable-audio --enable-sdl-dlopen --enable-release
+
+
+
+./release/CEGUI-0.5.0/configure_line
+./configure --enable-release --enable-shared --disable-expat --disable-tga --disable-samples
+
+
+
+
+
+./release/SILLY-0.1.0/configure_line
+./configure --enable-release 
+FAILS TO COMPILE CORRECTLY WITH Debian Etch!! no png dependency generated ?!?
+use knoppix instead...
+
+
+
+osg:
+take care of libSM, libICE! link statically by installing dev packages?
+
+

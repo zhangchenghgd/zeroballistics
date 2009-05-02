@@ -1,0 +1,614 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Fusion Workshop</title>
+
+<link rel="stylesheet" type="text/css" href="manifests_and_assemblies_files/site.css">
+<meta name="Microsoft Border" content="tb, default"></head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td>
+
+<p align="center">&nbsp;</p>
+
+</td></tr><!--msnavigation--></tbody></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><!--msnavigation--><td valign="top">
+<div class="topHeader">.NET Fusion</div>
+<div class="botHeader">
+  <table align="center" border="0" cellspacing="4" width="100">
+    <tbody><tr>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/workshops/index.htm">Home</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/bio.htm">About</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/workshops.htm">Workshops</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/articles.htm">Articles</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/writing.htm">Writing</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/conferences.htm">Talks</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/index.htm">Books</a></td>
+      <td align="center"><a href="http://www.grimes.demon.co.uk/contact.htm">Contact</a></td>
+    </tr>
+  </tbody></table>  
+</div>
+<table id="side-bar" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr class="sideBarTitle">
+    <td>Links</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.grimes.demon.co.uk/workshops/fusionWS.htm">Workshop Start Page</a></td>
+  </tr>
+  <tr>
+    <td><a href="#native_assemblies">13 Unmanaged Assemblies</a></td>
+  </tr>
+  <tr>
+    <td><a href="#manifests_assemblies">13.1 Manifests and Side-by-Side Assemblies</a></td>
+  </tr>
+  <tr>
+    <td><a href="#unmanaged_versioning">13.2 Unmanaged Assembly Versioning</a></td>
+  </tr>
+  <tr>
+    <td><a href="#side-by-side_cache">13.3 The Side-by-Side Cache</a></td>
+  </tr>
+  <tr>
+    <td><a href="#s-b-s_managed_cpp">13.4 Side-by-Side Execution and Managed C++ Assemblies</a></td>
+  </tr>
+</tbody></table> 
+<table border="0" width="100%">
+  <tbody><tr>
+<td valign="top">
+    <div style="background-color: rgb(153, 170, 204);">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-3913376428909370";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="";
+google_color_border = "99AACC";
+google_color_bg = "99AACC";
+google_color_link = "000000";
+google_color_url = "000099";
+google_color_text = "003366";
+//--></script>
+<script type="text/javascript" src="manifests_and_assemblies_files/show_ads">
+</script>
+    </div>
+<div id="main-page">
+<a name="native_assemblies"><h1>13. Unmanaged Assemblies</h1></a>
+<p>Isn't this a misnomer? We have learned all the way through this workshop that 
+managed code is distributed in assemblies, so this means that assemblies must be managed, 
+right? Fusion was created to solve the problem of DLL Hell, but much of the 
+operating system is still unmanaged, so there must be some solution for DLL Hell 
+for unmanaged libraries. This is the reason for unmanaged assemblies. They are not .NET assemblies, but 
+they have similarities: they can be made up of more than one file, they are 
+deployed as a single unit, and they have information about the files and 
+resources in the assemblies. Unmanaged assemblies can be used to allow you to 
+share multiple versions of DLLs between applications and to do this these 
+'assemblies' reside in a folder that is the native code equivalent of the .NET GAC. 
+Finally, this cache can also contain information about version redirects, so the 
+request for a DLL in one assembly can be directed to a different version of the 
+DLL in another unmanaged assembly. Since this means that more than one version 
+of an assembly can co-exist, they are also known as side-by-side assemblies.</p>
+<p>Unmanaged side-by-side assemblies are important in this workshop because version 14 of the 
+managed C++ compiler (supplied with Visual Studio 2005) will create .NET 
+assemblies that use native libraries and by default, the Microsoft unmanaged libraries 
+will be loaded from the side-by-side cache. On this page I will first describe 
+unmanaged side-by-side assemblies, and then I will explain how this affects 
+managed assemblies created by the C++ compiler. </p>
+<a name="manifests_assemblies"><h2>13.1 Manifests and Side-by-Side Assemblies</h2></a>
+<p>First we need to go through a bit of terminology. The first term is an <i>
+isolated application</i>. This is a process that uses libraries and the 
+description <i>isolated</i> means that the application is unaffected by the 
+installation or uninstallation of other assembles. To do this the isolated 
+application must use <i>shared assemblies</i> and <i>private assemblies</i>. In 
+most cases an isolated application is just a normal process, the only difference is that it 
+has a file called an <i>application manifest</i> that contains the <i>dependency 
+information</i> about the assemblies it uses. A <i>shared side-by-side assembly</i> is 
+one or more DLLs that can be used by any application on the machine. These are 
+stored under the <code>WinSxS</code> folder in separate folders so that multiple 
+versions of an assembly can co-exist, hence the term <i>side-by-side</i>. An administrator or a 
+publisher can redirect the request for an assembly from an application to 
+another version of the same assembly by <i>policy files</i>. A private assembly is a collection of DLLs that 
+is deployed with an application. Such an assembly resides in the application 
+folder and so is not available to any other application, and they will not be 
+replaced when another application installs newer versions of the libraries.</p>
+<p>Side-by-side assemblies and private assemblies are described by a <i>manifest</i>. 
+There is one manifest for each assembly and it is made up of XML data that contains information 
+about the DLLs, COM objects and other resources that are used by the assembly. 
+(Note that when you use a manifest to specify COM objects and interfaces it 
+means that you will not need to register the COM server with the system. Indeed, 
+it is recommended that such COM servers do <i>not</i> have self register code.) 
+The manifest for a shared assembly must be in an XML file; the manifest for an application, can be in an XML file 
+or as a bound unmanaged resource. The manifest for a private assembly must be bound as an unmanaged 
+resource to a DLL in the assembly that has the same name as the assembly.</p>
+<table style="border: 4px solid black;"><tbody><tr><td>
+The documentation says that the manifest for a private assembly can be in an XML 
+manifest file, however, this is not correct, a manifest for a private assembly <i>must</i> 
+be bound as an unmanaged resource.</td></tr></tbody></table>
+
+<p>Private assemblies must be installed in the application's folder, however, 
+similar to .NET, they can be in a subfolder that has the name of the assembly or 
+the locale of the assembly. A shared assembly can only be installed in the 
+side-by-side cache and it must be installed by <i>Windows Installer</i>. 
+Furthermore, so that there is no possibility of a name collision with another 
+assembly, a shared assembly must have a <i>publickeytoken</i> and it must be 
+signed so that the DLL loader can verify that it has not been altered since 
+installation. </p>
+<p>The manifest 
+contains the versioning information of the resources it uses, and this 
+versioning can be redirected using a <i>publisher configuration file</i> or an <i>
+application configuration file</i>.</p>
+<p>When an application loads a library the request goes to the side-by-side 
+manager. This will always search the side-by-side cache first for the shared assembly. 
+If an appropriate shared assembly cannot be found, the side-by-side manager 
+searches for a private assembly in the application's folder. To do this, the 
+manager must get information about the assembly through the manifest, and 
+contrary to the documentation, it will <i>only</i> search for manifests bound to 
+libraries. Specifically, it will search for a DLL with the same name as the 
+assembly and it will look for a <code>RT_MANIFEST</code> resource with an ID of
+<code>2</code>.</p>
+<p>The search mechanism works like this: first the manager searches for a 
+subfolder with culture name if the assembly DLL does not exist there, the 
+manager will search in a subfolder of the culture folder which has the name of 
+the assembly. If there is no locale subfolder, the manager will 
+search the application's folder for the assembly DLL and if this cannot be found 
+it will search for a subfolder of the application folder which has the assembly 
+name. The side-by-side manager will use <i>fallback</i> when it searches for localized assemblies. 
+That is, the search will first be for a culture folder 
+(eg <code>en-GB</code>) and if that does not exist, it will search for a language folder (eg <code>en</code>) and 
+finally it will perform the search for a language neutral assembly. You will 
+recognise these steps as precisely the way that Fusion looks for assemblies.</p>
+<p>Windows describes the concept of <i>application context</i>. This contains 
+information about the versioning of the resources in an assembly and the context 
+API allows you to redirect binding. When a process is started with <code>
+CreateProcess</code> Windows looks for an <i>application manifest</i> and uses this to 
+initialize the application context. Any objects used by the application are 
+mapped to versioned objects as specified by this manifest. </p>
+<p>As mentioned before, there are various configuration files used in isolated 
+applications. The default configuration is held in the application's manifest 
+(an XML file with the application's full name and the extension <code>.manifest</code>, 
+for example, <code>app.exe.manifest</code>) and in the manifest's of the 
+assemblies the application uses (bound as a resource to a DLL with the assembly 
+name). This 
+configuration can be overridden by publisher policy files, and by an application 
+configuration file. The publisher policy file is for a shared assembly and 
+it redirects versioning of an assembly to another version. The name of a policy 
+file is similar to the .NET policy files, that is <code>
+policy.&lt;major&gt;.&lt;minor&gt;.&lt;assembly&gt;</code>, where <code>&lt;major&gt;</code> and <code>
+&lt;minor&gt;</code> refers to the version being redirected, for example <code>
+policy.1.0.lib</code>. However, unlike .NET, such versioning redirects can only 
+be for small versioning changes, you cannot redirect to a version that differs 
+by the major or minor value, you can only change the build or revision version. 
+You can override the versioning redirects given by a publisher policy for a specific 
+application using an application configuration file. This file has the name of 
+the application with the extension <code>.config</code> (for example <code>
+app.exe.config</code>) and is installed in the application's folder.</p>
+<a name="unmanaged_versioning"><h2>13.2 Unmanaged Assembly Versioning</h2></a>
+<p>To see how this works, here is an unmanaged DLL:</p>
+<p></p><div class="codeBlock">#include &lt;stdio.h&gt;<br>
+<br>
+extern "C" __declspec(dllexport) void MyFunction()<br>
+{<br>
+&nbsp;&nbsp; printf("called library\n");<br>
+}</div><p></p>
+<p>Compile this to use the DLL version of the C runtime library:</p>
+<p></p><div class="codeBlock">cl /LD /MD lib.cpp</div><p></p>
+<p>When you use a system shared assembly, like the C runtime library, the 
+unmanaged C++ compiler will automatically create a manifest for the DLL. List 
+the contents of the folder and here you'll see a file called <code>
+lib.dll.manifest</code>.</p>
+<p></p><div class="codeBlock">&lt;?xml version='1.0' encoding='UTF-8' standalone='yes'?&gt;<br>
+&lt;assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'&gt;<br>
+&nbsp;&lt;dependency&gt;<br>
+&nbsp;
+&lt;dependentAssembly&gt;<br>
+&nbsp;&nbsp;
+&lt;assemblyIdentity type='win32' name='Microsoft.VC80.CRT' version='8.0.50608.0' 
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; processorArchitecture='x86' publicKeyToken='1fc8b3b9a1e18e3b' /&gt;<br>
+&nbsp;
+&lt;/dependentAssembly&gt;<br>
+&nbsp;&lt;/dependency&gt;<br>
+&lt;/assembly&gt;</div><p></p>
+<p>In fact, this is created by the linker which is invoked by the compiler. You can 
+suppress the manifest generation using the <code>/manifest:no</code> linker 
+switch and you can specify the name of the manifest file with the <code>/manifestfile</code> 
+switch. The linker finds information about system side-by-side assemblies from 
+information in the static import libraries for the files in the assembly. This 
+means that a 
+particular static <code>.lib</code> file is fixed to a specific version of a 
+DLL, which is a good thing. If you use a side-by-side assembly other than the 
+system assemblies you will have to write the entries for those assemblies.&nbsp; 
+You can tell the linker to add an <code>&lt;assemblyIdentity&gt;</code> element 
+using the <code>/manifestdependency</code> linker switch. However, as you'll 
+find out later, it might be a good idea to eschew the automatic generation of a 
+manifest file altogether and write your own.</p>
+<p>The schema of the manifest file is similar to, but not the same as, the configuration file schema used in .NET. The 
+difference is the top two elements. The root element is called <code>&lt;assembly&gt;</code> 
+and is similar to the .NET <code>&lt;assemblyBinding&gt;</code> element, however, it has 
+a <code>manifestVersion</code> attribute that is mandatory and must be set to
+<code>1.0</code> (this is the version of the <i>schema</i>). Under that element is another 
+element called <code>&lt;dependency&gt;</code> which is a collection of one or more <code>&lt;dependentAssembly&gt;</code> 
+elements. This is similar to .NET configuration files in that it describes an 
+assembly. Each <code>&lt;dependentAssembly&gt;</code>&nbsp; must contain a&nbsp; <code>
+&lt;assemblyIdentity&gt;</code> element. This element has various attributes, which are 
+similar to their equivalent in the .NET configuration file schema. The <code>
+type</code> attribute is mandatory and must be <code>win32</code>.</p>
+<p>A private library's manifest must be bound it to the DLL as an unmanaged resource. Since the 
+manifest file is created by the linker, it means that you have to embed the 
+manifest as a post link step. To do this you use the <code>mt.exe</code> tool to 
+insert the manifest as an <code>RT_MANIFEST</code> resource with an ID of
+<code>2</code>. Note that it <i>must</i> be a value of <code>2</code> (but, note 
+that an application resource must have an ID of <code>1</code>). 
+The <code>mt.exe</code> tool is poorly documented, and the MSDN entry does not 
+even list the command line switches to perform this action (although <code>mt /?</code> 
+will list them). To embed a resource you need to pass the name of 
+the manifest file to <code>mt</code> using the <code>/manifest</code> switch and 
+use the <code>/outputresource</code> switch with the name of the PE file 
+and the resource ID in the form: <code>&lt;pe file name&gt;;#&lt;resource id&gt;</code>. 
+This will alter the library, and so you should bear this in mind when we talk 
+about managed C++ later on this page.</p>
+<p>For example, embed the manifest using the following:</p>
+<p></p><div class="codeBlock">mt /manifest lib.dll.manifest /outputresource:lib.dll;#2</div><p></p>
+<p>Be careful when you type this because there is no colon between <code>/manifest</code> 
+and its parameter, but there <i>has</i> to be a colon between <code>/outputresource</code> 
+and its parameter. This looks like this tool has been developed rather sloppily 
+in a bit by bit fashion by different teams. While I can understand this happens, 
+I cannot understand how it gets past code review.</p>
+<p>Now you can load the library in VS.NET 2005, Use <i>File</i>, <i>Open</i>, <i>File</i> 
+and select <code>lib.dll</code>, this will automatically open the file in 
+resource view. Open the <i>RT_MANIFEST</i> node and double click on the single 
+item, <i>2</i>. You will see the contents of the manifest.</p>
+<p><img src="manifests_and_assemblies_files/manifestResource.jpg" border="0" height="445" width="694"></p>
+<p>There is another way to perform the same thing. Delete the library (<code>del 
+lib.dll</code>) and the manifest file (<code>del lib.dll.manifest</code>) so 
+that you have a clean slate. Now 
+rebuild the library (<code>cl /LD /MD lib.cpp</code>), which will create the 
+manifest file. Now create a resource 
+script that uses the library manifest:</p>
+<p></p><div class="codeBlock">#include &lt;winuser.h&gt;<br>
+2 RT_MANIFEST lib.dll.manifest</div><p></p>
+<p>Compile this file to create the resource:</p>
+<p></p><div class="codeBlock">rc lib.rc</div><p></p>
+<p>Now link the library again, this time using the&nbsp; resource. The <code>.obj</code> 
+file should still be in the build folder.</p>
+<p></p><div class="codeBlock">link lib.obj lib.res /DLL /manifest:no /out:lib.dll</div><p></p>
+<p>The <code>/manifest:no</code> switch tells the linker <i>not</i> to generate 
+the manifest file. It seems a bit odd to link the file <i>twice</i> but in the 
+absence of a tool that will generate manifest files this is your only option. 
+Just to show how messed up the whole process is, you can use the <code>/manifestdependency</code> 
+switch on the linker command line to tell the linker to add the supplied 
+parameter to the <code>&lt;dependency&gt;</code> of the manifest file it will create. 
+This switch, of course, has no effect whatsoever on the output target of the 
+linker, which is, of course, the reason why you invoked linker. Crazy.</p>
+<table style="border: 4px solid black;"><tbody><tr><td>
+The whole process of manifests and embedding them is topsey-turvey and is a 
+complete mess. This is yet another example of Microsoft losing the plot. For a 
+start, MSDN library does not even document the switches to use, you have to use
+<code>mt /?</code> to get a list of the switches. Then, there is the inconsistency 
+in the switch format: the <code>/manifes</code>t switch must <i>not</i> have a colon 
+between it and its parameter, but <code>/outputresource</code> must <i>have</i> the 
+colon. Furthermore, you have to link the output to 
+get the manifest. The output from the linker is not usable because you have 
+to perform extra steps <i>after</i> the output has been linked. Invoking the linker twice, once to 
+generate the manifest file, and a second time to embed a resource, is perverse. 
+The alternative, of altering the output of the linker with an extra tool (<code>mt.exe</code>) 
+is even worse, because it is an admission from Microsoft that their linker is 
+inadequate. 
+Much as I like the changes to the managed C++ language in VS.NET 2005, I do think that they 
+should have devoted less time to changing the C++ language and spent more time getting the tools right.</td></tr></tbody></table>
+
+<p>Here's a simple user of the library:</p>
+<p></p><div class="codeBlock">#include &lt;stdio.h&gt; <p></p>
+<p>#pragma comment(lib, "lib.lib") </p>
+<p>extern "C" void MyFunction(); </p>
+<p>void main()<br>
+{<br>
+&nbsp;&nbsp;
+printf("calling library\n");<br>
+&nbsp;&nbsp;
+MyFunction();<br>
+}</p></div>Here, I have used a <code>pragma</code> to indicate the import library 
+  for the DLL that the process will use, this means that I don't have to call 
+  the linker explicitly. You can compile this code with<p></p>
+<p></p><div class="codeBlock">cl app.cpp</div><p></p>
+<p>(Note this will statically link the C runtime library). Run this process and 
+confirm that it works. The reason why it works is because the code indicates 
+that it uses <code>lib.dll</code> and the DLL loader will load this library from the 
+application folder. Then the DLL loader will see that the DLL uses <code>
+msvcr80.dll</code>. The DLL loader will try to load this DLL, from the side-by-side cache and use the assembly 
+manifest information to pick up the right version. Let's prove that this is the 
+case.</p>
+<p>Rename the library so that we can use it later (<code>rename lib.dll lib.withmanifest</code>). 
+Now compile the 
+library <i>without</i> an embedded manifest:</p><div class="codeBlock">cl /LD /MD lib.cpp</div>
+<p>Now run the application again.</p>
+<p><a name="cannot_find_crt"><img src="manifests_and_assemblies_files/no_manifest.jpg" border="0" height="126" width="614"></a></p>
+<p>This indicates that the DLL loader has not found the DLL and so has given up. 
+Now, you know that you have installed Visual C++ correctly on your machine, so
+<code>msvcr80.dll</code> <i>must</i> be on your machine. This seems to indicate 
+that you application has broken Windows.</p>
+<p>Even though the documentation says that the DLL loader will look 
+for a manifest file if it cannot find an embedded resource, this example has 
+shown that it does not do this. You <i>must</i> embed the manifest in the DLL.</p>
+<table style="border: 4px solid black;" width="100%"><tbody><tr><td>
+I think it is appalling that a simple code like this will not work straight from 
+the compiler. At least the compiler/linker could warn you. For example, it would 
+be helpful if the linker issued a warning if there isn't an <code>RT_MANIFEST</code> 
+resource. Or maybe the compiler could add a function in the DLL entry point that 
+tests for the resource and throw an exception if one does not exist. This is definitely a bug.</td></tr></tbody></table>
+
+<p>Now return to the situation of the library with the embedded manifest and to do this rename the 
+library without a manifest (<code>rename lib.dll lib.withoutmanifest</code>) and 
+rename the library you made before (<code>rename lib.withmanifest lib.dll</code>). Now compile the 
+application to use the DLL version of the CRT library:</p>
+<p></p><div class="codeBlock">cl /MD app.cpp</div><p></p>
+<p>You will find that this time the linker will create a manifest file for the 
+application with the same contents as the file generated for the library. Run 
+the application. You will find that it will work. The reason is that the DLL 
+loader will use the application manifest file to get information about the 
+version of the CRT assembly, it does not require that you 
+embed this manifest as an unmanaged resource, as is the case with DLLs. If you do 
+want to embed the manifest file you can use the same procedures that I specified 
+above, but the resource ID should be <code>1</code>.</p>
+<p>Finally, go back to the library without a manifest (<code>delete lib.dll</code> 
+then <code>rename lib.withoutmanifest lib.dll</code>). So now you will have a 
+process and a library that both use the DLL version of the CRT, but neither of these 
+will have an embedded manifest. However, there is an application manifest file. Run 
+the application. This time you will find that the application will run, which 
+means that when 
+the DLL loader loads the library it uses information provided by the 
+application's manifest file.</p>
+<a name="side-by-side_cache"><h2>13.3 The Side-By-Side Cache</h2></a>
+<p>So where is the side-by-side library located? Move to the windows folder (<code>cd 
+%windir%</code>) and list the contents. Here you'll find a folder called <code>
+WinSxS</code>. This is the side-by-side cache. List the contents of this folder. 
+You'll find that there are lots of folders with long names and just three that 
+have short 
+names. These latter three are: <code>InstallTemp</code>, <code>Manifests</code> 
+and <code>Policies</code>. The contents of these folders are altered by Windows 
+Installer, but you are able to have a poke around. <code>InstallTemp</code> is 
+just a temporary folder used by the installer. <code>Manifests</code> is far 
+more interesting. Move to this folder and list its contents. This contains 
+binary files (called verification catalogues) which have the extension <code>.cat</code> and text files with the 
+extension <code>.manifest</code>. Searching through these you'll find a file 
+that seems to correspond to the CRT library, so print it to the console:</p>
+<p></p><div class="codeBlock">type 
+x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.42_x-ww_0de06acd.manifest</div><p></p>
+<p>The contents of this file is similar to the manifest file you created for the library and 
+the application. However, this is a manifest file for a <i>shared assembly</i>. Here 
+is an edited version:</p>
+<p></p><div class="codeBlock">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br>
+&lt;assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;<br>
+&nbsp;&nbsp;
+&lt;noInheritable&gt;<br>
+&nbsp;&nbsp;
+&lt;assemblyIdentity type="win32" name="Microsoft.VC80.CRT" version="8.0.50727.42" 
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"/&gt;<br>
+&nbsp;&nbsp;
+&lt;file name="msvcr80.dll"/&gt;<br>
+&nbsp;&nbsp;
+&lt;file name="msvcp80.dll"/&gt;<br>
+&nbsp;&nbsp;
+&lt;file name="msvcm80.dll"/&gt;<br>
+&lt;/assembly&gt;</div><p></p>
+<p>This manifest file is not valid, I have edited it to make it more readable. 
+The important point is that there is no <code>&lt;dependency&gt;</code> element, instead 
+the <code>&lt;assemblyIdentity&gt;</code> element is directly under the root. This 
+element 
+is used to give the identity of the assembly. Note that it gives the version of 
+the assembly to be
+<code>8.0.50727.42</code>. The assembly also has a <code>publickeytoken</code>, 
+which is used to prevent name collisions. The <code>&lt;file&gt;</code> elements are 
+the DLLs that make up the assembly, so if unmanaged code requests any of these 
+three DLLs the DLL loader will use this assembly manifest. The data I have 
+deleted is information about code signing, which is performed so that a manifest can be validated 
+before it is used. The assembly and manifest are signed, by hashing the files and then creating a 
+digital signature by encrypting the hash with the private key from the 
+publisher's certificate. The public key from the certificate is also used to create 
+the <code>publickeytoken</code> in the assembly name. The operating system will have access to the public key in the certificate 
+and the digital signature in the security catalog (the <code>.cat</code> file) so it can decrypt the digital signature and generate the hash over the file. 
+The operating system can then compare the two hashes, to validate the assembly and the manifest file.</p>
+<p>Notice that the version of the CRT assembly is <code>8.0.50727.42</code>, 
+however, the manifest for the library and process we built specified that they 
+required version <code>8.0.50608.0</code>. There is a version mismatch!</p>
+<table style="border: 4px solid black;"><tbody><tr><td>
+I think this is pretty shoddy. I have Visual Studio 2005 that has just been 
+released. The machine has never had a beta of Visual Studio 2005 on it, so there 
+is no possibility of an earlier build of the CRT version <code>8.0</code> being 
+installed on it. Yet the C++ tools (through the static import libraries) think 
+that they are using an earlier version of the C 
+runtime library than the Visual Studio installer has put on my machine. </td></tr></tbody></table>
+
+    <p>So why did the application work?</p>
+<p>Move up a directory and move to the <code>Policies</code> folder (<code>cs 
+..\Policies</code>). Here you will find a folder which has the name and <code>
+publickeytoken</code> for the C runtime library, but not the complete version:</p>
+<p></p><div class="codeBlock">x86_policy.8.0.Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_x-ww_77c24773</div><p></p>
+<p>Move to this folder and list the contents. Within here is a binary 
+verification catalog (<code>8.0.50727.42.cat</code>) and a policy file (<code>8.0.50727.42.policy</code>), 
+with the version of the assembly that is installed on the machine. Type this file 
+to the console:</p>
+<p></p><div class="codeBlock">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br>
+&lt;!-- Copyright &#9516;® 1981-2001 Microsoft Corporation --&gt;<br>
+&lt;assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;<br>
+&nbsp;&nbsp;
+&lt;assemblyIdentity type="win32-policy" name="policy.8.0.Microsoft.VC80.CRT" 
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version="8.0.50727.42" processorArchitecture="x86" 
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; publicKeyToken="1fc8b3b9a1e18e3b"/&gt;<br>
+&nbsp;&nbsp;
+&lt;dependency&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;dependentAssembly&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;assemblyIdentity type="win32" name="Microsoft.VC80.CRT" 
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;bindingRedirect oldVersion="8.0.41204.256-8.0.50608.0" newVersion="8.0.50727.42"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/dependentAssembly&gt;<br>
+&nbsp;&nbsp;
+&lt;/dependency&gt;<br>
+&lt;/assembly&gt;</div><p></p>
+<p>This gives complete information identifying the assembly installed on this 
+machine (version <code>8.0.50727.42</code>) and then, confusingly, it identifies 
+'dependent assemblies', with rebinding information to direct requests for all 
+versions of the CRT library between <code>8.0.41204.256</code> and <code>
+8.0.50608.0</code> so that the DLL loader uses version <code>8.0.50727.42</code> 
+instead. This file is for a specific version of an assembly which says that any 
+requests for any other version should be directed to this version. This is 
+subtly different (and in my opinion, confusingly so) to rebinding in .NET where 
+the configuration file gives information for <i>any</i> version of an assembly 
+and indicates that requests for one version should be redirected to another 
+version.</p>
+<p>This is why the application worked. The application requests the CRT library, 
+the manifest indicates that it wants version <code>8.0.50608.0</code> and the 
+policy file redirects this request to <code>8.0.50727.42</code>.</p>
+<table style="border: 4px solid black;" width="100%"><tbody><tr><td>
+Note that version <code>8.0.50608.0</code> of the CRT exists <i>nowhere</i> on 
+my machine, and yet this redirect is necessary because the export libraries 
+provided with Visual C++ say that my code will use it. This is plain daft, 
+proper quality control would have ensured that the correct export libraries were 
+shipped with the product.</td></tr></tbody></table>
+
+<a name="s-b-s_managed_cpp"><h2>13.4 Side-by-Side Execution and Managed C++ Assemblies</h2></a>
+<p>OK, now create a managed assembly; this code is trivial, and contrived:</p>
+<p></p><div class="codeBlock">using namespace System;<br>
+<br>public ref class LibraryCode <br>
+{<br>
+public:<br>
+&nbsp;&nbsp;
+String^ GetData()<br>
+&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return "Data";<br>
+&nbsp;&nbsp;
+}<br>
+};</div><p></p>
+<p>This uses the new C++ syntax, where the <code>^</code> symbol indicates a 
+handle to an object on the managed heap. Compiling this code is simple:</p>
+<p></p><div class="codeBlock">cl /clr /LD lib.cpp</div><p></p>
+<p>Now list the contents of the build folder where you'll see that a manifest 
+was created for the assembly. This is exactly the same as the manifest created 
+for the unmanaged library assembly. You can get a list of the DLLs that this 
+library depends upon using the new <code>/dependents</code> switch on <code>
+dumpbin</code> (they are not dependents, because our library depends on <i>them</i>). 
+I get the following:</p>
+<p></p><div class="codeBlock">MSVCR80.dll<br>
+KERNEL32.dll<br>
+msvcm80.dll<br>
+mscoree.dll</div><p></p>
+<p>This indicates that the unmanaged and managed versions of the C runtime 
+library are used. Visual Studio 2005 contains a managed version of various C++ 
+standard library classes and C runtime functions in <code>msvcm80.dll</code>. 
+Running <code>dumpbin /imports</code> on the <code>lib</code> assembly shows that the library 
+uses managed methods in <code>msvcm80.dll</code> to initialize the library. The library also uses <code>
+msvcr80.dll</code> which is the unmanaged C runtime library. <code>dumpbin</code> 
+shows that our library calls functions to initialize and clean up the library 
+and to handle exceptions. Such initialization code is required to 'prepare' the 
+library to use the C runtime library, and to provide code to handle the 
+initialization of global, unmanaged C++ objects. This initialization code has been added to the assembly even though 
+we do not have code that will throw an unmanaged C++ exception, nor uses 
+any unmanaged code. We will return to this issue later, but for the time being, 
+it serves our purpose.</p>
+<p>Create a process that calls this library:</p>
+<p></p><div class="codeBlock">#using "lib.dll" <p></p>
+<p>using namespace System; </p>
+<p>void main()<br>
+{<br>
+&nbsp;&nbsp;
+LibraryCode^ lib = gcnew LibraryCode;<br>
+&nbsp;&nbsp;
+Console::WriteLine(lib-&gt;GetData());<br>
+}</p></div><p></p>
+<p>Again, notice the new syntax. The object is accessed using a handle, and it 
+is created using the <code>gcnew</code> operator. Compile this code with:</p>
+<p></p><div class="codeBlock">cl /clr app.cpp</div><p></p>
+<p>Finally, run the process and confirm that it works. You know the reason why. 
+The process you created also uses the managed and unmanaged C runtime library 
+and so the linker has created an application manifest, <code>app.exe.manifest</code>. 
+The operating system uses this file to identify the side-by-side assembly that 
+contains the two CRT DLLs that the process uses. In addition, the values in this 
+file are used when the operating system loads the library assembly, <code>lib</code>.</p>
+<p>View this assembly with <code>ILDASM</code> and briefly scroll through all of 
+the types that have been declared, then close it down before it gets too frightening 
+(did you know that that much initialization had to be provided so that you can 
+use the CRT and the C++ standard library?). 
+The compiler has added many types to give you support for the CRT and in this 
+example you do 
+not use them! Delete the manifest file and run the application again, you'll see the 
+error dialog that was shown <a href="#cannot_find_crt">earlier</a>. </p>
+<p>Now remove the dependence of the process assembly on the CRT. To do this is 
+to compile with the <code>/clr:safe</code> switch:</p><div class="codeBlock">cl /clr:safe app.cpp</div>
+<p>This indicates that the compiler should create verifiable code, and hence it 
+will not use the CRT. The compiler has another new switch <code>/clr:pure</code> 
+which will create an assembly that only contains IL (native code using IJW is 
+not supported) but it can use platform invoke. A pure assembly can use the C 
+runtime library function as long as it is a function exported from the managed 
+version of the CRT DLL, so such an assembly will have a dependence upon <code>
+msvcm80.dll</code>. We want no dependence on any form of the CRT, managed or 
+unmanaged.</p>
+<p>Open the library with <code>ILDASM</code> and confirm 
+that the assembly now only contains the entry point, <code>main</code>. Close
+<code>ILDASM</code> and list the contents of the build folder. You will find 
+that a manifest has not been created for the application because the process 
+assembly you just built uses no unmanaged file.</p>
+<p>Run the application. You will find that a <code>FileNotFoundException</code> 
+is thrown. To work out why, run <code>fuslogvw</code>. The default binding 
+errors give little information, so take a look at the list of native image 
+binding errors. Here, there appears to be some promising entries. The entry for 
+the attempt to load the <code>lib</code> library 
+indicates that Fusion attempted to load the native image for the assembly and 
+could not find it. </p>
+<table style="border: 4px solid black;" width="100%"><tbody><tr><td>
+This must be a bug. The reason for this error is that the system cannot find the 
+CRT libraries that are required by the library. It has nothing to do with the 
+native image of <code>lib.dll</code>.</td></tr></tbody></table>
+
+<p>Now add the manifest of the library to the library:</p>
+<p></p><div class="codeBlock">mt /manifest lib.dll.manifest /outputresource:lib.dll;#2</div><p></p>
+<p>Start the application, this time the application will run correctly. The <code>
+FileNotFoundException</code> was thrown before because the DLL loader could not find 
+the CRT libraries, embedding the manifest gave the loader the information that it 
+needed to be able to find the CRT assembly.</p>
+<p>Of course, the library does not use the CRT, nor any unmanaged types, so 
+there is no reason for there to be support for the CRT. Compile this as 
+verifiable code:</p>
+<p></p><div class="codeBlock">cl /LD /clr:safe lib.cpp</div><p></p>
+<p>Now when you run the application no assembly manifest, nor application 
+manifest is needed because neither the application, nor the library uses 
+side-by-side assemblies.</p>
+<p>As a final point, you should remember that if you want to create a strong 
+named library that uses an unmanaged assembly then you should take steps to make 
+sure that the library will not fail strong name validation. If you decide to use
+<code>mt.exe</code> then you should delay sign the managed library when you 
+build it, then apply <code>mt</code> to insert the manifest resource, and 
+finally re-sign the assembly. It actually makes more sense to chose the second 
+option identified earlier, and create the manifest file yourself and add it to 
+the assembly through a resource script. This way you would not have the extra 
+step of re-signing the assembly.</p>
+<table style="border: 4px solid black;"><tbody><tr><td>
+I hope that you enjoy this tutorial and value the knowledge that you will gain 
+from it. I am always pleased to hear from people who use this tutorial (<a href="http://www.grimes.demon.co.uk/contact.htm">contact me</a>). 
+If you find this tutorial useful then please also email your comments to
+<a href="mailto:mvpga@microsoft.com">mvpga@microsoft.com</a>.</td></tr></tbody></table>
+
+<h2>Errata</h2>
+<p>
+If you see an error on this page, please <a href="http://www.grimes.demon.co.uk/contact.htm">contact me</a> 
+and I will fix the problem.</p>
+<p><a href="http://www.grimes.demon.co.uk/workshops/fusWSFourteen.htm">Page Fourteen</a>
+  </p><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input name="cmd" value="_s-xclick" type="hidden">
+<input src="manifests_and_assemblies_files/x-click-but04.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" border="0" type="image">
+<input name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" type="hidden">
+</form>
+</div></td>
+  </tr>
+</tbody></table>
+<p><b>This page is (c) 2006 Richard Grimes, all rights reserved</b></p>
+
+<!--msnavigation--></td></tr><!--msnavigation--></tbody></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td>
+
+<p>&nbsp;</p>
+
+</td></tr><!--msnavigation--></tbody></table></body></html>

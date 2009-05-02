@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<parameters>
+    <!-- 
+           CLIENT CONFIGURATION 
+    -->
+    <section name="viewer.app">
+        <variable name="target_fps" value="50" type="float" comment="0 for unrestricted fps" console="1" />
+        <variable name="min_fps" value="15" type="float" console="1" />
+        <variable name="fullscreen" value="0" type="bool" />
+        <variable name="initial_window_width" value="1024" type="unsigned" />
+        <variable name="initial_window_height" value="768" type="unsigned" />
+        <variable name="total_profile" value="0" type="bool" console="1" />
+    </section>
+    <!--	
+	-->
+    <section name="viewer.prefs">
+        <variable name="default_background_color" value="[0.2;0.2;0.7]" type="Vector" />        
+        <variable name="default_cam" value="[ [-0.569759;0;-0.821812]; [0.0449396;0.998504;-0.0311564]; [0.820582;-0.0546835;-0.568906]; [4.69928;2.27553;-3.80005] ]" type="Matrix" />
+    </section>
+    <!--	
+	-->
+    <section name="particle_viewer.log">
+        <variable name="filename" value="log_viewer.txt" type="string" />
+        <variable name="debug_classes" value="-" type="string" comment="possible values: idsrtNMlohH" console="1" />
+        <variable name="append" value="0" type="bool" />
+        <variable name="always_flush" value="1" type="bool" />
+    </section>
+    <!--	
+	-->
+    <super_section name="viewer_keymap">
+        <section name="">
+            <variable name="187 refresh" value="[F5]" type="vector&lt;string&gt;" />
+            <variable name="188 loadCameraOrientation" value="[F4]" type="vector&lt;string&gt;" />        
+            <variable name="188 Toggle Coord Axes" value="[F6]" type="vector&lt;string&gt;" />             
+        </section>
+    </super_section>
+</parameters>

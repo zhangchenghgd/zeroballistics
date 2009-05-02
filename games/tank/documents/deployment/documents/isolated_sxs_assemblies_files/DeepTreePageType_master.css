@@ -1,0 +1,133 @@
+/* Page layout */
+
+.DeepTreeLibraryPage
+{
+	width: 100%;
+}
+
+.RightPanel
+{
+	vertical-align: top;
+	font-size: 70%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* Content region */
+div.ContentArea
+{
+	margin: 20px;
+	line-height: 140%;
+}
+
+div.VSBar
+{
+	width: auto;
+	background-color: #ffffff;
+	border-bottom: solid 1px #e6e6e6;
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 3px;
+	padding-bottom: 5px;
+}
+
+html
+{
+	height: 100%;
+	max-height: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0; /* hide overflow:hidden from IE5/Mac */ /* \*/
+	overflow: hidden; /* */
+}
+
+body
+{
+	height: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+.head
+{
+	position: absolute;
+	margin: 0;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	z-index: 5;
+}
+
+.tocPanel, .contentPanel, .SplitterBar
+{
+	position: absolute;
+	top: 91px;
+	bottom: 0px;
+	left: 0;
+	z-index: 3;
+	overflow: auto;
+}
+
+* html .tocPanel, * html .contentPanel, * html .SplitterBar
+{
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	margin-right: 0px;
+	overflow: auto;
+	border-top: 91px solid #fff;
+}
+
+.tocPanel
+{
+	left: 0;
+	width: 250px;
+}
+
+
+.SplitterBar
+{
+	left: 250px;
+	width: 5px;
+	background-position: center;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	cursor: e-resize;
+	margin: 0px;
+	padding: 0px;
+	background-color: #A1C6EB;
+	background-image: url( '/msdn/controls/resizablearea/en-us/lib_grippy.gif' );
+}
+
+.contentPanel
+{
+	left: 255px;
+	right: 0px;
+	overflow: auto;
+}
+
+.tocInner
+{
+	display: block;
+}
+.contentInner
+{
+	display: block;
+	margin-right: 0px;
+}
+.innerSplitter
+{
+	display: block;
+}
+
+div.code
+{
+	background-color:	#DDDDDD;
+	border-bottom: solid 10px #ffffff;
+	margin: 0px;
+	padding: 0px;
+}

@@ -1,0 +1,232 @@
+
+
+
+crash with "need newer version???"
+don't accept version stuff after connection is up&running...
+do version stuff in plugin?
+
+
+------------------------------------------------------------------------------
+
+
+regenerate bug? see stars even while firing
+
+------------------------------------------------------------------------------
+
+f4->f1 shortly shows tank inside
+
+
+------------------------------------------------------------------------------
+
+level is not transmitted
+
+------------------------------------------------------------------------------
+
+C-net is assumed for network submask
+
+------------------------------------------------------------------------------
+
+
+MG direction bug???
+test initialization with incorrect v
+if other guy starts shooting, it goes away...??
+
+------------------------------------------------------------------------------
+
+foreign tank fire state is not transmitted reliably -> reveal on
+minimap doesn't work reliably, just as muzzleflash of other tanks
+
+
+------------------------------------------------------------------------------
+
+
+defender beacon doesn't rotate anymore... why?
+
+------------------------------------------------------------------------------
+
+reproduce crash screenshot + loadlevel??
+
+------------------------------------------------------------------------------
+
+beacon health still goes up after being fired on (on client)
+-> call stophealing on hit
+
+------------------------------------------------------------------------------
+
+
+handle scheduler id overflow!!
+
+------------------------------------------------------------------------------
+
+heightfield collision is broken (mg can go through in some situations
+
+
+------------------------------------------------------------------------------
+
+re-test with 16 bit color depth - osg FrameBuffer doesn't work
+either switch to 32 or make it work with 16
+
+------------------------------------------------------------------------------
+
+projectile flyby: culled when firing posiiton is out of sound range?
+
+------------------------------------------------------------------------------
+
+jump capability depends on framerate -> correct this, put it into CSP
+
+------------------------------------------------------------------------------
+
+Warning : Received invalid beacon in GameLogicClientConqueror::beaconConnections -> crash
+when connecting to a running game
+are beacon connections sent during connection process?
+
+------------------------------------------------------------------------------
+
+
+particle effect bugs:
+-) LocalEffectOperator doesn't work correctly for newly created particles, especially at low framerates
+   don't affect particle which was just created, as its position is correct...?
+
+-) tracer direction is incorrect sometimes. VelocityScaleShooter broken?
+
+------------------------------------------------------------------------------
+
+properly handle disconnect while in options menu
+window stack?
+
+------------------------------------------------------------------------------
+
+mg rays, projectiles collide with water
+this prevents mines below water from being destroyed
+
+------------------------------------------------------------------------------
+
+beacon boundary incorrect in minimap sometimes??
+
+------------------------------------------------------------------------------
+
+explosion invisible on white background
+
+------------------------------------------------------------------------------
+
+boundary missing in minimap sometimes for defender
+
+------------------------------------------------------------------------------
+
+message area is not cleared after appendToLine?
+
+------------------------------------------------------------------------------
+
+beacon connection: not enabled if LOS is not given to nearest beacon
+
+------------------------------------------------------------------------------
+
+failed to connect to .... wrong IP
+
+lan scan doesn't work reliably??
+
+test with two real interfaces
+
+
+------------------------------------------------------------------------------
+
+hosting while ded.server runs -> lost connection
+
+------------------------------------------------------------------------------
+
+reproduce quadtree enumeration bug (win debug mode)
+
+------------------------------------------------------------------------------
+
+test quadtree<->quadtree space under win in debug mode...
+
+------------------------------------------------------------------------------
+
+linux installer doesn't remove Quanticode directory
+
+
+------------------------------------------------------------------------------
+
+when conquering base, invalid beacon combination can be sent
+
+------------------------------------------------------------------------------
+
+check & fix static collision in client simulator
+try old ode package first?
+
+------------------------------------------------------------------------------
+
+remove hack:
+
+
+    Matrix rot(true);
+    rot.loadCanonicalRotation(PI*0.5, 0);
+    
+    ret->encapsulateGeom(dCreateCCylinder(0, radius_, length_), space, offset_*rot);
+
+------------------------------------------------------------------------------
+
+
+connection bug: no cleanup after loadLevel???
+
+
+
+prevent ESC from being pressed while loading, or abort loading process?
+
+return to game if level is loaded while in options menu...
+
+
+
+------------------------------------------------------------------------------
+
+do proper wheel + engine handling now?
+add wheel mom. inertia, spindown&up time
+
+make engine sound dependent on avg. driven wheel rotation speed
+
+
+
+------------------------------------------------------------------------------
+
+
+always replay history and test turret behaviour
+broken firing stabilization disablement?
+
+
+
+export is broken if parent has transform
+
+
+checksums broken if data dir is changed
+store data dir in checksums?
+del checksums on data dir change?
+
+
+
+avoid suicide after artillery hit because of impact impulse
+
+
+
+hang after kick
+
+
+
+transfer initial state:
+beacon connections (model as gameobject??)
+carried beacon
+
+
+
+exporter doesn't pick current scene for export when having multiple scenes?
+
+
+python fun makeObjectVisible is buggy (makes layer visible even if object already is)
+
+
+match shadow view distance to innermost clipmap size
+
+projectile hit gets sent to players in connection process
+
+
+
+

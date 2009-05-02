@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tankServer", "tankServer.vcproj", "{D6D843CF-D9F7-4706-9323-A0B4F290FA1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6D843CF-D9F7-4706-9323-A0B4F290FA1F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D6D843CF-D9F7-4706-9323-A0B4F290FA1F}.Debug|Win32.Build.0 = Debug|Win32
+		{D6D843CF-D9F7-4706-9323-A0B4F290FA1F}.Release|Win32.ActiveCfg = Release|Win32
+		{D6D843CF-D9F7-4706-9323-A0B4F290FA1F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+#!/usr/bin/python
+
+
+# resides in /usr/local/bin/
+
+import sys
+import os
+
+# a = open("/home/musch/Desktop/asd", "w")
+# a.write("asd\n")
+
+size     = sys.argv[1]
+in_file  = sys.argv[2]
+out_file = sys.argv[3]
+
+# a.write(str(size) + "\n")
+# a.write(str(in_file) + "\n")
+# a.write(str(out_file) + "\n")
+
+cmd = ("gimp --console-messages -d -i --batch '(dds-thumbnailer \"" +
+       in_file +
+       "\" \"" +
+       out_file +
+       "\" " +
+       str(size) +
+       " " +
+       str(size) + ")' --batch '(gimp-quit 0)'")
+
+# a.write(cmd)
+# a.close()
+
+os.system(cmd)
