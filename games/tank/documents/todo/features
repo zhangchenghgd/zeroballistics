@@ -1,0 +1,374 @@
+
+ram damage to both tanks
+needs to handle kills correctly
+
+game mode autocompletion
+
+------------------------------------------------------------------------------
+
+log messages for chosen upgrades
+-> statistics
+
+
+------------------------------------------------------------------------------
+
+spannungsmusik in den letzten minuten
+
+------------------------------------------------------------------------------
+
+hit zone behind
+solve via true tank position, not projectile impact point?
+
+make it work for mg too
+incorporate into dealWeaponDamage
+
+reproduce missing hit feedback problem
+
+feedback ?!?
+
+------------------------------------------------------------------------------
+
+replay would be great for performance testing, too
+
+------------------------------------------------------------------------------
+
+healing sound effect
+
+------------------------------------------------------------------------------
+terrain :
+
+-) detail texture + notail texture (needs multipass probably)
+-) bumpmapping
+
+
+think about simplifications for terrain rendering:
+-) use colormap for far-away clipmap grids
+-) pre-bake detail texture as viewer moves along
+   use cpu or gpu?
+   determine how large this baked texture has to be
+
+review TerrainVisual::setTextures for proper cleanup
+test different terrains with different number of detail textures
+
+
+define number of textures in shader, avoid extra work
+
+filter lightmap for low-res terrain versions? no->
+don't do colormap via fill mechanism
+make inv_colormap_extents not per level
+
+additional detail texture
+look into bf for terrain ideas
+
+
+specular highlighting for terrain
+
+blur pass on shadow maps
+
+
+------------------------------------------------------------------------------
+
+antialias for alpha test:
+http://www.humus.ca/index.php?page=3D&ID=61
+(alpha to coverage)
+glSampleCoverage
+
+
+------------------------------------------------------------------------------
+
+
+concept for terrain lighting and objects in terrain shadow
+-) raytracing?
+-) two lightmaps?
+-) ...
+
+------------------------------------------------------------------------------
+
+proper fade-out behaviour invincible effect
+
+------------------------------------------------------------------------------
+
+schneemänner
+
+------------------------------------------------------------------------------
+
+fonts are ugly
+new font implementation?
+
+------------------------------------------------------------------------------
+
+different tracer colors, replace effect?
+
+------------------------------------------------------------------------------
+
+autoassign
+
+------------------------------------------------------------------------------
+
+keep upgrades and score after reconnect
+
+------------------------------------------------------------------------------
+
+continuous update of ping
+usable plottable ping
+replace ping by delay? update score ping with delay?
+
+
+------------------------------------------------------------------------------
+
+
+fog shader for particle effects
+or don't even draw them in the distance?
+
+
+fog for grass?
+
+------------------------------------------------------------------------------
+
+
+remove destroyed model after delay, not together with explosion
+don't split stages, schedule everything in first stage
+alpha-blend etc
+
+------------------------------------------------------------------------------
+
+particle effects into reflections
+
+
+------------------------------------------------------------------------------
+
+
+dynamische lichter für muzzleflash, explosionen
+koppeln an partikeleffekte?
+
+------------------------------------------------------------------------------
+
+
+bessere beleuchtung für gras, bäume
+"durchscheineffekt"
+darker at bottom?
+
+
+------------------------------------------------------------------------------
+
+einsteigerfreundliche aufbereitung:
+automatische messages, pfeile usw
+
+
+------------------------------------------------------------------------------
+
+instant lod update when changing position
+
+------------------------------------------------------------------------------
+
+
+better orientation
+zoom for minimap, overview at loading time?
+arrows to events  (attacked beacon for both defender and attacker etc)
+
+------------------------------------------------------------------------------
+
+check out bumpmaps in other games, do they influence dark side of
+object?
+
+------------------------------------------------------------------------------
+
+
+replay functionality:
+
+play at arbitrary speed
+rewind
+spectator functions
+
+
+keyframes + interpolated frames
+
+store camera paths?
+
+------------------------------------------------------------------------------
+
+crosshair color into options
+
+
+------------------------------------------------------------------------------
+
+
+revv high when stepping on gas and no contact
+better model wheel rotation velocity
+greater slide factor
+simple engine model -> better acc when standing (torque curve)
+
+
+enhanced dirt particle system
+dependend on wheel physics
+place in blender, remove hardcoded stuff
+
+
+------------------------------------------------------------------------------
+
+beacon boundary: wie LOS besser visualisieren?
+
+------------------------------------------------------------------------------
+
+handle camera movement with true acc / v?
+
+
+------------------------------------------------------------------------------
+
+roads: use stencil buffer technique?
+
+------------------------------------------------------------------------------
+
+display team damage
+display killer weapon
+
+
+gloss maps, specular highlighting
+
+
+keep score separate from kills
+
+
+render geoms not by iterating rigidbodies, but by directly iterating geoms in space
+
+
+real skybox
+
+
+
+sound effect when getting upgrade
+
+
+
+autocompletion for loadable levels
+gracefully handle nonexisting level
+
+
+
+server should report when port cannot be openend
+
+
+In Half-Life, we allow the user to ask for as many updates per second
+as he or she wants (within limit). Thus, a user with a fast connection
+could receive 50 updates per second if the user wanted. By default,
+Half-Life sends 20 updates per second to each player the Half-Life
+client interpolates players (and many other objects) over a period of
+100 milliseconds.7
+
+
+unify resource loading, "real" loading screen
+
+
+
+
+check out scene optimized shadow mapping
+
+
+
+quaternions for free camera interpolation
+
+
+
+server side pause
+
+
+collision detection for free camera
+
+
+fliegende tank-teile
+
+
+
+
+support for skins
+don't require to export separate model
+
+
+
+respect camera start pos in graph.server
+render effects, BB
+
+
+
+
+scaled objects from grome
+ODE probably doesn't support scaling geoms?
+
+
+
+
+------------------------------------------------------------------------------
+DEBUG build
+
+how to use debug libs in debug build?
+TARGET_LINK_LIBRARIES(${TARGET_TARGETNAME} optimized ${LINKLIB} debug "${LINKLIB}${CMAKE_DEBUG_POSTFIX}")
+
+use debug  -D_GLIBCXX_DEBUG
+recompile osg...
+http://gcc.gnu.org/onlinedocs/libstdc++/debug.html
+
+
+
+You could enable finer grained checking for OpenGL
+errros via osg::State::setCheckForGLErrors(osg:State::ONCE_PER_ATTRIBUTE);
+Or enable by tweaking the State constructor in src/osg/State.cpp.
+You'll see a block:
+#if 1
+_checkGLErrors = ONCE_PER_FRAME;
+#else
+_checkGLErrors = ONCE_PER_ATTRIBUTE;
+#endif
+
+
+
+------------------------------------------------------------------------------.
+
+STATESETMANAGER:
+
+-) manage shaders
+-) manage statesets
+-) stateset defined by StatesetDescription
+-) query number, properties of statesets
+
+
+string-based representation? who to handle materials?
+
+
+extend ResourceManager to description-based resource handling?
+
+
+special case handling:
+
+-) shadow blocker: need only one single stateset for entire group -> duplicate nodes, remove stateset
+
+
+-) LOD: create blending stateset only during transition
+-) terrain: merge statesets for clipmap grids
+
+
+StatesetDescription:
+-) create from bbm flags
+-) printable
+-) compare, operator<
+-) members:
+  -) texture name
+  -) property flags (=> shader)
+    BO_LIGHTMAP        
+    BO_LIGHTING        
+    BO_SHADOW_BLOCKER  
+    BO_SHADOW_RECEIVER 
+    BO_CULL_FACES      
+    BO_ALPHA_TEST      
+    BO_ALPHA_BLEND     
+  -) material (specular, ambient, color)?
+
+
+share stateset for boundary outline, beacon connections
+
+
+test: don't clone trees, but create different ones
+-> if state is still shared, glActiveTexture mustn't rise
+
+
+------------------------------------------------------------------------------
+

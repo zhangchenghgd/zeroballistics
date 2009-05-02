@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpLvl", "ExpLvl.vcproj", "{46646784-6739-49E8-BA30-1B8768D351B4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImpBbm", "ImpBbm.vcproj", "{20269D0D-ACB0-46F1-A726-16FFE47F9F63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46646784-6739-49E8-BA30-1B8768D351B4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{46646784-6739-49E8-BA30-1B8768D351B4}.Debug|Win32.Build.0 = Debug|Win32
+		{46646784-6739-49E8-BA30-1B8768D351B4}.Release|Win32.ActiveCfg = Release|Win32
+		{46646784-6739-49E8-BA30-1B8768D351B4}.Release|Win32.Build.0 = Release|Win32
+		{20269D0D-ACB0-46F1-A726-16FFE47F9F63}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20269D0D-ACB0-46F1-A726-16FFE47F9F63}.Debug|Win32.Build.0 = Debug|Win32
+		{20269D0D-ACB0-46F1-A726-16FFE47F9F63}.Release|Win32.ActiveCfg = Release|Win32
+		{20269D0D-ACB0-46F1-A726-16FFE47F9F63}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

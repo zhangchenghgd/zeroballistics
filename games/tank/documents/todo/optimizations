@@ -1,0 +1,419 @@
+
+
+
+lod3 model still is better performance-wise, especially at low settings...
+
+
+------------------------------------------------------------------------------
+
+lod 2<->bump mapping???
+
+
+------------------------------------------------------------------------------
+
+merge objects during blend export
+only separate what truly needs to be separated
+
+
+------------------------------------------------------------------------------
+
+get rid of minimap stencil by rendering bg texture as circle?
+
+------------------------------------------------------------------------------
+
+reduce logic fps for peformance?
+check what happens exactly...
+review all tasks
+do only physics at 100, everything else at lower fps
+
+------------------------------------------------------------------------------
+
+don't perform hit logic etc on client side
+(projectile collision callback)
+
+------------------------------------------------------------------------------
+
+void 	setUnRefImageDataAfterApply (bool flag)
+for textures
+ditch image this way?
+
+------------------------------------------------------------------------------
+
+don't collide beacon boundary update ray against terrain, but use
+bilinear height function. use categories for that.
+
+checklos uses most of the time! split los calculation across several steps??
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+share simulator on client & server when hosting game
+or skip client side prediction
+
+don't create replay sim, replay controllables...
+
+how is controllable input used on client side? why does it need to be set?
+
+circumvent input queue for local player on server
+don't send correction, but plain setstate command?
+
+decouple physics frame move from logic frame move...
+
+don't execute interpolation code, client side prediction code
+
+don't step client side sim at all? how to handle projectiles, then?
+
+how to handle collision sounds? currently tracks client side target collisions...
+
+simply do physics framemove at extremely low fps and skip client side prediction?
+
+increase server update frequency to simulator frequency
+
+
+can doing collision be avoided at all?
+needed for:
+-) collision sounds -> rely on server messages?
+-) projectile deletion -> unneccessary for local client
+
+
+separate steps: 
+-) remove client side prediction -> remove server input queue, corrections
+-) remove superfluous work in simulator
+
+remove controllable->setSleeping(false) from clientplayer
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+performance issues: LOD for tank
+make reflections more lightweight
+disable shadows for reflections...
+terrain lowest detail
+occlusion query for reflections?
+finally need to clone & switch statesets, use for different LOD shaders too
+lower fps for reflections?
+
+------------------------------------------------------------------------------
+
+don't flip images, just read them upside-down
+
+------------------------------------------------------------------------------
+
+remove main menu resources durnig gameplay (background image is texture!!)
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+warn if parameter is accessed more than once per frame?
+
+
+------------------------------------------------------------------------------
+
+
+room for bump map is still used at lower detail settings
+-> put into own tex, perhaps together with em map?
+-> or change texture format when loading...
+
+------------------------------------------------------------------------------
+
+perform grass culling either every frame, or truly split it up
+move culling code to instancedgeometry itself?
+
+
+------------------------------------------------------------------------------
+
+
+I have tried gDEBugger, but perhaps you could force the OSG to run
+single threaded to help make things a bit simpler for gDEBugger to
+handle i.e.
+
+  export OSG_THREADING=SingleThreaded
+  osgviewer cow.osg
+
+
+
+------------------------------------------------------------------------------
+
+
+don't do per pixel lighting for all objects, specify per blender button.
+
+
+don't copy position, diffuse in InstancedGeometryGroup::drawImplementation
+
+
+
+  http://developer.nvidia.com/object/nvtristrip_library.html
+OSG tristrip?
+
+
+don't calculate physics for client if hosting game
+
+------------------------------------------------------------------------------
+
+don't specify terrain color for trees
+
+------------------------------------------------------------------------------
+
+
+pass modelview into instanced shader, not only model matrix
+
+------------------------------------------------------------------------------
+
+perform view frustum culling against grass grid cells
+
+------------------------------------------------------------------------------
+
+optimize shader calculations, pass in camera pos / model matrix to
+avoid some matrix multiplications?
+
+------------------------------------------------------------------------------
+
+don't do per pixel lighting, bump map, shadow if it isn't neccessary (e.g. instances)
+
+------------------------------------------------------------------------------
+
+share lod levels, re-use existing lods
+support for no lods at all
+how can this be achieved elegantly??
+
+------------------------------------------------------------------------------
+
+change shader for distant objects / reflected objects
+(shadow, bump/parallax etc)
+lod>1  <-> lowest shader quality, no shadow
+
+improved stateset sharing
+
+implement state set mananger, rewrite OsgNodeWrapper::setLodLevel to
+completely replace state set with a different one having the lod
+shader...
+
+------------------------------------------------------------------------------
+
+don't let OdeModelLoader instantiate, only return blueprint
+save blueprint in prototype
+review Visual creation / initialization
+
+
+RigidBody manager, integrate into precaching
+hold prototypes
+
+
+get rid of "open" syscalls while playing
+models into ressource management
+precaching for visuals, objects
+
+strace ./tank 2>&1|grep -v gettimeofday |grep -v cull |grep -v Timeout |grep -v SIGPROF |grep -v sigreturn |grep -v "read(5" |grep -v poll | grep -v IONREAD | grep -v "write(5" |grep -v "select(6"
+
+------------------------------------------------------------------------------
+
+
+wheel calculations can be hugely optimized
+
+
+re-use target penetration for proxy wheels?
+
+use ode heightfield GetHeight for height queries, ditch own terrain height data
+
+check profile
+
+make texture fetches conditional? check whether this results in
+speedup....
+check shader model version for that?
+
+
+really need colors in lightmap??
+
+
+collision detection terrain mesh different resolution than visualized
+mesh?
+
+
+test impact of shadow on performance
+
+avoid glVertex2f
+
+
+group similiar object's meshes by material?
+review material handling in blender: don't support multi-material meshes for safety?
+merge meshes with same material in exporter script?
+
+
+
+remove image double flip in  terraindata
+
+
+
+don't use color map on terrain if not needed
+rewrite shaders
+
+
+cache odeheightfield geom, don't create three times (server, replay, client)
+static id?
+same goes for trimeshes
+make sure trimesh, terrain is finally deleted.
+ode bluprint management? are things deleted properly? integrate into precaching
+use dGeomHeightfieldDataBuildCallback in order to avoid height data storage?
+
+
+texture pool, share textures
+
+bäume nur eine textur
+
+
+replaying history seriously impacts performance
+profile always replaying history
+limit number of history replays per second?
+get sims in better sync...
+
+
+
+This may be your problem. During rendering, these get sorted
+(back-to-front) on the CPU every frame so they can be correctly
+blended. How are these transparent polygons structured in the
+scenegraph? One drawable with all polygons, or a large number of
+drawables with just a few polygons? OSG sorts on drawable bounding box
+on the lowest level. So if you have lots of drawables to sort this
+might take quite a lot of CPU time, which will become more noticeable
+when the sorting code isn't optimized (i.e. in debug mode).
+
+
+shadow blockers: override ALL state attributes, no state change at all
+need to clone?
+
+
+
+review terrain shadow handling, all clipmap grids are in shadow
+receiver group, does this have performance impacts?
+
+
+remove frequent debug log messages
+
+
+check out nvidia, intel performance analysis tools
+
+
+change shader with lod
+(e.g no shadow receiver)
+
+
+
+don't render far-away particle effects
+
+
+
+
+use lodded version for shadow rendering
+clone object for that?
+doesn't work properly with upgrades...
+
+
+use alpha test for gui
+
+
+remove unused material stuff?
+
+
+
+implement shared meshes (export mesh only once, reference)?
+does not work with different lighting conditions in lightmap...
+export mesh only on first occurence, reference later
+refcounting in mesh
+
+
+
+prefer smooth models
+export non-lighted models as smooth per default?
+or even without normals?
+
+
+
+
+dont glgetfloat in shadow and terrain vis, but use osg::state::getmodelviewmatrix
+
+check how much performance is eaten up by stitching tris
+put into IB?
+
+handle terrain known values not via uniform, but via shader source define?
+
+merge geodes (particle, boundary)
+
+compress ode xml
+optimize trimesh xml (pure string)
+
+
+don't let loader flip dds textures -> performance gain?
+
+check out opengl tools
+http://www.opengl.org/sdk/tools/
+
+can matrix conversion functions be made obsolete by transposed matrix
+upload to opengl?
+osg2gl neccessary at all??
+
+
+http://www.mesa3d.org/brianp/sig97/perfopt.htm
+
+ The glVertex, glColor, etc. functions which take a pointer to their
+arguments such as glVertex3fv(v) may be much faster than those which
+take individual arguments such as glVertex3f(x,y,z) on systems with
+DMA-driven graphics hardware.
+
+
+Use glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST)
+This hint can improve the speed of texturing when perspective-
+correct texture coordinate interpolation isn't needed, such as when
+using a glOrtho() projection.
+
+
+ Calls such as glGetFloatv, glGetIntegerv, glIsEnabled, glGetError,
+glGetString require a slow, round trip transaction between the
+application and renderer. Especially avoid them in your main rendering
+code.
+
+
+
+Avoid glPushAttrib
+If only a few pieces of state need to be saved and restored it's
+often faster to maintain the information in the client
+program. glPushAttrib( GL_ALL_ATTRIB_BITS ) in particular can be very
+expensive on hardware systems. This call may be faster in software
+implementations than in hardware. [H,L]
+
+
+Use display lists to encapsulate frequently drawn
+objects. Display list data may be stored in the graphics subsystem
+rather than host memory thereby eliminating host-to-graphics data
+movement. Display lists are also very beneficial when rendering
+remotely. [all]
+
+
+
+VBO for static hud elements?
+
+don't collide beacon radii, beacon bodies to one another
+set collide fields accordingly
+
+
+
+don't create bodies for static geoms
+(precalculation of geom props)
+
+
+check ode trimesh release on shutdown (memleak)
+make sure trimesh, terrain is finally deleted.
+ode bluprint management? are things deleted properly? integrate into precaching
+
+
+don't clear frame buffer
+
+
+ohd debug classes eat performance even if console/cout logging is disabled
+
+
+
+don't draw boundary outline in minimap with same resolution
+
+

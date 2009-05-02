@@ -1,0 +1,22 @@
+Index: ode/src/Makefile.am
+===================================================================
+--- ode/src/Makefile.am	(revision 1316)
++++ ode/src/Makefile.am	(working copy)
+@@ -2,7 +2,7 @@
+ AM_CPPFLAGS = @ARCHFLAGS@ -I$(top_srcdir)/include -I$(top_builddir)/include
+ AM_CFLAGS = @ARCHFLAGS@ -I$(top_srcdir)/include -I$(top_builddir)/include
+ lib_LIBRARIES = libode.a
+-libode_a_CPPFLAGS = -O2
++libode_a_CPPFLAGS = -O0
+ 
+ if X86_64_SYSTEM
+ libode_a_CPPFLAGS += -fPIC
+@@ -94,7 +94,7 @@
+ 
+ if OPCODE
+ noinst_LIBRARIES+= libOPCODE.a
+-libOPCODE_a_CPPFLAGS= -O2 -fno-strict-aliasing -fPIC
++libOPCODE_a_CPPFLAGS= -O0 -fno-strict-aliasing -fPIC
+ 
+ if X86_64_SYSTEM
+ libOPCODE_a_CPPFLAGS += -fPIC

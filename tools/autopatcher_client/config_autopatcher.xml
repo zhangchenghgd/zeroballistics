@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<parameters>
+    <section name="patcher">
+        <variable name="bg_image" value="autopatcher.gif" type="string" />
+        <variable name="hosts" value="[servers.fullmetalsoccer.com;quanticode.dyndns.org]" type="vector&lt;string&gt;" />
+        <variable name="ports" value="[23510;23510]" type="vector&lt;unsigned&gt;" />
+
+        <variable name="app_dir" value="./" type="string" />
+
+        <variable name="app_exe_win" value="tankClient.exe" type="string" />
+        <variable name="app_exe_linux" value="./tank&amp;" type="string" />
+
+        <variable name="app_name_win"   value="FmsWindows" type="string" />
+        <variable name="app_name_linux" value="FmsLinux" type="string" />
+    </section>
+
+    <section name="autopatcher_client.log">
+        <variable name="filename" value="log_patcher_client.txt" type="string" />
+        <variable name="debug_classes" value="-" type="string" />
+        <variable name="append" value="0" type="bool" />
+        <variable name="print_to_cout" value="1" type="bool" />
+        <variable name="always_flush" value="1" type="bool" />
+    </section>
+
+</parameters>

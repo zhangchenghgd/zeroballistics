@@ -1,0 +1,13 @@
+Index: ode/src/collision_space.cpp
+===================================================================
+--- ode/src/collision_space.cpp	(revision 1316)
++++ ode/src/collision_space.cpp	(working copy)
+@@ -619,7 +619,7 @@
+   
+   // intersect bounding boxes
+   for (dxGeom *g=first; g; g=g->next) {
+-    collideAABBs (g,geom,data,callback);
++    if (GEOM_ENABLED(g)) collideAABBs (g,geom,data,callback);
+   }
+   
+   lock_count--;

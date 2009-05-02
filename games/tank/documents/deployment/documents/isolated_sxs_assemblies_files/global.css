@@ -1,0 +1,584 @@
+/* Global Content CSS 
+used by all master pages 
+*/
+
+/* GLOBAL STYLES */
+/* START: titles */
+.title
+{	
+	font:normal 190% Arial, Helvetica, sans-serif;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right:0px;
+	margin-bottom: 10px;
+	color: #000000;
+}
+
+h1, h2, .majorLabel, .sectionTitle
+{
+	/* with +- hence negative left margin */
+	font-family: Verdana;
+	font-weight:bold;
+	font-size: 120%;
+	margin: 10px 0px 3px 0px;
+}
+
+h3, .minorLabel
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	white-space:normal;
+	margin: 0px 0px 0px 0px;
+}
+
+h4
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+h4.subheading
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+dl
+{
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+}
+
+.parameter
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+/* END: titles */
+
+/* START: standard paragraph style */
+p
+{
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	margin-top: 0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom: 10px;
+}
+
+div.section
+{
+	padding-left: 20px;
+}
+/* END: standard paragraph style */
+
+/* START: tables */
+div.ContentArea table
+{
+	width: auto; /* 94%; */
+	border-collapse:collapse;
+  	margin: 10px 0 10px 0;
+}
+
+div.ContentArea table p
+{
+	margin:0px;
+	padding: 0;
+}
+
+div.ContentArea table th, div.ContentArea table td
+{
+	padding: 5px;
+	text-align: left;
+	font-size: 70%;
+}
+
+div.ContentArea table th
+{
+	background: #cccccc;
+	vertical-align: bottom;
+}
+
+div.ContentArea table th p
+{
+	font-weight: bold;
+}
+
+div.ContentArea table td
+{
+	background: #ffffff;
+	vertical-align: top;
+	border: solid 0px #cccccc;
+}
+/*  BEGIN # 33893 */
+
+.ContentArea .topic table
+{
+    width:auto;
+}
+
+.ContentArea .topic table td
+{
+    padding:5px;
+    margin:0px;
+}
+
+.ContentArea .topic table td h1
+{
+    font-size:150%;
+    padding:3px;
+    margin:0px;
+}
+.ContentArea .topic table td h2
+{
+    font-size:125%;
+    padding:3px;
+    margin:0px;
+}
+.ContentArea .topic table td h3
+{
+    padding:5px;
+    margin:0px;
+}
+
+.ContentArea .topic table td p
+{
+    padding:5px;
+    margin:0px;
+}
+
+.ContentArea .topic table td UL
+{
+    margin-top:5px;
+    margin-left:20px;
+    margin-bottom:5px;
+    margin-right:10px;
+}
+
+
+/* END # 33893 */
+
+/* END: tables */
+
+
+/* START: code blocks */
+
+tt
+{
+	font-family: Lucida Console, Courier New;
+}
+
+.code
+{
+	display:inline-block;
+	padding-top: 5px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;
+	margin: 0 0 0 0;
+}
+
+div.lang
+{
+	background-color: #dddddd;
+	border-bottom: #eeeeee 1px solid;
+	white-space:pre;
+	clear:both;	
+	padding-left:5px;
+}
+
+pre
+{
+	background: #dddddd;
+	font-family: Lucida Console, Courier New;
+	margin-top: 0px;
+	margin-left: 1em;
+	margin-right:0px;
+	margin-bottom:0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	/*
+	word-wrap: break-word;
+	*/
+}
+/* END: code blocks */
+
+/* START: lists */
+ul
+{
+	margin: 0px 0px 0px 20px;
+	padding: 0;
+}
+
+ul ul
+{
+	padding:0;
+	margin-top:4px
+}
+
+ul ul li
+{
+	background: url( '/msdn/MasterPages/DeepTreePageType/b.gif' ) no-repeat left top;
+	line-height:1.2em;
+}
+
+li p 
+{
+	margin:0px; 
+	padding:0px;
+}
+
+
+/*32601 */
+li ul
+{
+	margin-left:-40px;
+	padding:0px;
+}
+
+li ul li p
+{
+	margin-left:0px;
+}
+
+/* 	33783 */
+li ul li
+{
+	padding-left: 10px;
+	margin-left:40px;
+	line-height:inherit;
+}
+
+ol
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+ol li
+{
+	margin: 0px 0px 5px 40px;
+	line-height: 140%;
+}
+
+.subSection ol li ol
+{
+	list-style-type:lower-alpha;
+}
+
+/* END: lists */
+
+/* START: definitions */
+dt
+{
+    font-style:normal;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom: 0px;
+	margin-left:0px;
+    
+}
+/*  #33172 */
+dd
+{
+    /*
+	padding: 0;
+	margin-left: 0px;
+	margin-bottom: 0px;
+    */
+}
+/*
+dd p
+{
+	PS # 33265 
+	margin-left:-40px;
+	margin-top:0px;
+	margin-right:auto;
+	margin-bottom:-10px;
+}
+*/
+/* END: definitions */
+
+/* === everything below is whidbey specific === */
+.alert
+{
+	font-weight:bold;
+}
+
+.legacyBold, .ui
+{
+	font-weight: bold;
+}
+
+.legacyItalic
+{
+	font-style: italic;
+}
+
+
+/* START: syntax section for managed ref */
+DIV.declarationSyntaxes SPAN.VisualBasicDeclaration, DIV.declarationSyntaxes SPAN.VisualBasicUsage, DIV.declarationSyntaxes SPAN.CSharp, DIV.declarationSyntaxes SPAN.ManagedCPlusPlus, DIV.declarationSyntaxes SPAN.JSharp, DIV.declarationSyntaxes SPAN.JScript
+{
+	background: #DDDDDD;
+}
+
+DIV.declarationSyntaxes PRE
+{
+	background: #dddddd;
+	font-family: Lucida Console, Courier New;
+	line-height: 140%;
+	border-top: 1px solid #aaaaaa;
+	padding: 5px 10px 10px 25px;
+	margin: 0 0 20px 0;
+}
+/* END: syntax section for managed ref */
+
+/*
+Start PagePlanner Style
+*/
+DIV.navpage
+{
+    margin: 5px;
+}
+
+div.navpage table
+{
+    border-collapse:collapse;
+    margin: 10px 0 10px 0;
+}
+
+div.navpage table p
+{
+    margin:0px;
+    padding: 0px;
+}
+
+div.navpage table th, div.navpage table td
+{
+    padding: 5px;
+    text-align: left;
+    font-size: 70%;
+}
+
+div.navpage table th
+{
+    background: #cccccc;
+    vertical-align: bottom;
+}
+
+div.navpage table th p
+{
+    font-weight: bold;
+}
+
+div.navpage table td
+{
+    vertical-align: top;
+    border: solid 0px #cccccc;
+
+
+}
+
+.innercol
+{
+    border-right: 1px solid #aaaaaa;
+}
+/* End PagePlan Style */
+
+/*Added for Migrated Pages*/
+.MNPPart
+{
+	width:155px;
+	color:#000000;
+	background-color: #f1f1f1;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:3px solid #6699cc;
+	border-top:3px solid #6699cc;
+	padding:8px;
+	margin-right:15px;
+}
+
+.MNPPart UL 
+{ 
+	margin-bottom:5px; 
+	margin-left:18px;
+}
+
+.MNPPart SPAN 
+{ 
+	color:#000000;	
+}
+
+.MNPPart	UL LI
+{
+	margin-bottom:0.5em;
+	list-style-type: disc;
+	color:#cccccc;
+}
+
+.innercol
+{
+    border-right: 1px solid #aaaaaa;
+}
+
+DIV#links table td
+{
+	border:0px;
+}
+
+
+/* 33879 */
+.TableHeading
+{
+	font-weight:700;
+}
+
+/* 
+<li class="kadov-p-CBulleted"><p class="Bulleted">Use CTRL+N, or</p></li><li class="kadov-p-CBulleted"><p class="Bulleted">Click <span style="font-weight: bold;">Create</span>.</p></li>
+*/
+
+ul ul li.kadov-p-CBulleted 
+{
+	margin-left:100px;
+}
+
+.p.Bulleted
+{
+
+}
+
+div.clsNote
+{
+	background-color:#EEEEEE;
+	margin-bottom:4px;
+	padding-top:2px;
+	padding-left:2px;
+	padding-right:2px;
+	padding-bottom:2px;
+}
+
+
+/* .VSShowTableBorder */
+.VSShowTableBorder
+{
+	border:solid 1px #DDDDDD;
+	border-collapse:collapse;
+}
+
+.VSShowTableBorder TBODY TR TD
+{
+	border:solid 1px #DDDDDD;
+}
+
+/* begin # 35695 */
+table.clsStd tbody tr td
+{
+	background-color:#F7F7FF;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #D5D5D3;
+}
+
+table.psdkRequirements tbody tr th
+{
+	background-color:#EFEFF7;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #C8CDDE;
+	color:#000066;
+	vertical-align:top;
+}
+
+table.psdkRequirements tbody tr td
+{
+	background-color:#F7F7FF;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #C8CDDE;
+}
+/* end # 35695 */
+
+
+/* begin # 5586 */
+.tablediv table.dtTABLE
+{
+	width:95%;
+}
+.tablediv table.dtTABLE tbody tr th
+{
+	font-size:xx-small;
+	width:50%;
+}
+.tablediv table.dtTABLE tbody tr td
+{
+	font-size:xx-small;
+	width:50%;
+}
+/* end # 5586 */
+
+/* begin #5130 */
+.tableSection table tbody tr th
+{
+	font-size:xx-small;
+}
+
+.tableSection table tbody tr td
+{
+	font-size:xx-small;
+}
+
+/* end #5130 */
+
+/* begin #5178 */
+div.clsServerSDKContent td.sdkformat_portal
+{
+	border-right:solid 1px #CCCCCC;
+	font-size:xx-small;	
+}
+/* end #5178 */
+
+/* begin #6375 */
+.RightPanel img
+{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+/* end #6375 */
+
+/* BEGIN # 5951 */
+.section OL LI OL LI
+{
+	list-style-type:lower-alpha;
+}
+
+/* END # 5951 */

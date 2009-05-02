@@ -1,0 +1,24 @@
+
+test with several clients at once
+
+------------------------------------------------------------------------------
+
+test selfrestarter for patching patcher itself
+
+------------------------------------------------------------------------------
+
+performance behavior: faster towards end of file
+large files influence total performance
+
+
+after updating huge files, memory is not freed
+
+
+do communication encrypted??
+
+progress callback to log: hashing x/x should not be written to cout
+
+why does automatic library linking not work for fox?
+
+remember to set maximum packet size on mysql server to huge value
+

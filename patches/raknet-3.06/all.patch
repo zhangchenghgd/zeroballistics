@@ -1,0 +1,138 @@
+diff -Nur ./CMakeLists.txt /home/musch/c++/used_libraries/raknet-3.06/CMakeLists.txt
+--- ./CMakeLists.txt	2008-02-07 10:31:35.000000000 +0100
++++ /home/musch/c++/used_libraries/raknet-3.06/CMakeLists.txt	2008-04-12 19:23:31.000000000 +0200
+@@ -1,4 +1,83 @@
+-PROJECT (RAKNET)
+-SET(RAKNET_SOURCES Source/AsynchronousFileIO.cpp Source/BitStream.cpp Source/BitStream_NoTemplate.cpp Source/CheckSum.cpp Source/CommandParserInterface.cpp Source/ConnectionGraph.cpp Source/ConsoleServer.cpp Source/DataBlockEncryptor.cpp Source/DataCompressor.cpp Source/DirectoryDeltaTransfer.cpp Source/DS_BytePool.cpp Source/DS_ByteQueue.cpp Source/DS_HuffmanEncodingTree.cpp Source/DS_Table.cpp Source/EmailSender.cpp Source/EncodeClassName.cpp Source/ExtendedOverlappedPool.cpp Source/FileList.cpp Source/FileListTransfer.cpp Source/FileOperations.cpp Source/FullyConnectedMesh.cpp Source/GetTime.cpp Source/LightweightDatabaseClient.cpp Source/LightweightDatabaseCommon.cpp Source/LightweightDatabaseServer.cpp Source/LinuxStrings.cpp Source/LogCommandParser.cpp Source/MessageFilter.cpp Source/NatPunchthrough.cpp Source/NetworkIDManager.cpp Source/NetworkIDObject.cpp Source/PacketConsoleLogger.cpp Source/PacketFileLogger.cpp Source/PacketLogger.cpp Source/PluginInterface.cpp Source/RakNetCommandParser.cpp Source/RakNetStatistics.cpp Source/RakNetTransport.cpp Source/RakNetTypes.cpp Source/RakNetworkFactory.cpp Source/RakPeer.cpp Source/RakSleep.cpp Source/Rand.cpp Source/ReadyEvent.cpp Source/ReliabilityLayer.cpp Source/ReplicaManager.cpp Source/rijndael.cpp Source/Router.cpp Source/RPCMap.cpp Source/SHA1.cpp Source/SimpleMutex.cpp Source/SocketLayer.cpp Source/StringCompressor.cpp Source/StringTable.cpp Source/SystemAddressList.cpp Source/TableSerializer.cpp Source/TCPInterface.cpp Source/TelnetTransport.cpp Source/ThreadsafePacketLogger.cpp Source/_FindFirst.cpp Source/AsynchronousFileIO.h Source/AutopatcherPatchContext.h Source/AutopatcherRepositoryInterface.h Source/BigTypes.h Source/BitStream.h Source/CheckSum.h Source/ClientContextStruct.h Source/CommandParserInterface.h Source/ConnectionGraph.h Source/ConsoleServer.h Source/DataBlockEncryptor.h Source/DataCompressor.h Source/DirectoryDeltaTransfer.h Source/DS_BinarySearchTree.h Source/DS_BPlusTree.h Source/DS_BytePool.h Source/DS_ByteQueue.h Source/DS_Heap.h Source/DS_HuffmanEncodingTree.h Source/DS_HuffmanEncodingTreeFactory.h Source/DS_HuffmanEncodingTreeNode.h Source/DS_LinkedList.h Source/DS_List.h Source/DS_Map.h Source/DS_MemoryPool.h Source/DS_OrderedChannelHeap.h Source/DS_OrderedList.h Source/DS_Queue.h Source/DS_QueueLinkedList.h Source/DS_RangeList.h Source/DS_Table.h Source/DS_Tree.h Source/DS_WeightedGraph.h Source/EmailSender.h Source/Export.h Source/ExtendedOverlappedPool.h Source/FileList.h Source/FileListTransfer.h Source/FileListTransferCBInterface.h Source/FileOperations.h Source/FullyConnectedMesh.h Source/GetTime.h Source/InternalPacket.h Source/LightweightDatabaseClient.h Source/LightweightDatabaseCommon.h Source/LightweightDatabaseServer.h Source/LinuxStrings.h Source/LogCommandParser.h Source/MessageFilter.h Source/MessageIdentifiers.h Source/MTUSize.h Source/NatPunchthrough.h Source/NetworkIDManager.h Source/NetworkIDObject.h Source/PacketConsoleLogger.h Source/PacketFileLogger.h Source/PacketLogger.h Source/PacketPool.h Source/PacketPriority.h Source/PluginInterface.h Source/RakAssert.h Source/RakNetCommandParser.h Source/RakNetDefines.h Source/RakNetStatistics.h Source/RakNetTransport.h Source/RakNetTypes.h Source/RakNetworkFactory.h Source/RakPeer.h Source/RakPeerInterface.h Source/RakSleep.h Source/Rand.h Source/ReadyEvent.h Source/ReliabilityLayer.h Source/Replica.h Source/ReplicaEnums.h Source/ReplicaManager.h Source/Rijndael-Boxes.h Source/Rijndael.h Source/Router.h Source/RouterInterface.h Source/RPCMap.h Source/RPCNode.h Source/RSACrypt.h Source/SHA1.h Source/SimpleMutex.h Source/SimpleTCPServer.h Source/SingleProducerConsumer.h Source/SocketLayer.h Source/StringCompressor.h Source/StringTable.h Source/SystemAddressList.h Source/TableSerializer.h Source/TCPInterface.h Source/TelnetTransport.h Source/ThreadPool.h Source/ThreadsafePacketLogger.h Source/TransportInterface.h Source/Types.h Source/_FindFirst.h)
+-ADD_LIBRARY(RakNet STATIC ${RAKNET_SOURCES})
+-PROJECT(RakNetStaticLib)
+\ No newline at end of file
++
++
++PROJECT(RakNetStaticLib)
++
++SET(RAKNET_SOURCES 
++Source/AsynchronousFileIO.cpp      Source/FormatString.cpp               Source/RakNetworkFactory.cpp
++Source/BitStream.cpp               Source/FullyConnectedMesh.cpp         Source/RakPeer.cpp
++Source/BitStream_NoTemplate.cpp    Source/FunctionThread.cpp             Source/RakSleep.cpp
++Source/CheckSum.cpp                Source/GetTime.cpp                    Source/Rand.cpp
++Source/CommandParserInterface.cpp  Source/GridSectorizer.cpp             Source/ReadyEvent.cpp
++Source/ConnectionGraph.cpp         Source/LightweightDatabaseClient.cpp  Source/ReliabilityLayer.cpp
++Source/ConsoleServer.cpp           Source/LightweightDatabaseCommon.cpp  Source/ReplicaManager2.cpp
++Source/DataBlockEncryptor.cpp      Source/LightweightDatabaseServer.cpp  Source/ReplicaManager.cpp
++Source/DataCompressor.cpp          Source/LinuxStrings.cpp               Source/rijndael.cpp
++Source/DirectoryDeltaTransfer.cpp  Source/LogCommandParser.cpp           Source/Router.cpp
++Source/DS_BytePool.cpp             Source/MessageFilter.cpp              Source/RPCMap.cpp
++Source/DS_ByteQueue.cpp            Source/NatPunchthrough.cpp            Source/SHA1.cpp
++Source/DS_HuffmanEncodingTree.cpp  Source/NetworkIDManager.cpp           Source/SimpleMutex.cpp
++Source/DS_Table.cpp                Source/NetworkIDObject.cpp            Source/SocketLayer.cpp
++Source/EmailSender.cpp             Source/PacketConsoleLogger.cpp        Source/StringCompressor.cpp
++Source/EncodeClassName.cpp         Source/PacketFileLogger.cpp           Source/StringTable.cpp
++Source/EpochTimeToString.cpp       Source/PacketLogger.cpp               Source/SystemAddressList.cpp
++Source/ExtendedOverlappedPool.cpp  Source/PluginInterface.cpp            Source/TableSerializer.cpp
++Source/FileList.cpp                Source/RakNetCommandParser.cpp        Source/TCPInterface.cpp
++Source/FileListTransfer.cpp        Source/RakNetStatistics.cpp           Source/TelnetTransport.cpp
++Source/FileOperations.cpp          Source/RakNetTransport.cpp            Source/ThreadsafePacketLogger.cpp
++Source/_FindFirst.cpp              Source/RakNetTypes.cpp
++
++
++)
++
++set(RAKNET_HEADERS
++Source/AsynchronousFileIO.h              Source/ExtendedOverlappedPool.h       Source/RakNetworkFactory.h
++Source/AutopatcherPatchContext.h         Source/FileList.h                     Source/RakPeer.h
++Source/AutopatcherRepositoryInterface.h  Source/FileListTransferCBInterface.h  Source/RakPeerInterface.h
++Source/BigTypes.h                        Source/FileListTransfer.h             Source/RakSleep.h
++Source/BitStream.h                       Source/FileOperations.h               Source/Rand.h
++Source/CheckSum.h                        Source/_FindFirst.h                   Source/ReadyEvent.h
++Source/ClientContextStruct.h             Source/FormatString.h                 Source/RefCountedObj.h
++Source/CommandParserInterface.h          Source/FullyConnectedMesh.h           Source/ReliabilityLayer.h
++Source/ConnectionGraph.h                 Source/FunctionThread.h               Source/ReplicaEnums.h
++Source/ConsoleServer.h                   Source/GetTime.h                      Source/Replica.h
++Source/DataBlockEncryptor.h              Source/GridSectorizer.h               Source/ReplicaManager2.h
++Source/DataCompressor.h                  Source/InternalPacket.h               Source/ReplicaManager.h
++Source/DirectoryDeltaTransfer.h          Source/LightweightDatabaseClient.h    Source/Rijndael-Boxes.h
++Source/DS_BinarySearchTree.h             Source/LightweightDatabaseCommon.h    Source/Rijndael.h
++Source/DS_BPlusTree.h                    Source/LightweightDatabaseServer.h    Source/Router.h
++Source/DS_BytePool.h                     Source/LinuxStrings.h                 Source/RouterInterface.h
++Source/DS_ByteQueue.h                    Source/LogCommandParser.h             Source/RPCMap.h
++Source/DS_Heap.h                         Source/MessageFilter.h                Source/RPCNode.h
++Source/DS_HuffmanEncodingTreeFactory.h   Source/MessageIdentifiers.h           Source/RSACrypt.h
++Source/DS_HuffmanEncodingTree.h          Source/MTUSize.h                      Source/SHA1.h
++Source/DS_HuffmanEncodingTreeNode.h      Source/NatPunchthrough.h              Source/SimpleMutex.h
++Source/DS_LinkedList.h                   Source/NetworkIDManager.h             Source/SimpleTCPServer.h
++Source/DS_List.h                         Source/NetworkIDObject.h              Source/SingleProducerConsumer.h
++Source/DS_Map.h                          Source/PacketConsoleLogger.h          Source/SocketLayer.h
++Source/DS_MemoryPool.h                   Source/PacketFileLogger.h             Source/StringCompressor.h
++Source/DS_OrderedChannelHeap.h           Source/PacketLogger.h                 Source/StringTable.h
++Source/DS_OrderedList.h                  Source/PacketPool.h                   Source/SystemAddressList.h
++Source/DS_Queue.h                        Source/PacketPriority.h               Source/TableSerializer.h
++Source/DS_QueueLinkedList.h              Source/PluginInterface.h              Source/TCPInterface.h
++Source/DS_RangeList.h                    Source/RakAssert.h                    Source/TelnetTransport.h
++Source/DS_Table.h                        Source/RakNetCommandParser.h          Source/ThreadPool.h
++Source/DS_Tree.h                         Source/RakNetDefines.h                Source/ThreadsafePacketLogger.h
++Source/DS_WeightedGraph.h                Source/RakNetStatistics.h             Source/TransportInterface.h
++Source/EmailSender.h                     Source/RakNetTransport.h              Source/Types.h
++Source/EpochTimeToString.h               Source/RakNetTypes.h
++Source/Export.h                          Source/RakNetVersion.h
++
++
++)
++
++
++ADD_LIBRARY(raknet STATIC ${RAKNET_SOURCES})
++
++
++INSTALL(TARGETS raknet
++        DESTINATION lib)
++
++INSTALL(FILES ${RAKNET_HEADERS}
++        DESTINATION include/raknet)
++
++
+Binary files ./raknet_3.06-1_i386.deb and /home/musch/c++/used_libraries/raknet-3.06/raknet_3.06-1_i386.deb differ
+diff -Nur ./Source/RakNetDefines.h /home/musch/c++/used_libraries/raknet-3.06/Source/RakNetDefines.h
+--- ./Source/RakNetDefines.h	2008-01-13 00:34:28.000000000 +0100
++++ /home/musch/c++/used_libraries/raknet-3.06/Source/RakNetDefines.h	2008-04-12 19:23:47.000000000 +0200
+@@ -12,7 +12,7 @@
+ /// Define __BITSTREAM_NATIVE_END to NOT support endian swapping in the BitStream class.  This is faster and is what you should use
+ /// unless you actually plan to have different endianness systems connect to each other
+ /// Enabled by default.
+-#define __BITSTREAM_NATIVE_END
++// #define __BITSTREAM_NATIVE_END
+ 
+ #if defined(_CONSOLE_2)
+ #undef __BITSTREAM_NATIVE_END
+diff -Nur ./Source/RakPeer.cpp /home/musch/c++/used_libraries/raknet-3.06/Source/RakPeer.cpp
+--- ./Source/RakPeer.cpp	2008-03-06 18:56:02.000000000 +0100
++++ /home/musch/c++/used_libraries/raknet-3.06/Source/RakPeer.cpp	2008-04-13 15:05:42.000000000 +0200
+@@ -1743,7 +1743,7 @@
+ 	for ( ; index < banList.Size(); index++ )
+ 	{
+ 		delete [] banList[ index ]->IP;
+-		delete [] banList[ index ];
++		delete banList[ index ];
+ 	}
+ 
+ 	banList.Clear();
+@@ -4292,7 +4292,7 @@
+ 
+ 			callerDataAllocationUsed=SendImmediate((char*)bcs->data, bcs->numberOfBitsToSend, bcs->priority, bcs->reliability, bcs->orderingChannel, bcs->systemAddress, bcs->broadcast, true, timeNS);
+ 			if ( callerDataAllocationUsed==false )
+-				delete bcs->data;
++				delete [] bcs->data;
+ 
+ 			// Set the new connection state AFTER we call sendImmediate in case we are setting it to a disconnection state, which does not allow further sends
+ 			if (bcs->connectionMode!=RemoteSystemStruct::NO_ACTION && bcs->systemAddress!=UNASSIGNED_SYSTEM_ADDRESS)
+diff -Nur ./Source/SingleProducerConsumer.h /home/musch/c++/used_libraries/raknet-3.06/Source/SingleProducerConsumer.h
+--- ./Source/SingleProducerConsumer.h	2008-01-31 04:50:50.000000000 +0100
++++ /home/musch/c++/used_libraries/raknet-3.06/Source/SingleProducerConsumer.h	2008-04-15 14:33:24.000000000 +0200
+@@ -82,6 +82,8 @@
+ 	private:
+ 		struct DataPlusPtr
+ 		{
++                    DataPlusPtr() : readyToRead(false) {}
++                    
+ 			SingleProducerConsumerType object;
+ 
+ 			// Ready to read is so we can use an equality boolean comparison, in case the writePointer var is trashed while context switching.

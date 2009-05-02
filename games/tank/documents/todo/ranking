@@ -1,0 +1,179 @@
+
+
+don't re-commence a game that already is in progress..
+
+------------------------------------------------------------------------------
+
+startMatch console function with ENABLE_DEV_FEATURES only!
+
+------------------------------------------------------------------------------
+
+RankingRegisterMatch and RankingClientLogon look very similar
+do suicide in ClientInterface?
+
+------------------------------------------------------------------------------
+
+transmit scores, not accepted players to game server, which then
+distributes stuff to players
+
+------------------------------------------------------------------------------
+
+need ranking concept!!!
+
+-) put goals into score? bias team outcome with goals?
+-) review glicko rating system
+
+-) punishment: will affect single player only (for hosters); add points to other players?
+
+-) how to account for team changes? average skill of team? average of lose / win / draw?
+=> won't fit won/lost/draw stats data
+
+------------------------------------------------------------------------------
+
+really have dedicated servers as players in ranking (when canceling matches, they get in)?
+mark them, via user_level, exclude from php listings
+
+punish hoster of canceled matches / canceled matches in general
+punish players for canceling matches?
+or: calc their percentage on winning team, losing team
+
+need to have timeout on server in case something goes wrong on ranking
+server and no reply is sent to match id registration, stats upload...
+
+------------------------------------------------------------------------------
+
+debug class which prints out stats processor actions
+
+------------------------------------------------------------------------------
+
+explicitly model TGS_BEFORE_MATCH_START
+don't award points etc
+-> startMatch, condition for it in all logic classes
+reset team ball possesion and such on match start
+check for other stuff which needs to be reset
+
+
+go back to state TGS_BEFORE_MATCH_START if player leaves.
+=> need to reset stats anyway
+
+rewrite reloadlevel to handle this kind of stuff ( keep team assignments intact)?
+
+------------------------------------------------------------------------------
+
+require all player slots to be taken in order to start match?
+
+handle spectators...
+
+plausibility check time that match was in progress
+
+send matchid to connecting clients
+-> clients might be connected before match id is known -> send it with win message?
+or send total stats with win msg?
+issue detailed warning if match ID cannot be retrieved by game server!
+match ID is sent to all connecting clients, together with all player
+scores -> only game server has to communicate with ranking server
+
+boost time into stats?
+
+send player stats to players, distribute via game server?
+
+------------------------------------------------------------------------------
+
+split RankingGameStats into two parts
+-) data
+-) communication
+
+communication classes:
+-) client logon
+-) game server match start
+-) game server match stats
+-) client fetch match stats / player stats
+
+
+separate ports on ranking server for gamestats / client requests?
+
+even split server?
+
+------------------------------------------------------------------------------
+
+what to do about DNS lookups????
+
+------------------------------------------------------------------------------
+
+querying clients can block server gamestats transmission!
+-) listen on separate port?
+-) repeatedly try to deliver
+
+------------------------------------------------------------------------------
+
+session key issue on windows?
+
+------------------------------------------------------------------------------
+
+torverhältnis in stats?
+
+bekommene tore in statistik
+
+------------------------------------------------------------------------------
+
+fixed number of players in soccer game
+2-2 / 1-1
+
+cancel match if one player leaves?
+
+team names into match table
+
+------------------------------------------------------------------------------
+
+weight elo update result with time on each team
+
+weight elo k-factor based on time in game, count whole game if quitting
+
+
+
+need to account for different team sizes in ranking calculation...
+limit matches to equal player numbers?
+use sum of ranks so uneven teams will be punished severely?
+
+
+store number of matches, adjust K-factor
+
+
+don't display rating before a certain number of games are played
+
+------------------------------------------------------------------------------
+stats nice to have:
+
+accuracy
+shot distribution tank / ball
+ram kills
+avg/min/max time to live
+distribution tractor beam / cannon
+
+------------------------------------------------------------------------------
+
+
+    There are 4 players in a Gang of Four game. Let's name A the
+winning player, B the second one, C the third one and D the last
+one. We consider that there were 6 duels: A won against B, C and D. B
+won against C and D. C won against D. We compute independently the new
+scores for each duel, and then we average the values for each player.
+
+
+------------------------------------------------------------------------------
+
+have hosting (server) stats, too
+number of players per hour, day etc
+need server identifiers, same as hosting player id? or do that by IP?
+
+total players per hour/day etc.
+
+------------------------------------------------------------------------------
+
+plausibility checks:
+
+matching player session keys, server id
+
+what to do on plausibility mismatch? drop whole log? no, 
+drop player only
+

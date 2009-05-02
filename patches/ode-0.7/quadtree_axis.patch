@@ -1,0 +1,15 @@
+Index: ode/src/collision_quadtreespace.cpp
+===================================================================
+--- ode/src/collision_quadtreespace.cpp	(revision 1316)
++++ ode/src/collision_quadtreespace.cpp	(working copy)
+@@ -32,8 +32,8 @@
+ 
+ 
+ #define AXIS0 0
+-#define AXIS1 1
+-#define UP 2
++#define AXIS1 2
++#define UP 1
+ 
+ //#define DRAWBLOCKS
+ 

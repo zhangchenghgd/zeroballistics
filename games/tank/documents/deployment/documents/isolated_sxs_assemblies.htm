@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="ctl00_Html1" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-us"><head id="ctl00_Head1"><!-- MTPS 0606 --><meta content="BlendTrans(Duration=0.1)" http-equiv="Page-Exit"><link href="isolated_sxs_assemblies_files/global.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="isolated_sxs_assemblies_files/broker.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ms.locale" content="en-us">
+<meta name="robots" content="NOINDEX,NOFOLLOW">
+<meta name="MN" content="882-2:31:13 AM"><meta name="MSHKeywordK" content="troubleshooting isolated applications">
+<meta name="Search.MSHKeywordK" content="troubleshooting isolated applications">
+<meta name="MSHKeywordK" content="troubleshooting side-by-side assemblies">
+<meta name="Search.MSHKeywordK" content="troubleshooting side-by-side assemblies">
+<meta name="MSHKeywordK" content="troubleshooting Visual C++">
+<meta name="Search.MSHKeywordK" content="troubleshooting Visual C++">
+<meta name="MSHKeywordA" content="3257257a-1f0b-4ede-8564-9277a7113a35">
+<meta name="Search.MSHKeywordA" content="3257257a-1f0b-4ede-8564-9277a7113a35">
+<meta name="MSHAttr" content="DocSetTitle:C/C++ Compiler Reference">
+<meta name="Search.DocSetTitle" content="C/C++ Compiler Reference">
+<meta name="MSHAttr" content="DocSetRoot:ms235342">
+<meta name="Search.DocSetRoot" content="ms235342">
+<meta name="MSHAttr" content="RevisionNumber:13">
+<meta name="Search.RevisionNumber" content="13">
+<meta name="MSHAttr" content="DevLang:C++">
+<meta name="Search.DevLang" content="C++">
+<meta name="MSHAttr" content="DocSet:ExpressLibVS">
+<meta name="Search.DocSet" content="ExpressLibVS">
+<meta name="MSHAttr" content="DocSet:Visual C++">
+<meta name="Search.DocSet" content="Visual C++">
+<meta name="MSHAttr" content="DocSet:Visual C++ Lang">
+<meta name="Search.DocSet" content="Visual C++ Lang">
+<meta name="MSHAttr" content="Product:VC">
+<meta name="Search.Product" content="VC">
+<meta name="MSHAttr" content="ShippedIn:vs.80">
+<meta name="Search.ShippedIn" content="vs.80">
+<meta name="MSHAttr" content="Technology:ManagedCode">
+<meta name="Search.Technology" content="ManagedCode">
+<meta name="MSHAttr" content="TopicVersion:08.00.60430.10000">
+<meta name="Search.TopicVersion" content="08.00.60430.10000">
+<meta name="MSHAttr" content="Locale:en-us">
+<meta name="Search.Locale" content="en-us">
+<meta name="MSHAttr" content="AssetID:3257257a-1f0b-4ede-8564-9277a7113a35">
+<meta name="Search.AssetID" content="3257257a-1f0b-4ede-8564-9277a7113a35">
+<meta name="MSHAttr" content="TopicType:kbArticle">
+<meta name="Search.TopicType" content="kbArticle">
+<meta name="Description" content="Loading a C/C++ application can fail if dependent Visual C++ libraries cannot be found. A list of potential runtime errors can be found in Redistributing Visual C++ Files. In this section the most common reasons for a C/C++ application failing to load are described, with proposed steps to resolve the problems.">
+<meta name="Search.Description" content="Loading a C/C++ application can fail if dependent Visual C++ libraries cannot be found. A list of potential runtime errors can be found in Redistributing Visual C++ Files. In this section the most common reasons for a C/C++ application failing to load are described, with proposed steps to resolve the problems.">
+<meta name="MSHAttr" content="Abstract:Loading a C/C++ application can fail if dependent Visual C++ libraries cannot be found. A list of potential runtime errors can be found in Redistributing Visual C++ Files. In this section the most common reasons for a C/C++ application failing to load are described, with proposed steps to resolve the problems.">
+<meta name="Search.Abstract" content="Loading a C/C++ application can fail if dependent Visual C++ libraries cannot be found. A list of potential runtime errors can be found in Redistributing Visual C++ Files. In this section the most common reasons for a C/C++ application failing to load are described, with proposed steps to resolve the problems.">
+<meta name="MSHAttr" content="MScategory:ms01zczd">
+<meta name="Search.MScategory" content="ms01zczd">
+<meta name="MSHAttr" content="MScategory:ms302012">
+<meta name="Search.MScategory" content="ms302012">
+<meta name="MSHAttr" content="MScategory:ms302019">
+<meta name="Search.MScategory" content="ms302019">
+<meta name="MSHAttr" content="MScategory:ms300426">
+<meta name="Search.MScategory" content="ms300426">
+<meta name="MSHAttr" content="MScategory:ms235342">
+<meta name="Search.MScategory" content="ms235342">
+<meta name="MSHAttr" content="ShippedIn:VS.80">
+<meta name="Search.ShippedIn" content="VS80">
+<meta name="MSHAttr" content="OnlineHelp:VS2005">
+<meta name="Search.OnlineHelp" content="VS2005">
+<link rel="stylesheet" type="text/css" href="isolated_sxs_assemblies_files/DeepTreePageType_master.css">
+<link rel="alternate" media="print" href="http://msdn2.microsoft.com/en-us/library/ms235342%28d=printer%29.aspx">
+<link rel="stylesheet" type="text/css" href="isolated_sxs_assemblies_files/css.css">
+<script src="isolated_sxs_assemblies_files/js.js" type="text/javascript"></script><!--[if IE]>
+       <style>
+        pre { white-space: normal; }
+
+.TBLMAIN_MTPS_RatingCtrl_Footer
+{   
+}
+
+.TBLOUTER_MTPS_RatingCtrl_PrintMailFav_Footer
+{    
+}
+
+.DIV_MTPS_RatingCtrl_Header
+{
+    	
+}
+	body {overflow-x:auto}
+.head {}
+        .contentPanel {right:-17px;overflow:scroll ! important;padding: 0px 0px 0px 0px ! important;}
+	.tocPanel {overflow-x:scroll ! important;}
+	.RightPanel { margin-right:-15px;}
+        </style><![endif]-->
+
+        
+    <script language="javascript" type="text/javascript">
+var MtpsTocCtrlTopName;
+var ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data = new Object();
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.images = null;
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.collapseToolTip = "Collapse {0}";
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.expandToolTip = "Expand {0}";
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.expandState = null;
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.selectedNodeID = null;
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.hoverClass = '';
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.hoverHyperLinkClass = '';
+</script><title>Troubleshooting C/C++ Isolated Applications and Side-by-side Assemblies</title>
+<style type="text/css">
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 { text-decoration:none; }
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1 { color:Black;font-family:Verdana;font-size:70%; }
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2 { padding:2px 3px 2px 3px; }
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_3 { color:White; }
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_4 { background-color:#999999; }
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_5 { color:Black; }
+	.ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_6 { color:Black;background-color:#CCCCCC; }
+
+</style></head>
+
+
+
+<body id="ctl00_MTPS_Body" onload="DoControlSetup(); windowLoaded(event); document.body.onresize=FetchResizableAreaCells; window.onresize=FetchResizableAreaCells;; SetFilterText(); ">
+    <form name="aspnetForm" method="post" action="ms235342.aspx" id="aspnetForm">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ExpandState" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ExpandState" value="eeeccnccccecccccceccennncnccccccccccccnnnnccccccn" type="hidden">
+<input name="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_SelectedNode" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_SelectedNode" value="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet25" type="hidden">
+<input name="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_PopulateLog" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_PopulateLog" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUBMA9kFgJmD2QWAgIBD2QWAgIDDxYCHgZvbmxvYWQFkgFEb0NvbnRyb2xTZXR1cCgpOyB3aW5kb3dMb2FkZWQoZXZlbnQpOyBkb2N1bWVudC5ib2R5Lm9ucmVzaXplPUZldGNoUmVzaXphYmxlQXJlYUNlbGxzOyB3aW5kb3cub25yZXNpemU9RmV0Y2hSZXNpemFibGVBcmVhQ2VsbHM7OyBTZXRGaWx0ZXJUZXh0KCk7IBYCAgEPZBYEAgEPZBYCAgEPZBYMAgEPDxYEHgRUZXh0ZR4HVG9vbFRpcAUHTVNETiANCmRkAgMPDxYCHghJbWFnZVVybAUwL21zZG4vQ29udHJvbHMvTVRQU19CYW5uZXJDdHJsL2VuLXVzL21zZG50b3AuanBnZGQCBQ8WAh4FY2xhc3MFFU1UUFNfQnJhbmRDb2xvcjFfbXNkbmQCBw8WAh8EBRVNVFBTX0JyYW5kQ29sb3IyX21zZG4WAmYPDxYGHwMFLS9tc2RuL0NvbnRyb2xzL01UUFNfQmFubmVyQ3RybC9lbi11cy9tc2RuLmpwZx4LTmF2aWdhdGVVcmwFGmh0dHA6Ly9tc2RuLm1pY3Jvc29mdC5jb20vHwIFBE1TRE5kZAIJDw8WAh8DBTMvbXNkbi9Db250cm9scy9NVFBTX0Jhbm5lckN0cmwvZW4tdXMvbXNkbmJvdHRvbS5qcGdkZAILDxYCHwQFFU1UUFNfQnJhbmRDb2xvcjNfbXNkbhYCAgEPZBYEAgEPDxYEHwFlHwJlZGQCBQ8PFgQfAQUGU2VhcmNoHwIFFENsaWNrIGhlcmUgdG8gc2VhcmNoZGQCAw9kFgJmD2QWBmYPZBYCAgEPZBYCAgEPZBYCAgEPPCsACQIADxYKHhJFeHBhbmRJbWFnZVRvb2xUaXAFCkV4cGFuZCB7MH0eCUxhc3RJbmRleAIxHgxTZWxlY3RlZE5vZGUFL2N0bDAwX0xpYkZyYW1lX0RlZXBUcmVlQ29udHJvbDFfTXRwc0RlZXBUcmVldDI1Hg1OZXZlckV4cGFuZGVkZB4UQ29sbGFwc2VJbWFnZVRvb2xUaXAFDENvbGxhcHNlIHswfWQIFCsAAgUDMDowFCsAAhYQHwEFDE1TRE4gTGlicmFyeR4QUG9wdWxhdGVPbkRlbWFuZGgeBVZhbHVlBQRudWxsHgxJbWFnZVRvb2xUaXAFDE1TRE4gTGlicmFyeR8CBQxNU0ROIExpYnJhcnkfBQUbL2VuLXVzL2xpYnJhcnkvZGVmYXVsdC5hc3B4HghFeHBhbmRlZGceCVBvcHVsYXRlZGcUKwAJBR8wOjAsMDoxLDA6MiwwOjMsMDo0LDA6NSwwOjYsMDo3FCsAAhYMHwEFH0RldmVsb3BtZW50IFRvb2xzIGFuZCBMYW5ndWFnZXMfAgUfRGV2ZWxvcG1lbnQgVG9vbHMgYW5kIExhbmd1YWdlcx8LaB8MBRwvZW4tdXMvbGlicmFyeS9tczMxMDI0Mi5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L21zMzEwMjQyLmFzcHgfDmcUKwAIBRswOjAsMDoxLDA6MiwwOjMsMDo0LDA6NSwwOjYUKwACFgwfAQUNVmlzdWFsIFN0dWRpbx8CBQ1WaXN1YWwgU3R1ZGlvHwtoHwwFHC9lbi11cy9saWJyYXJ5L21zMjY5MTE1LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMyNjkxMTUuYXNweB8OZxQrABAFQDA6MCwwOjEsMDoyLDA6MywwOjQsMDo1LDA6NiwwOjcsMDo4LDA6OSwwOjEwLDA6MTEsMDoxMiwwOjEzLDA6MTQUKwACFgofAQUZSW50cm9kdWNpbmcgVmlzdWFsIFN0dWRpbx8CBRlJbnRyb2R1Y2luZyBWaXN1YWwgU3R1ZGlvHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzA2MDU5LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvZng2YmsxZjQuYXNweGQUKwACFgofAQU0SW50ZWdyYXRlZCBEZXZlbG9wbWVudCBFbnZpcm9ubWVudCBmb3IgVmlzdWFsIFN0dWRpbx8CBTRJbnRlZ3JhdGVkIERldmVsb3BtZW50IEVudmlyb25tZW50IGZvciBWaXN1YWwgU3R1ZGlvHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzA2MDYwLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvaDh3Nzl6MTAuYXNweGQUKwACFggfAQUsRGVjaWRpbmcgV2hpY2ggVGVjaG5vbG9naWVzIGFuZCBUb29scyBUbyBVc2UfAgUsRGVjaWRpbmcgV2hpY2ggVGVjaG5vbG9naWVzIGFuZCBUb29scyBUbyBVc2UfC2gfBQUcL2VuLXVzL2xpYnJhcnkvMXpjeGRoM3kuYXNweGQUKwACFgofAQU0V2luZG93cy1iYXNlZCBBcHBsaWNhdGlvbnMsIENvbXBvbmVudHMsIGFuZCBTZXJ2aWNlcx8CBTRXaW5kb3dzLWJhc2VkIEFwcGxpY2F0aW9ucywgQ29tcG9uZW50cywgYW5kIFNlcnZpY2VzHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMjk5Njk0LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMxNzE1MjYuYXNweGQUKwACFgofAQUrLk5FVCBGcmFtZXdvcmsgUHJvZ3JhbW1pbmcgaW4gVmlzdWFsIFN0dWRpbx8CBSsuTkVUIEZyYW1ld29yayBQcm9ncmFtbWluZyBpbiBWaXN1YWwgU3R1ZGlvHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMjk5NzAzLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvazFzOTRmdGEuYXNweGQUKwACFgofAQUMVmlzdWFsIEJhc2ljHwIFDFZpc3VhbCBCYXNpYx8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczI5OTc5MS5hc3B4HwUFHC9lbi11cy9saWJyYXJ5LzJ4N2gxaGZrLmFzcHhkFCsAAhYKHwEFCVZpc3VhbCBDIx8CBQlWaXN1YWwgQyMfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMyOTc0MTAuYXNweB8FBRwvZW4tdXMvbGlicmFyeS9reDM3eDM2Mi5hc3B4ZBQrAAIWDB8BBQpWaXN1YWwgQysrHwIFClZpc3VhbCBDKysfC2gfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMDIwMTIuYXNweB8FBRwvZW4tdXMvbGlicmFyeS82MGsxNDYxYS5hc3B4Hw5nFCsACgUjMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2LDA6NywwOjgUKwACFgofAQUPR2V0dGluZyBTdGFydGVkHwIFD0dldHRpbmcgU3RhcnRlZB8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczMwMDUzNS5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L3pkYmUwNjdlLmFzcHhkFCsAAhYKHwEFEVByb2dyYW1taW5nIEd1aWRlHwIFEVByb2dyYW1taW5nIEd1aWRlHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzAwMzAxLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMxNzMyNTEuYXNweGQUKwACFgofAQUKRGVwbG95bWVudB8CBQpEZXBsb3ltZW50HwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzAwMzkzLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvemVidzV6azkuYXNweGQUKwACFgofAQUeUG9ydGluZyBhbmQgVXBncmFkaW5nIFByb2dyYW1zHwIFHlBvcnRpbmcgYW5kIFVwZ3JhZGluZyBQcm9ncmFtcx8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczMwMDM5OC5hc3B4HwUFHC9lbi11cy9saWJyYXJ5LzdoZmFia2V6LmFzcHhkFCsAAhYKHwEFF1NlY3VyaXR5IEJlc3QgUHJhY3RpY2VzHwIFF1NlY3VyaXR5IEJlc3QgUHJhY3RpY2VzHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzAwNTIzLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvazNhM2h6dzcuYXNweGQUKwACFgofAQUpQ3JlYXRpbmcgYW5kIE1hbmFnaW5nIFZpc3VhbCBDKysgUHJvamVjdHMfAgUpQ3JlYXRpbmcgYW5kIE1hbmFnaW5nIFZpc3VhbCBDKysgUHJvamVjdHMfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMDA2MzIuYXNweB8FBRwvZW4tdXMvbGlicmFyeS80NDU3aHR5Yy5hc3B4ZBQrAAIWDB8BBRhCdWlsZGluZyBhIEMvQysrIFByb2dyYW0fAgUYQnVpbGRpbmcgYSBDL0MrKyBQcm9ncmFtHwtoHwwFHC9lbi11cy9saWJyYXJ5L21zMzAyMDE5LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvejdreDMyMnguYXNweB8OZxQrAAUFDzA6MCwwOjEsMDoyLDA6MxQrAAIWCh8BBSZCdWlsZGluZyBDKysgUHJvamVjdHMgaW4gVmlzdWFsIFN0dWRpbx8CBSZCdWlsZGluZyBDKysgUHJvamVjdHMgaW4gVmlzdWFsIFN0dWRpbx8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczMwMDM5Ni5hc3B4HwUFHC9lbi11cy9saWJyYXJ5LzdzODhiMTllLmFzcHhkFCsAAhYKHwEFHEJ1aWxkaW5nIG9uIHRoZSBDb21tYW5kIExpbmUfAgUcQnVpbGRpbmcgb24gdGhlIENvbW1hbmQgTGluZR8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczMwMDQwNC5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L2YzNWN0Y3h3LmFzcHhkFCsAAhYOHwEFQEJ1aWxkaW5nIEMvQysrIElzb2xhdGVkIEFwcGxpY2F0aW9ucyBhbmQgU2lkZS1ieS1zaWRlIEFzc2VtYmxpZXMfAgVAQnVpbGRpbmcgQy9DKysgSXNvbGF0ZWQgQXBwbGljYXRpb25zIGFuZCBTaWRlLWJ5LXNpZGUgQXNzZW1ibGllcx8LaB8MBRwvZW4tdXMvbGlicmFyeS9tczMwMDQyNi5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L21zMjM1NTMyLmFzcHgfDmceCFNlbGVjdGVkaBQrAAYFEzA6MCwwOjEsMDoyLDA6MywwOjQUKwACFggfAQU9Q29uY2VwdHMgb2YgSXNvbGF0ZWQgQXBwbGljYXRpb25zIGFuZCBTaWRlLWJ5LXNpZGUgQXNzZW1ibGllcx8CBT1Db25jZXB0cyBvZiBJc29sYXRlZCBBcHBsaWNhdGlvbnMgYW5kIFNpZGUtYnktc2lkZSBBc3NlbWJsaWVzHwtoHwUFHC9lbi11cy9saWJyYXJ5L21zMjM1NTMxLmFzcHhkFCsAAhYIHwEFJEJ1aWxkaW5nIEMvQysrIElzb2xhdGVkIEFwcGxpY2F0aW9ucx8CBSRCdWlsZGluZyBDL0MrKyBJc29sYXRlZCBBcHBsaWNhdGlvbnMfC2gfBQUcL2VuLXVzL2xpYnJhcnkvbXMyMzU1MjQuYXNweGQUKwACFggfAQUmQnVpbGRpbmcgQy9DKysgU2lkZS1ieS1zaWRlIEFzc2VtYmxpZXMfAgUmQnVpbGRpbmcgQy9DKysgU2lkZS1ieS1zaWRlIEFzc2VtYmxpZXMfC2gfBQUcL2VuLXVzL2xpYnJhcnkvbXMyMzU1MTIuYXNweGQUKwACFgofAQU0VW5kZXJzdGFuZGluZyBNYW5pZmVzdCBHZW5lcmF0aW9uIGZvciBDL0MrKyBQcm9ncmFtcx8CBTRVbmRlcnN0YW5kaW5nIE1hbmlmZXN0IEdlbmVyYXRpb24gZm9yIEMvQysrIFByb2dyYW1zHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzAwNDI3LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMyMzU1NDIuYXNweGQUKwACFgofAQUPVHJvdWJsZXNob290aW5nHwIFD1Ryb3VibGVzaG9vdGluZx8LaB8FBRwvZW4tdXMvbGlicmFyeS9tczIzNTM0Mi5hc3B4HxBnZBQrAAIWCh8BBRhDL0MrKyBCdWlsZGluZyBSZWZlcmVuY2UfAgUYQy9DKysgQnVpbGRpbmcgUmVmZXJlbmNlHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzAwNDI4LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvOTE2MjF3MDEuYXNweGQUKwACFgofAQUJUmVmZXJlbmNlHwIFCVJlZmVyZW5jZR8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczMwMjAyNi5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L3R5OWh4MDc3LmFzcHhkFCsAAhYKHwEFB1NhbXBsZXMfAgUHU2FtcGxlcx8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczMwMjAyNy5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L2h5ZHMyZnkxLmFzcHhkFCsAAhYKHwEFCVZpc3VhbCBKIx8CBQlWaXN1YWwgSiMfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMDI0NjYuYXNweB8FBRwvZW4tdXMvbGlicmFyeS83eHN4ZjhlMi5hc3B4ZBQrAAIWCh8BBQdKU2NyaXB0HwIFB0pTY3JpcHQfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMyOTk0NzUuYXNweB8FBRwvZW4tdXMvbGlicmFyeS83MmJkODE1YS5hc3B4ZBQrAAIWCh8BBRRWaXN1YWwgV2ViIERldmVsb3Blch8CBRRWaXN1YWwgV2ViIERldmVsb3Blch8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczI2OTExNi5hc3B4HwUFHC9lbi11cy9saWJyYXJ5L21zMTc4MDkzLmFzcHhkFCsAAhYKHwEFHlZpc3VhbCBTdHVkaW8gVG9vbHMgZm9yIE9mZmljZR8CBR5WaXN1YWwgU3R1ZGlvIFRvb2xzIGZvciBPZmZpY2UfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMyNjkxMjAuYXNweB8FBRwvZW4tdXMvbGlicmFyeS9kMnR4N3o2ZC5hc3B4ZBQrAAIWCh8BBRhTbWFydCBEZXZpY2UgRGV2ZWxvcG1lbnQfAgUYU21hcnQgRGV2aWNlIERldmVsb3BtZW50HwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMjk3NjYyLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvc2E2OWhlNHQuYXNweGQUKwACFgofAQUSVG9vbHMgYW5kIEZlYXR1cmVzHwIFElRvb2xzIGFuZCBGZWF0dXJlcx8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczI2OTEyMS5hc3B4HwUFHC9lbi11cy9saWJyYXJ5LzI0YTlzNjkwLmFzcHhkFCsAAhYKHwEFGUdsb3NzYXJ5ICguTkVUIEZyYW1ld29yaykfAgUZR2xvc3NhcnkgKC5ORVQgRnJhbWV3b3JrKR8LZx8MBRwvZW4tdXMvbGlicmFyeS9tczI2OTEyNC5hc3B4HwUFHC9lbi11cy9saWJyYXJ5LzZjNzAxYjh3LmFzcHhkFCsAAhYKHwEFEVZpc3VhbCBTb3VyY2VTYWZlHwIFEVZpc3VhbCBTb3VyY2VTYWZlHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMjk5MjkxLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMyOTkyOTEuYXNweGQUKwACFgofAQUZVmlzdWFsIFN0dWRpbyBUZWFtIFN5c3RlbR8CBRlWaXN1YWwgU3R1ZGlvIFRlYW0gU3lzdGVtHwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzA0NjI0LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMzMDQ2MjQuYXNweGQUKwACFggfAQUpLk5FVCBGcmFtZXdvcmsgU0RLIChzZWUgLk5FVCBEZXZlbG9wbWVudCkfAgUpLk5FVCBGcmFtZXdvcmsgU0RLIChzZWUgLk5FVCBEZXZlbG9wbWVudCkfC2gfBQU2aHR0cDovL21zZG4yLm1pY3Jvc29mdC5jb20vZW4tdXMvbGlicmFyeS9tczMxMDI0Ni5hc3B4ZBQrAAIWCB8BBRJWaXN1YWwgU3R1ZGlvIC5ORVQfAgUSVmlzdWFsIFN0dWRpbyAuTkVUHwtoHwUFRWh0dHA6Ly9tc2RuLm1pY3Jvc29mdC5jb20vbGlicmFyeS9lbi11cy9kbmFuY2hvci9odG1sL3ZzbmV0YW5jaG9yLmFzcGQUKwACFggfAQURVmlzdWFsIFN0dWRpbyA2LjAfAgURVmlzdWFsIFN0dWRpbyA2LjAfC2gfBQVEaHR0cDovL21zZG4ubWljcm9zb2Z0LmNvbS9saWJyYXJ5L2VuLXVzL2RuYW5jaG9yL2h0bWwvdnM2MGFuY2hvci5hc3BkFCsAAhYIHwEFDVZpc3VhbCBGb3hQcm8fAgUNVmlzdWFsIEZveFBybx8LaB8FBUNodHRwOi8vbXNkbi5taWNyb3NvZnQuY29tL2xpYnJhcnkvZW4tdXMvZG5hbmNob3IvaHRtbC92ZnBhbmNob3IuYXNwZBQrAAIWCh8BBR9Nb2JpbGUgYW5kIEVtYmVkZGVkIERldmVsb3BtZW50HwIFH01vYmlsZSBhbmQgRW1iZWRkZWQgRGV2ZWxvcG1lbnQfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMTAyNDMuYXNweB8FBRwvZW4tdXMvbGlicmFyeS9tczMxMDI0My5hc3B4ZBQrAAIWCh8BBRAuTkVUIERldmVsb3BtZW50HwIFEC5ORVQgRGV2ZWxvcG1lbnQfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMTAyNDUuYXNweB8FBRwvZW4tdXMvbGlicmFyeS9tczMxMDI0NS5hc3B4ZBQrAAIWCh8BBRxPZmZpY2UgU29sdXRpb25zIERldmVsb3BtZW50HwIFHE9mZmljZSBTb2x1dGlvbnMgRGV2ZWxvcG1lbnQfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMTM4NjYuYXNweB8FBRwvZW4tdXMvbGlicmFyeS9tczMxMzg2Ni5hc3B4ZBQrAAIWCh8BBSJFbnRlcnByaXNlIFNlcnZlcnMgYW5kIERldmVsb3BtZW50HwIFIkVudGVycHJpc2UgU2VydmVycyBhbmQgRGV2ZWxvcG1lbnQfC2cfDAUcL2VuLXVzL2xpYnJhcnkvbXMzMTM4NjcuYXNweB8FBRwvZW4tdXMvbGlicmFyeS9tczMxMzg2Ny5hc3B4ZBQrAAIWCh8BBQ9XZWIgRGV2ZWxvcG1lbnQfAgUPV2ViIERldmVsb3BtZW50HwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzEzODY5LmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMzMTM4NjkuYXNweGQUKwACFgofAQUZV2luMzIgYW5kIENPTSBEZXZlbG9wbWVudB8CBRlXaW4zMiBhbmQgQ09NIERldmVsb3BtZW50HwtnHwwFHC9lbi11cy9saWJyYXJ5L21zMzEzODcwLmFzcHgfBQUcL2VuLXVzL2xpYnJhcnkvbXMzMTM4NzAuYXNweGQUKwACFggfAQUUTVNETiBMaWJyYXJ5IEFyY2hpdmUfAgUUTVNETiBMaWJyYXJ5IEFyY2hpdmUfC2gfBQUtaHR0cDovL21zZG4ubWljcm9zb2Z0LmNvbS9hcmNoaXZlL2RlZmF1bHQuYXNwZGQCAg8PFgIfAgVJQ2xpY2sgYW5kIGRyYWcgdG8gcmVzaXplLiBEb3VibGUgY2xpY2sgb3IgcHJlc3MgJ3QnIHRvIHRvZ2dsZSB2aXNpYmlsaXR5LmRkAgMPZBYGAgEPZBYIAgEPDxYCHglQYWdlVGl0bGUFR1Ryb3VibGVzaG9vdGluZyBDL0MrKyBJc29sYXRlZCBBcHBsaWNhdGlvbnMgYW5kIFNpZGUtYnktc2lkZSBBc3NlbWJsaWVzZBYCZg9kFgJmDw8WAh8BBR5BdmVyYWdlIHJhdGluZzogMi40NCBvdXQgb2YgOS5kZAIDDw8WAh4HVmlzaWJsZWhkZAIHD2QWAgIBDw8WAh8SaGRkAgkPZBYCZg9kFgQCAQ8WBB4JaW5uZXJodG1sBQ1SZWxhdGVkIFBhZ2VzHxJnZAIDDxYCHgtfIUl0ZW1Db3VudAIBFgICAQ9kFgICAQ8PFgIfBQUVbXMyMzUyOTkoZW4tdXMsVlMuODApZBYCZg8VAR9SZWRpc3RyaWJ1dGluZyBWaXN1YWwgQysrIEZpbGVzZAIDDw8WAh8RBUdUcm91Ymxlc2hvb3RpbmcgQy9DKysgSXNvbGF0ZWQgQXBwbGljYXRpb25zIGFuZCBTaWRlLWJ5LXNpZGUgQXNzZW1ibGllc2QWAmYPZBYCAgEPZBYCAgEPZBYCZg8PFgIfAQUeQXZlcmFnZSByYXRpbmc6IDIuNDQgb3V0IG9mIDkuZGQCBQ9kFgQCAQ8WAh8EBRRNVFBTX0Zvb3RlckZhZGVfbXNkbhYKAgEPDxYEHghDc3NDbGFzcwUVTVRQU19Gb290ZXJMaW5rc19tc2RuHgRfIVNCAgJkZAIDDw8WCB8BBTYmY29weTsyMDA2IE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC4fAgUywqkyMDA2IE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC4fFQUZTVRQU19Gb290ZXJDb3B5cmlnaHRfbXNkbh8WAgJkZAIFDw8WCh8FBStodHRwOi8vd3d3Lm1pY3Jvc29mdC5jb20vaW5mby9jcHlyaWdodC5tc3B4HwIFDFRlcm1zIG9mIFVzZR8BBQxUZXJtcyBvZiBVc2UfFQUVTVRQU19Gb290ZXJMaW5rc19tc2RuHxYCAmRkAgcPDxYKHwUFQmh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS9saWJyYXJ5L3Rvb2xiYXIvMy4wL3RyYWRlbWFya3MvZW4tdXMubXNweB8CBQpUcmFkZW1hcmtzHwEFClRyYWRlbWFya3MfFQUVTVRQU19Gb290ZXJMaW5rc19tc2RuHxYCAmRkAgkPDxYKHwUFKmh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS9pbmZvL3ByaXZhY3kubXNweB8CBRFQcml2YWN5IFN0YXRlbWVudB8BBRFQcml2YWN5IFN0YXRlbWVudB8VBRVNVFBTX0Zvb3RlckxpbmtzX21zZG4fFgICZGQCAw8WAh8EBRRNVFBTX0Zvb3RlckxvZ29fbXNkbhYCAgEPDxYGHg1BbHRlcm5hdGVUZXh0BRVNaWNyb3NvZnQgQ29ycG9yYXRpb24fAwUzL21zZG4vQ29udHJvbHMvTVRQU19Gb290ZXJDdHJsL2VuLXVzL21zZG5tc2xvZ28uanBnHwIFFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbmRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYPBSxjdGwwMCRMaWJGcmFtZSREZWVwVHJlZUNvbnRyb2wxJE10cHNEZWVwVHJlZQUzY3RsMDAkTGliRnJhbWUkZGRmUGxhY2VIb2xkZXIkRHJvcERvd25MbmdGaWx0ZXJDdHJsBTNjdGwwMCRMaWJGcmFtZSRkZGZQbGFjZUhvbGRlciREcm9wRG93bkxuZ0ZpbHRlckN0cmwFM2N0bDAwJExpYkZyYW1lJGRkZlBsYWNlSG9sZGVyJERyb3BEb3duTG5nRmlsdGVyQ3RybAUzY3RsMDAkTGliRnJhbWUkZGRmUGxhY2VIb2xkZXIkRHJvcERvd25MbmdGaWx0ZXJDdHJsBTNjdGwwMCRMaWJGcmFtZSRkZGZQbGFjZUhvbGRlciREcm9wRG93bkxuZ0ZpbHRlckN0cmwFOGN0bDAwJExpYkZyYW1lJENvbnRlbnRSYXRpbmcyJE10cHNfUmF0aW5nc19SYWRpb0J1dHRvbl8wBThjdGwwMCRMaWJGcmFtZSRDb250ZW50UmF0aW5nMiRNdHBzX1JhdGluZ3NfUmFkaW9CdXR0b25fMQU4Y3RsMDAkTGliRnJhbWUkQ29udGVudFJhdGluZzIkTXRwc19SYXRpbmdzX1JhZGlvQnV0dG9uXzIFOGN0bDAwJExpYkZyYW1lJENvbnRlbnRSYXRpbmcyJE10cHNfUmF0aW5nc19SYWRpb0J1dHRvbl8zBThjdGwwMCRMaWJGcmFtZSRDb250ZW50UmF0aW5nMiRNdHBzX1JhdGluZ3NfUmFkaW9CdXR0b25fNAU4Y3RsMDAkTGliRnJhbWUkQ29udGVudFJhdGluZzIkTXRwc19SYXRpbmdzX1JhZGlvQnV0dG9uXzUFOGN0bDAwJExpYkZyYW1lJENvbnRlbnRSYXRpbmcyJE10cHNfUmF0aW5nc19SYWRpb0J1dHRvbl82BThjdGwwMCRMaWJGcmFtZSRDb250ZW50UmF0aW5nMiRNdHBzX1JhdGluZ3NfUmFkaW9CdXR0b25fNwU4Y3RsMDAkTGliRnJhbWUkQ29udGVudFJhdGluZzIkTXRwc19SYXRpbmdzX1JhZGlvQnV0dG9uXziDiMGexPoQJ4NY7b8iU5TA6/iD/A==" type="hidden">
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="isolated_sxs_assemblies_files/WebResource.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!--
+    function TreeView_PopulateNodeDoCallBack(context,param) {
+        WebForm_DoCallback(context.data.treeViewID,param,TreeView_ProcessNodeData,context,TreeView_ProcessNodeData,false);
+    }
+// -->
+</script>
+
+<script type="text/javascript">
+<!--
+var detectedLocale = 'en-US';var selectedTocSyncUrl = "http://msdn2.microsoft.com/en-us/library/ms235342.aspx";// -->
+</script>
+
+<script src="isolated_sxs_assemblies_files/WebResource_002.js" type="text/javascript"></script>
+        <div id="ctl00_header" class="head">
+	
+            
+
+<div id="ctl00_BannerControl1_GlobalBanner">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody><tr>
+	      <td style="white-space: nowrap;" height="26"><span id="ctl00_BannerControl1_IRootFriendlyName" title="MSDN " class="GlobalizationTitle" style="height: 22px;"></span></td>
+	      <td style="white-space: nowrap;" height="26"><img id="ctl00_BannerControl1_TopFadeImage" src="isolated_sxs_assemblies_files/msdntop" alt="MSDN" style="border-width: 0px; height: 100%; width: 100%;"></td>
+	      <td id="ctl00_BannerControl1_BrandTopFadeEnd" style="white-space: nowrap;" class="MTPS_BrandColor1_msdn" align="right" height="26" valign="middle">
+	         <span id="ctl00_BannerControl1_GlobalToolbar" class="MTPS_GlobalToolbar"><a onclick="javascript:TrackThisClick('ctl00_BannerControl1_GlobalToolbar','ctl00_BannerControl1_GlobalToolbarLink0',this);" class="MTPS_GlobalToolbarLinks_msdn" href="http://www.microsoft.com/">Microsoft.com Home</a><span class="MTPS_GlobalToolbarSeparator_msdn">&nbsp;|&nbsp;</span><a onclick="javascript:TrackThisClick('ctl00_BannerControl1_GlobalToolbar','ctl00_BannerControl1_GlobalToolbarLink1',this);" class="MTPS_GlobalToolbarLinks_msdn" href="http://msdn.microsoft.com/library/toolbar/3.0/sitemap/en-us.mspx">Site Map</a></span>&nbsp;<a href="https://profile.microsoft.com/regsysprofilecenter/wizard.aspx?wizid=b28a479f-4189-428a-8f89-4ace6507a68c&amp;lcid=1033&amp;fu=http%3a%2f%2fprofile.microsoft.com%2fpersonalization%2fapplications%2fmsdnsync%2fsyncprofile.aspx%3fst%3d1%26ru%3dhttp%253a%252f%252fmsdn2.microsoft.com%252fen-us%252flibrary%252fms235342.aspx&amp;cu=http%3a%2f%2fmsdn2.microsoft.com%2fen-us%2flibrary%2fms235342.aspx"><img src="isolated_sxs_assemblies_files/signin.gif" class="passportsignin" alt="microsoft passport network" id="idsi" border="0"></a><!--8/9/2006 2:31:13 AM-->&nbsp;
+	      </td>
+	
+      </tr>
+
+      <tr>
+	      <td id="ctl00_BannerControl1_BrandLogoBackground" style="white-space: nowrap;" class="MTPS_BrandColor2_msdn" height="42" width="225"><a onclick="javascript:TrackThisClick('ctl00_BannerControl1_BrandLogoBackground','ctl00_BannerControl1_BrandLink',this);" class="MTPS_BrandLink1" href="http://msdn.microsoft.com/"><img src="isolated_sxs_assemblies_files/msdn" alt="MSDN" border="0"></a></td>
+	
+	      <td style="white-space: nowrap;" height="42"><img id="ctl00_BannerControl1_BottomFadeImage" src="isolated_sxs_assemblies_files/msdnbottom" alt="MSDN" style="border-width: 0px; height: 100%; width: 100%;"></td>
+	      <td id="ctl00_BannerControl1_BrandBottomFadeEnd" style="white-space: nowrap;" class="MTPS_BrandColor3_msdn" align="right" height="42" valign="top">
+	         <div style="white-space: nowrap;">
+	            <div id="ctl00_BannerControl1_SearchBar" class="MTPS_GlobalSearchBar1" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_BannerControl1_SearchBarButton')">
+		
+	               <span id="ctl00_BannerControl1_SearchBarLabel" class="SearchBarLabelText"></span>
+	               <input name="ctl00$BannerControl1$SearchBarTextbox" maxlength="200" id="ctl00_BannerControl1_SearchBarTextbox" class="SearchBarTextbox1" type="text">
+	               <input name="ctl00$BannerControl1$SearchBarButton" value="Search" id="ctl00_BannerControl1_SearchBarButton" title="Click here to search" class="SearchBarGoButton1" type="submit"><br>	               
+	            
+	</div>
+	         </div>
+	      </td>
+	
+      </tr>
+   </tbody></table>
+</div>
+            <div id="ctl00_ToolbarControl1_MPTS_Toolbar" class="MPTS_ToolbarPane1">
+		
+
+<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink0',this);" class="MPTS_ToolbarPane1_first_item" href="http://msdn2.microsoft.com/en-us/">MSDN Home</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink1',this);" href="http://msdn.microsoft.com/developercenters/">Developer Centers</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink2',this);" href="http://msdn.microsoft.com/library/">Library</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink3',this);" href="http://msdn.microsoft.com/downloads/">Downloads</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink4',this);" href="http://msdn.microsoft.com/howtobuy/">How To Buy</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink5',this);" href="http://msdn.microsoft.com/subscriptions/">Subscribers</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_ToolbarControl1_MPTS_Toolbar','ctl00_ToolbarControl1_LocalToolbarLink6',this);" href="http://msdn2.microsoft.com/en-us/my">My MSDN</a>
+	</div>
+        
+</div>
+        <div id="ctl00_LibFrame_ResizeContainer">
+	<div style="width: 282px;" id="ctl00_LibFrame_tocPanel" class="tocPanel">
+		
+                <div class="tocInner">
+			
+                    
+<script type="text/javascript" defer="defer">
+var MtpsTocCtrlTopName = "mtps_tocctrl_ascx";
+var selectedTocSyncUrl = selectedTocSyncUrl;
+</script>
+<div class="TreeView" id="mtps_tocctrl_ascx">
+<div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree">
+				<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen0" href="javascript:TreeView_ToggleNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,0,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen0'),' ',document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen0Nodes'))"><img src="isolated_sxs_assemblies_files/WebResource_003.gif" alt="Collapse MSDN Library" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/default.aspx" title="MSDN Library" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet0">MSDN Library</a></td>
+					</tr>
+				</tbody></table><div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen0Nodes" style="display: block;">
+					<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen1" href="javascript:TreeView_ToggleNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,1,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen1'),' ',document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen1Nodes'))"><img src="isolated_sxs_assemblies_files/WebResource_003.gif" alt="Collapse Development Tools and Languages" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms310242.aspx" title="Development Tools and Languages" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet1">Development Tools and Languages</a></td>
+						</tr>
+					</tbody></table><div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen1Nodes" style="display: block;">
+						<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen2" href="javascript:TreeView_ToggleNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,2,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen2'),' ',document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen2Nodes'))"><img src="isolated_sxs_assemblies_files/WebResource_003.gif" alt="Collapse Visual Studio" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms269115.aspx" title="Visual Studio" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet2">Visual Studio</a></td>
+							</tr>
+						</tbody></table><div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen2Nodes" style="display: block;">
+							<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen3" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,3,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen3'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet3'),null,' ','Introducing Visual Studio','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms306059.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Introducing Visual Studio" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/fx6bk1f4.aspx" title="Introducing Visual Studio" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet3">Introducing Visual Studio</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen4" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,4,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen4'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet4'),null,' ','Integrated Development Environment for Visual Studio','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms306060.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Integrated Development Environment for Visual Studio" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/h8w79z10.aspx" title="Integrated Development Environment for Visual Studio" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet4">Integrated Development Environment for Visual Studio</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/1zcxdh3y.aspx" title="Deciding Which Technologies and Tools To Use" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet5">Deciding Which Technologies and Tools To Use</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen6" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,6,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen6'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet6'),null,' ','Windows-based Applications, Components, and Services','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms299694.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Windows-based Applications, Components, and Services" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms171526.aspx" title="Windows-based Applications, Components, and Services" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet6">Windows-based Applications, Components, and Services</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen7" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,7,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen7'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet7'),null,' ','.NET Framework Programming in Visual Studio','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms299703.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand .NET Framework Programming in Visual Studio" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/k1s94fta.aspx" title=".NET Framework Programming in Visual Studio" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet7">.NET Framework Programming in Visual Studio</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen8" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,8,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen8'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet8'),null,' ','Visual Basic','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms299791.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual Basic" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/2x7h1hfk.aspx" title="Visual Basic" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet8">Visual Basic</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen9" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,9,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen9'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet9'),null,' ','Visual C#','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms297410.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual C#" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/kx37x362.aspx" title="Visual C#" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet9">Visual C#</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen10" href="javascript:TreeView_ToggleNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,10,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen10'),' ',document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen10Nodes'))"><img src="isolated_sxs_assemblies_files/WebResource_003.gif" alt="Collapse Visual C++" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/60k1461a.aspx" title="Visual C++" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet10">Visual C++</a></td>
+								</tr>
+							</tbody></table><div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen10Nodes" style="display: block;">
+								<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen11" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,11,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen11'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet11'),null,' ','Getting Started','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms300535.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Getting Started" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/zdbe067e.aspx" title="Getting Started" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet11">Getting Started</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen12" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,12,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen12'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet12'),null,' ','Programming Guide','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms300301.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Programming Guide" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms173251.aspx" title="Programming Guide" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet12">Programming Guide</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen13" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,13,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen13'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet13'),null,' ','Deployment','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms300393.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Deployment" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/zebw5zk9.aspx" title="Deployment" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet13">Deployment</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen14" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,14,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen14'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet14'),null,' ','Porting and Upgrading Programs','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms300398.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Porting and Upgrading Programs" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/7hfabkez.aspx" title="Porting and Upgrading Programs" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet14">Porting and Upgrading Programs</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen15" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,15,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen15'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet15'),null,' ','Security Best Practices','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms300523.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Security Best Practices" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/k3a3hzw7.aspx" title="Security Best Practices" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet15">Security Best Practices</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen16" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,16,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen16'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet16'),null,' ','Creating and Managing Visual C++ Projects','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms300632.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Creating and Managing Visual C++ Projects" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/4457htyc.aspx" title="Creating and Managing Visual C++ Projects" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet16">Creating and Managing Visual C++ Projects</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen17" href="javascript:TreeView_ToggleNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,17,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen17'),' ',document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen17Nodes'))"><img src="isolated_sxs_assemblies_files/WebResource_003.gif" alt="Collapse Building a C/C++ Program" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/z7kx322x.aspx" title="Building a C/C++ Program" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet17">Building a C/C++ Program</a></td>
+									</tr>
+								</tbody></table><div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen17Nodes" style="display: block;">
+									<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+										<tbody><tr>
+											<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen18" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,18,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen18'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet18'),null,' ','Building C++ Projects in Visual Studio','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms302019.aspx\\/en-us/library/ms300396.aspx','f','','tfffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Building C++ Projects in Visual Studio" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/7s88b19e.aspx" title="Building C++ Projects in Visual Studio" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet18">Building C++ Projects in Visual Studio</a></td>
+										</tr>
+									</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+										<tbody><tr>
+											<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen19" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,19,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen19'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet19'),null,' ','Building on the Command Line','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms302019.aspx\\/en-us/library/ms300404.aspx','f','','tfffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Building on the Command Line" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/f35ctcxw.aspx" title="Building on the Command Line" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet19">Building on the Command Line</a></td>
+										</tr>
+									</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+										<tbody><tr>
+											<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen20" href="javascript:TreeView_ToggleNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,20,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen20'),' ',document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen20Nodes'))"><img src="isolated_sxs_assemblies_files/WebResource_003.gif" alt="Collapse Building C/C++ Isolated Applications and Side-by-side Assemblies" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms235532.aspx" title="Building C/C++ Isolated Applications and Side-by-side Assemblies" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet20">Building C/C++ Isolated Applications and Side-by-side Assemblies</a></td>
+										</tr>
+									</tbody></table><div id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen20Nodes" style="display: block;">
+										<table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+											<tbody><tr>
+												<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms235531.aspx" title="Concepts of Isolated Applications and Side-by-side Assemblies" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet21">Concepts of Isolated Applications and Side-by-side Assemblies</a></td>
+											</tr>
+										</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+											<tbody><tr>
+												<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms235524.aspx" title="Building C/C++ Isolated Applications" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet22">Building C/C++ Isolated Applications</a></td>
+											</tr>
+										</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+											<tbody><tr>
+												<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms235512.aspx" title="Building C/C++ Side-by-side Assemblies" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet23">Building C/C++ Side-by-side Assemblies</a></td>
+											</tr>
+										</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+											<tbody><tr>
+												<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen24" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,24,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen24'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet24'),null,' ','Understanding Manifest Generation for C/C++ Programs','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms302019.aspx\\/en-us/library/ms300426.aspx\\/en-us/library/ms300427.aspx','f','','tffffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Understanding Manifest Generation for C/C++ Programs" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms235542.aspx" title="Understanding Manifest Generation for C/C++ Programs" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet24">Understanding Manifest Generation for C/C++ Programs</a></td>
+											</tr>
+										</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+											<tbody><tr>
+												<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_4" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_3" href="http://msdn2.microsoft.com/en-us/library/ms235342.aspx" title="Troubleshooting" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet25">Troubleshooting</a></td>
+											</tr>
+										</tbody></table>
+									</div><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+										<tbody><tr>
+											<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen26" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,26,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen26'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet26'),null,' ','C/C++ Building Reference','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms302019.aspx\\/en-us/library/ms300428.aspx','f','','tfffft')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand C/C++ Building Reference" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/91621w01.aspx" title="C/C++ Building Reference" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet26">C/C++ Building Reference</a></td>
+										</tr>
+									</tbody></table>
+								</div><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen27" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,27,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen27'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet27'),null,' ','Reference','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms302026.aspx','f','','tffff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Reference" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ty9hx077.aspx" title="Reference" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet27">Reference</a></td>
+									</tr>
+								</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+									<tbody><tr>
+										<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen28" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,28,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen28'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet28'),null,' ','Samples','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302012.aspx\\/en-us/library/ms302027.aspx','f','','tffft')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Samples" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/hyds2fy1.aspx" title="Samples" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet28">Samples</a></td>
+									</tr>
+								</tbody></table>
+							</div><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen29" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,29,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen29'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet29'),null,' ','Visual J#','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms302466.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual J#" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/7xsxf8e2.aspx" title="Visual J#" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet29">Visual J#</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen30" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,30,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen30'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet30'),null,' ','JScript','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms299475.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand JScript" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/72bd815a.aspx" title="JScript" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet30">JScript</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen31" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,31,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen31'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet31'),null,' ','Visual Web Developer','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms269116.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual Web Developer" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms178093.aspx" title="Visual Web Developer" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet31">Visual Web Developer</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen32" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,32,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen32'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet32'),null,' ','Visual Studio Tools for Office','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms269120.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual Studio Tools for Office" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/d2tx7z6d.aspx" title="Visual Studio Tools for Office" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet32">Visual Studio Tools for Office</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen33" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,33,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen33'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet33'),null,' ','Smart Device Development','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms297662.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Smart Device Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/sa69he4t.aspx" title="Smart Device Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet33">Smart Device Development</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen34" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,34,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen34'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet34'),null,' ','Tools and Features','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms269121.aspx','f','','tfff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Tools and Features" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/24a9s690.aspx" title="Tools and Features" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet34">Tools and Features</a></td>
+								</tr>
+							</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen35" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,35,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen35'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet35'),null,' ','Glossary (.NET Framework)','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms269115.aspx\\/en-us/library/ms269124.aspx','f','','tfft')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Glossary (.NET Framework)" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/6c701b8w.aspx" title="Glossary (.NET Framework)" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet35">Glossary (.NET Framework)</a></td>
+								</tr>
+							</tbody></table>
+						</div><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen36" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,36,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen36'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet36'),null,' ','Visual SourceSafe','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms299291.aspx','f','','tff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual SourceSafe" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms299291.aspx" title="Visual SourceSafe" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet36">Visual SourceSafe</a></td>
+							</tr>
+						</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen37" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,37,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen37'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet37'),null,' ','Visual Studio Team System','null\\/en-us/library/ms310242.aspx\\/en-us/library/ms304624.aspx','f','','tff')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Visual Studio Team System" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms304624.aspx" title="Visual Studio Team System" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet37">Visual Studio Team System</a></td>
+							</tr>
+						</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms310246.aspx" title=".NET Framework SDK (see .NET Development)" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet38">.NET Framework SDK (see .NET Development)</a></td>
+							</tr>
+						</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn.microsoft.com/library/en-us/dnanchor/html/vsnetanchor.asp" title="Visual Studio .NET" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet39">Visual Studio .NET</a></td>
+							</tr>
+						</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn.microsoft.com/library/en-us/dnanchor/html/vs60anchor.asp" title="Visual Studio 6.0" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet40">Visual Studio 6.0</a></td>
+							</tr>
+						</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td><div style="width: 17px; height: 1px;"></div></td><td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn.microsoft.com/library/en-us/dnanchor/html/vfpanchor.asp" title="Visual FoxPro" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet41">Visual FoxPro</a></td>
+							</tr>
+						</tbody></table>
+					</div><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen42" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,42,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen42'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet42'),null,' ','Mobile and Embedded Development','null\\/en-us/library/ms310243.aspx','f','','tf')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Mobile and Embedded Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms310243.aspx" title="Mobile and Embedded Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet42">Mobile and Embedded Development</a></td>
+						</tr>
+					</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen43" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,43,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen43'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet43'),null,' ','.NET Development','null\\/en-us/library/ms310245.aspx','f','','tf')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand .NET Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms310245.aspx" title=".NET Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet43">.NET Development</a></td>
+						</tr>
+					</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen44" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,44,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen44'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet44'),null,' ','Office Solutions Development','null\\/en-us/library/ms313866.aspx','f','','tf')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Office Solutions Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms313866.aspx" title="Office Solutions Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet44">Office Solutions Development</a></td>
+						</tr>
+					</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen45" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,45,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen45'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet45'),null,' ','Enterprise Servers and Development','null\\/en-us/library/ms313867.aspx','f','','tf')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Enterprise Servers and Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms313867.aspx" title="Enterprise Servers and Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet45">Enterprise Servers and Development</a></td>
+						</tr>
+					</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen46" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,46,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen46'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet46'),null,' ','Web Development','null\\/en-us/library/ms313869.aspx','f','','tf')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Web Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms313869.aspx" title="Web Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet46">Web Development</a></td>
+						</tr>
+					</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><a id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen47" href="javascript:TreeView_PopulateNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data,47,document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreen47'),document.getElementById('ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet47'),null,' ','Win32 and COM Development','null\\/en-us/library/ms313870.aspx','f','','tf')"><img src="isolated_sxs_assemblies_files/WebResource_002.gif" alt="Expand Win32 and COM Development" style="border-width: 0pt;"></a></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn2.microsoft.com/en-us/library/ms313870.aspx" title="Win32 and COM Development" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet47">Win32 and COM Development</a></td>
+						</tr>
+					</tbody></table><table style="border-width: 0pt;" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><div style="width: 17px; height: 1px;"></div></td><td><img src="isolated_sxs_assemblies_files/WebResource.gif" alt=""></td><td class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_2" onmouseover="TreeView_HoverNode(ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space: nowrap;"><a class="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_0 ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_1" href="http://msdn.microsoft.com/archive/default.asp" title="MSDN Library Archive" id="ctl00_LibFrame_DeepTreeControl1_MtpsDeepTreet48">MSDN Library Archive</a></td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div>
+</div><script type="text/javascript">var TocPanelHeight = "90px";</script>
+                
+		</div>
+            
+	</div>
+    <div style="left: 282px; width: 5px; background-image: url(/msdn/controls/resizablearea/en-us/lib_grippy.gif);" id="ctl00_LibFrame_ResizeSplitter" title="Click and drag to resize. Double click or press 't' to toggle visibility." class="SplitterBar" ondblclick="OpenClosePanel();" onmouseover="HighlightSplitterBar(this.id,0);" onmouseout="HighlightSplitterBar(this.id,1);" onmousedown="SelectSplitter();" onmouseup="SelectSplitter();">
+		
+            <div id="ctl00_LibFrame_SplitterInside" class="innerSplitter">
+
+		</div>
+    
+	</div><div style="left: 287px; width: 991px;" id="ctl00_LibFrame_contentPanel" class="contentPanel">
+		
+                <div id="ctl00_LibFrame_MtpsContentPanel" class="RightPanel">
+			
+                    <div id="ctl00_LibFrame_ContentRating1_HeaderDiv" class="DIV_MTPS_RatingCtrl_Header">
+				<span class="TEXT_MTPS_RatingCtrl_Label_Header">Average rating: 2.44 out of 9.</span>&nbsp;<a title="Rate this content" class="HLNK_MTPS_RatingCtrl_Header" href="#__PageRCtrl_Footer">Rate this page</a>
+			</div>
+                    
+                    <div id="ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane" class="CrumbCtrlClass">
+				<a onclick="javascript:TrackThisClick('ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane','ctl00_LibFrame_CrumbCtrl1_ctl00',this);" href="http://msdn2.microsoft.com/en-us/library/default.aspx">MSDN Library</a>&nbsp;&gt;&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane','ctl00_LibFrame_CrumbCtrl1_ctl01',this);" href="http://msdn2.microsoft.com/en-us/library/ms310242%28msdn.10%29.aspx">Development Tools and Languages</a>&nbsp;&gt;&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane','ctl00_LibFrame_CrumbCtrl1_ctl02',this);" href="http://msdn2.microsoft.com/en-us/library/ms269115%28vs.80%29.aspx">Visual Studio</a>&nbsp;&gt;&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane','ctl00_LibFrame_CrumbCtrl1_ctl03',this);" href="http://msdn2.microsoft.com/en-us/library/ms302012%28vs.80%29.aspx">Visual C++</a>&nbsp;&gt;&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane','ctl00_LibFrame_CrumbCtrl1_ctl04',this);" href="http://msdn2.microsoft.com/en-us/library/ms302019%28vs.80%29.aspx">Building a C/C++ Program</a>&nbsp;&gt;&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_CrumbCtrl1_MTPS_CrumbCtrlPane','ctl00_LibFrame_CrumbCtrl1_ctl05',this);" href="http://msdn2.microsoft.com/en-us/library/ms300426%28vs.80%29.aspx">Building C/C++ Isolated Applications and Side-by-side Assemblies</a>&nbsp;&gt;&nbsp;Troubleshooting
+			</div>
+                    <div id="ctl00_LibFrame_PageOptions" class="VsBar">
+				
+                        
+                        <div id="ctl00_LibFrame_ddfPlaceHolder_DropDownFilterMain" class="DropDownFilterStyle"><img id="ctl00_LibFrame_ddfPlaceHolder_MTPS_DD_ImageArrow" title="Language Filter" class="MTPS_DropDownImage" onclick="DDFilterOn(event);" onmouseover="ChangeDropDownImage(true);" onmouseout="ChangeDropDownImage(false);" src="isolated_sxs_assemblies_files/Arrow-off.gif" alt="Language Filter" style="border-width: 0px;"><a id="ctl00_LibFrame_ddfPlaceHolder_Mtps_DropDownFilterText" title="Language Filter" class="DropDownFilterOff" onclick="DDFilterOn(event);" onmouseover="ChangeDropDownImage(true);" onmouseout="ChangeDropDownImage(false);" href="http://msdn2.microsoft.com/en-us/library/ms235342.aspx#Mtps_DropDownFilterText">Language Filter : All</a><div id="ctl00_LibFrame_ddfPlaceHolder_Mtps_DropDownPopUp" style="display: none;" class="MTPS_PopupDivPanel"><div class="DivCbxLabelLanguage">
+					<input name="ctl00$LibFrame$ddfPlaceHolder$DropDownLngFilterCtrl" id="ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl" checked="checked" value="Visual Basic" onclick="SetLangFilter(null);" type="checkbox"><span id="ctl00_LibFrame_ddfPlaceHolder_ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl_0" title="Visual Basic">Visual Basic<br></span>
+				</div><div class="DivCbxLabelLanguage">
+					<input name="ctl00$LibFrame$ddfPlaceHolder$DropDownLngFilterCtrl" id="ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl" checked="checked" value="C#" onclick="SetLangFilter(null);" type="checkbox"><span id="ctl00_LibFrame_ddfPlaceHolder_ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl_1" title="C#">C#<br></span>
+				</div><div class="DivCbxLabelLanguage">
+					<input name="ctl00$LibFrame$ddfPlaceHolder$DropDownLngFilterCtrl" id="ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl" checked="checked" value="C++" onclick="SetLangFilter(null);" type="checkbox"><span id="ctl00_LibFrame_ddfPlaceHolder_ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl_2" title="C++">C++<br></span>
+				</div><div class="DivCbxLabelLanguage">
+					<input name="ctl00$LibFrame$ddfPlaceHolder$DropDownLngFilterCtrl" id="ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl" checked="checked" value="J#" onclick="SetLangFilter(null);" type="checkbox"><span id="ctl00_LibFrame_ddfPlaceHolder_ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl_3" title="J#">J#<br></span>
+				</div><div class="DivCbxLabelLanguage">
+					<input name="ctl00$LibFrame$ddfPlaceHolder$DropDownLngFilterCtrl" id="ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl" checked="checked" value="JScript" onclick="SetLangFilter(null);" type="checkbox"><span id="ctl00_LibFrame_ddfPlaceHolder_ctl00_LibFrame_ddfPlaceHolder_DropDownLngFilterCtrl_4" title="JScript">JScript<br></span>
+				</div></div>
+<script type="text/Javascript">
+var ArrowOffPath="/msdn/Controls/DropDownFilter/en-us/Arrow-off.gif";
+var ArrowOnPath="/msdn/Controls/DropDownFilter/en-us/Arrow-on.gif";
+var strConstLangFilterAll ="All";
+var strConstLangFilterMulti ="Multiple";
+var strConstLangFilterNone ="None";
+var strConstLangFilterText ="Language Filter";
+var oMTPS_DD_ImgArrow = document.getElementById("ctl00_LibFrame_ddfPlaceHolder_MTPS_DD_ImageArrow");
+var oMTPS_DD_PanelLink = document.getElementById("ctl00_LibFrame_ddfPlaceHolder_Mtps_DropDownFilterText");
+var oMTPS_DD_Div = document.getElementById("ctl00_LibFrame_ddfPlaceHolder_DropDownFilterMain");
+var oMTPS_DD_PopUpDiv = document.getElementById("ctl00_LibFrame_ddfPlaceHolder_Mtps_DropDownPopUp");
+</script>
+</div>
+<script type="text/Javascript">
+</script>
+
+                        
+                    
+			</div>
+                    <div class="ContentArea">
+                        <div id="ctl00_LibFrame_ctl01_SeeAlsoContainer" class="MTPSPart">
+				
+    <p id="ctl00_LibFrame_ctl01_rpBanner">Related Pages</p>
+    
+            <ul>
+        
+            <li>
+                <a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl01_Repeater1_ctl01','ctl00_LibFrame_ctl01_Repeater1_ctl01_ctl00',this);" href="http://msdn2.microsoft.com/en-us/library/ms235299%28en-us,VS.80%29">Redistributing Visual C++ Files</a>
+            </li>
+        
+            </ul>
+        
+
+			</div>
+
+                        <span id="ctl00_LibFrame_MainContent"><div class="topic" xmlns:ms-help="http://msdn.microsoft.com/ms-help"><div class="majorTitle">Visual C++ Concepts: Building a C/C++ Program&nbsp;
+        </div><div class="title">Troubleshooting C/C++ Isolated Applications and Side-by-side Assemblies&nbsp;
+        </div><!--Content type: DocStudio. Transform: devdiv2mtps.xslt.--><div id="mainSection"> <div id="mainBody">  <p> </p><p>Loading
+a C/C++ application can fail if dependent Visual C++ libraries cannot
+be found. A list of potential runtime errors can be found in <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl03',this);" href="http://msdn2.microsoft.com/en-us/library/ms235299.aspx">Redistributing Visual C++ Files</a></span>.
+In this section the most common reasons for a C/C++ application failing
+to load are described, with proposed steps to resolve the problems.</p> <p>If
+an application is deployed on a computer without Visual C++ installed,
+and it crashes with error messages similar to those listed in <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl04',this);" href="http://msdn2.microsoft.com/en-us/library/ms235299.aspx">Redistributing Visual C++ Files</a></span>, several things have to be checked to understand the reason for the error.</p> <ol><li> <p>Follow the steps described in <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl05',this);" href="http://msdn2.microsoft.com/en-us/library/ms235265.aspx">Understanding Dependencies of a Visual C++ Application</a></span>.
+The dependency walker can show most dependencies for any particular
+application or DLL. If you see that some DLLs are missing, install
+those DLLs on the computer on which you are trying to run your
+application.</p> </li><li> <p>A manifest is used by the operating
+system loader to load assemblies that your application depends on. It
+can either be embedded inside the binary as a resource, or saved as an
+external file in the application's local folder. To check whether the
+manifest is embedded inside the binary, open your binary in Visual
+Studio and browse through the resources of this binary. You should be
+able to find a resource named RT_MANIFEST. If you cannot find a
+manifest embedded inside the binary, check for an external file named
+something like &lt;binary_name&gt;.&lt;extension&gt;.manifest.</p> </li><li> <p>If
+a manifest is not present, you need to ensure that the linker generates
+a manifest for your project. You need to check the linker option <b>Generate manifest</b> in the <b>Project Properties</b> dialog for this project.</p> <div class="alert"><table cellpadding="0" cellspacing="0" width="100%"><tbody><tr><th align="left"><img class="note" alt="Note" src="isolated_sxs_assemblies_files/ms235342.gif">Note </th></tr><tr><td> <p>Building
+Visual C++ projects without manifest generation is not supported. Any
+C/C++ program built in Visual C++ 2005 has to include a manifest
+describing its dependencies on Visual C++ libraries.</p> </td></tr></tbody></table></div> </li><li> <p>If
+the manifest is embedded inside the binary, ensure that the ID of
+RT_MANIFEST is correct for this type of the binary. For applications,
+ID should be equal to 1, for most DLLs ID should be equal to 2. If the
+manifest is in an external file, open it in an XML editor or text
+editor. For more information on manifests and rules for deployment, see
+<span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl06',this);" href="http://msdn2.microsoft.com/en-us/library/ms716966.aspx">Manifests</a></span>.</p> <div class="alert"><table cellpadding="0" cellspacing="0" width="100%"><tbody><tr><th align="left"><img class="note" alt="Note" src="isolated_sxs_assemblies_files/ms235342.gif">Note </th></tr><tr><td> <p>On
+Windows XP, if an external manifest is present in the application's
+local folder, the operating system loader uses this manifest instead of
+a manifest embedded inside the binary. On Windows Server 2003 and later
+versions of Windows, the opposite is true—the external manifest is
+ignored and the embedded manifest is used when present. </p> </td></tr></tbody></table></div> </li><li> <p>It
+is recommended that all DLLs have a manifest embedded inside the
+binary. External manifests are ignored when a DLL is loaded though a <b>LoadLibrary</b> call. For more information, see <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl07',this);" href="http://msdn2.microsoft.com/en-us/library/ms716811.aspx">Assembly manifests</a></span>.</p> </li><li> <p>Check
+that all assemblies enumerated in the manifest are correctly installed
+on the computer. Each assembly is specified in the manifest by its
+name, version number and processor architecture. If your application
+depends on side-by-side assemblies, check that these assemblies are
+installed on the computer properly, so they can be found by the
+operating system loader using the steps specified in <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl08',this);" href="http://msdn2.microsoft.com/en-us/library/ms716813.aspx">Assembly Searching Sequence</a></span>. Remember that 64-bit assemblies cannot be loaded in 32-bit processes and cannot be executed on 32-bit operating systems.</p> </li></ol> <h1 class="heading">Example</h1><div id="sectionSection0" class="seeAlsoNoToggleSection"> <p>Assume
+we have an application, appl.exe, built with Visual C++ 2005. This
+application has its manifest either embedded inside appl.exe as a
+binary resource RT_MANIFEST with ID equal to 1, or stored as an
+external file, appl.exe.manifest. The content of the manifest may be
+something like this:</p> <div class="code" id="ctl00_LibFrame_ctl09_other"><div class="CodeSnippetTitleBar"><div class="CodeDisplayLanguage"></div></div><pre class="code" id="ctl00_LibFrame_ctl09other" space="preserve">&lt;assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;
+  &lt;dependency&gt;
+    &lt;dependentAssembly&gt;
+      &lt;assemblyIdentity type="win32" name="Microsoft.VC80.CRT" version="8.0.50608.0" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"&gt;&lt;/assemblyIdentity&gt;
+    &lt;/dependentAssembly&gt;
+  &lt;/dependency&gt;
+&lt;/assembly&gt;</pre></div> <p>To
+the operating system loader this manifest says that appl.exe depends on
+an assembly named Microsoft.VC80.CRT, version 8.0.50608.0 and built for
+32-bit x86 processor architecture. </p> <p>The dependent side-by-side
+assembly can be installed as either a shared assembly or as a private
+assembly. For example, Visual Studio 2005 installs the CRT assembly as
+a shared side-by-side assembly which can be found in the directory
+%WINDIR%\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50608.0_x-ww_b7acac55.</p> <p>The <b>assembly manifest</b>
+for a shared Visual C++ CRT assembly is also installed in
+%WINDIR%\WinSxS\Manifests\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50608.0_x-ww_b7acac55.manifest
+and it identifies this assembly and lists its contents (DLLs that are
+part of this assembly):</p> <div class="code" id="ctl00_LibFrame_ctl10_other"><div class="CodeSnippetTitleBar"><div class="CodeDisplayLanguage"></div></div><pre class="code" id="ctl00_LibFrame_ctl10other" space="preserve">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;!-- Copyright ┬⌐ 1981-2001 Microsoft Corporation --&gt;
+&lt;assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;
+   &lt;noInheritable/&gt;
+   &lt;assemblyIdentity type="win32" name="Microsoft.VC80.CRT" version="8.0.50727.42" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"/&gt;
+   &lt;file name="msvcr80.dll" hash="3ca5156e8212449db6c622c3d10f37d9adb12c66" hashalg="SHA1"/&gt;
+   &lt;file name="msvcp80.dll" hash="92cf8a9bb066aea821d324ca4695c69e55b27cff" hashalg="SHA1"/&gt;
+   &lt;file name="msvcm80.dll" hash="7daa93e1195940502491c987ff372190bf199395" hashalg="SHA1"/&gt;
+&lt;/assembly&gt;</pre></div> <p>Side-by-side assemblies can also use <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl11',this);" href="http://msdn2.microsoft.com/en-us/library/ms716987.aspx">publisher configuration files</a></span>,
+also called policy files, to globally redirect applications and
+assemblies from using one version of a side-by-side assembly to another
+version of the same assembly. You can check policies for the shared
+Visual C++ CRT assembly in
+%WINDIR%\WinSxS\Policies\x86_policy.8.0.Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_x-ww_77c24773\8.0.50727.42.policy,
+which contains something like this:</p> <div class="code" id="ctl00_LibFrame_ctl12_other"><div class="CodeSnippetTitleBar"><div class="CodeDisplayLanguage"></div></div><pre class="code" id="ctl00_LibFrame_ctl12other" space="preserve">&lt;/assembly&gt;
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;!-- Copyright ┬⌐ 1981-2001 Microsoft Corporation --&gt;
+&lt;assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;
+
+   &lt;assemblyIdentity type="win32-policy" name="policy.8.0.Microsoft.VC80.CRT" version="8.0.50727.42" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"/&gt;
+   &lt;dependency&gt;
+      &lt;dependentAssembly&gt;
+         &lt;assemblyIdentity type="win32" name="Microsoft.VC80.CRT" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"/&gt;
+         &lt;bindingRedirect oldVersion="8.0.41204.256-8.0.50608.0" newVersion="8.0.50727.42"/&gt;
+      &lt;/dependentAssembly&gt;
+   &lt;/dependency&gt;
+&lt;/assembly&gt;</pre></div> <p>The
+policy above specifies that any application or assembly that asks for
+version 8.0.41204.256 of this assembly should instead use version
+8.0.50727.42 of this assembly, which is the current version installed
+on the system. If a version of the assembly mentioned in the
+application's manifest is specified in the policy file, the loader
+looks for a version of this assembly specified in the manifest in the
+WinSxS folder, and if this version is not installed, load fails. And if
+an assembly version 8.0.50727.42 is not installed as well, load fails
+for applications that ask for assembly version 8.0.41204.256.</p> <p>However,
+the CRT assembly can also be installed as a private side-by-side
+assembly in the application's local folder. If the operating system
+fails to find the CRT or any other assembly as a shared assembly, it
+starts looking for the assembly as a private assembly. It searches for
+private assemblies in the following order:</p> <ol><li> <p>Check the
+application local folder for a manifest file with name
+&lt;assemblyName&gt;.manifest. In this example, the loader tries to
+find Microsoft.VC80.CRT.manifest in the same folder as appl.exe. If the
+manifest is found, the loader loads the CRT DLL from the application
+folder. If the CRT DLL is not found, load fails.</p> </li><li> <p>Try
+to open folder &lt;assemblyName&gt; in appl.exe's local folder and if
+it exists, load manifest file &lt;assemblyName&gt;.manifest from this
+folder. If the manifest is found, the loader loads the CRT DLL from
+&lt;assemblyName&gt; folder. If the CRT DLL is not found, load fails.</p> </li></ol> <p>See <span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl13',this);" href="http://msdn2.microsoft.com/en-us/library/ms716813.aspx">Assembly Searching Sequence</a></span>
+for a more detailed description of how the loader searches for
+dependent assemblies. If the loader fails to find a dependent assembly
+as a private assembly, load fails and "The system cannot execute the
+specified program" is displayed. To resolve this error, dependent
+assemblies and DLLs that are part of them must be installed on the
+computer as either private or shared assemblies.</p> </div><h1 class="heading"><span id="seeAlsoNoToggle">See Also</span></h1><div id="seeAlsoSection" class="seeAlsoNoToggleSection"><h4 class="subHeading">Concepts</h4><span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl14',this);" href="http://msdn2.microsoft.com/en-us/library/ms235531.aspx">Concepts of Isolated Applications and Side-by-side Assemblies</a></span><br><h4 class="subHeading">Other Resources</h4><span class="linkTerms"><a onclick="javascript:TrackThisClick('ctl00_LibFrame_ctl02','ctl00_LibFrame_ctl15',this);" href="http://msdn2.microsoft.com/en-us/library/ms235532.aspx">Building C/C++ Isolated Applications and Side-by-side Assemblies</a></span><br><br></div></div>  </div></div></span>
+    			
+                    </div>
+                    <br style="clear: both;">
+                
+		</div>
+                <table id="ctl00_LibFrame_ContentRating2_Footer" class="TBLMAIN_MTPS_RatingCtrl_Footer" style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td colspan="2"><span id="__PageRCtrl_Footer"><table class="TBLOUTER_MTPS_RatingCtrl_PrintMailFav_Footer" style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td><table border="0" cellspacing="1">
+							<tbody><tr>
+								<td id="ctl00_LibFrame_ContentRating2_imgPrintFooter" onmouseover="this.className='TD_MTPS_RatingCtrl_PrintMailFav_OnMouseOver_Footer'" onmouseout="this.className='TD_MTPS_RatingCtrl_PrintMailFav_OnMouseOut_Footer'"><span class="Padding_MTPS_RatingCtrl_Footer"><img src="isolated_sxs_assemblies_files/rtg_print.gif" alt="Print This Content" style="border-width: 0px;" align="middle"><a title="Print This Content" class="HLNK_MTPS_RatingCtrl_Footer" onclick="javascript: WebForm_DoCallback('ctl00$LibFrame$ContentRating2','printerFriendlyPage',GetServerData,null,null,false);" onmouseover="window.status='Print This Content';return true" onmouseout="window.status='';return true" href="http://msdn2.microsoft.com/en-us/library/ms235342%28d=printer%29.aspx" target="_blank">Printer Friendly Version</a><span class="Padding_MTPS_RatingCtrl_Footer"></span></span></td><td id="ctl00_LibFrame_ContentRating2_tdSpacePrintFooter" class="TDSPACE_MTPS_RatingCtrl_PrintMailFav_Footer"></td><td id="ctl00_LibFrame_ContentRating2_imgEmailFooter" onmouseover="this.className='TD_MTPS_RatingCtrl_PrintMailFav_OnMouseOver_Footer'" onmouseout="this.className='TD_MTPS_RatingCtrl_PrintMailFav_OnMouseOut_Footer'"><span class="Padding_MTPS_RatingCtrl_Footer"><img src="isolated_sxs_assemblies_files/rtg_email.gif" alt="Send This Content" style="border-width: 0px;" align="middle"><a title="Send This Content" class="HLNK_MTPS_RatingCtrl_Footer" onclick="javascript: WebForm_DoCallback('ctl00$LibFrame$ContentRating2','sendThisPage',GetServerData,null,null,false);" onmouseover="window.status='Send This Content';return true" onmouseout="window.status='';return true" href="mailto:?subject=Troubleshooting%20C/C++%20Isolated%20Applications%20and%20Side-by-side%20Assemblies&amp;body=This%20URL%20points%20to%20a%20page%20on%20MSDN%20that%20may%20interest%20you:%20http://msdn2.microsoft.com/en-us/library/ms235342.aspx">Send This Content</a><span class="Padding_MTPS_RatingCtrl_Footer"></span></span></td><td id="ctl00_LibFrame_ContentRating2_tdSpaceAddToFavoriteFooter" class="TDSPACE_MTPS_RatingCtrl_PrintMailFav_Footer"></td>
+							</tr>
+						</tbody></table></td>
+					</tr>
+				</tbody></table></span></td>
+			</tr><tr id="ctl00_LibFrame_ContentRating2_tblFooterthirdRow">
+				<td style="padding: 5px; width: 50%;" align="left"><table border="0">
+					<tbody><tr>
+						<td><span id="ctl00_LibFrame_ContentRating2_lblThanksMessage" class="TEXT_MTPS_RatingCtrl_Label_Footer"></span><div id="ctl00_LibFrame_ContentRating2_pnlSubmit" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_LibFrame_ContentRating2_btnSubmit')">
+							<table style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td colspan="12"><span class="TEXT_MTPS_RatingCtrl_Label_Footer">How would you rate the usefulness of this content?</span></td>
+								</tr><tr>
+									<td colspan="12" style="height: 10px;"></td>
+								</tr><tr class="NUMBER_MTPS_RatingCtrl_Footer" align="center">
+									<td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td></td>
+								</tr><tr align="center">
+									<td style="white-space: nowrap; text-align: left;"><span class="TEXT_MTPS_RatingCtrl_Label_Footer">Poor</span></td><td><input value="0" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_0" type="radio"></td><td><input value="1" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_1" type="radio"></td><td><input value="2" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_2" type="radio"></td><td><input value="3" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_3" type="radio"></td><td><input value="4" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_4" type="radio"></td><td><input value="5" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_5" type="radio"></td><td><input value="6" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_6" type="radio"></td><td><input value="7" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_7" type="radio"></td><td><input value="8" name="ctl00$LibFrame$ContentRating2$" id="ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_8" type="radio"></td><td class="TEXT_MTPS_RatingCtrl_Label_Footer" style="white-space: nowrap;">Outstanding</td><td></td><td></td>
+								</tr><tr>
+									<td colspan="11" style="height: 10px;"></td>
+								</tr><tr>
+									<td colspan="11"><span class="TEXT_MTPS_RatingCtrl_Label_Footer">Optional: Tell us why you rated the content this way.</span><br><textarea name="ctl00$LibFrame$ContentRating2$txtComments" rows="4" cols="40" id="ctl00_LibFrame_ContentRating2_txtComments" onfocus="this.onpaste=OnFeedbackChangeWrapper; this.onpropertychange=OnFeedbackChangeWrapper; this.oninput=OnFeedbackChangeWrapper;" onkeyup='OnFeedbackChange("ctl00_LibFrame_ContentRating2_txtComments", 1024, "ctl00_LibFrame_ContentRating2_charCount");'></textarea><br><span id="ctl00_LibFrame_ContentRating2_charCount" class="TEXT_MTPS_RatingCtrl_Label_Footer">Characters remaining: 1024</span><br><input name="ctl00$LibFrame$ContentRating2$btnSubmit" value="Submit" onclick="javascript:return OnSubmit();" id="ctl00_LibFrame_ContentRating2_btnSubmit" class="TEXT_MTPS_RatingCtrl_Button" onfocus="javascript:this.scrollIntoView(true);" type="submit"></td>
+								</tr><tr>
+									<td colspan="11"><span id="ctl00_LibFrame_ContentRating2_lblWarningMessages" class="WarningMessage_MTPS_RatingCtrl_Footer"></span></td>
+								</tr>
+							</tbody></table>
+						</div><span id="ctl00_LibFrame_ContentRating2_lblRateOnceText" class="TEXT_MTPS_RatingCtrl_Label_Footer"></span></td>
+					</tr>
+				</tbody></table></td><td style="border-left: 1px dashed rgb(204, 204, 204); padding: 5px; width: 50%;" align="left" valign="top"><span class="TEXT_MTPS_RatingCtrl_Label_Footer">Average rating: 2.44 out of 9.</span><br><br><table border="0" cellpadding="0" cellspacing="1">
+					<tbody><tr style="height: 40px;" valign="bottom">
+						<td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="25" alt="25" height="40" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="1" alt="1" height="3" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="3" alt="3" height="6" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="1" alt="1" height="3" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="1" alt="1" height="3" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="0" alt="0" height="0" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="0" alt="0" height="0" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="2" alt="2" height="4" width="12"></td><td><img src="isolated_sxs_assemblies_files/rtg_Bar.gif" style="vertical-align: bottom;" title="3" alt="3" height="6" width="12"></td>
+					</tr><tr>
+						<td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">1</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">2</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">3</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">4</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">5</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">6</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">7</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">8</td><td class="NUMBER_MTPS_RatingCtrl_Footer" align="center">9</td>
+					</tr>
+				</tbody></table><span class="TEXT_PeopleRated">36 people have rated this content.</span></td>
+			</tr>
+		</tbody></table>
+                
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+	<td id="ctl00_LibFrame_BottomControl1_FooterFadeCell" class="MTPS_FooterFade_msdn">
+		<div id="ctl00_LibFrame_BottomControl1_SiteLinks" class="MTPS_FooterLinks_msdn">
+			<a onclick="javascript:TrackThisClick('ctl00_LibFrame_BottomControl1_SiteLinks','ctl00_LibFrame_BottomControl1_LocalFooterLink0',this);" href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_BottomControl1_SiteLinks','ctl00_LibFrame_BottomControl1_LocalFooterLink1',this);" href="http://www.microsoft.com/legal/">Legal</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_BottomControl1_SiteLinks','ctl00_LibFrame_BottomControl1_LocalFooterLink2',this);" href="http://msdn.microsoft.com/flash/">MSDN Flash Newsletter</a>&nbsp;|&nbsp;<a onclick="javascript:TrackThisClick('ctl00_LibFrame_BottomControl1_SiteLinks','ctl00_LibFrame_BottomControl1_LocalFooterLink3',this);" href="http://go.microsoft.com/?linkid=2028439">Contact Us</a>
+		</div>
+		<span id="ctl00_LibFrame_BottomControl1_MSFT_copyright" title="©2006 Microsoft Corporation. All rights reserved." class="MTPS_FooterCopyright_msdn">©2006 Microsoft Corporation. All rights reserved.</span>
+		
+		<a id="ctl00_LibFrame_BottomControl1_MSFT_Terms" title="Terms of Use" class="MTPS_FooterLinks_msdn" href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</a>
+		&nbsp;|&nbsp;		
+		<a id="ctl00_LibFrame_BottomControl1_MSFT_Trademarks" title="Trademarks" class="MTPS_FooterLinks_msdn" href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a>		
+		&nbsp;|&nbsp;
+		<a id="ctl00_LibFrame_BottomControl1_MSFT_PrivacyStatement" title="Privacy Statement" class="MTPS_FooterLinks_msdn" href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a>
+	</td>
+		
+	<td id="ctl00_LibFrame_BottomControl1_FooterLogoCell" class="MTPS_FooterLogo_msdn">
+		<img id="ctl00_LibFrame_BottomControl1_MSFT_LOGO" title="Microsoft Corporation" src="isolated_sxs_assemblies_files/msdnmslogo" alt="Microsoft Corporation" style="border-width: 0px;">
+	</td>
+		
+</tr>
+</tbody></table>
+
+
+            
+	</div>
+
+</div>
+    
+<script type="text/javascript">
+<!--
+var ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ImageArray =  new Array('', '', '', '/WebResource.axd?d=3krHqbAU3SbxSXQnmi55dNbM_nV5Nt1AaR9PimhbfVQ1&t=632693765175897607', '/WebResource.axd?d=3krHqbAU3SbxSXQnmi55dN8Xikuc0FstEIcXk-I-Qxs1&t=632693765175897607', '/WebResource.axd?d=3krHqbAU3SbxSXQnmi55dF7h6HtEWiPgWUkNz_9JQIU1&t=632693765175897607');
+// -->
+</script>
+
+<div>
+
+	<input name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWNAKojuu0AwLM2NutCQLz7vjkDQL/8bHGBALiwbWkBAKAvPrjCwKn2PHkDgKrw/m2BQL6uImVCwKd97+kCAKnyJCeDQK6pPvKDgLs2Mj3CALCrNmsAgKalK3yAQLc4ITWBQLw6sL+DALZj/1LAvyH4ocOAu2JnJMMAr+rvM4MAuSnuYYNAtrdnvkEAtqrufcOAteOov8MAq+43soMAob2o8UDAuPnjOUDAuzxh8YKAt7f3LAEApe3mv4HArzU0IYNAtSu3+kDAoaOqHsC3eWS3Q8CjsrbiAkCjuLxswcCjuLxswcCjuLxswcCjuLxswcCjuLxswcCyLb16wMC17b16wMC1rb16wMC1bb16wMC1Lb16wMC07b16wMC0rb16wMC0bb16wMCwLb16wMCoYH50wEC2PaI/w647Y9V7F+9Uj//XyHyhDtvtlOKSQ==" type="hidden">
+</div>
+
+<script type="text/javascript">
+<!--
+
+WebForm_InitCallback();var ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data = new Object();
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.images = ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ImageArray;
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.collapseToolTip = "Collapse {0}";
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.expandToolTip = "Expand {0}";
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.expandState = theForm.elements['ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ExpandState'];
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.selectedNodeID = theForm.elements['ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_SelectedNode'];
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.hoverClass = 'ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_6';
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.hoverHyperLinkClass = 'ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_5';
+for (var i=0;i<6;i++) {
+var preLoad = new Image();
+if (ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ImageArray[i].length > 0)
+preLoad.src = ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_ImageArray[i];
+}
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.lastIndex = 49;
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.populateLog = theForm.elements['ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_PopulateLog'];
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.treeViewID = 'ctl00$LibFrame$DeepTreeControl1$MtpsDeepTree';
+ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data.name = 'ctl00_LibFrame_DeepTreeControl1_MtpsDeepTree_Data';
+// -->
+</script>
+<script type="text/javascript" language="javascript">
+<!--
+if( document.getElementById('ctl00_LibFrame_ContentRating2_tdSpaceAddToFavoriteFooter')!=null || document.getElementById('ctl00_LibFrame_ContentRating2_tdSpaceAddToFavoriteFooter')!=undefined){}
+ function GetContentWnd(){ return parent; } function OnInitPage(){var oWnd = GetContentWnd();} function GetServerData(arg, context){} function OnSave(){ var oWnd = GetContentWnd(); window.external.addFavorite('http://msdn2.microsoft.com/en-us/library/ms235342.aspx', oWnd.document.title ); } function OnRate(){ var oWnd = GetContentWnd(); oWnd.scrollBy(0, 9999999); }
+	function OnFeedbackChange(field, maxLength, counter)
+	{ 
+		var counterSpan = document.getElementById(counter); 
+		var textBox = document.getElementById(field); 
+   var length;
+   if (typeof(textBox)!= "undefined")
+		  length = textBox.value.length; 
+   if (typeof(length)!= "undefined")
+   {
+		  var charsRemaining = maxLength - length; 
+         var scrolltop = textBox.scrollTop; 
+         var scrollleft = textBox.scrollLeft; 
+		  if (charsRemaining < 0) 
+		  { 
+		  	textBox.value = textBox.value.substring(0, maxLength); 
+		  	charsRemaining = 0 
+       textBox.scrollTop = scrolltop; 
+		  	textBox.scrollLeft = scrollleft; 
+		  }
+		
+		  counterSpan.innerHTML ='Characters remaining:  ' + charsRemaining; 
+		}
+	}
+function OnFeedbackChangeWrapper() { OnFeedbackChange("ctl00_LibFrame_ContentRating2_txtComments", 1024, "ctl00_LibFrame_ContentRating2_charCount") }
+ function OnSubmit(){ 
+ var itemChecked; itemChecked = -1;for(var i=0;i<9;i++){if(document.getElementById("ctl00_LibFrame_ContentRating2_Mtps_Ratings_RadioButton_"+i).checked) {itemChecked = i; break;}} if(itemChecked==-1){document.getElementById("ctl00_LibFrame_ContentRating2_lblWarningMessages").innerHTML="Please select a rating before submitting your feedback.";
+ return false; }
+ if(document.getElementById("ctl00_LibFrame_ContentRating2_txtComments").innerText.length >1024){document.getElementById("ctl00_LibFrame_ContentRating2_lblWarningMessages").innerHTML="Please limit your comments to 1024 characters.";
+ return false;} }
+-->
+</script><script type="text/javascript"> SyncToNode(); </script>
+<script type="text/javascript">
+<!--
+var px = 'px';
+var browser = window.navigator.appName;
+var sDocDir = document.dir;
+var sContainerCell = 'ctl00_LibFrame_ResizeContainer';
+var oContainerCell = null;
+var oNavCell = null;
+var sNavCell = 'ctl00_LibFrame_tocPanel';
+var oSplitterCell = null;
+var sSplitterCell = 'ctl00_LibFrame_ResizeSplitter';
+var sSplitterCookieX = 0;
+var sSplitterDefault = '250px';
+var sTmpNavCellWidth = '250px';
+var sNameTmpNavCellWidth = sTmpNavCellWidth;
+var oContentCell = null;
+var sContentCell = 'ctl00_LibFrame_contentPanel';
+var winWidth;
+var winHeight;
+var cookieName = 'tocPanelWidth';
+var days = 60;
+// -->
+</script>
+</form>
+    <div style="display: none;"><img src="isolated_sxs_assemblies_files/trans_pixel.gif" alt="Page view tracker" border="0" height="0" hspace="0" vspace="0" width="0"></div>
+    
+<script type="text/javascript">
+var gDomain="m.webtrends.com";
+var gDcsId="dcsmgru7m99k7mqmgrhudo0k8_8c6m";
+var gTrackEvents=1;
+var wtsp="_homepage_";
+var gFpc="WT_FPC";
+/*<![CDATA[*/
+if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<scr"+"ipt type='text/javascript' src='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/scr"+"ipt>");}
+/*]]>*/
+</script>
+<script src="isolated_sxs_assemblies_files/webtrends.js" type="text/javascript"></script>
+<noscript>
+<div><img alt="DCSIMG" id="Img1" width="1" height="1"
+src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No"
+/></div>
+</noscript>
+
+</body></html>

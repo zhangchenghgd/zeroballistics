@@ -1,0 +1,86 @@
+
+
+bbm preview for all objects -> change organization
+
+
+------------------------------------------------------------------------------
+
+vegetation zones
+
+------------------------------------------------------------------------------
+
+pilze im schatten
+
+number of models != number of probabilities -> CRASH!!!!
+
+steigungsgrenze für gras in grome
+
+make void a settable property? ( think triggers )
+
+------------------------------------------------------------------------------
+
+how to do ambient sounds if they don't go into leveldata?  is this the
+time to finally have non-rigidbody game objects? or just parse them
+into leveldata nevertheless?
+
+test placing beacons, mines
+need to pass team for that, read it in init()
+
+
+base ambient sound, gets replaced by placed sound
+constant volume <-> falloff
+
+
+barny: grome levels into repository
+property tables into svn
+
+
+
+------------------------------------------------------------------------------
+
+starting positions, ambient sounds: directly into level desc, don't require bbm models?
+-> scaling in grome, directly export scale as radius...
+
+can be used for triggers too...?
+
+------------------------------------------------------------------------------
+
+remove sky box workaround
+name into level info, fixed convention for xyz
+
+------------------------------------------------------------------------------
+
+put helper blend objects into own directory
+
+------------------------------------------------------------------------------
+
+-) do color map lightmap modulation
+-) scale lightmap to full intensity range?
+
+------------------------------------------------------------------------------
+
+-) use id maps for grass?
+
+-) blur filter?
+
+-) unify linked lib?
+
+-) utility to hide all objects that should not go into lightmap
+
+-) respect lm size?
+
+-) merge same texture layers to allow for mixed mask / brush modeling
+
+-) use all modeled stuff
+  decide whether to do special-case handling in grome or in game
+  depends on whether logic-specific?
+
+-) warn on scaling in grome, not currently supported
+
+-) warn if object is not linked to zone! or collect those first, export with zone?
+  OR: export all objects regardless of linkage!
+
+-) convert tex name to lowercase (check whether still necessary)
+
+
+

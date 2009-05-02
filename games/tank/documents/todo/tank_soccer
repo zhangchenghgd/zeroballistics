@@ -1,0 +1,109 @@
+
+
+
+don't interpolate proxy too fast when ball touches claws?
+
+don't let ball have influence on tank when colliding with claws?
+
+assist when opponent shoots goal???
+
+make invincible short time after ram
+
+more starting positions
+
+reduce terrain quality to min.
+
+------------------------------------------------------------------------------
+
+state "before match start":
+generalize, merge with startTimeLimit
+
+------------------------------------------------------------------------------
+
+remove teaser at end
+need new scoreboard
+remove water quality, terrain combobox, view distance slider
+
+
+------------------------------------------------------------------------------
+
+winning message doesn't show???
+
+collide ball against tank target?
+redesign claws -> push inward only?
+cube with attraction in claws?
+
+
+void around stadium!!
+
+redesign hit feedback - still neccessary?
+
+------------------------------------------------------------------------------
+
+score history absolute
+
+------------------------------------------------------------------------------
+
+
+don't save equipment preferences after soccer match
+
+3rd person?
+
+------------------------------------------------------------------------------
+
+don't do collision damage
+
+tractor beam auswirkung auf tank
+
+------------------------------------------------------------------------------
+
+remove ball dampening
+
+trümmer nur mit static kollidieren
+
+turrets in blend file with new soccer cannon(groups)
+
+
+implement logic for kickoff
+
+------------------------------------------------------------------------------
+
+Gameplay issues/changes:
+
+somehow limit shots? lesser influence on tank?
+"charge" shots? uncharged shot with neglible effect on tank?
+
+solve ram problem
+no HP? ram kills when over given speed? frontal ram kills both?
+or require "combo" - charged shot + ram?
+
+ball no damage when colliding!
+
+
+how can better ball control be achieved?
+
+-) make ball smaller - guidable via splash effect, not direct hit
+   use collision shape larger than ball itself so no direct hit is required
+
+-) let claws have "direction", let ball pass through in one dir.
+
+
+how many players? instant matchmaking instead of server browser?
+
+------------------------------------------------------------------------------
+
+make number of ball particles velocity-dependend
+
+slow down tanks too with laser
+
+animated textures
+
+stadium modular? 
+
+own GuiHelp for soccer
+
+
+let slowdown shoot continuously, own weapon
+
+no collision damage at all except for ramming
+

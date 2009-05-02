@@ -1,0 +1,143 @@
+
+
+
+report found server with event so it can be inserted at once
+don't store server info in server list?
+or put sorting functionality into server list?
+report index of new server?
+
+
+compile ded.server on ference
+ 
+
+why doesn't string compression work?
+try it again without optimization
+
+
+split server list into chunks 
+transmit number of chunks first?
+keep track of received chunks, re-request if any chunk missing
+
+
+let some time pass between pings of batch.
+
+
+event after all pings are done + some dt so user knows we are done
+
+
+check what could go wrong if messages are dropped, implement backup
+(token query, partial server list....)
+
+
+enable crontab as soon as master server connection works
+
+
+MAX_OFFLINE_DATA_LENGTH public interface
+
+------------------------------------------------------------------------------
+
+
+check whether address field is required / correctly used in serverinfo
+struct.
+need two different structures anyway for master server / LAN pong?
+
+------------------------------------------------------------------------------
+
+minimum time between master server updates
+
+------------------------------------------------------------------------------
+
+try..catch around scan, display error in window
+
+------------------------------------------------------------------------------
+
+always send version so different protocols could be implemented...
+
+------------------------------------------------------------------------------
+
+get rid of custom command extra id layer, bitstream copying
+
+
+------------------------------------------------------------------------------
+FERENCE: 
+don't use O3!!!
+comment out #define __BITSTREAM_NATIVE_END
+------------------------------------------------------------------------------
+
+general:
+
+
+- send server info via boost serialization? should be able to add
+fields in future versions without breaking old clients...
+
+- write master server stuff independently from game -> store game type too
+
+- distribute levels, models, skins, updates, messages (from either master or game server)
+ -> file transfer capability
+
+
+- binary format for server info? or transmit compressed xml config
+files (can be used for server config transmission as well, perhaps
+even the same data structures?)
+
+- approx. calc bandwidth for master server for several scenarios
+
+- auto-updater
+
+------------------------------------------------------------------------------
+master server:
+
+
+- periodically drop any game server which doesn't send heartbeat
+
+- split server list transmission into chunks:
+  IPs first, additional data afterwards
+  send additional data at all? or let client query servers themselves? combination of both?
+
+  NAT punchthrough for querying server info from server directly?? seems to be rather expensive...
+
+  even split IPs into multiple chunks? batch-based scheme: client request contains number of batch
+
+- no lasting connection to clients -> clients must pull changes
+
+- let master server distribute other master server names?
+
+------------------------------------------------------------------------------
+game server:
+
+- periodically send heartbeat to master server
+
+- inform master server of shutdown
+
+- check whether it is running periodically per script
+
+- let user decide whether integrated server is public or LAN only
+
+- must be able to answer queries from clients
+  - how to handle player limit and query limit? different ports?
+
+
+- how to handle passwords?
+
+------------------------------------------------------------------------------
+client / browser:
+
+- write cmd-line tool for that...
+
+- more than one master server hardcoded, try them in random order
+
+- filters : 
+  not full, populated, ping in range, password
+
+  let master server filter list to save bandwidth? prolly not...
+
+- favorite list
+
+- sort by any field
+
+- add entries to list asynchronously when they are queried
+
+- re-query selected servers - how to handle NAT-punchthrough??
+
+
+

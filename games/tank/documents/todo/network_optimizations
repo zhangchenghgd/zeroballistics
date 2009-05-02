@@ -1,0 +1,46 @@
+
+
+don't send player id for client messages, server can take those form packet id
+
+------------------------------------------------------------------------------
+
+
+different mechanisms for sleeping & awake objects:
+observer callback, periodic update
+
+keep a dirty flag in rigidbodies to determine whether to update transform
+
+
+------------------------------------------------------------------------------
+
+don't transmit all beacon connections, only delta
+
+don't send server correction for every input received
+
+think about packet compression
+input can be hugely compressed in Controllable::writeTo/readFrom
+writeCompressed, discretize values where possible, use smaller data types
+don't write entire structs/classes (TankState::writeToBitstream Matrix)
+plausibility checks on all packets
+sensible values for packet default constructors
+detect&reject too short/long packets
+encryption?
+set bandwidth for window size
+reject packets with invalid type (e.g. createObject commands on server)
+warning/ignore wrong received packet (client / server)
+
+http://www.rakkarsoft.com/raknet/manual/datacompression.html
+http://www.rakkarsoft.com/raknet/manual/programmingtips.html
+
+
+
+tradeoff quantization / history replays?
+
+
+check out encryption
+
+
+http://www.soi.city.ac.uk/~rob/module02/lectures/lecture03/Lecture03-8up.pdf
+
+batch multiple messages into one
+http://www.rakkarsoft.com/raknet/forum/index.php?topic=505.0

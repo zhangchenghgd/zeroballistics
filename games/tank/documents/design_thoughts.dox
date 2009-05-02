@@ -1,0 +1,190 @@
+/**
+\page design Design thoughts
+<pre>
+
+
+------------------------------------------------------------------------------
+differences Controllable<->ordinary GameObject
+
+- detailed transition gameobject->controlled and back
+  - clear history
+
+
+
+------------------------------------------------------------------------------
+- targets need collision shapes? 
+  - need to re-add them in setCollidable
+
+
+
+------------------------------------------------------------------------------
+- rcon mechanism
+
+servers side: 
+ - start game after nth connect
+ - restart game
+ - change map
+
+
+client side:
+ - connect / disconnect
+
+
+
+level change: update localplayer's simulator (static level geometry)
+
+------------------------------------------------------------------------------
+who decides about
+ - initial level data LLLL
+ - game logic
+ - connection logic (players needed to start game etc)
+ - player starting positions
+ - what happens at new connect (create player avatar,...)
+
+puppetmaster? new class?
+put puppetmaster to "engine" part?
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+helper objects for history replay
+
+- clone function?
+- neccessary at all? replace by stored state objects?
+- really need to store raw data in history?
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+sleepiness, damping
+
+objects which are moved solely by interpolation and collisions (proxies)
+ - fall asleep -> no coll.det
+ - need damping
+
+- put where? wake tank proxy in applyControlForces?
+
+- but: sleep whenever possible. wake manually?
+  - only update gameobjects if they are awake on server
+  - final position needs to be reliable
+
+- isActive(): solid sleeping / pre-set active flag if solid==NULL
+  to determine whether GameObject state is transmitted
+
+
+
+
+------------------------------------------------------------------------------
+GameObjects without Solid
+
+test case..
+
+
+
+
+------------------------------------------------------------------------------
+Object creation
+ - send first state update reliably
+ - "uninitialized" flag on client until first update?
+ - option to send setgameobjectstatecmd reliable
+
+
+------------------------------------------------------------------------------
+interpolation
+
+- interpolation needs to be done for arbitrary state variables in
+  gameobject hierarchy (position, turret pos, ...)
+
+- unchanged values shouldn't be transmitted
+
+- always perform interpolation? 
+- "event from the future" - problem
+
+
+
+------------------------------------------------------------------------------
+transmitted state
+
+Transmit acceleration, acting forces on gameobjects as well?
+custom solution for objects where neccessary?
+
+
+
+
+
+------------------------------------------------------------------------------
+work out input handling for different controllables with events (firing...)
+
+
+
+------------------------------------------------------------------------------
+HUD
+- render information dependent on currently controlled object type
+
+
+------------------------------------------------------------------------------
+chat messages
+
+- team messages
+- private messages
+
+
+
+------------------------------------------------------------------------------
+engine design
+
+- specify parts ignorant of details, enforce
+
+
+\section DONE
+
+
+------------------------------------------------------------------------------
+Names
+
+
+			Client		Server
+main function		main_client	main_server
+SdlTestApp		TankAppClient	TankAppServer
+Multiplayer class	NetworkClient	NetworkServer
+
+
+client: rename handle network -> handle input?
+
+------------------------------------------------------------------------------
+dead reckoning
+ - use at all? yes
+ - design & implement
+
+
+
+------------------------------------------------------------------------------
+- redesign readStateFromBitstream / writeStateToBitstream / applyControlForces hacks
+
+
+- merge interpolationspring into Gameobject
+  solid, object -> proxy_object (NULL on server; render target, skip interpolation if NULL)
+                                set dampening on creation
+  target        -> target_object
+=> tank hacks can be removed
+
+
+
+
+------------------------------------------------------------------------------
+contact groups
+- list & specify
+
+
+
+</pre>
+*/

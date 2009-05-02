@@ -1,0 +1,22 @@
+ ======================
+ Future Games
+ ======================
+ 
+ + RTS game: nur eine basis einheit pro rasse. gebäude die upgrades herstellen, 
+    basis einheit kann sich die upgrades holen die sie nutzen will. umfang: normale waffen 
+    bis mech suits.
+    evtl. upgrades wieder abwerfen und neue annehmen. flexible dynamische armee, keine fixen 
+    einheiten mehr.
+ 
+ + Armored Alley 2D/3D
+ + Carrier Command 3D
+ + Tank game with fully destructable environment, indirect damage
+ + Rollerball as 3D game (motorcycles and runner)
+ 
+ 
+ + Desktop background, garden game i.e.
+ 
+ ======================
+  Others
+ ======================
+ 

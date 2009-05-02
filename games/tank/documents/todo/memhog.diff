@@ -1,0 +1,260 @@
+Index: bluebeard/src/PuppetMasterServer.cpp
+===================================================================
+--- bluebeard/src/PuppetMasterServer.cpp	(revision 3914)
++++ bluebeard/src/PuppetMasterServer.cpp	(working copy)
+@@ -237,14 +237,15 @@
+         // Skip sleeping objects.
+         if (rigid_body->isSleeping()) continue;
+         
+-        // Don't send object state to owner, as this would mess up
+-        // client side prediction. This will be handled with a
+-        // SetControllableStateCmd.
+-        SystemAddress exclude_id = UNASSIGNED_SYSTEM_ADDRESS;
+-        if (dynamic_cast<Controllable*>(it->second)) exclude_id = it->second->getOwner();
++//         // Don't send object state to owner, as this would mess up
++//         // client side prediction. This will be handled with a
++//         // SetControllableStateCmd.
++//         SystemAddress exclude_id = UNASSIGNED_SYSTEM_ADDRESS;
++//         if (dynamic_cast<Controllable*>(it->second)) exclude_id = it->second->getOwner();
+ 
+         network::SetGameObjectStateCmd cmd_core(it->second, OST_CORE);
+-        sendNetworkCommand(cmd_core, exclude_id, CST_BROADCAST_READY);
++//         sendNetworkCommand(cmd_core, exclude_id, CST_BROADCAST_READY);
++        sendNetworkCommand(cmd_core, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_READY);
+     }
+ }
+ 
+Index: bluebeard/src/NetworkServer.cpp
+===================================================================
+--- bluebeard/src/NetworkServer.cpp	(revision 3914)
++++ bluebeard/src/NetworkServer.cpp	(working copy)
+@@ -42,7 +42,7 @@
+     
+     interface_->SetMTUSize(s_params.get<unsigned>("server.network.mtu_size"));
+     interface_->SetOccasionalPing(true); // need this for timestamping to work
+-    interface_->SetUnreliableTimeout(UNRELIABLE_PACKET_TIMEOUT);
++//    interface_->SetUnreliableTimeout(UNRELIABLE_PACKET_TIMEOUT);
+ 
+     puppet_master_.reset(new PuppetMasterServer(interface_));
+ }
+Index: bluebeard/src/Controllable.cpp
+===================================================================
+--- bluebeard/src/Controllable.cpp	(revision 3914)
++++ bluebeard/src/Controllable.cpp	(working copy)
+@@ -49,6 +49,8 @@
+  */
+ void Controllable::writeStateToBitstream (RakNet::BitStream & stream, unsigned type) const
+ {
++    for (unsigned i=0; i<102000; ++i) stream.Write((unsigned)0);
++ 
+     // This needs to be sent because we cannot rely on client & server
+     // being in sync on whether this controllable is currently
+     // controlled or not.
+@@ -65,6 +67,9 @@
+ //------------------------------------------------------------------------------
+ void Controllable::readStateFromBitstream(RakNet::BitStream & stream, unsigned type, uint32_t timestamp)
+ {
++    unsigned res;
++    for (unsigned i=0; i<102000; ++i) stream.Read(res);
++ 
+     bool csp;
+     stream.Read(csp);
+     
+Index: games/tank/config_server.xml
+===================================================================
+--- games/tank/config_server.xml	(revision 3914)
++++ games/tank/config_server.xml	(working copy)
+@@ -2,7 +2,7 @@
+ <parameters>
+ 
+     <section name="master_server">
+-        <variable name="host" value="master.quanticode.com" type="string" />
++        <variable name="host" value="localhost" type="string" />
+         <variable name="port" value="23501" type="unsigned" />
+         <variable name="heartbeat_interval" value="180" type="unsigned" />
+     </section>
+@@ -18,7 +18,7 @@
+         <variable name="max_connections" value="10" type="unsigned" />
+         <variable name="time_limit" value="720"     type="float" console="1" /> 
+ 
+-        <variable name="map_names" value="[[dm_valley;Deathmatch]; [dm_almrausch;Deathmatch]]" type="vector<vector<string> >" />
++        <variable name="map_names" value="[[dm_valley;TeamDeathmatch]; [dm_almrausch;Deathmatch]]" type="vector<vector<string> >" />
+     </section>
+     <!-- 
+     -->
+@@ -95,7 +95,7 @@
+     <section name="server.network">
+ 	    <variable name="sleep_timer" value="1" type="unsigned" />
+ 	    <!-- -->
+-	    <variable name="send_gamestate_fps" value="7" type="float" />		
++	    <variable name="send_gamestate_fps" value="130" type="float" />		
+          <variable name="mtu_size" value="1460" type="unsigned" />
+     
+          <variable name="max_input_deque_size" value="4" type="unsigned" console="1"/>
+Index: games/tank/documents/todo/memhog.diff
+===================================================================
+--- games/tank/documents/todo/memhog.diff	(revision 3914)
++++ games/tank/documents/todo/memhog.diff	(working copy)
+@@ -1,6 +1,6 @@
+ Index: bluebeard/src/PuppetMasterServer.cpp
+ ===================================================================
+---- bluebeard/src/PuppetMasterServer.cpp	(revision 3870)
++--- bluebeard/src/PuppetMasterServer.cpp	(revision 3914)
+ +++ bluebeard/src/PuppetMasterServer.cpp	(working copy)
+ @@ -237,14 +237,15 @@
+          // Skip sleeping objects.
+@@ -24,9 +24,22 @@
+      }
+  }
+  
++Index: bluebeard/src/NetworkServer.cpp
++===================================================================
++--- bluebeard/src/NetworkServer.cpp	(revision 3914)
+++++ bluebeard/src/NetworkServer.cpp	(working copy)
++@@ -42,7 +42,7 @@
++     
++     interface_->SetMTUSize(s_params.get<unsigned>("server.network.mtu_size"));
++     interface_->SetOccasionalPing(true); // need this for timestamping to work
++-    interface_->SetUnreliableTimeout(UNRELIABLE_PACKET_TIMEOUT);
+++//    interface_->SetUnreliableTimeout(UNRELIABLE_PACKET_TIMEOUT);
++ 
++     puppet_master_.reset(new PuppetMasterServer(interface_));
++ }
+ Index: bluebeard/src/Controllable.cpp
+ ===================================================================
+---- bluebeard/src/Controllable.cpp	(revision 3870)
++--- bluebeard/src/Controllable.cpp	(revision 3914)
+ +++ bluebeard/src/Controllable.cpp	(working copy)
+ @@ -49,6 +49,8 @@
+   */
+@@ -47,48 +60,9 @@
+      bool csp;
+      stream.Read(csp);
+      
+-Index: libs/toolbox/src/ConsoleApp.cpp
+-===================================================================
+---- libs/toolbox/src/ConsoleApp.cpp	(revision 3870)
+-+++ libs/toolbox/src/ConsoleApp.cpp	(working copy)
+-@@ -63,13 +63,13 @@
+- {
+- #ifndef _WIN32
+-     // Check whether we have dumb terminal (e.g. started from ddd)
+--    char * term = getenv("TERM");
+--    if (term && strcmp(term, "dumb") != 0)
+-+//     char * term = getenv("TERM");
+-+//     if (term && strcmp(term, "dumb") != 0)
+-+//     {
+-+//         system("stty raw -echo -isig");
+-+//         dumb_terminal_ = false;
+-+//     } else
+-     {
+--        system("stty raw -echo -isig");
+--        dumb_terminal_ = false;
+--    } else
+--    {
+-         s_log << "Dumb terminal detected. Console input will be limited.\n";
+-     }
+-     setFlag(STDIN_FILENO, O_NONBLOCK);
+-@@ -131,6 +131,14 @@
+-  */
+- std::string ConsoleApp::quit(const std::vector<std::string>&)
+- {
+-+    if (!dumb_terminal_) system("stty -raw echo");
+-+
+-+     int *i=0;
+-+     *i=1;
+-+     exit(0);
+-+
+-+
+-+    
+-     quit_ = true;
+-     return "";
+- }
+ Index: games/tank/config_server.xml
+ ===================================================================
+---- games/tank/config_server.xml	(revision 3870)
++--- games/tank/config_server.xml	(revision 3914)
+ +++ games/tank/config_server.xml	(working copy)
+ @@ -2,7 +2,7 @@
+  <parameters>
+@@ -108,7 +82,7 @@
+      </section>
+      <!-- 
+      -->
+-@@ -93,7 +93,7 @@
++@@ -95,7 +95,7 @@
+      <section name="server.network">
+  	    <variable name="sleep_timer" value="1" type="unsigned" />
+  	    <!-- -->
+@@ -117,71 +91,3 @@
+           <variable name="mtu_size" value="1460" type="unsigned" />
+      
+           <variable name="max_input_deque_size" value="4" type="unsigned" console="1"/>
+-Index: games/tank/documents/linux_release/library_configuration
+-===================================================================
+---- games/tank/documents/linux_release/library_configuration	(revision 3870)
+-+++ games/tank/documents/linux_release/library_configuration	(working copy)
+-@@ -17,6 +17,6 @@
+- 
+- 
+- osg:
+--take care of libSM, libICE! link statically by installing dev packages
+-+take care of libSM, libICE! link statically by installing dev packages?
+- 
+- 
+-Index: games/tank/documents/todo.dox
+-===================================================================
+---- games/tank/documents/todo.dox	(revision 3870)
+-+++ games/tank/documents/todo.dox	(working copy)
+-@@ -1,36 +1,43 @@
+-+added unreliable timeout for raknet packets; set mtu size on master server
+- 
+- 
+-+
+-+test rsnapshot
+-+place config file into system_config dir
+-+
+-+put package config into system_config dir
+-+
+-+------------------------------------------------------------------------------
+-+
+-+roadmap
+-+
+- check out unreliabletimeout, is it ever set? why not?
+- set unreliabletimeout
+- does this affect scenario without stresstest?
+- 
+- this still doesn't explain why mem isn't freed after disconnect...
+- 
+--
+- check sendPacketSet, log push & pops
+- 
+- is send buffer incremented without bounds?
+- why cannot send faster?
+- 
+--additional condition: packet must be split
+- 
+-+use latest raknet as soon as fix is available
+-+
+- ------------------------------------------------------------------------------
+- 
+--
+- press ok in server browser -> connects to localhost??
+- 
+--put GLSL into requirements
+-+put GLSL into requirements in readme
+- 
+--fix 4,5 crash on server by not transmitting?
+-+fix 4,5 crash on server, by not transmitting?
+- 
+--
+- Minimap::enableFlash
+- assert(it != icon_.end()); failure
+- 
+- ------------------------------------------------------------------------------
+- 
+--test raknet with supplied makefile
+--
+- remember weapons between sessions
+- 
+- killing spree soundeffects
