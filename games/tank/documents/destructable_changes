@@ -1,0 +1,73 @@
+
+
+-) blender
+   define bodies with parent<->child relations?
+   mischen von statischen und dynamischen meshes
+   verschiedene texturen für health-levels (LM?)
+   sound, partikeleffekte bei zerstörung
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+DESTRUCTIBLE TREES:
+
+
+-) trees must be positioned exactly in grome (or they will jump out)
+   simply start collision shape not at trunk?
+
+-) tree base needs to be modeled
+
+-) shadows will look crappy or stay on LM
+   stencil shadows?
+
+-) own "mass" geom to avoid mom.inertia issues
+
+-) particle effect or alpha blending  on destruction
+
+-) HP till wakeup, HP till destruction, networked
+
+-) sound effect
+
+-) max number of dynamic objects
+
+-) tree shader rewrite so it can handle non-instanced? or simply use default shader?
+
+
+------------------------------------------------------------------------------
+
+Terrain:
+
+-) instanced objects must disappear
+
+-) own texture layer for destroyed terrain
+
+-) transfer changes / initial terrain state
+
+-) destroy objects on terrain which changes
+
+-) need to change ode heightfield
+
+-) need to recalc lightmap
+
+
+------------------------------------------------------------------------------
+
+Objects:
+
+-) need threshold damage for destruction
+
+-) handle network issues!!! limit simult. number of dynamic objects?
+
+-) bridge, dispenser static??
+
+-) put sleeping objects into static space
+
+-) how to get rid of pieces?
+
+-) collision sound effects
+
+-) particle effects
+
+-) need to model multiple bbms, ode bodies in same blend file: concept needed
+  -) different COGs
+  -) bind bbm to ode
+

@@ -1,0 +1,73 @@
+
+
+double collision damage when tanks collide?
+make invincible short time after ram
+don't do collision damage from ball
+
+winning message doesn't show???
+
+more starting positions
+
+------------------------------------------------------------------------------
+
+trümmer nur mit static kollidieren
+
+------------------------------------------------------------------------------
+
+void around stadium!!
+
+------------------------------------------------------------------------------
+
+score history absolute
+
+------------------------------------------------------------------------------
+
+don't save equipment preferences after soccer match
+
+3rd person?
+
+------------------------------------------------------------------------------
+
+tractor beam auswirkung auf tank?
+
+------------------------------------------------------------------------------
+
+Gameplay issues/changes:
+
+somehow limit shots? lesser influence on tank?
+"charge" shots? uncharged shot with neglible effect on tank?
+
+solve ram problem
+no HP? ram kills when over given speed? frontal ram kills both?
+or require "combo" - charged shot + ram?
+
+ball no damage when colliding!
+
+
+how can better ball control be achieved?
+
+-) make ball smaller - guidable via splash effect, not direct hit
+   use collision shape larger than ball itself so no direct hit is required
+
+-) let claws have "direction", let ball pass through in one dir.
+
+
+how many players? instant matchmaking instead of server browser?
+
+------------------------------------------------------------------------------
+
+make number of ball particles velocity-dependend
+
+slow down tanks too with laser
+
+animated textures
+
+stadium modular? 
+
+own GuiHelp for soccer
+
+
+let slowdown shoot continuously, own weapon
+
+no collision damage at all except for ramming
+

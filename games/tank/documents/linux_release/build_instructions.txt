@@ -1,0 +1,263 @@
+
+
+------------------------------------------------------------------------------
+needed libs:
+
+--------------------
+tinyxml 2.5.3
+project(tinyxml)
+
+set(tinyxmlSources
+tinystr.cpp  tinyxml.cpp  tinyxmlerror.cpp  tinyxmlparser.cpp 
+)
+
+
+
+set(tinyxmlHeaders
+tinystr.h  tinyxml.h
+)
+
+
+add_definitions(-DTIXML_USE_STL)
+
+add_library(tinyxml SHARED  ${tinyxmlSources} )
+add_library(tinyxml_static STATIC  ${tinyxmlSources} )
+
+install(TARGETS tinyxml
+        DESTINATION lib)
+
+install(TARGETS tinyxml_static
+        DESTINATION lib)
+
+install(FILES ${tinyxmlHeaders}
+        DESTINATION include)
+
+
+--------------------
+loki 0.1.5
+
+sudo aptitude install libloki-dev
+
+--------------------
+
+gzstream 1.5
+
+
+project(gzstream)
+
+set(gzstreamSources
+gzstream.C
+)
+
+
+
+set(gzstreamHeaders
+gzstream.h
+)
+
+
+include_directories(.)
+
+add_library(gzstream SHARED ${gzstreamSources} )
+add_library(gzstream_static STATIC ${gzstreamSources} )
+
+install(TARGETS gzstream
+        DESTINATION lib)
+install(TARGETS gzstream_static
+        DESTINATION lib)
+
+install(FILES ${gzstreamHeaders}
+        DESTINATION include)
+
+--------------------
+
+
+raknet revision 382
+
+
+
+PROJECT(RakNetStaticLib)
+
+SET(RAKNET_SOURCES 
+
+Source/AsynchronousFileIO.cpp         Source/MessageFilter.cpp
+Source/AutoRPC.cpp                    Source/NatPunchthrough.cpp
+Source/BitStream.cpp                  Source/NetworkIDManager.cpp
+Source/BitStream_NoTemplate.cpp       Source/NetworkIDObject.cpp
+Source/CheckSum.cpp                   Source/PacketConsoleLogger.cpp
+Source/CommandParserInterface.cpp     Source/PacketFileLogger.cpp
+Source/ConnectionGraph.cpp            Source/PacketLogger.cpp
+Source/ConsoleServer.cpp              Source/PluginInterface.cpp
+Source/DataBlockEncryptor.cpp         Source/RakMemoryOverride.cpp
+Source/DataCompressor.cpp             Source/RakNetCommandParser.cpp
+Source/DirectoryDeltaTransfer.cpp     Source/RakNetStatistics.cpp
+Source/DS_BytePool.cpp                Source/RakNetTransport.cpp
+Source/DS_ByteQueue.cpp               Source/RakNetTypes.cpp
+Source/DS_HuffmanEncodingTree.cpp     Source/RakNetworkFactory.cpp
+Source/DS_Table.cpp                   Source/RakPeer.cpp
+Source/EmailSender.cpp                Source/RakSleep.cpp
+Source/EncodeClassName.cpp            Source/RakString.cpp
+Source/EpochTimeToString.cpp          Source/RakThread.cpp
+Source/ExtendedOverlappedPool.cpp     Source/Rand.cpp
+Source/FileList.cpp                   Source/ReadyEvent.cpp
+Source/FileListTransfer.cpp           Source/ReliabilityLayer.cpp
+Source/FileOperations.cpp             Source/ReplicaManager2.cpp
+Source/_FindFirst.cpp                 Source/ReplicaManager.cpp
+Source/FormatString.cpp               Source/rijndael.cpp
+Source/FullyConnectedMesh.cpp         Source/Router.cpp
+Source/FunctionThread.cpp             Source/RPCMap.cpp
+Source/Gen_RPC8.cpp                   Source/SHA1.cpp
+Source/GetTime.cpp                    Source/SimpleMutex.cpp
+Source/GridSectorizer.cpp             Source/SocketLayer.cpp
+Source/HTTPConnection.cpp             Source/StringCompressor.cpp
+Source/InlineFunctor.cpp              Source/StringTable.cpp
+Source/Itoa.cpp                       Source/SuperFastHash.cpp
+Source/LightweightDatabaseClient.cpp  Source/SystemAddressList.cpp
+Source/LightweightDatabaseCommon.cpp  Source/TableSerializer.cpp
+Source/LightweightDatabaseServer.cpp  Source/TCPInterface.cpp
+Source/LinuxStrings.cpp               Source/TelnetTransport.cpp
+Source/LogCommandParser.cpp           Source/ThreadsafePacketLogger.cpp
+)
+
+set(RAKNET_HEADERS
+Source/AsynchronousFileIO.h              Source/LogCommandParser.h
+Source/AutopatcherPatchContext.h         Source/MessageFilter.h
+Source/AutopatcherRepositoryInterface.h  Source/MessageIdentifiers.h
+Source/AutoRPC.h                         Source/MTUSize.h
+Source/BigTypes.h                        Source/NatPunchthrough.h
+Source/BitStream.h                       Source/NetworkIDManager.h
+Source/BitStream_NoTemplate.h            Source/NetworkIDObject.h
+Source/CheckSum.h                        Source/PacketConsoleLogger.h
+Source/ClientContextStruct.h             Source/PacketFileLogger.h
+Source/CommandParserInterface.h          Source/PacketLogger.h
+Source/ConnectionGraph.h                 Source/PacketPool.h
+Source/ConsoleServer.h                   Source/PacketPriority.h
+Source/DataBlockEncryptor.h              Source/PluginInterface.h
+Source/DataCompressor.h                  Source/RakAssert.h
+Source/DirectoryDeltaTransfer.h          Source/RakMemoryOverride.h
+Source/DS_BinarySearchTree.h             Source/RakNetCommandParser.h
+Source/DS_BPlusTree.h                    Source/RakNetDefines.h
+Source/DS_BytePool.h                     Source/RakNetStatistics.h
+Source/DS_ByteQueue.h                    Source/RakNetTransport.h
+Source/DS_Heap.h                         Source/RakNetTypes.h
+Source/DS_HuffmanEncodingTreeFactory.h   Source/RakNetVersion.h
+Source/DS_HuffmanEncodingTree.h          Source/RakNetworkFactory.h
+Source/DS_HuffmanEncodingTreeNode.h      Source/RakPeer.h
+Source/DS_LinkedList.h                   Source/RakPeerInterface.h
+Source/DS_List.h                         Source/RakSleep.h
+Source/DS_Map.h                          Source/RakString.h
+Source/DS_MemoryPool.h                   Source/RakThread.h
+Source/DS_OrderedChannelHeap.h           Source/Rand.h
+Source/DS_OrderedList.h                  Source/ReadyEvent.h
+Source/DS_Queue.h                        Source/RefCountedObj.h
+Source/DS_QueueLinkedList.h              Source/ReliabilityLayer.h
+Source/DS_RangeList.h                    Source/ReplicaEnums.h
+Source/DS_Table.h                        Source/Replica.h
+Source/DS_Tree.h                         Source/ReplicaManager2.h
+Source/DS_WeightedGraph.h                Source/ReplicaManager.h
+Source/EmailSender.h                     Source/Rijndael-Boxes.h
+Source/EpochTimeToString.h               Source/Rijndael.h
+Source/Export.h                          Source/Router.h
+Source/ExtendedOverlappedPool.h          Source/RouterInterface.h
+Source/FileList.h                        Source/RPCMap.h
+Source/FileListTransferCBInterface.h     Source/RPCNode.h
+Source/FileListTransfer.h                Source/RSACrypt.h
+Source/FileOperations.h                  Source/SHA1.h
+Source/_FindFirst.h                      Source/SimpleMutex.h
+Source/FormatString.h                    Source/SimpleTCPServer.h
+Source/FullyConnectedMesh.h              Source/SingleProducerConsumer.h
+Source/FunctionThread.h                  Source/SocketLayer.h
+Source/Gen_RPC8.h                        Source/StringCompressor.h
+Source/GetTime.h                         Source/StringTable.h
+Source/GridSectorizer.h                  Source/SuperFastHash.h
+Source/HTTPConnection.h                  Source/SystemAddressList.h
+Source/InlineFunctor.h                   Source/TableSerializer.h
+Source/InternalPacket.h                  Source/TCPInterface.h
+Source/Itoa.h                            Source/TelnetTransport.h
+Source/Kbhit.h                           Source/ThreadPool.h
+Source/LightweightDatabaseClient.h       Source/ThreadsafePacketLogger.h
+Source/LightweightDatabaseCommon.h       Source/TransportInterface.h
+Source/LightweightDatabaseServer.h       Source/Types.h
+Source/LinuxStrings.h
+)
+
+
+ADD_LIBRARY(RakNet STATIC ${RAKNET_SOURCES})
+
+
+INSTALL(TARGETS RakNet
+        DESTINATION lib)
+
+INSTALL(FILES ${RAKNET_HEADERS}
+        DESTINATION include/raknet)
+
+
+--------------------
+
+pcre3
+
+sudo aptitude install libpcr3-dev
+
+--------------------
+
+ode 0.7
+
+sudo aptitude install automake1.9
+
+patch -p0 < hashspace_geom_enabled.patch
+patch -p0 < quadtree_axis.patch
+patch -p0 < quadtree_enum.patch
+
+./configure --enable-release --disable-gyroscopic --enable-double-precision --enable-shared --disable-ice --disable-drawstuff
+make
+sudo checkinstall
+
+--------------------
+
+sudo aptitude install libsdl1.2-dev
+
+--------------------
+
+SILLY 0.1.0
+
+./configure --enable-release 
+
+checkinstall doesn't work??
+
+--------------------
+
+CEGUI 0.5
+after SILLY
+
+./configure --enable-release --enable-shared --disable-expat --disable-tga --disable-samples
+
+include directory hardcoded to /usr/local/include/CEGUI in CMakeLists.txt, needs to be fixed..
+
+--------------------
+
+open scene graph 2.2.0
+
+displaysetting.cpp: include string.h
+include <cstdlib> for free
+various others
+
+--------------------
+
+sudo aptitude install libalut-dev
+
+------------------------------------------------------------------------------
+
+explain symlinking everything together
+
+------------------------------------------------------------------------------
+blender exporter setup:
+
+cd .blender/scripts
+ln -s blend_scripts zero
+
+system->scripts config editor
+specify data directory
+restart blender
+
+
+nvdxt.exe

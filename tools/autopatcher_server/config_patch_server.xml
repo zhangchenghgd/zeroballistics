@@ -1,0 +1,46 @@
+
+<?xml version="1.0" ?>
+<parameters>
+
+
+    <section name="patcher.app">
+        <variable name="min_fps" value="5" type="float" />
+        <variable name="target_fps" value="60" type="float" />
+    </section>
+
+    <section name="db">
+        <variable name="host" value="localhost" type="string" />
+	<variable name="user" value="tester" type="string" />
+	<variable name="passwd" value="tester" type="string" />
+	<variable name="name" value="autopatcher" type="string" />
+	<variable name="port" value="0" type="unsigned" />
+	<variable name="app_name_win" value="FmsWindows" type="string" />
+	<variable name="app_name_lin" value="FmsLinux" type="string" />
+	<variable name="app_dir_win" value="/home/musch/gameisle_patchdir_win" type="string" />
+	<variable name="app_dir_lin" value="/home/musch/gameisle_patchdir_lin" type="string" />
+    </section>
+
+
+    <section name="server.app">
+        <variable name="min_fps" value="5" type="float" />
+        <variable name="target_fps" value="60" type="float" />
+    </section>
+
+
+    <section name="network">
+        <variable name="listen_port" value="23510" type="unsigned" />
+	<variable name="sleep_timer" value="1" type="unsigned" />
+        <variable name="mtu_size" value="1460" type="unsigned" />    
+        <variable name="max_connections" value="16" type="unsigned" />    
+    </section>
+
+
+    <section name="patcher.log">
+        <variable name="filename" value="autopatcher_server.log" type="string" />
+        <variable name="debug_classes" value="-" comment="" type="string" console="1"/>
+        <variable name="append" value="1" type="bool" />
+        <variable name="print_to_cout" value="1" type="bool" />
+        <variable name="always_flush" value="1" type="bool" />
+    </section>
+
+</parameters>

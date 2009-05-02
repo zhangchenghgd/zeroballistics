@@ -1,0 +1,269 @@
+
+
+I'd like to add here that the linux version of the game, after it has
+detected that the graphics card doesn't support GLSL (intel
+945. integrated :D ), gives this error and doesn't change the
+resolution back to normal. I know it's not a big problem (the game
+won't be playable anyway), but it would be nice to see this fixed.
+
+------------------------------------------------------------------------------
+
+assertion OdeCollisionSpace:225 (affects Beaconstrike only)
+
+------------------------------------------------------------------------------
+
+press numpad enter in chat -> crash
+
+------------------------------------------------------------------------------
+
+FSAA x6 x8 did work with beta 1.0?
+doesn't with 1.1?
+
+
+------------------------------------------------------------------------------
+During a team match this morning my teammate commented that his kill
+points were not increasing. i checked and mine were the same. Stayed
+at 2 until the end of the match. I had scored and used an upgrade
+earlier in the game.
+
+In the game it was the upgrade points that did not increase - sorry to
+confuse you. As I said, it affected my team partner too.
+
+It happened again yesterday - my opponent was affected, but not me (we
+tested). Both times were on the map with the water (dmbridge?).
+
+I do not know if other points / stats were affected.
+
+------------------------------------------------------------------------------
+
+wrecks are shown as controllable on new connection
+
+
+floating point div by zero in ogl driver??
+
+------------------------------------------------------------------------------
+
+
+kick hangs PC!!
+reproduce
+
+------------------------------------------------------------------------------
+
+alt-tab reproduzieren
+somehwere in particle effect mutex??
+
+------------------------------------------------------------------------------
+
+
+crash with "need newer version???"
+don't accept version stuff after connection is up&running...
+do version stuff in plugin?
+
+
+------------------------------------------------------------------------------
+
+
+regenerate bug? see stars even while firing
+
+------------------------------------------------------------------------------
+
+f4->f1 shortly shows tank inside
+
+
+------------------------------------------------------------------------------
+
+C-net is assumed for network submask
+
+------------------------------------------------------------------------------
+
+
+MG direction bug???
+test initialization with incorrect v
+if other guy starts shooting, it goes away...??
+
+------------------------------------------------------------------------------
+
+defender beacon doesn't rotate anymore... why?
+
+------------------------------------------------------------------------------
+
+beacon health still goes up after being fired on (on client)
+-> call stophealing on hit
+
+------------------------------------------------------------------------------
+
+handle scheduler id overflow!!
+
+------------------------------------------------------------------------------
+
+heightfield collision is broken (mg can go through in some situations)
+
+------------------------------------------------------------------------------
+
+re-test with 16 bit color depth - osg FrameBuffer doesn't work
+either switch to 32 or make it work with 16
+
+------------------------------------------------------------------------------
+
+projectile flyby: culled when firing position is out of sound range?
+
+------------------------------------------------------------------------------
+
+jump capability depends on framerate -> correct this, put it into CSP
+
+------------------------------------------------------------------------------
+
+Warning : Received invalid beacon in GameLogicClientConqueror::beaconConnections -> crash
+when connecting to a running game
+are beacon connections sent during connection process?
+
+------------------------------------------------------------------------------
+
+
+particle effect bugs:
+-) LocalEffectOperator doesn't work correctly for newly created particles, especially at low framerates
+   don't affect particle which was just created, as its position is correct...?
+
+-) tracer direction is incorrect sometimes. VelocityScaleShooter broken?
+
+------------------------------------------------------------------------------
+
+properly handle disconnect while in options menu
+window stack?
+
+------------------------------------------------------------------------------
+
+mg rays, projectiles collide with water
+this prevents mines below water from being destroyed
+
+------------------------------------------------------------------------------
+
+beacon boundary incorrect in minimap sometimes??
+
+------------------------------------------------------------------------------
+
+explosion invisible on white background
+
+------------------------------------------------------------------------------
+
+boundary missing in minimap sometimes for defender
+
+------------------------------------------------------------------------------
+
+message area is not cleared after appendToLine?
+
+------------------------------------------------------------------------------
+
+beacon connection: not enabled if LOS is not given to nearest beacon
+
+------------------------------------------------------------------------------
+
+failed to connect to .... wrong IP
+
+lan scan doesn't work reliably??
+
+test with two real interfaces
+
+
+------------------------------------------------------------------------------
+
+hosting while ded.server runs -> lost connection
+
+------------------------------------------------------------------------------
+
+reproduce quadtree enumeration bug (win debug mode)
+
+------------------------------------------------------------------------------
+
+test quadtree<->quadtree space under win in debug mode...
+
+------------------------------------------------------------------------------
+
+linux installer doesn't remove Quanticode directory
+
+
+------------------------------------------------------------------------------
+
+when conquering base, invalid beacon combination can be sent
+
+------------------------------------------------------------------------------
+
+check & fix static collision in client simulator
+try old ode package first?
+
+------------------------------------------------------------------------------
+
+remove hack:
+
+
+    Matrix rot(true);
+    rot.loadCanonicalRotation(PI*0.5, 0);
+    
+    ret->encapsulateGeom(dCreateCCylinder(0, radius_, length_), space, offset_*rot);
+
+------------------------------------------------------------------------------
+
+
+connection bug: no cleanup after loadLevel???
+
+
+
+prevent ESC from being pressed while loading, or abort loading process?
+
+return to game if level is loaded while in options menu...
+
+
+
+------------------------------------------------------------------------------
+
+do proper wheel + engine handling now?
+add wheel mom. inertia, spindown&up time
+
+make engine sound dependent on avg. driven wheel rotation speed
+
+
+
+------------------------------------------------------------------------------
+
+
+always replay history and test turret behaviour
+broken firing stabilization disablement?
+
+
+
+export is broken if parent has transform
+
+
+checksums broken if data dir is changed
+store data dir in checksums?
+del checksums on data dir change?
+
+
+
+avoid suicide after artillery hit because of impact impulse
+
+
+
+hang after kick
+
+
+
+transfer initial state:
+beacon connections (model as gameobject??)
+carried beacon
+
+
+
+exporter doesn't pick current scene for export when having multiple scenes?
+
+
+python fun makeObjectVisible is buggy (makes layer visible even if object already is)
+
+
+match shadow view distance to innermost clipmap size
+
+projectile hit gets sent to players in connection process
+
+
+
+

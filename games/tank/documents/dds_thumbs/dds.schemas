@@ -1,0 +1,34 @@
+<!--resides in /usr/share/gconf/schemas/ -->
+
+<gconfschemafile>
+    <schemalist>
+        <schema>
+            <key>/schemas/desktop/gnome/thumbnailers/application@x-extension-dds/enable</key>
+
+            <applyto>/desktop/gnome/thumbnailers/application@x-extension-dds/enable</applyto>
+            <owner>gimp</owner>
+            <type>bool</type>
+
+            <default>true</default>
+            <locale name="C">
+                <short>Enable thumbnailing for dds files</short>
+                <long></long>
+
+            </locale>
+        </schema>
+        <schema>
+            <key>/schemas/desktop/gnome/thumbnailers/application@x-extension-dds/command</key>
+            <applyto>/desktop/gnome/thumbnailers/application@x-extension-dds/command</applyto>
+
+            <owner>gimp</owner>
+            <type>string</type>
+            <default>/usr/local/bin/dds-thumbnailer %s %i %o</default>
+            <locale name="C">
+
+                <short>Thumbnail command for documents from my application.</short>
+                <long>Valid command plus arguments for my-thumbnailer.</long>
+            </locale>
+        </schema>
+    </schemalist>
+
+</gconfschemafile>

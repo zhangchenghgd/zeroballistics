@@ -1,0 +1,65 @@
+
+
+
+don't require tex layers for export
+
+new level class, load/save xml format
+put into bbmloader dir
+reuse ObjectGroupLoader, rename to level, add save functionality
+
+
+------------------------------------------------------------------------------
+
+remove horz_scale, vert_scale etc from params
+
+
+
+
+check out grome osg exporter for texturing ideas
+render multiple stages with same geometry like grome?
+
+
+
+remove all terrain, level editing stuff from blender?
+or keep it as backup solution?
+
+
+
+implement bicubic interpolation for ray tests? this could severly
+improve driving behaviour...
+
+
+own terrain format to avoid using osg for terrain height data (dedicated server...)
+
+store detail as vertex attrib? or store it in texture?
+uses less memory when stored per vertex? no
+if blending, uses less memory when in texture
+but: additional texture accesses
+
+
+ditch bufferobject class
+use new OSG's vertex, index buffers
+
+
+
+specify  terrain params from level desc file
+(scale etc)
+rename ObjectGroup to level
+what to do about fog?
+into level desc?
+as well as ambient light?
+how to integrate terrain fog  with rest? (dist, color to bg color...)
+clear color to params, to level desc?
+move fog code to scene, only get fog params from terrain
+
+
+
+
+don't require lm, cm to be same size as hm
+
+
+
+texturing:
+one detailed, dynamically synthesized tex per clipmap level?
+or even precreate whole texture, only upload?
+

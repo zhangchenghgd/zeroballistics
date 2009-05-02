@@ -1,0 +1,100 @@
+------------------------------------------------------------------------------
+/etc/event.d/control-alt-delete
+
+------------------------------------------------------------------------------
+/etc/inetd.conf:
+svn-binary  stream tcp nowait musch /usr/bin/svnserve svnserve -i -r /home/svn/svn-binary  --listen-port=60060
+svn-artwork stream tcp nowait musch /usr/bin/svnserve svnserve -i -r /home/svn/svn-artwork --listen-port=60061
+svn-code    stream tcp nowait musch /usr/bin/svnserve svnserve -i -r /home/svn/svn-code    --listen-port=60062
+
+------------------------------------------------------------------------------
+/etc/xinetd.d:
+
+svn@v52:~$ cat /etc/xinetd.d/svn
+service svn-binary
+{
+        port = 60060
+        protocol = tcp
+        disable = no
+        socket_type = stream
+        wait = no
+        user = svn
+        server = /usr/bin/svnserve
+        server_args =  -i -r /home/svn/svn-binary    --listen-port=60060
+} 
+service svn-artwork
+{
+        port = 60061
+        protocol = tcp
+        disable = no
+        socket_type = stream
+        wait = no
+        user = svn
+        server = /usr/bin/svnserve
+        server_args =  -i -r /home/svn/svn-artwork    --listen-port=60061
+} 
+service svn-code
+{
+        port = 60062
+        protocol = tcp
+        disable = no
+        socket_type = stream
+        wait = no
+        user = svn
+        server = /usr/bin/svnserve
+        server_args =  -i -r /home/svn/svn-code    --listen-port=60062
+} 
+
+
+
+------------------------------------------------------------------------------
+/etc/services:
+# Local services
+svn-binary      60060/tcp                       # Binary svn repository
+svn-artwork     60061/tcp                       # Artwork svn repository
+svn-code        60062/tcp                       # Code svn repository
+
+
+
+------------------------------------------------------------------------------
+crontab:
+0 14 * * fri /home/musch/backup_repos.sh > /dev/null
+
+
+------------------------------------------------------------------------------
+/etc/pam.d/common-session:
+session optional        pam_umask.so umask=007
+(http://wiki.debian.org/DebianDesktopHowTo)
+
+------------------------------------------------------------------------------
+repositories:
+conf/svnserve.conf:
+  password-db = passwd
+> anon-access = none
+> auth-access = write
+
+
+------------------------------------------------------------------------------
+proftp:
+
+/etc/proftpd/ürpftpd.conf:
+
+AuthUserFile          /etc/proftpd/passwd.ftp
+AuthGroupFile         /etc/proftpd/group.ftp
+
+DefaultRoot ~
+RequireValidShell               off
+Umask                           002  002
+
+# A basic anonymous configuration, no upload directories.
+
+
+passwd.ftp (create passwd with htpasswd):
+chavez:XXXX:2000:1004::/home/ftp:/bin/false
+
+
+groups.ftp:
+external:x:1004:
+
+
+

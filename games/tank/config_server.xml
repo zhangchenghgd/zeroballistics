@@ -1,0 +1,164 @@
+<?xml version="1.0" ?>
+<parameters>
+
+    <section name="ranking_server">
+        <variable name="hosts" value="[ranking.fullmetalsoccer.com;quanticode.dyndns.org]" type="vector<string>" />
+        <variable name="ports" value="[23509;23509]" type="vector<unsigned>" />
+    </section>
+
+
+    <section name="master_server">
+        <variable name="host" value="master.fullmetalsoccer.com" type="string" />
+        <variable name="port" value="23505" type="unsigned" />
+        <variable name="heartbeat_interval" value="180" type="unsigned" />
+    </section>
+    <!-- 
+    -->
+    <section name="server.announcer">
+        <variable name="messages" value="[]" type="vector<string>" />    
+    </section>
+
+    <section name="server.settings">
+        <variable name="name" value="Free ZB Server" type="string" />    
+        <variable name="listen_port" value="23700" type="unsigned" />
+        <variable name="max_connections" value="10" type="unsigned" />
+        <variable name="time_limit" value="300"     type="float" console="1" /> 
+        <variable name="bot_limit" value="1" type="unsigned" />
+
+        <variable name="login_name"   value="official_ded" type="string"/> 
+        <variable name="login_passwd" value="testpasswd"     type="string"/> 
+
+
+        <variable name="map_names" value="[[dm_almrausch;TeamDeathmatch]]" type="vector<vector<string> >" />
+    </section>
+    <!-- 
+    -->
+    <section name="server.logic">
+
+	    <variable name="spawn_delay" value="2.5" type="float" />
+	    <variable name="spawn_select_delay" value="7.0" type="float" />
+
+	    <variable name="game_won_delay" value="15.0" type="float" />
+
+	    <variable name="logic_fps" value="10" type="float" />
+
+	    <variable name="invincibility_duration" value="4" type="float" />
+
+
+	    <variable name="cos_ram_damage_angle_threshold" value="0.7" type="float" />
+	    <variable name="ram_damage_factor" value="2.0" type="float" console="1"/>
+
+	    <variable name="damage_percentage_assist_threshold" value="0.3" type="float" />
+	    <variable name="tank_heal_increment"          value="1.0"  type="float" console="1" />
+	    <variable name="tank_heal_start_val"          value="-2.0" type="float" console="1" />
+	    <variable name="tank_heal_velocity_threshold" value="0.1"  type="float" console="1" />
+
+	    <variable name="armor_cone_cos" value="0.8" type="float" />
+    </section>
+
+
+    <section name="soccer.logic">
+	    <variable name="tractor_slowdown_factor" value="1.0" type="float"  console="1" />
+	    <variable name="tractor_acc_factor" value="0.6" type="float"       console="1" />
+	    <variable name="ball_dampening_factor" value="0.0001" type="float" console="1" />
+
+	    <variable name="goal_restart_delay" value="9.0" type="float"       console="1" />
+
+	    <variable name="clear_assist_delay" value="10.0" type="float"  comment="time until assist expires"    />
+	    <variable name="clear_no_own_goal_delay" value="3.0" type="float" comment="time after which touching a ball results in an own goal again"     />
+
+	    <variable name="regeneration_dt" value="1.5" type="float"   />
+
+
+    </section>
+
+
+    <section name="server.logic_deathmatch">
+	    <variable name="allow_spawn_stage_selection" value="0"  type="bool" />
+    </section>
+
+
+    <section name="server.logic_beaconstrike">
+            <variable name="beacon_pickup_radius" value="2" type="float" />
+
+	    <variable name="beacon_rise_speed" value="0.8" type="float" />
+	    <variable name="beacon_stop_hover_delay" value="1" type="float" />
+	    <variable name="beacon_deploy_delay" value="3" type="float" />
+
+
+	    <variable name="beacon_hitpoints" value="1200" type="unsigned" />
+	    <variable name="beacon_regeneration_rate" value="8" type="unsigned" />
+	    <variable name="beacon_degeneration_rate" value="30" type="unsigned" />
+
+	    <variable name="beacon_radius" value="13" type="float" />
+
+	    <variable name="beacon_dropping_speed_threshold" value="0.9" type="float" console="1"/>
+
+	    <variable name="num_initial_beacons" value="2" type="float" />
+	    <variable name="beacon_queue_increment_per_kill"   value="0.5"  type="float" />
+	    <variable name="beacon_queue_increment_per_second" value="0.025" type="float" />
+
+	    <variable name="time_extension" value="600" type="float" console="1" />
+
+	    <variable name="beacon_heal_increment"          value="1.0"  type="float" console="1" />
+	    <variable name="beacon_heal_start_val"          value="-10.0" type="float" console="1" />
+    </section>
+
+    <!-- 
+    -->
+    <section name="server.ai">
+        <variable name="names" value="[Mr. Stubot;Robot;Botswana;Demibot;Bottleneck;Sabotage;Bottomless;Egobot]" type="vector<string>" />
+        <variable name="ids" value="[1;2;3;4;5;6;7;8]" type="vector<unsigned>" comment=" ranking: use id as session key " />
+        <variable name="attack_range_sqr" value="620.0" type="float" />
+    </section>
+    <!-- 
+    -->
+    <section name="server.app">
+        <variable name="target_fps" value="60" type="float" />
+        <variable name="min_fps" value="5" type="float" />
+        <variable name="total_profile" value="0" type="bool" />
+        <variable name="fullscreen" value="0" type="bool" />        
+        <variable name="initial_window_width" value="1000" type="unsigned" />
+        <variable name="initial_window_height" value="450" type="unsigned" />
+    </section>
+    <!-- 
+    -->
+    <section name="server.network">
+	    <variable name="sleep_timer" value="1" type="unsigned" />
+	    <!-- -->
+	    <variable name="send_gamestate_fps" value="7" type="float" />		
+         <variable name="mtu_size" value="1460" type="unsigned" />
+    
+         <variable name="max_input_deque_size" value="4" type="unsigned" console="1"/>
+
+	    <!-- network simulator stuff -->	
+        <variable name="max_bps" value="0" type="float" />
+        <variable name="min_ping" value="0" type="unsigned" />
+        <variable name="extra_ping" value="0" type="unsigned" />
+
+        <!-- sim stuff end -->        
+    </section>
+    <!--	
+	-->    
+       <section name="server.graphics"> 
+            <variable name="fsaa_samples" value="0" type="unsigned" />
+        </section>            
+    <!--	
+	-->
+    <section name="server.log">
+        <variable name="filename" value="server_ded.log" type="string" />
+        <!-- RELEASE Changes -->
+        <variable name="debug_classes" value="-" type="string" comment="possible values: idsrtNMlohH" console="1"/>
+        <variable name="append" value="1" type="bool" />
+        <variable name="always_flush" value="1" type="bool" />
+
+        <variable name="print_network_summary" value="0" type="bool" />
+
+    </section>
+    <!--	
+	-->
+    <section name="server.puppet_master">
+        <variable name="rcon_passwd" value="none" type="string" />
+    </section>
+
+</parameters>

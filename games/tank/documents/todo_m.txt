@@ -1,0 +1,358 @@
+
+
+/** 
+\page todo Tank Todo List
+<pre>
+
+
+show name on tank aiming at
+
+armin: 
+
++ mg firing stop sound, problem mit ausklingen vom mg fire sound. stop überhaupt hörbar?
+
++ letzter treffer kein explosions sound abgespielt wird
+
+
+              
++ coll. dam threshold anheben statt imune
+
+
++ warhammer universe
+
+
+
+
+
+bug list review
+
+
+water reflections - use minimum shader render pass
+
+im upgrade menu, rotierenden tank, see pimped tank
+
+show selected upgrade to all players
+
+different engine sound after speed upgrade
+
+
+
+beacons frei entnehmbar bei allen eroberten tempeln
+
+
+eigener "beacon-tree"
+
+beacons aufklauben nur durch durchfahren
+
+
+profile node for tank wheel physics
+
+
+profiler stats call??
+
+
+streaming sounds:
+- engine sound in main menu
+
+
+priorize sound sources. 
+
+
+
+window handling (SDL??) -> modified lib 1.2.11
+
+
+
+particle effect distance culling 
+
+++++++++++++++++++++++++++++++++++++++++++
+-------------- DONE / ABANDONED ----------
+++++++++++++++++++++++++++++++++++++++++++
+
+sound bei beacon connect/disconnect
+
+neue voice + beacon sounds
+
+fix guioptions wie guihost comboboxes
+
+printglinfo fix rausschreiben.
+
+server browser:
++ total servers: statt filters
+
++ need assistance ins chat window
+
++ beacon drop/pick sound für alle
+
+particle effects: osg patch, schaun ob im trunk noch drin
+
+particle effect:
+eigenen custom operator mit localvelocity schreiben
+
+          
+
+maik neue effekte
+armin neue sounds
+
++ mg_inground kein 3D effekt
+
+ATI cards: gl_ClipPosition statt clipvertex (not available)
+
+demo.pdf:  den satz raus, passt nicht wirklich da rein: "Commands are currently undocumented,
+but the Linux server features TAB autocompletion."
+
+technical_design.pdf: 
++ "Currently, calculations are not done exactly, ..." ergänzen durch:
+"Currently, calculations are optimized for speed and not for correctness, resulting in reduced shadow
+quality in some situations"
+
++ Absatz 3.1 Blender, "in-house" entfernen aus "...read by our in-house engine..."
+
+game_desing.pdf:
++ Seite 8: "Attacker Beacons can be destroyed by shooting at them. This this is a central..." 
+    ein this zuviel
++ überschrift: "(Team-)Deathmatch Mode, Last Man Standing" zu "(Team-)Deathmatch Mode, Last Man Standing (LMS)"
+
++ "after absolving the course," -- absolving gibts nicht
+
+
+
+mine expl. leiser
+sound mg, mit ausklang
+
+armin: negativ: mine explosion, tank hit
+        sound zu lange am ausfaden
+        zu blechern
+        
+        mine lay sound, sehr gut
+
+
+
+jedes ps in eigene renderbin nummer
+
+particles: inital rotation
+
+particle viewer: count particles rendered
+
+
+zero ballistics etiketten, flaming gaming logo
+video cds.
+sell sheet
+
+
+PE viewer:  avoid double effects
+            list effects loaded
+
+
+viewer: +command line argument check
+
+game design:
++ other name than conquest
++ little picture series between each chapter
++ html readme ins startmenu
+
+eigene cannon sound extra
+
+
+mine section hack
+
++ main menu: copyright flaming gaming
+       + does not represent final quality
+
+loading, help, rules updaten.
+
+rename mine to minedispenser
+
+isUpgradePossible() in der score, die abcheckt ob ein upgrade cat gelockt ist und ob diepunkte passen, vereinheitlichen.
+
+
+sound effect when getting upgrade
+
+check extensions, display error in mm
+
+upgrade icons grün im menu, ersetzt mit checkboxes
+
+screenshots verzeichnis im  release
+
+screenshots homepage, water
+search free web-forum
+check gamedev, devmaster, gamasutra, co.
+
+
+water, remove texture from 0 texture unit first
+
+
+
+score anzeige: name highlighting
+
++ hit anzeige ums fadenkreuz
+  + machine gun hit...
+  + tank dimensions
+
+dirt under wheels
+
+OSG 2.0  recompile!!!!!!!!!!! :-(
+
+particle: mat mit loadOrientation(dir,up)
+dann euler angles holen
+
+more experience points for strong opponents
+
++ connect to unknown IP
+
+skybox, handle in logic client loadLevel, following camera
+ignore skybox in server loadLevel
+
+minmap code aufräumen.
+drawImpl. im minimap circle ins init bringen und als displaylist rendern.
+
+sendBufferedPackets, packets vom buffer senden bis threshold im
+raknet sendBuffer erreicht ist.
+
+check spawning, double spawn kills
+
+kill damage assist
+
+setscenedata ref +2
+when osg camera, with attached FBO, setcullmask(0) the texture does is not updated anymore
+
+
+toggleShadowDebug doesn't get deregistered?
+
+
+loadDescripttionfile model empty??!? on skybox
+
+dropping_in_progress +
+move beacon queue to server team
+
+really need to manually insert beacon geom to sensor space?
+
+handle missing spawn pos geom
+
+
+
+skybox, 2 tex unit, lighting disabled?
+
+cull distant sounds, caution on engine sound i.e., must not be culled.
+
+weapon0 section?!?!?
+
+parameter im projektil global machen.
+
+UPGRADE SYSTEM
+
++projectile friend von GLSC
++static pointer to GLSC wie in WeaponSystem
+
+redesign weapons: load from param file to have different types with
+same implementation
+same mechanism as tank?
+
+event-based upgrade machanism, traverse params in tank on load
+
+remove duplicate code
+
+assertion instead of ifs
+
+upgrade events:
+-) hitpoints (fill up hp)
+-) switches
+-) weapon system (load paramfile into system)
+
+
+
+
++ fire vom tankvisual wieder in die cannon
+
+particle effect -> check emissive flag
+fire, smoke effect
+
+Zero ballistics:
+help screen mit credits
+
+hintergrund
+mine projektile
+hud
+
+streaming sounds:
++ looping stream
++ comments from tutorial
++ onfocus lost/gained
+
+lower quality textures nicht kleiner als 4x4
+
+KeyMapping in GUIOptions, continue:
+ToDo: make big window, that captures input.
+
+camera übers terrain nach dem ableben
+
+flexible keyboard belegung
+
+upgrade system:
+- upgradeRequestAccepted umbenennen und über level loopen (bei neuer verbindung)
+- inkrementelles upgrade, aufteilung in einzelne commands mit upgrades nummer
+- avoid upgrade flooding
+- history replay tank upgrade
+
+
+rewrite input handling: give input to gui and see if gui consumes it?
+
+
+
+
+
+weapon system:
+
+- upgrade system: server/client handling, define commands
+- problem: tank spawning
+
+
+Log --> try catch, work without config files
+: debug_classes -> getPointer
+: polygon_offset_factor -> getPointer
+
+
+sound manager -> handle manager
+sound source as osg::node, reference counted
+creating source on the fly
+
+do not render turret on local player 
+visualize destroyed tank with switch inside osg::Node
+
+states für texturen (alpha blending)
+
+player name into options?
+
+scenemanager node deletion code
+
+player name over tanks
+player name settable ingame
+
+fullscreen als standard für release version
+texturemanager beim stmImporter ausklammern
+
+HUD fadenkreuz ?
+smoke trail geodes are not deleted!
+
+bullet trails 
+
+explosion smoke
+
+global lifetime of ps
+
+
+vertex buffer im BBMimporter aktivieren
+clean worldcoords matrix issues
+test node copying rigidbody
+beacon border remove shader
+
+
+osgUtils für matrix umwandlung
+relative texture path in dae
+modelling zero height lvl vs. origin
+
+
+-----------------------------------------------------
+
+</pre>
+*/
