@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<parameters>
+    <!-- 
+           COMMON CONFIGURATION 
+    -->
+    <section name="physics">
+        <variable name="fps" value="100" type="float" />
+        <variable name="time_scale" value="1" type="float" console="1" />
+        <variable name="gravity" value="3" type="float" console="1" />
+
+        <variable name="auto_disable_lin_threshold" value="0.03" type="float" />
+        <variable name="auto_disable_ang_threshold" value="0.13" type="float" />
+        <variable name="auto_disable_steps"         value="30" type="unsigned" />
+        <variable name="auto_disable_time"          value="0" type="float" />
+
+        <variable name="lin_dampening" value="0.15" type="float" />
+        <variable name="ang_dampening" value="0.15" type="float" />
+        <variable name="water_dampening_factor" value="5.0" type="float" />
+
+	<variable name="proxy_interpolation_speed_pos"         value="0.1" type="float" />
+	<variable name="proxy_interpolation_speed_orientation" value="0.1" type="float" />
+	<variable name="proxy_interpolation_speed_vel"         value="0.1" type="float" />
+	<variable name="proxy_interpolation_speed_ang_vel"     value="0.5" type="float" />
+	<variable name="proxy_warp_threshold"                  value="0.2" type="float" />
+    </section>
+    <!--	
+	-->
+    <section name="variable_watcher">
+        <variable name="graph_height" value="0.1" type="float" />
+        <variable name="graph_space" value="0.01" type="float" />
+        <variable name="units_per_point" value="0.001" type="float" />
+        <variable name="offset_x" value="-0.1" type="float" />
+        <variable name="offset_y" value="0.9" type="float" />
+    </section>
+    <!--	
+	-->
+    <section name="hud">
+        <variable name="enable" value="1" type="bool" console="1" />
+    </section>
+    <!--	
+	-->
+    <section name="profiler">
+        <variable name="hide_threshold" value="1" type="float" />
+    </section>
+    <!--	
+	-->
+    <section name="camera">
+        <variable name="fov" value="60" type="float" />
+        <variable name="hither" value="0.05" type="float" />
+        <variable name="yon" value="1000" type="float" />
+        <variable name="move_speed" value="3" type="float" console="1"/>
+        <variable name="rotate_speed" value="0.004" type="float" />
+        <variable name="invert_mouse" value="0" type="bool" console="1" />
+    </section>
+    <!--	
+	-->
+    <!-- Stays in config_common, as long as server needs gui,
+        after switch to dedicated server move this section to config client -->
+    <section name="client.gui">
+        <variable name="imageset" value="WindowsLook.imageset" type="string" />
+        <variable name="schema" value="WindowsLook.scheme" type="string" />
+        <variable name="font" value="Default.font" type="string" />
+    </section>
+</parameters>

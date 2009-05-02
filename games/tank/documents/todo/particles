@@ -1,0 +1,45 @@
+
+set params for friction operator
+
+particle stuff into own dir
+
+"one shot" property
+
+elliptic placer, e.g. for cool muzzle flash
+
+http://unity3d.com/support/documentation/Manual/Particle%20Systems.html
+
+
+------------------------------------------------------------------------------
+compose several effects in single file
+
+- specify delay? or specify in parts file?
+- override or specify duration, other values?
+
+- particle or rigid body effects
+
+- even specify sound effect?
+
+- include files? possibility to specify effects in-line or in different file
+
+
+------------------------------------------------------------------------------
+particle effect files
+
+- place in subdirectory /parts ?
+
+- global / local
+
+- review blend modes
+
+
+
+------------------------------------------------------------------------------
+usage
+
+- it should be possible to load either composite or simple effects transparently
+
+- specify effects in blender
+
+
+

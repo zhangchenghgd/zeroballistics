@@ -1,0 +1,283 @@
+Index: ode/src/collision_space.cpp
+===================================================================
+--- ode/src/collision_space.cpp	(revision 1316)
++++ ode/src/collision_space.cpp	(working copy)
+@@ -761,30 +761,32 @@
+ 	// iterate through the space that has the fewest geoms, calling
+ 	// collide2 in the other space for each one.
+ 	if (s1->count < s2->count) {
+-	  for (dxGeom *g = s1->first; g; g=g->next) {
+-	    s2->collide2 (data,g,callback);
++          for (int g=0; g<s1->getNumGeoms(); ++g) {
++            dxGeom * geom = s1->getGeom(g);
++            if (GEOM_ENABLED(geom)) s2->collide2 (data,geom,callback);
+ 	  }
+ 	}
+ 	else {
+-	  for (dxGeom *g = s2->first; g; g=g->next) {
+-	    s1->collide2 (data,g,callback);
++          for (int g=0; g<s2->getNumGeoms(); ++g) {
++            dxGeom * geom = s2->getGeom(g);
++	    if (GEOM_ENABLED(geom)) s1->collide2 (data,geom,callback);
+ 	  }
+ 	}
+       }
+     }
+     else {
+       // g1 is a space, g2 is a geom
+-      s1->collide2 (data,g2,callback);
++      if (GEOM_ENABLED(g2)) s1->collide2 (data,g2,callback);
+     }
+   }
+   else {
+     if (s2) {
+       // g1 is a geom, g2 is a space
+-      s2->collide2 (data,g1,callback);
++      if (GEOM_ENABLED(g2)) s2->collide2 (data,g1,callback);
+     }
+     else {
+       // g1 and g2 are geoms, call the callback directly
+-      callback (data,g1,g2);
++      if (GEOM_ENABLED(g1) && GEOM_ENABLED(g2)) callback (data,g1,g2);
+     }
+   }
+ }
+Index: ode/src/collision_quadtreespace.cpp
+===================================================================
+--- ode/src/collision_quadtreespace.cpp	(revision 1316)
++++ ode/src/collision_quadtreespace.cpp	(working copy)
+@@ -40,7 +40,7 @@
+ const int SPLITAXIS = 2;
+ const int SPLITS = SPLITAXIS * SPLITAXIS;
+ 
+-#define GEOM_ENABLED(g) (g)->gflags & GEOM_ENABLED
++#define GEOM_ENABLED(g) ((g)->gflags & GEOM_ENABLED)
+ 
+ class Block{
+ public:
+@@ -337,13 +337,11 @@
+ 	void cleanGeoms();
+ 	void collide(void* UserData, dNearCallback* Callback);
+ 	void collide2(void* UserData, dxGeom* g1, dNearCallback* Callback);
+-
+-	// Temp data
+-	Block* CurrentBlock;	// Only used while enumerating
+-	int* CurrentChild;	// Only used while enumerating
+-	int CurrentLevel;	// Only used while enumerating
+-	dxGeom* CurrentObject;	// Only used while enumerating
+-	int CurrentIndex;
++protected:
++    
++        Block * current_block; ///< Used for geom enumeration. Only valid if current_geom != 0.
++    
++        Block * getNextPopulatedBlock(const Block * cur_block) const;
+ };
+ 
+ dxQuadTreeSpace::dxQuadTreeSpace(dSpaceID _space, dVector3 Center, dVector3 Extents, int Depth) : dxSpace(_space){
+@@ -359,12 +357,10 @@
+ 
+ 	this->Blocks[0].Create(Center, Extents, 0, Depth, Blocks);
+ 
+-	CurrentBlock = 0;
+-	CurrentChild = (int*)dAlloc((Depth + 1) * sizeof(int));
+-	CurrentLevel = 0;
+-	CurrentObject = 0;
+-	CurrentIndex = -1;
+ 
++        current_block = 0;
++
++        
+ 	// Init AABB. We initialize to infinity because it is not illegal for an object to be outside of the tree. Its simply inserted in the root block
+ 	aabb[0] = -dInfinity;
+ 	aabb[1] = dInfinity;
+@@ -388,80 +384,72 @@
+ 	}
+ 
+ 	dFree(Blocks, BlockCount * sizeof(Block));
+-	dFree(CurrentChild, (Depth + 1) * sizeof(int));
+ }
+ 
+-dxGeom* dxQuadTreeSpace::getGeom(int Index){
+-	dUASSERT(Index >= 0 && Index < count, "index out of range");
+ 
+-	//@@@
+-	dDebug (0,"dxQuadTreeSpace::getGeom() not yet implemented");
++/**
++ *  Implements depth-first traveral of geoms. All children of
++ *  current_block and all its "left" siblings have already been
++ *  traversed.
++ */
++dxGeom* dxQuadTreeSpace::getGeom(int i){
+ 
+-	return 0;
++    dUASSERT(i >= 0 && i < count, "index out of range");
+ 
+-	// This doesnt work
++    // Allow restart without finishing previous iteration
++    if (i==0 && current_geom) current_geom = 0;
++    
++    dUASSERT((!current_geom  || current_index == i-1) &&
++             (current_geom || i == 0),
++             "Only sequential access to geoms implemented in dxQuadTreeSpace::getGeom.");
++    
++    if (!current_geom)
++    {
++        // Start iterating at "leftmost" block leaf
++        current_block = &Blocks[0];
++        while (current_block->Children) current_block = &current_block->Children[0];
+ 
+-	/*if (CurrentIndex == Index){
+-		// Loop through all objects in the local list
+-CHILDRECURSE:
+-		if (CurrentObject){
+-			dGeomID g = CurrentObject;
+-			CurrentObject = CurrentObject->next;
+-			CurrentIndex++;
+-		
+-#ifdef DRAWBLOCKS
+-			DrawBlock(CurrentBlock);
+-#endif	//DRAWBLOCKS
+-			return g;
+-		}
+-		else{
+-			// Now lets loop through our children. Starting at index 0.
+-			if (CurrentBlock->Children){
+-				CurrentChild[CurrentLevel] = 0;
+-PARENTRECURSE:
+-				for (int& i = CurrentChild[CurrentLevel]; i < SPLITS; i++){
+-					if (CurrentBlock->Children[i].GeomCount == 0){
+-						continue;
+-					}
+-					CurrentBlock = &CurrentBlock->Children[i];
+-					CurrentObject = CurrentBlock->First;
+-				
+-					i++;
+-				
+-					CurrentLevel++;
+-					goto CHILDRECURSE;
+-				}
+-			}
+-		}
+-		
+-		// Now lets go back to the parent so it can continue processing its other children.
+-		if (CurrentBlock->Parent){
+-			CurrentBlock = CurrentBlock->Parent;
+-			CurrentLevel--;
+-			goto PARENTRECURSE;
+-		}
+-	}
+-	else{
+-		CurrentBlock = &Blocks[0];
+-		CurrentLevel = 0;
+-		CurrentObject = CurrentObject;
+-		CurrentIndex = 0;
++        // This block could be empty, so traverse blocks until
++        // first one with geoms in it is found.
++        if(current_block->First == 0) current_block = getNextPopulatedBlock(current_block);
++        dIASSERT(current_block);
++            
++        current_geom = current_block->First;
++        current_index = 0;
++    } else
++    {
++        if (current_geom->next)
++        {
++            // Simply follow the linked list in the current block
++            current_geom = current_geom->next;
++        } else
++        {
++            // The current block has been handled, this means all
++            // its geoms and all its children's geoms have been
++            // enumerated. Find next populated block.
++            // There must be more geoms or we would have
++            // asserted earlier.
++            current_block = getNextPopulatedBlock(current_block);
++            dIASSERT(current_block && current_block->First);
++            current_geom = current_block->First;
++        }
++        
++        ++current_index;
++    }
+ 
+-		// Other states are already set
+-		CurrentObject = CurrentBlock->First;
+-	}
++    // Handle last geom -> reset iterator
++    if (current_index == count-1)
++    {
++        // Make sure the last geom is in the last populated block
++        // and it is last in the linked list
++        dIASSERT(!current_geom->next &&
++                 getNextPopulatedBlock(current_block) == 0);
+ 
+-
+-	if (current_geom && current_index == Index - 1){
+-		//current_geom = current_geom->next; // next
+-		current_index = Index;
+-		return current_geom;
+-	}
+-	else for (int i = 0; i < Index; i++){	// this will be verrrrrrry slow
+-		getGeom(i);
+-	}*/
+-
+-	return 0;
++        // Reset iterator
++        dxGeom * ret = current_geom;
++        current_geom = 0;
++        return ret;
++    } else return current_geom;
+ }
+ 
+ void dxQuadTreeSpace::add(dxGeom* g){
+@@ -579,6 +567,51 @@
+   lock_count--;
+ }
+ 
++
++//------------------------------------------------------------------------------
++/**
++ *  Used for geom enumeration. Traverses blocks depth-first. Only
++ *  returns populated blocks. Returns NULL if there are no more
++ *  populated blocks.
++ */
++Block * dxQuadTreeSpace::getNextPopulatedBlock(const Block * cur_block) const
++{
++    dIASSERT(cur_block);
++    
++    // The root node is the last block
++    if (!cur_block->Parent) return NULL;
++    
++    // See whether we have a sibling.
++    int block_index;
++    for (block_index = 0; block_index<SPLITS; ++block_index)
++    {
++        if (&cur_block->Parent->Children[block_index] == cur_block) break;
++    }
++    dIASSERT(block_index != SPLITS);
++
++    Block * next_block;
++    
++    if (block_index+1 == SPLITS)
++    {
++        // The current block was the "rightmost" sibling,
++        // continue with its parent.
++        next_block = cur_block->Parent;
++    } else
++    {
++        // Continue with the sibling's "leftmost" leaf
++        // node
++        next_block = &cur_block->Parent->Children[block_index+1];
++        while (next_block->Children) next_block = &next_block->Children[0];
++    }
++    
++    if (next_block->First) return next_block;
++    else return getNextPopulatedBlock(next_block);
++}
++
++
+ dSpaceID dQuadTreeSpaceCreate(dxSpace* space, dVector3 Center, dVector3 Extents, int Depth){
+ 	return new dxQuadTreeSpace(space, Center, Extents, Depth);
+ }
++
++
++

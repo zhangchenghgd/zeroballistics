@@ -1,0 +1,95 @@
+Deployment with Multithreaded DLL code generation: (applies to VS8.0 2005)
+
+
+//------------------------------------------------------------------------------
+1.) The Application:
+
+a.) compile the application with following properties:
+
+ +Linker
+     +Manifest File
+         +Generate Manifest: Yes
+         +Isolate Manifest: Yes
+
+ +Manifest Tool
+     +Input and Output
+         +Embed Manifest: No
+
+b.) write a manifest file for your application, including the CRT or whatever
+    runtime it uses, watch out for the version number, it has to be the actual
+    version number of the used dlls!!
+    should look like the lines below and be named:  applicationname.exe.manifest
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="win32" name="Microsoft.VC80.CRT" version="8.0.50727.42" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"></assemblyIdentity>
+    </dependentAssembly>
+  </dependency>
+</assembly>
+
+c.) include the CRT (Common Runtime) manifest, has to be in the same directory as the application
+    togehter with te dlls.
+    should look like the one below, and be named: Microsoft.VC80.CRT.manifest
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Copyright © 1981-2001 Microsoft Corporation-->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" 
+                                 manifestVersion="1.0">
+  <noInheritable/>
+  <assemblyIdentity
+    type="win32"
+    name="Microsoft.VC80.CRT"
+    version="8.0.50727.42"
+    processorArchitecture="x86"
+    publicKeyToken="1fc8b3b9a1e18e3b" />
+  <file name="msvcr80.dll"/>
+  <file name="msvcp80.dll"/>
+  <file name="msvcm80.dll"/>
+</assembly>
+
+
+//------------------------------------------------------------------------------
+2.) The dlls
+
+    For any dlls your application is using that are also dependent on CRT ( or other common runtime )
+    dlls, you have to link an appropriate manifest to the dll. to compile the dll use the same 
+    visual studio settings as mentioned under 1.a.)
+
+    The manifest file must look like this:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="win32" name="Microsoft.VC80.CRT" version="8.0.50727.42" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"></assemblyIdentity>
+    </dependentAssembly>
+  </dependency>
+</assembly>
+
+
+
+    Linking of the manifest to the dlls works as described below:
+
+    mt /manifest dllname.dll.manifest /outputresource:dllname.dll;#2 
+
+
+//------------------------------------------------------------------------------
+3.) After completing the following steps your application should be deployable on any manifest
+    aware platform. windows2000 and greater.
+    
+    The .html pages that company this document are describing the Side-by-Side assembly stuff and the theory behind
+    this deployment method in detail.
+
+
+//------------------------------------------------------------------------------
+    NOTE:
+    if compiled CRT version and actual dll version are the same, no special manifest linking for dlls would be needed,
+    in that case use projects setting:
+
+    +Manifest Tool
+        +Input and Output
+            +Embed Manifest: Yes
+

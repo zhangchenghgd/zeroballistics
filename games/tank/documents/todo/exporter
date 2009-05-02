@@ -1,0 +1,192 @@
+
+
+
+
+normals, color, material: specify if neccessary
+
+------------------------------------------------------------------------------
+
+bbm hierarchy
+
+------------------------------------------------------------------------------
+
+warn if alpha tex but neither bump nor alpha stuff is activated
+warn if no alpha tex but bumpmap is used
+(avoid bug that occurs when non-alpha tex is used with bumpmapping...)
+
+------------------------------------------------------------------------------
+
+export via new blender instance to avoid additional materials etc
+
+
+------------------------------------------------------------------------------
+
+??rewrite exporter:no top-level transform??
+??remove/don't add identity matrix transform nodes??
+
+------------------------------------------------------------------------------
+
+make apply scale&rotation unneccessary:
+need to traverse ode rigidbody's parents and apply transform?
+or get world trans?
+or simply apply scaling factors to BB?
+
+
+------------------------------------------------------------------------------
+
+complain about missing data path
+
+
+create tangent, bitangent info!
+
+perhaps option to deactivate em? 
+
+
+periodically change em value for beacons?
+
+handle material properties and textures orthogonally?
+bump map too?
+
+
+warn if emissive image is to large
+
+don't make small iamges any smaller with lower tex ssttings(lower bound for size)
+
+
+merge textures in image exporter?
+dynamically decide where to put maps?
+
+check out influence of compression on quality of bump maps in alpha channel
+
+3, 4, 3+2, 3+3?
+
+don't dxt-compress unique information per channel, such as bump-map!!
+
+own button for per-pixel-lighting?
+
+------------------------------------------------------------------------------
+
+xml_utils.py
+property_utils.py
+io_utils.py
+
+------------------------------------------------------------------------------
+
+support "local" materials, too? where are they stored?
+toggle button: shared<->local
+only save materials on request? or when changing active material?
+-> need to pass materials into exporter then...
+
+
+avoid duplicate materials after export? can this be done easily?
+
+remove PROPS workaround, handle like materials?
+
+
+------------------------------------------------------------------------------
+
+need to write type in Grome: water, fixed beacon
+
+strange replay issues near island?!?
+
+delete tank_gui, gui_buttons
+
+rename GameObject::desc_file_
+rename getDescFile -> getName
+
+------------------------------------------------------------------------------
+
+tank höherlegen
+
+own tank physics model, separate collision shape from mass? need blender integration for that...
+
+------------------------------------------------------------------------------
+
+warn if exporting non-alpha texture in an alphatest/ alphablend object
+
+
+warn if shape doesn't have scale&rotation applied
+warn in editor if transforming plane
+
+
+let objects share meshes
+export mesh only first time, later reference by name / number
+
+
+writeArray-method should replace lots of utility functions
+
+test vast plains with non-smooth vertex reuse
+
+vertex colors? how to handle with OSG? different-looking textures by changing color
+but: can be achieved with material too at lower cost
+incorporate material into render result
+
+check whether export dirs exist before trying to create files, warn
+
+don't export COG for static objects
+
+sensor with nonstatic object
+
+carefully select objects exported in object group (skip objects from other scenes)
+
+2 MatrixTransforms per object? delete from rigidbody
+rewrite exporter:no top-level transform
+
+merge cmutils and export_utils
+
+bbm_exporter cleanup
+
+
+own color, vector classes
+use classes and class methods where possible 
+
+use built-in face normal instead of calculation
+
+consistent order with fid
+
+remove duplicate MatrixTransforms if only one mesh
+
+------------------------------------------------------------------------------
+GUI IMPROVEMENTS
+
+add logic specific shapes per button press
+start pos
+beacon spawn pos
+etc
+
+
+
+ray    -> sensor
+sensor -> no mass
+static -> no mass
+
+static property for exporter
+static: dynamic props are not displayed, exported
+
+make verbosity changeable
+
+
+
+cog in static mesh
+sensor with nonstatic object
+waiting cursor while exporting in blender exporter
+more than one trimesh in object (merge in exporter?)
+carefully select objects exported in object group (skip objects from other scenes)
+don't export COG for static objects
+
+
+new tank gui: level export
+remove level stuff from tank_gui.py
+
+------------------------------------------------------------------------------
+
+new name for s_tank_volume
+
+only save objects if blend file is newer?
+
+------------------------------------------------------------------------------
+
+
+convenience function:
+pre-define grome properties in bbm? or write into seperate file to be
+read by grome importer?

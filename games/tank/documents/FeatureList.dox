@@ -1,0 +1,125 @@
+/** 
+\page features Planned Features
+<pre>
+
+ + Panzertuning, Individualisierung bzw.
+   Bonusitems, Extras
+    - Rammbock
+    - Hologramm-Tank
+    - Traktorstrahl
+    - Jumppack / boost
+    - Eigenschaften-upgrades
+    - Munition, verschiedene Typen
+
+ + Überwachungsdrohnen (top view)
+
+ + 3rd / 1st person ?
+
+ + Tank-Eigenschaften ( speed, armor, handling...)
+
+ + Besondere Blöcke
+    - Jumppad
+    - Beschleunigung
+
+ + Physikalische Projektile, Blöcke
+
+
+ + Mehrere Beacons auf einmal tragbar
+
+ + turret-pitch bestimmt auch schußstärke
+
+
+
+slater:
+
+
+
+kleines fadenkreuz
+"entfernungsmarker"
+
+mehr "drive"
+
+level mit höhenunterschied, nicht zu übersichtlich
+design
+
+maximalzahl an beacons in base
+
+beacongrenze innen & außen unterscheidbar
+
+eigenstabilität des panzers
+
+abschußmeldung, explosion
+
+
+"tonalität", realismus?
+
+nicht "farben" sondern designs, subtiler
+
+extraeigenschaften für parteien
+
+explosionsradius beschädigt auch
+
+"tarnen"
+
+außenansicht ausprobieren
+
+
+rauchspur, nachbrennen von einschlägen
+bessere sichtbarkeit
+
+
+verschiedene klassen
+artillerie usw.
+
+------------------------------------------------------------------------------
+
+bedeutung von einflußbereich:
+  - mehr schaden
+  - höhere geschwindigkeit
+  - langsame heilung
+  - 
+
+
+beacons entstehen direkt aus gegnern
+
+
+deployment:
+  - automatischer abwurf an grenze
+  - carry-position durch turret bestimmt
+
+
+neutrale beacons
+
+
+eroberbare punkte
+
+
+kamikaze-angriff
+
+
+smoke grenade
+
+------------------------------------------------------------------------------
+
+- mobiles HQ (base) kommt nach vorne entlang der beacon border
+
+- beacons haben beschränkte lebensdauer, müssen schnell verarbeitet werden
+
+- spieler kann entscheiden ob er einen beacon deployen will oder ihn als upgrade für seinen
+   panzer einsetzt
+
+- anderer ansatz: die fläche der beacons bestimmt die menge der "energie" die erhalten wird,
+   bei mehr energie wird der schuss (o.Ä) stärker. ab einem gewissen energie-level kann die gegnerische basis 
+   zerschossen werden -> spielziel
+   
+- anderer ansatz: gut vs. böse, licht vs. dunkel. die beacons stellen gefangene seelen dar. welche partei als erste 
+   einen pfad zum tor (ziel) errichtet kann die herrschaft erlangen. seelen geben dunkel mehr kraft, hell mehr schutz.
+
+- jede (kl)/(r)asse hat besondere eigenschaften:
+	 + rammen mehr schaden, weniger projektilschaden
+	 + können 2 beacons tragen, weniger schaden
+	 + stark gepanzerten, langsam
+
+
+</pre>
+*/ 

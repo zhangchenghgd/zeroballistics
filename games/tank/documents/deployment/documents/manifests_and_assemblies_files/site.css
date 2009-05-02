@@ -1,0 +1,171 @@
+/*************************************
+ * Style Sheet for richardgrimes.com *
+ *************************************/
+
+body
+{
+  color: black;
+  font-family: verdana, helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image:url(images/bkgnd.gif);
+}
+
+/* Headers */
+
+.topHeader 
+{
+  color: white;
+  background-color: rgb(100,135,220);
+  padding: 0.1em 0 0.1em 0;
+  font-size: 300%;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+}
+
+.midHeader 
+{
+  color: rgb(39,78,144);
+  background-color: rgb(140,170,230);
+  font-size: 150%;
+  font-style: italic;
+  text-align: center;
+  padding: 0.25em 0 0.25em 0;
+}
+
+.botHeader 
+{
+  color: white;
+  background-color: rgb(0,51,153);
+  margin: 0;
+  padding: 0.1em 0 0.1em 0;
+}
+
+.botHeader a 
+{
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 0.75ex 0 0.5ex;
+}  
+
+.botHeader a:hover 
+{
+  text-decoration: underline;
+}
+
+.botHeader a:link 
+{ 
+  color:#FFFFFF; 
+}
+
+.botHeader a:visited 
+{
+  color:#FFFF00; 
+}
+
+/* Main Page */
+
+#main-page 
+{
+  color: black;
+  background-color: white;
+  text-align: justify;
+  line-height: 1.5em;
+  background-image:url(images/bkgnd.gif);
+}
+
+#main-page p 
+{
+  margin: 1em 1ex 1em 0ex;
+  padding: 0;
+}
+
+#main-page a:hover 
+{
+  text-decoration: none;
+}
+
+#main-page h1 
+{
+  color: white;
+  background-color: rgb(100,135,220);
+  font-size: 100%;
+  font-weight: bold;
+  padding: 0.5ex 0 0.5ex 1ex;
+}
+
+#main-page h2 
+{
+  color: white;
+  background-color: rgb(148,172,232);
+  font-size: 100%;
+  font-weight: bold;
+  padding: 0.5ex 0 0.5ex 1ex;
+}
+
+#main-page code
+{
+  font-name: courier;
+  font-size: 110%;
+}
+
+#main-page a 
+{
+  color: rgb(0,102,204);
+  background-color: transparent;
+  text-decoration: none;
+  margin: 0;
+}
+
+#main-page a:hover 
+{
+  color: white;
+  background-color: rgb(100,135,220);
+  text-decoration: none;
+}
+
+.codeBlock
+{
+  font-family: courier;
+  font-size: 90%;
+  text-align: left;
+  line-height: 125%;
+  margin-left: 10pt;
+}
+
+/* Side Bar */
+
+#side-bar 
+{
+  border-right: 1px solid rgb(153,153,153);
+  border-bottom: 1px solid rgb(153,153,153);
+  font-size: 75%;
+  line-height: 1.5em;
+}
+
+.sideBarTitle 
+{
+  font-weight: bold;
+  color: white;
+  background-color: rgb(140,170,230);
+  padding: 0.5em 0 0.5em 0;
+}
+
+#side-bar a 
+{
+  color: rgb(0,102,204);
+  background-color: transparent;
+  text-decoration: none;
+  margin: 0;
+}
+
+#side-bar a:hover 
+{
+  color: white;
+  background-color: rgb(100,135,220);
+  text-decoration: none;
+}
