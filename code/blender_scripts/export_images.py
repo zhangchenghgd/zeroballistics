@@ -68,7 +68,7 @@ def exportImage(filename, dest_path, format):
             " -rescale nearest" +
             " -outdir \"" + dest_path.replace("\\", "/") + "\"" +
             format +
-            " -file " + filename)
+            " -file " + os.path.abspath(filename))
 
     return True
 
