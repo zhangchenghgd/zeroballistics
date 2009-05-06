@@ -1,0 +1,1 @@
+{'parallax_strength': 0.0, 'name': 'tankbrumm', 'specularity': 0.25001075863838196, 'bump_map': 1, 'color': (0.22444039583206177, 0.22444039583206177, 0.22444039583206177), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 1, 'cull_faces': 1, 'hardness': 20, 'alpha_blend': 0}

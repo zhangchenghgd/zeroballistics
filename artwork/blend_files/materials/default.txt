@@ -1,0 +1,1 @@
+{'parallax_strength': 0.073752693831920624, 'name': 'default', 'specularity': 0.14998461306095123, 'bump_map': 0, 'color': (0.86196434497833252, 0.98719805479049683, 0.85720717906951904), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': 1, 'hardness': 20, 'alpha_blend': 0}

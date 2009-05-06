@@ -1,0 +1,1 @@
+{'parallax_strength': 0.073752693831920624, 'name': 'shield', 'specularity': 0.3999442458152771, 'bump_map': 0, 'color': (0.080238847565736404, 0.17901418017420978, 0.71308186175402388), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': 0, 'hardness': 71, 'alpha_blend': 1}

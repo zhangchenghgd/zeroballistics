@@ -1,0 +1,1 @@
+{'parallax_strength': 0.0, 'name': 'tank_destroyed', 'specularity': 0.050109341740608215, 'bump_map': 1, 'color': (0.2800000011920929, 0.2800000011920929, 0.2800000011920929), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.8550101518630981, 'lighting': 1, 'cull_faces': 1, 'hardness': 55, 'alpha_blend': 0}

@@ -1,0 +1,1 @@
+{'parallax_strength': 0.10000000149011612, 'name': 'beacon', 'specularity': 0.51298463344573975, 'bump_map': 0, 'color': (0.32338604187278419, 0.41181690773105972, 0.82571272335305879), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 0, 'cull_faces': 1, 'hardness': 55, 'alpha_blend': 0}

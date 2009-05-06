@@ -1,0 +1,1 @@
+{'parallax_strength': 0.10000000149011612, 'name': 'tree', 'specularity': 0.51298463344573975, 'bump_map': 0, 'color': (0.018483532592654228, 0.88422781229019165, 0.0), 'alpha_test': 1, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 0, 'cull_faces': 0, 'hardness': 55, 'alpha_blend': 0}

@@ -1,0 +1,1 @@
+{'parallax_strength': 0.019993964582681656, 'name': 'hof', 'specularity': 0.5374608039855957, 'bump_map': 1, 'color': (1.0, 1.0, 1.0), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.8550287485122681, 'lighting': 1, 'cull_faces': 1, 'hardness': 62, 'alpha_blend': 0}

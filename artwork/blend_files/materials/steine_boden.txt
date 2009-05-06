@@ -1,0 +1,1 @@
+{'parallax_strength': 0.073752693831920624, 'name': 'steine_boden', 'specularity': 0.14998461306095123, 'bump_map': 0, 'color': (0.41999998688697815, 0.41999998688697815, 0.41999998688697815), 'alpha_test': 0, 'shader': 'stones', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': True, 'hardness': 20, 'alpha_blend': 0}

@@ -1,0 +1,1 @@
+{'parallax_strength': 0.019993964582681656, 'name': 'jagdhaus', 'specularity': 0.5374608039855957, 'bump_map': 1, 'color': (0.72844195365905762, 0.65703880786895752, 0.50438624620437622), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.4751087427139282, 'lighting': 1, 'cull_faces': 1, 'hardness': 62, 'alpha_blend': 0}

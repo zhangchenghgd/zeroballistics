@@ -1,0 +1,1 @@
+{'parallax_strength': 0.076254174113273621, 'name': 'bark', 'specularity': 0.26247203350067139, 'bump_map': 1, 'color': (0.54755425453186035, 0.24994820356369019, 0.0072025451809167862), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': True, 'hardness': 42, 'alpha_blend': 0}

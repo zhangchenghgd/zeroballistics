@@ -1,0 +1,1 @@
+{'parallax_strength': 0.016258914023637772, 'name': 'tank', 'specularity': 0.5374608039855957, 'bump_map': 1, 'color': (1.0, 0.0, 0.0), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 1, 'cull_faces': 1, 'hardness': 62, 'alpha_blend': 0}
