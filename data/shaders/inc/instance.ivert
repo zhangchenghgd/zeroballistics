@@ -1,0 +1,16 @@
+
+
+//------------------------------------------------------------------------------
+vec4 applyScaleRotation(vec4 vertex, float scale, float angle)
+{    
+    float sin_alpha = sin(angle);
+    float cos_alpha = cos(angle);
+
+    vec4 ret = vec4(dot(vertex.xz,vec2(cos_alpha, sin_alpha)),
+                    vertex.y,
+                    dot(vertex.xz,vec2(-sin_alpha, cos_alpha)),
+                    1.0);
+    ret.xyz *= scale;
+
+    return ret;
+}

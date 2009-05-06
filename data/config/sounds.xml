@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<parameters>
+        <!--
+            Sound effects
+        -->    
+    <section name="sfx">
+        <variable name="explosion1" value="a-explosion-tank.wav" type="string" />
+        <variable name="explosion2" value="a-explosion-wrack.wav" type="string" />
+        <variable name="projectile_hit_tank" value="a-hit-tank.wav" type="string" />
+        <variable name="projectile_indirect_hit_tank" value="indirect_hitmetal2.wav" type="string" />
+        <variable name="projectile_hit_other" value="a-hit-nonmetal.wav" type="string" />
+        <variable name="mg_hit_tank" value="[a-mg-tank1.wav;a-mg-tank2.wav;a-mg-tank3.wav;a-mg-tank4.wav;a-mg-tank5.wav]" type="vector<string>" />
+        <variable name="mg_hit_other" value="a-mgbullet-inground.wav" type="string" />
+        <variable name="mg_hit_water" value="a-mgbullet-inground.wav" type="string" />        
+        <variable name="mg_overheating" value="mg_overheating.wav" type="string" />        
+        <variable name="collision_tank" value="a-collision-tank.wav" type="string" />
+        <variable name="collision_non_tank" value="collision_non_metal.wav" type="string" />
+        <variable name="projectile" value="a-projectile-fly.wav" type="string" />
+        <variable name="flamethrower_hit" value="m-crackling-flames.wav" type="string" />
+        <variable name="laser_shot" value="laser_shot.wav" type="string" />
+        
+        <variable name="shield_effect" value="shield_effect.wav" type="string" />         
+        <variable name="water_boil" value="water_boil.wav" type="string" />        
+        <variable name="engine" value="a-engine.wav" type="string" />
+        <variable name="mine_explosion" value="a-mineexplosion.wav" type="string" />
+        <variable name="lay_mine" value="a-lay-mine.wav" type="string" /> 
+        <variable name="beacon_pickup" value="a-beacon-pickup.wav" type="string" />    
+        <variable name="beacon_drop" value="a-beacon-drop.wav" type="string" />  
+        <!-- status voice messages -->
+        <variable name="upgrade_available" value="a-upgrade_available.wav" type="string" />
+        <variable name="attacker_conquers_base" value="a-defender_base_conquered.wav" type="string" />
+        <variable name="defender_loses_base" value="a-base_conquered.wav" type="string" />
+        <variable name="attacker_wins" value="a-attacker_team_wins.wav" type="string" />
+        <variable name="defender_wins" value="a-defender_team_wins.wav" type="string" />
+        <!-- team voice messages -->
+        <variable name="need_assistance" value="a-need_assistance.wav" type="string" />       
+        <variable name="acknowledged" value="a-acknowledged.wav" type="string" />      
+        <variable name="negative" value="a-negative.wav" type="string" />  
+    </section>
+</parameters>

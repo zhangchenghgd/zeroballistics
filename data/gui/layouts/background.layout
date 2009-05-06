@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="DefaultGUISheet" Name="mainmenu/main">
+
+    <Window Type="WindowsLook/StaticImage" Name="mainmenu/background">
+        <Property Name="UnifiedPosition" Value="{{0,0},{0,0}}" />
+        <Property Name="UnifiedSize" Value="{{1,0},{1,0}}" />
+        <Property Name="FrameEnabled" Value="False" />
+        <Property Name="BackgroundEnabled" Value="False" />
+        <Property Name="Image" Value="set:MainmenuBackground image:mainmenu_background" />
+	
+    </Window>
+    
+    
+    <Window Type="WindowsLook/StaticText" Name="mainmenu/demo_text">
+        <Property Name="AlwaysOnTop" Value="True" />    
+        <Property Name="Disabled" Value="True" /> 
+        <Property Name="HorzFormatting" Value="WordWrapCentred" />
+        <Property Name="VertFormatting" Value="VertCentred" />
+        <Property Name="UnifiedPosition" Value="{{0.2,0},{0.92,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.6,0},{0.04,0}}" />	
+        <Property Name="FrameEnabled" Value="False" />
+        <Property Name="BackgroundEnabled" Value="False" />
+        <Property Name="Text">
+This beta version of Zero Ballistics does not represent the final quality of the product.
+Copyright 2008 by QuantiCode
+</Property>
+        <Property Name="Font" Value="main_menu_small_font" />
+        <Property Name="TextColours" Value="tl:FFFFFFFF tr:FFFFFFFF bl:FFFFFFFF br:FFFFFFFF" />
+    </Window>	      
+    
+    <Window Type="WindowsLook/StaticText" Name="mainmenu/version_text">			
+        <Property Name="AlwaysOnTop" Value="True" />
+        <Property Name="Disabled" Value="True" /> 
+        <Property Name="HorzFormatting" Value="WordWrapCentred" />
+        <Property Name="VertFormatting" Value="VertCentred" />
+        <Property Name="UnifiedPosition" Value="{{0.90,0},{0.04,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.1,0},{0.03,0}}" />	
+        <Property Name="FrameEnabled" Value="False" />
+        <Property Name="BackgroundEnabled" Value="False" />
+        <Property Name="Text" Value="v1.10 Beta" />
+        <Property Name="Font" Value="main_menu_small_font" />
+        <Property Name="TextColours" Value="tl:FFFFFFFF tr:FFFFFFFF bl:FFFFFFFF br:FFFFFFFF" />
+    </Window>	
+
+
+</Window>    
+</GUILayout>	

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+    <ParticleEffect name="heal" delay="0" comment="delay in seconds" />
+
+</EffectGroup>

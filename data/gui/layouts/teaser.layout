@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<GUILayout>
+
+    <Window Type="WindowsLook/StaticImage" Name="teaser/image">
+        <Property Name="AlwaysOnTop" Value="True" />    
+        <Property Name="UnifiedPosition" Value="{{0,0},{0,0}}" />
+        <Property Name="UnifiedSize" Value="{{1,0},{1,0}}" />
+        <Property Name="FrameEnabled" Value="False" />
+        <Property Name="BackgroundEnabled" Value="False" />
+        <Property Name="Image" Value="set:Teaser image:teaser_image" />
+	
+    </Window>
+
+</GUILayout>	

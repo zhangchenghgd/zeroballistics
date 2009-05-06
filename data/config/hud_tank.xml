@@ -1,0 +1,280 @@
+<?xml version="1.0" ?>
+<parameters>
+
+<!-- see hud.xml for comments -->
+
+
+
+
+<!-- Text Parameter Sections -->
+
+  <section name="hud.time_limit">
+        <variable name="position" value="[323;127]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="23" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="11" type="unsigned" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+    </section>  
+
+  <section name="hud.score">
+        <variable name="position" value="[820;61]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="23" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="11" type="unsigned" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+    </section>  
+
+  <section name="hud.health">
+        <variable name="position" value="[321;189]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="23" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="11" type="unsigned" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+    </section>  
+
+  <section name="hud.ammo">
+        <variable name="position" value="[321;61]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="23" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="11" type="unsigned" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+    </section>  
+
+
+<!-- Texture Element Parameter Sections -->
+
+
+
+    <section name="hud.crosshair_primary_weapon1">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="130" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="crosshair_ap.dds" type="string" />		
+    </section>
+
+    <section name="hud.crosshair_primary_weapon0">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="130" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="crosshair_sp.dds" type="string" />		
+    </section>
+    
+    <section name="hud.crosshair_primary_weapon2">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="130" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="crosshair_hi.dds" type="string" />		
+    </section>    
+
+    <section name="hud.crosshair_primary_weapon3">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="130" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="crosshair_hi.dds" type="string" />		
+    </section>    
+
+    <section name="hud.hit_feedback">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="130" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="hit_feedback.dds" type="string" />		
+    </section>  
+
+   <section name="hud.back1">
+        <variable name="position" value="[20;20]" type="Vector2d" />
+	<variable name="vert_size" value="268" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="lower1.dds" type="string" />		
+    </section>
+   <section name="hud.back2">
+        <variable name="position" value="[20;20]" type="Vector2d" />
+	<variable name="vert_size" value="268" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="lower2.dds" type="string" />		
+    </section>
+
+    <section name="hud.health_bar">
+        <variable name="position" value="[314;158]" type="Vector2d" />
+	<variable name="vert_size" value="54" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="texture" value="health_bar.dds" type="string" />		
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+    </section>    
+
+    <section name="hud.reload_bar">
+        <variable name="position" value="[314; 30]" type="Vector2d" />
+	<variable name="vert_size" value="54" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="reload_bar.dds" type="string" />		
+    </section>
+
+    <section name="hud.reload_bar_skill1">
+        <variable name="position" value="[20; 30]" type="Vector2d" />
+	<variable name="vert_size" value="25" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[-1;-1]" type="Vector2d" />
+	<variable name="texture" value="overheat_bar.dds" type="string" />		
+	<variable name="fill_direction" value="LR" type="string" />
+    </section>
+
+    <section name="hud.reload_bar_skill2">
+        <variable name="position" value="[20; 70]" type="Vector2d" />
+	<variable name="vert_size" value="25" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[-1;-1]" type="Vector2d" />
+	<variable name="texture" value="overheat_bar.dds" type="string" />		
+	<variable name="fill_direction" value="LR" type="string" />
+    </section>
+
+    <section name="hud.upgrade_bar1">
+        <variable name="position" value="[710;159]" type="Vector2d" />
+	<variable name="vert_size" value="53" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="upgrade_bar.dds" type="string" />		
+    </section>
+    <section name="hud.upgrade_bar2">
+        <variable name="position" value="[710;96]" type="Vector2d" />
+	<variable name="vert_size" value="53" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="upgrade_bar.dds" type="string" />		
+    </section>
+    <section name="hud.upgrade_bar3">
+        <variable name="position" value="[710;33]" type="Vector2d" />
+	<variable name="vert_size" value="53" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="upgrade_bar.dds" type="string" />		
+    </section>
+
+    <section name="hud.upgrade_light1">
+        <variable name="position" value="[792;153]" type="Vector2d" />
+	<variable name="vert_size" value="62" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="upgrade_light.dds" type="string" />		
+    </section>
+    <section name="hud.upgrade_light2">
+        <variable name="position" value="[792;90]" type="Vector2d" />
+	<variable name="vert_size" value="62" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="upgrade_light.dds" type="string" />		
+    </section>
+    <section name="hud.upgrade_light3">
+        <variable name="position" value="[792;27]" type="Vector2d" />
+	<variable name="vert_size" value="62" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="upgrade_light.dds" type="string" />		
+    </section>
+
+
+    <section name="hud.time_limit_bar">
+        <variable name="position" value="[315;95]" type="Vector2d" />
+	<variable name="vert_size" value="53" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="texture" value="time_limit_bar.dds" type="string" />		
+    </section>
+
+
+    <section name="hud.minimap">
+     <variable name="position" value="[28;21]" type="Vector2d" />
+	<variable name="vert_size" value="259" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+	<variable name="map_extents" value="80" type="float" console="1" />
+	<variable name="icon_size" value="0.08" type="float" />
+	<variable name="icon_flash_period" value="1" type="float" />
+	<variable name="icon_flash_percentage" value="0.5" type="float" />		
+    </section>
+    
+    <section name="hud.minimap_background">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="1024" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="" type="string" />		
+    </section>    
+    
+    <section name="hud.minimap_icons">
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="texture" value="" type="string" />		
+    </section>        
+    
+    
+ 
+    
+    
+    
+    
+  <section name="hud.beacon_health_bar">
+	<variable name="vert_size" value="30" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="texture" value="beacon_health_bar.dds" type="string" />	
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="fill_direction" value="LR" type="string" />
+    </section>  
+
+  <section name="hud.attitude_display">
+        <variable name="position" value="[482; 122]" type="Vector2d" />
+	<variable name="vert_size" value="100" type="float" />	
+	<variable name="ref_corner" value="[1;-1]" type="Vector2d" />
+    </section>  
+
+  <section name="hud.attitude_tank">
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+    </section> 
+
+  <section name="hud.attitude_turret">
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+    </section> 
+
+  <section name="hud.attitude_tank_defender">
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+        <variable name="texture" value="tank_defender.dds" type="string" />
+    </section> 
+
+  <section name="hud.attitude_turret_defender">
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+        <variable name="texture" value="turret_defender.dds" type="string" />	
+    </section> 
+
+  <section name="hud.mine_warning">
+	<variable name="vert_size" value="128" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="texture" value="skull.dds" type="string" />	
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+    </section>  
+
+
+    <section name="hud.hit_marker">
+	<variable name="vert_size" value="65" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="hit.dds" type="string" />		
+    </section>
+
+</parameters>

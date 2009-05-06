@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<GUILayout>
+
+<Window Type="WindowsLook/Static" Name="mainmenu/main_menu">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.425,0},{0.37,0}}" />
+    <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+    <Property Name="FrameEnabled" Value="False" />
+    <Property Name="BackgroundEnabled" Value="False" />
+
+
+             <Window Type="WindowsLook/Button" Name="mainmenu/host_btn">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/host_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Host Game" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="mainmenu/join_btn">
+            <Property Name="UnifiedPosition" Value="{{0.0,0},{0.1,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/join_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Join Game" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>
+	    
+             <Window Type="WindowsLook/Button" Name="mainmenu/continue_btn">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/continue_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Continue" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>	         
+
+            <Window Type="WindowsLook/Button" Name="mainmenu/disconnect_btn">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+	      <Property Name="InheritsAlpha" Value="False" />	
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/disconnect_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Disconnect" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>	    
+
+            <Window Type="WindowsLook/Button" Name="mainmenu/options_btn">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.20,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/options_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Options" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="mainmenu/credits_btn">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.3,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/credits_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Credits" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>
+
+
+
+            <Window Type="WindowsLook/Button" Name="mainmenu/quit_btn">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.4,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+
+
+			<Window Type="WindowsLook/StaticText" Name="mainmenu/quit_btn/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="Quit" />
+				<Property Name="Font" Value="main_menu_font" />
+				<Property Name="TextColours" Value="tl:FFDDDC89 tr:FFB0C729 bl:FFB0C729 br:FFDDDC89" />
+			</Window>	      
+            </Window>
+
+</Window>
+ 
+
+ 
+</GUILayout>

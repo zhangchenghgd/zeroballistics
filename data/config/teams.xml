@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<parameters>
+
+    <!-- TEAM config -->
+    
+    <section name="team_attacker">
+
+        <variable name="name" value="Attacker" type="string" />
+	<variable name="color" value="[0.42;0.8;0.96]" type="Color" />
+	<!--  -->
+	<variable name="tank_name" value="hornet" type="string" />
+        <variable name="beacon_name" value="beacon_attacker" type="string" />	
+	<!--  -->
+	<variable name="minimap_icon_beacon" value="beacon_attacker.dds" type="string" />
+        <variable name="minimap_icon_beacon_inactive" value="beacon_attacker_inactive.dds" type="string" />		
+	<!--  -->
+	<variable name="boundary_tex_name" value="data/textures/boundary_red.dds" type="string" />	  
+	<variable name="draw_los_hints" value="1" type="bool" />	  
+
+    </section>     
+    
+    <section name="team_defender">
+
+        <variable name="name" value="Defender" type="string" />
+	<variable name="color" value="[0.87;0.0;0.0]" type="Color" />
+	<!--  -->
+	<variable name="tank_name" value="brummbaer" type="string" />
+        <variable name="beacon_name" value="beacon_defender" type="string" />	
+	<!--  -->
+	<variable name="minimap_icon_beacon" value="beacon_defender.dds" type="string" />
+        <variable name="minimap_icon_beacon_inactive" value="beacon_defender_inactive.dds" type="string" />		
+	<!--  -->
+	<variable name="boundary_tex_name" value="data/textures/boundary_blue.dds" type="string" />	  
+	<variable name="draw_los_hints" value="0" type="bool" />	  
+
+    </section>    
+
+
+    <section name="team_deathmatch">
+
+        <variable name="name" value="" type="string" />
+	<variable name="color" value="[0.6;0.0;0.0]" type="Color" />
+
+    </section>    
+
+    <section name="team_tdm_a">
+
+        <variable name="name" value="Team A" type="string" />
+	<variable name="color" value="[0.42;0.8;0.96]" type="Color" />
+	<variable name="tank_name" value="hornet" type="string" />
+
+    </section>    
+
+    <section name="team_tdm_b">
+
+        <variable name="name" value="Team B" type="string" />
+	<variable name="color" value="[0.67;0.29;0.33]" type="Color" />
+	<variable name="tank_name" value="brummbaer" type="string" />
+
+    </section>    
+
+    <!-- Soccer -->
+    <section name="team_soccer_blue">
+
+        <variable name="name" value="FC Hornets" type="string" />
+	<variable name="color" value="[0.42;0.8;0.96]" type="Color" />
+	<variable name="tank_name" value="sc_hornet" type="string" />
+
+    </section>    
+
+    <section name="team_soccer_red">
+
+        <variable name="name" value="SC Bears" type="string" />
+	<variable name="color" value="[0.67;0.29;0.33]" type="Color" />
+	<variable name="tank_name" value="sc_brummbaer" type="string" />
+
+    </section>   
+
+
+</parameters>

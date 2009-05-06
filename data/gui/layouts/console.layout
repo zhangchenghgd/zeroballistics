@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<GUILayout>    
+	<Window Type="DefaultGUISheet" Name="console/window">
+		<Property Name="AlwaysOnTop" Value="True" />
+		<Property Name="UnifiedMinSize" Value="{{1.0,0},{0.4,0}}" />
+		<Property Name="UnifiedMaxSize" Value="{{1.0,0},{0.4,0}}" />
+		<Property Name="UnifiedPosition" Value="{{0,0},{0,0}}" />
+		<Property Name="VerticalAlignment" Value="Top" />
+		<Property Name="UnifiedSize" Value="{{1.0,0},{0.4,0}}" />
+		<Property Name="DistributeCapturedInputs" Value="True" />
+
+		<Window Type="WindowsLook/MultiLineEditbox" Name="console/display">
+			<Property Name="Alpha" Value="0.7" />
+			<Property Name="VerticalAlignment" Value="Top" />
+			<Property Name="ReadOnly" Value="True" />
+			<Property Name="WordWrap" Value="False" />
+			<Property Name="MaxTextLength" Value="1000" />
+			<Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+			<Property Name="UnifiedPosition" Value="{{0,0},{0,0}}" />
+			<Property Name="UnifiedSize" Value="{{1,0},{0.88,0}}" />
+		</Window>	
+
+		<Window Type="WindowsLook/Editbox" Name="console/editbox">
+			<Property Name="Alpha" Value="0.7" />
+			<Property Name="VerticalAlignment" Value="Bottom" />
+			<Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+			<Property Name="UnifiedPosition" Value="{{0,0},{0,-8}}" />
+			<Property Name="UnifiedSize" Value="{{1.0,0},{0.10,0}}" />
+			<Property Name="Text" Value="" />
+		</Window>
+
+	</Window>
+</GUILayout>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+    <Particle>
+        <Texture value="trail.dds" />
+        <Emissive value="false" type="bool" comment="" />
+        <Lighting value="false" type="bool" comment="" />
+        <Connected/>
+        <SizeRange min="0.01" max="0.01" type="float" comment="" />
+        <ColorRange min_r="0.99" min_g="0.99" min_b="1" min_a="1.0"
+                    max_r="1" max_g="1" max_b="1" max_a="1.0" type="float rgba" comment="" />
+        <AlphaRange min="0.4" max="0.0" type="float" comment="" />
+        <LifeTime value="1.0" type="float" comment="Lifetime of a single particle" />
+        <Mass value="0.01" type="float" comment="in kg" />
+    </Particle>
+
+    <Emitter>
+        <LifeTime value="0.0" type="float" comment="Lifetime of the particle system itself, zero = endless" />
+	   <Counter>
+            <ConstantRate value="20" type="float" comment="defines emitted particles per second" />
+        </Counter>
+        
+        <Placer>
+            <CenteredPlacer>
+                <Center x="0" y="0.0" z="0" type="float xyz" comment="" />
+                <InitalRotationRange min_x="0.0" min_y="0.0" min_z="0"
+                                   max_x="0.0" max_y="0.0" max_z="120" type="float vec3" comment="in degrees" />
+            </CenteredPlacer>   
+        </Placer>
+        
+        <Shooter>
+            <InitialSpeedRange min="0.0" max="0.0" type="float" comment="in meter/second" />
+            <ThetaRange min="0" max="359" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+            <PhiRange min="0" max="359" type="float" comment="in degrees, around z axis, zero is at pos. x" />
+            <RotationalSpeedRange   min_x="0.0" min_y="0.0" min_z="0.0"
+                                            max_x="0.0" max_y="0.0" max_z="0.0" type="float vec3" comment="in meter/second" />                     
+        </Shooter>
+    </Emitter>
+
+    <Program>
+        <AccelerationOperator x="0" y="0.01" z="0" type="float" comment="" />                
+    </Program>
+</ParticleEffect>

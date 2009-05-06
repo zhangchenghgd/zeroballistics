@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<parameters>
+
+    <!-- ----- WEAPON UPGRADES ----- -->
+    <super_section name="weapon1">
+	<section name="tank">
+            <variable name="additional_projectile_damage" value="10" type="unsigned" />    
+	</section>
+    </super_section>
+
+    <super_section name="weapon2">
+	<section name="tank">
+            <variable name="additional_projectile_damage" value="15" type="unsigned" />      
+	</section>
+    </super_section>
+
+    <super_section name="weapon3">
+	<section name="tank">
+            <variable name="additional_projectile_damage" value="20" type="unsigned" />      
+	</section>
+    </super_section>
+
+    <!-- ----- ARMOR UPGRADES ----- -->
+    <super_section name="armor1">
+	<section name="tank">
+         <variable name="delta_max_hitpoints" value="40" type="int" />		
+	</section>
+    </super_section>
+
+    <super_section name="armor2">
+	<section name="tank">
+            <variable name="delta_max_hitpoints" value="30" type="int" />		
+	</section>
+    </super_section>
+
+    <super_section name="armor3">
+        <section name="tank" >
+            <variable name="delta_max_hitpoints" value="30" type="int" />		
+	</section>
+    </super_section>
+
+    <!-- ----- SPEED UPGRADES ----- -->
+    <super_section name="speed1">
+	<section name="tank">
+	    <variable name="delta_max_speed" value="0.4" type="float" console="1" />
+
+            <variable name="static_mu_long_acc" value="4" type="float"  console="1" />
+            <variable name="static_mu_long_brake" value="6" type="float"  console="1" />
+            <variable name="static_mu_lat" value="6" type="float"  console="1" />
+            <variable name="static_mu_lat_brake" value="3" type="float"  console="1" />
+
+	</section>
+    </super_section>
+
+    <super_section name="speed2">
+        <section name="tank">
+
+            <variable name="delta_max_speed" value="0.4" type="float" console="1" />
+            <variable name="static_mu_long_acc" value="6" type="float"  console="1" />
+            <variable name="static_mu_long_brake" value="8" type="float"  console="1" />
+        </section>
+    </super_section>
+
+    <super_section name="speed3">
+        <section name="tank" >
+            <variable name="delta_max_speed" value="0.4" type="float" console="1" />
+        </section>
+    </super_section>
+
+</parameters>

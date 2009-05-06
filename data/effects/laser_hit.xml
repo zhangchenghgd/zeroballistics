@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="laser_hit" delay="0.0" comment="little fire" /> 
+</EffectGroup>

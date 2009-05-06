@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+	<Particle>
+		<Texture value="m_smoke_white2.dds" />
+		<Emissive value="false" type="bool" comment="" />
+		<Lighting value="false" type="bool" comment="" />
+		<SizeRange min="0.2" max="0.76" type="float" comment="" />
+		<ColorRange min_r="0.5" min_g="0.5" min_b="0.5" min_a="1.0"
+                    max_r="0.2" max_g="0.2" max_b="0.2" max_a="1.0" type="float rgba" comment="" />
+		<AlphaRange min="1.0" max="0.0" type="float" comment="" />
+		<LifeTime value="1.2" type="float" comment="Lifetime of a single particle" />
+		<Mass value="0.01" type="float" comment="in kg" />
+	</Particle>
+
+	<Emitter>
+		<LifeTime value="0.6" type="float" comment="Lifetime of the particle system itself, zero = endless" />
+		<Counter>
+			<RandomRateRange min="5" max="10" type="float" comment="" />
+		</Counter>
+		<Placer>
+			<BoxedPlacer>
+				<Center x="0" y="0.0" z="0" type="float xyz" comment="" />
+				<InitalRotationRange min_x="0.0" min_y="0.0" min_z="0"
+								   max_x="0.0" max_y="0.0" max_z="0" type="float vec3" comment="in degrees" />
+				<RangeX min="-0.01" max="0.01" type="float" comment="" />
+				<RangeY min="-0.01" max="0.01" type="float" comment="" />
+				<RangeZ min="-0.01" max="0.01" type="float" comment="" />
+			</BoxedPlacer>
+		</Placer>
+		<Shooter>
+			<InitialSpeedRange min="2.0" max="2.2" type="float" comment="in meter/second" />
+			<ThetaRange min="-40" max="40" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+			<PhiRange min="-40" max="40" type="float" comment="in degrees, around z axis, zero is at pos. x" />
+			<RotationalSpeedRange min_x="0.0" min_y="0.0" min_z="-0.5"
+							max_x="0.0" max_y="0.0" max_z="0.5" type="float vec3" comment="in meter/second" />
+		</Shooter>
+	</Emitter>
+
+	<Program>
+		<AccelerationOperator x="0.0" y="-0.2" z="0.0" type="float" comment="" />
+		<AirFrictionOperator comment="if this element exists, particle speed is calculated together with air friction" />
+	</Program>
+</ParticleEffect>

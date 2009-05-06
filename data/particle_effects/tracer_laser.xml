@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+	<Particle>
+        <Connected/>
+		<Texture value="tracer_laser.dds" />
+		<Emissive value="true" type="bool" comment="" />
+		<Lighting value="false" type="bool" comment="" />
+		<SizeRange min="0.4" max="0.4" type="float" comment="" />
+		<ColorRange min_r="0.8" min_g="0" min_b="0" min_a="0.9"
+                    max_r="0.7" max_g="0" max_b="0" max_a="0.9" type="float rgba" comment="" />
+		<AlphaRange min="1.0" max="1.0" type="float" comment="" />
+		<LifeTime value="1.0" type="float" comment="Lifetime of a single particle" />
+		<Mass value="0.01" type="float" comment="in kg" />
+	</Particle>
+
+	<Emitter>
+		<LifeTime value="0" type="float" comment="Lifetime of the particle system itself, zero = endless" />
+
+		<Counter>
+                <ConstantRate value="110" type="float" comment="defines emitted particles per second" />
+		</Counter>
+		<Placer>
+                <CenteredPlacer>
+                    <Center x="0" y="0.0" z="0.4" type="float xyz" comment="" />
+                </CenteredPlacer>
+		</Placer>
+		<Shooter>
+			<InitialSpeedRange min="40" max="40" type="float" comment="in meter/second" />
+			<ThetaRange min="90" max="90" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+			<PhiRange min="90" max="90" type="float" comment="in degrees, around z axis, zero is at pos. x" />
+			<RotationalSpeedRange min_x="0.0" min_y="0.0" min_z="0.0"
+							max_x="0.0" max_y="0.0" max_z="0.0" type="float vec3" comment="in meter/second" />
+<!--
+            <VelocityScale factor="1.0" comment="This is valid only for global effects. If velocity scale is set to 1, the particles will inherit the exact translation of the emitter at the time they are spawned. If it is set to 2, the particles will inherit double the emitter's translation when they are spawned. 3 is triple the translation, etc." />
+-->
+
+
+
+		</Shooter>
+	</Emitter>
+
+	<Program>
+		<AccelerationOperator x="0" y="0" z="0" type="float" comment="" />
+		<AlignWithVelocityVectorOperator comment="if this element exists, particles are aligned like sparks to velocity" /> 
+          <LocalEffectOperator />         
+	</Program>
+</ParticleEffect>

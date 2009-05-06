@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="mainmenu/notification">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.3,0},{0.4,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.4,0},{0.2,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="Alpha" Value="0.9" />
+  
+  
+	<Window Type="WindowsLook/StaticText" Name="mainmenu/notification/label">
+		<Property Name="UnifiedPosition" Value="{{0.04,0},{0.12,0}}" />	
+		<Property Name="UnifiedSize" Value="{{0.9,0.0},{0.62,0}}" />
+		<Property Name="VertFormatting" Value="TopAligned" />
+		<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+		<Property Name="InheritsAlpha" Value="False" />
+		<Property Name="FrameEnabled" Value="False" />
+		<Property Name="BackgroundEnabled" Value="False" />
+		<Property Name="Text" Value="" />
+          <Property Name="Font" Value="main_menu_font" />		
+	</Window>	
+			
+		
+            <Window Type="WindowsLook/Button" Name="mainmenu/notification/ok_btn">
+                <Property Name="HorizontalAlignment" Value="Centre" />
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.67,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.25,0},{0.2,0}}" />
+                <Property Name="Text" Value="Ok" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />	      
+            </Window>
+
+ </Window>  
+</GUILayout>

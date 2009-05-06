@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="tank_explosion_6" delay="0.5" comment="Fallout" />
+	<ParticleEffect name="tank_explosion_7" delay="0.2" comment="smoke" />
+	<ParticleEffect name="tank_explosion" delay="0" comment="pixeldeath" />
+	<ParticleEffect name="tank_explosion" delay="0.03" comment="pixeldeath" />
+	<ParticleEffect name="tank_explosion_3" delay="0.1" comment="fireburst" />
+	<ParticleEffect name="tank_explosion_2" delay="0" comment="fire" />
+	<ParticleEffect name="tank_explosion_4" delay="0.0" comment="sparks" />
+	<ParticleEffect name="tank_explosion_8" delay="0.3" comment="fire2" />
+    <ParticleEffect name="tank_explosion_parts" delay="0.0" comment="debris" />    
+
+
+    <SoundEffect name="a-explosion-wrack.wav" loop="0" />
+</EffectGroup>

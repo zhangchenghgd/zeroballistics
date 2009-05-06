@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static"  Name="mainmenu/credits/window">
+	<Property Name="AlwaysOnTop" Value="True" />
+	<Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />
+	<Property Name="UnifiedSize" Value="{{0.8,0},{0.8,0}}" />
+	<Property Name="FrameEnabled" Value="True" />
+	<Property Name="BackgroundEnabled" Value="True" />
+	<Property Name="Alpha" Value="0.9" />
+
+
+            <Window Type="WindowsLook/Button" Name="mainmenu/credits/ok_btn">
+                <Property Name="HorizontalAlignment" Value="Centre" />
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.9,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Ok" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+            <Window Type="WindowsLook/StaticText" Name="mainmenu/credits/label">
+                <Property Name="HorizontalAlignment" Value="Centre" />            
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.04,0}}" />	
+                <Property Name="UnifiedSize" Value="{{0.96,0},{0.80,0}}" />
+                <Property Name="VertFormatting" Value="TopAligned" />
+                <Property Name="HorzFormatting" Value="HorzCentred" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="FrameEnabled" Value="False" />
+                <Property Name="BackgroundEnabled" Value="False" />
+                <Property Name="Font" Value="default" />
+                <Property Name="VertScrollbar" Value="True" />
+                <Property Name="Font" Value="main_menu_font" />	
+                <Property Name="Text">
+...:: Game Design ::...
+
+Bernhard Bauer
+Michael Ebner
+Christian Muschick
+
+...:: Programming ::...
+
+Michael Ebner
+Christian Muschick
+
+...:: Lead Artist ::...
+
+Bernhard Bauer
+
+...:: Additional Artwork ::...
+
+Patrick Klepatz
+Rainer Chavez
+Maik Krueger
+Christian Princic
+
+...:: Music ::...
+
+Andreas Pirchner
+
+...:: Sound Effects ::...
+
+Armin Hinterberger
+
+...:: Beta Tester ::...
+
+Christopher Edwards
+Georg Enzenhofer
+Chip Henson
+Ulrich Krenn
+Georg Lemes
+Marc Normandin
+Florian Obrietan
+Christoph Reiterer
+Pascal Werlberger
+Andrew Zonenberg
+                </Property>					
+            </Window>						
+				
+</Window>
+</GUILayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<parameters>
+
+<!-- Alignment Values for Text:
+		
+	0       LEFT_TOP,
+	1       LEFT_CENTER,
+	2       LEFT_BOTTOM,
+
+	3       CENTER_TOP,
+	4       CENTER_CENTER,
+	5       CENTER_BOTTOM,
+
+	6       RIGHT_TOP,
+	7       RIGHT_CENTER,
+	8       RIGHT_BOTTOM,
+		
+	9       LEFT_BASE_LINE,
+	10      CENTER_BASE_LINE,
+	11      RIGHT_BASE_LINE,
+	    
+	12      LEFT_BOTTOM_BASE_LINE,
+	13      CENTER_BOTTOM_BASE_LINE,
+	14      RIGHT_BOTTOM_BASE_LINE,
+	    
+		BASE_LINE = LEFT_BASE_LINE
+
+"vert_size" specifies the height of a texture element.
+ref_corner: -1,-1: specify distance of lower left texture corner from lower left screen corner
+             1, 1: specify distance of top right texture corner from top right screen corner
+
+-->
+
+
+<!--  -->
+
+    <section name="hud">
+     <!-- All positions & sizes are divided by this value to make for resolution-independent positioning -->
+     <variable name="ref_screen_height" value="1024" type="float" />
+    </section>
+
+
+<!-- Text Parameter Sections -->
+
+
+    <section name="hud.chat_area">
+        <variable name="position" value="[20;120]" type="Vector2d" />
+	<variable name="num_lines" value="10" type="unsigned" />
+	<variable name="char_size" value="18" type="float" />
+	<variable name="color" value="[1;0;0;1]" type="Color" />
+	<variable name="backdrop_offset" value="0.07" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="9" type="unsigned" />	
+	<variable name="ref_corner" value="[-1;-1]" type="Vector2d" />
+    </section>
+    
+    <section name="hud.chat_label">
+        <variable name="position" value="[20;80]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="18" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0.07" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="9" type="unsigned" />
+	<variable name="ref_corner" value="[-1;-1]" type="Vector2d" />
+    </section>    
+
+    <section name="hud.message_area">
+        <variable name="position" value="[20;-100]" type="Vector2d" />
+	<variable name="num_lines" value="7" type="unsigned" />
+	<variable name="text_width" value="500" type="unsigned" />
+	<variable name="char_size" value="18" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0.07" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="9" type="unsigned" />
+	<variable name="ref_corner" value="[-1;0]" type="Vector2d" />
+    </section>    
+
+    <section name="hud.status_line">
+        <variable name="position" value="[0;100]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="34" type="float" />
+	<variable name="color" value="[1;0.8;0;1]" type="Color" />
+	<variable name="backdrop_offset" value="0.07" type="float" />
+	<variable name="font_name" value="FreeSans-Medium.ttf" type="string" />
+	<variable name="text_align" value="10" type="unsigned" />
+	<variable name="ref_corner" value="[0;-1]" type="Vector2d" />
+    </section>    
+
+
+
+<!-- Texture Element Parameter Sections -->
+
+
+
+</parameters>

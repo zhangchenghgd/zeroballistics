@@ -1,0 +1,261 @@
+<?xml version="1.0" ?>
+<GUILayout>
+
+<Window Type="WindowsLook/Static" Name="hostmenu/window">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.15,0},{0.13,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.7,0},{0.74,0}}" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="BackgroundEnabled" Value="True" />
+	<Property Name="Alpha" Value="0.9" />
+    
+        <Window Type="WindowsLook/StaticText" Name="hostmenu/label">
+            <Property Name="UnifiedPosition" Value="{{0.03,13},{0.05,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.15,0}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />            
+            <Property Name="Text" Value="Host Game:" />
+            <Property Name="Font" Value="main_menu_font" />                
+        </Window>	  
+  
+            <!--  ################ Server Name ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_name_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.13,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.06,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_name_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{1.0,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Server Name:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Editbox" Name="hostmenu/server_name_editbox">
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.05,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.9,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Text" Value="" />
+                    <Property Name="Font" Value="main_menu_font" />
+                    <Property Name="MaxTextLength" Value="55" />
+                </Window>	  
+        </Window>          
+  
+            <!--  ################ Port ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_port_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.2,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.06,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_port_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{1.0,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Port:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Editbox" Name="hostmenu/server_port_editbox">
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.05,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.9,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Text" Value="" />
+                    <Property Name="Font" Value="main_menu_font" />
+                    <Property Name="MaxTextLength" Value="5" />
+                </Window>	  
+        </Window>      
+  
+  
+            <!--  ################ Game Type ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_game_type_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.33,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_game_type_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Game Type:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="hostmenu/server_game_type_combobox" >
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.8,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window>      
+  
+              <!--  ################ Map ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_map_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.4,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_map_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Map:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="hostmenu/server_map_combobox" >
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.8,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window>      
+  
+
+              <!--  ################ Max Players ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_max_players_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.47,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_max_players_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Max Players:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="hostmenu/server_max_players_combobox" >
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.8,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window>      
+
+
+              <!--  ################ Bot Limit ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_bot_limit_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.54,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.37,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_bot_limit_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Number of Bots:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="hostmenu/server_bot_limit_combobox" >
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.8,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window>   
+
+              <!--  ################ Time Limit ############### -->
+          <Window Type="WindowsLook/Static" Name="hostmenu/server_time_limit_container">
+            <Property Name="UnifiedPosition" Value="{{0.08,0},{0.61,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.37,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="hostmenu/server_time_limit_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Time limit:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="hostmenu/server_time_limit_combobox" >
+                    <Property Name="UnifiedPosition" Value="{{0.30,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.8,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window>   
+
+
+      	<!--  ######################################
+				Host & Cancel Button 
+        ########################################## -->	            
+        <Window Type="WindowsLook/Static" Name="hostmenu/cc_button_container">
+            <Property Name="UnifiedPosition" Value="{{0.03,0},{0.90,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.07,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            
+                    <Window Type="WindowsLook/Button" Name="hostmenu/host_btn">
+                        <Property Name="UnifiedPosition" Value="{{0.3,0},{0.0,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.15,0},{0.8,0}}" />
+                        <Property Name="Text" Value="Host" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                        <Property Name="Font" Value="main_menu_font" />
+                    </Window>
+                    
+                    <Window Type="WindowsLook/Button" Name="hostmenu/cancel_btn">
+                        <Property Name="UnifiedPosition" Value="{{0.5,0},{0.0,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.15,0},{0.8,0}}" />
+                        <Property Name="Text" Value="Cancel" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                        <Property Name="Font" Value="main_menu_font" />
+                    </Window>    
+                    
+        </Window>            
+            
+</Window>
+
+</GUILayout>

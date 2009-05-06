@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+    <ParticleEffect name="machine_gun_hit_water" delay="0" comment="splash" />
+	 <ParticleEffect name="machine_gun_hit_water_2" delay="0" comment="core" /> 
+	<!-- <ParticleEffect name="machine_gun_hit_water_3" delay="0" comment="ripples" /> -->
+
+</EffectGroup>

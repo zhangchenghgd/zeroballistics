@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="ft1" delay="0" comment="big fire" /> 
+<!--	<ParticleEffect name="ft2" delay="0" comment="little fire" /> -->
+<!--	<ParticleEffect name="ft3" delay="0" comment="smoke" /> -->
+<!--	<ParticleEffect name="ft4" delay="0" comment="tiny fireflies" />-->
+</EffectGroup>

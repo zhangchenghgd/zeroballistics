@@ -1,0 +1,274 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static"  Name="upgrade/window">
+	<Property Name="AlwaysOnTop" Value="True" />
+	<Property Name="UnifiedPosition" Value="{{0.1,0},{0.275,0}}" />
+	<Property Name="UnifiedSize" Value="{{0.8,0},{0.45,0}}" />
+	<Property Name="FrameEnabled" Value="True" />
+	<Property Name="BackgroundEnabled" Value="True" />
+	<Property Name="Alpha" Value="0.9" />
+
+
+    <!-- Buttons -->
+        <Window Type="WindowsLook/Button" Name="upgrade/btn1">
+            <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />                    
+            <Property Name="UnifiedSize" Value="{{0.15,0},{0.08,0}}" />
+            <Property Name="AlwaysOnTop" Value="True" />   
+            <Property Name="Text" Value="1. Weapon" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Font" Value="main_menu_font" />
+        </Window>
+
+        <Window Type="WindowsLook/Button" Name="upgrade/btn2">
+            <Property Name="UnifiedPosition" Value="{{0.35,0},{0.1,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.15,0},{0.08,0}}" />
+            <Property Name="AlwaysOnTop" Value="True" />   
+            <Property Name="Text" Value="2. Armor" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Font" Value="main_menu_font" />
+        </Window>
+        
+        <Window Type="WindowsLook/Button" Name="upgrade/btn3">
+            <Property Name="UnifiedPosition" Value="{{0.65,0},{0.1,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.15,0},{0.08,0}}" />
+            <Property Name="AlwaysOnTop" Value="True" />   
+            <Property Name="Text" Value="3. Speed" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Font" Value="main_menu_font" />
+        </Window>        
+
+
+        <!-- Weapon upgrade column -->
+        <Window Type="WindowsLook/Static"  Name="upgrade/column1">
+            <Property Name="UnifiedPosition" Value="{{0.05,0},{0.13,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.30,0},{0.9,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="InheritsAlpha" Value="False" />            
+            <Property Name="MousePassThroughEnabled" Value="True" />  
+            
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/weapon1_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.03,0},{0.075,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                    </Window> 
+   
+				<Window Type="WindowsLook/StaticText" Name="upgrade/weapon1_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />
+				</Window>	            
+            
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/weapon2_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.03,0},{0.275,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />                   
+                        <Property Name="InheritsAlpha" Value="False" />                    
+                    </Window> 
+
+				<Window Type="WindowsLook/StaticText" Name="upgrade/weapon2_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.3,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />                        
+				</Window>	
+
+
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/weapon3_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.03,0},{0.475,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />           
+                        <Property Name="InheritsAlpha" Value="False" />                    
+                    </Window> 
+            
+				<Window Type="WindowsLook/StaticText" Name="upgrade/weapon3_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.5,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />                           
+				</Window>	            
+            
+        </Window>  
+
+        <!-- Armor upgrade column -->
+        <Window Type="WindowsLook/Static"  Name="upgrade/column2">
+            <Property Name="UnifiedPosition" Value="{{0.35,0},{0.13,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.30,0},{0.9,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="InheritsAlpha" Value="False" />            
+            <Property Name="MousePassThroughEnabled" Value="True" />  
+            
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/armor1_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.075,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />                    
+                        <Property Name="InheritsAlpha" Value="False" />
+                    </Window> 
+            
+				<Window Type="WindowsLook/StaticText" Name="upgrade/armor1_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />
+				</Window>	            
+    
+                        <Window Type="WindowsLook/Checkbox"  Name="upgrade/armor2_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.275,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />          
+                        <Property Name="InheritsAlpha" Value="False" />                   
+                    </Window> 
+                    
+				<Window Type="WindowsLook/StaticText" Name="upgrade/armor2_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.3,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />                   
+				</Window>	                    
+                    
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/armor3_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.475,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />          
+                        <Property Name="InheritsAlpha" Value="False" />
+                    </Window>           
+
+				<Window Type="WindowsLook/StaticText" Name="upgrade/armor3_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.5,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />
+				</Window>	
+            
+        </Window>  
+
+
+        <!-- Speed upgrade column -->
+        <Window Type="WindowsLook/Static"  Name="upgrade/column3">
+            <Property Name="UnifiedPosition" Value="{{0.65,0},{0.13,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.30,0},{0.9,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="InheritsAlpha" Value="False" />            
+            <Property Name="MousePassThroughEnabled" Value="True" />              
+            
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/speed1_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.075,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />                  
+                        <Property Name="InheritsAlpha" Value="False" />
+                    </Window> 
+            
+				<Window Type="WindowsLook/StaticText" Name="upgrade/speed1_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />
+				</Window>	            
+            
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/speed2_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.275,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />                    
+                        <Property Name="InheritsAlpha" Value="False" />                      
+                    </Window> 
+
+				<Window Type="WindowsLook/StaticText" Name="upgrade/speed2_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.3,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />                          
+				</Window>	
+
+                    <Window Type="WindowsLook/Checkbox"  Name="upgrade/speed3_activation">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.475,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.08,0},{0.08,0}}" />              
+                        <Property Name="InheritsAlpha" Value="False" />
+                    </Window> 
+            
+				<Window Type="WindowsLook/StaticText" Name="upgrade/speed3_text">
+					<Property Name="UnifiedPosition" Value="{{0.1,0},{0.5,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.85,0.0},{0.2,0}}" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+					<Property Name="Font" Value="main_menu_font" />
+                         <Property Name="Text" Value="" />
+				</Window>	            
+            
+        </Window>  
+
+        <!-- Upgrade Points and Label -->
+        <Window Type="WindowsLook/StaticText" Name="upgrade/label_points_text">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.78,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.1,0}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                    
+            <Property Name="Font" Value="main_menu_font" />
+            <Property Name="Text" Value="Upgrade Points:" />			
+        </Window>						
+        
+        <Window Type="WindowsLook/StaticText" Name="upgrade/label_points">
+            <Property Name="UnifiedPosition" Value="{{0.21,0},{0.78,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.2,0.0},{0.1,0}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                     
+            <Property Name="Font" Value="main_menu_font" />	
+            <Property Name="MousePassThroughEnabled" Value="True" />              
+        </Window>	
+
+
+        <!-- Close button-->
+    <Window Type="WindowsLook/Button" Name="upgrade/window/close_btn">
+        <Property Name="UnifiedPosition" Value="{{0.45,0},{0.85,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.1,0},{0.08,0}}" />
+        <Property Name="Text" Value="Close" />
+        <Property Name="InheritsAlpha" Value="False" />
+        <Property Name="Font" Value="main_menu_font" />
+    </Window>
+
+</Window>
+</GUILayout>

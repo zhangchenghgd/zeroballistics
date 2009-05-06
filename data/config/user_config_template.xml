@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<parameters>
+    <super_section name="config">
+        <section name="camera">
+            <variable name="invert_mouse" value="0" type="bool" console="1" />
+        </section>
+        <section name="client.app">
+            <variable name="fullscreen" value="1" type="bool" />
+            <variable name="initial_window_width" value="1024" type="unsigned" />
+            <variable name="initial_window_height" value="768" type="unsigned" />
+            <variable name="player_name" value="Player" type="string" />
+        </section>
+        <!--	
+	-->
+        <section name="client.input">
+            <variable name="mouse_sensitivity" value="0.111" type="float" console="1" />
+        </section>
+        <!--	
+	-->
+        <section name="client.network">
+            <variable name="host" value="quanticode.dyndns.org" type="string" />
+            <variable name="port" value="23500" type="unsigned" />
+        </section>
+        <!--	
+	-->
+        <section name="client.sound">
+            <variable name="volume" value="0.8" type="float" />
+            <variable name="device_index" value="0" type="unsigned" />
+        </section>
+        <section name="client.music">
+            <variable name="enabled" value="1" type="bool" />
+        </section>
+        <!--	
+	-->
+        <section name="player">
+            <variable name="username" value="" type="string" />
+            <variable name="password" value="" type="string" />        
+            <variable name="remember_password" value="0" type="bool" />         
+            <variable name="equipment" value="[primary_weapon0;secondary_weapon0;first_skill0;second_skill0]" type="vector&lt;string&gt;" />
+        </section>    
+        <!--	
+	-->    
+        <section name="client.graphics">
+            <variable name="texture_quality" value="0" type="unsigned" />
+            <variable name="anisotropic_filtering" value="0" type="unsigned" />
+            <variable name="fsaa_samples" value="0" type="unsigned" />
+            <variable name="lod_scale" value="1" type="float" />
+            <variable name="shader_quality" value="2" type="unsigned" />
+            <variable name="water_quality" value="1" type="unsigned" />
+        </section>
+        <section name="client.shadows">
+            <variable name="enabled" value="1" type="bool" />
+            <variable name="map_size" value="1024" type="unsigned" />
+        </section>
+        <!--	
+	-->
+        <section name="terrain">
+            <variable name="start_grid" value="0" type="unsigned" />
+            <variable name="num_grids" value="4" type="unsigned" />
+            <!-- Grid size can be 1 to 5 (resolution then is 15 to 255) -->
+            <variable name="grid_size" value="4" type="unsigned" />
+        </section>
+        <section name="instances">
+            <variable name="user_density" value="1.0" type="float" />
+        </section>
+    <!-- 
+    -->
+    <section name="server.settings">
+        <variable name="name" value="Zero Ballistics Beta Server" type="string" />    
+        <variable name="listen_port" value="23500" type="unsigned" />
+        <variable name="type" value="Deathmatch" type="string" />
+        <variable name="level_name" value="dm_almrausch" type="string" />
+        <variable name="max_connections" value="8" type="unsigned" />
+        <variable name="time_limit" value="600" type="float" />          
+        <variable name="bot_limit" value="2" type="unsigned" />        
+    </section>
+    <!-- 
+    -->                    
+    </super_section>
+    <!-- 
+        Keymap
+    -->       
+    <super_section name="default_keymap">
+        <section name="">
+            <variable name="000 view" value="[Mouse]" type="vector&lt;string&gt;" />
+        </section>
+    </super_section>
+    <!-- 
+        Configurable Keymap    
+    -->
+    <super_section name="configurable_keymap">
+        <section name="">
+            <variable name="000 Tank Controls" value="[]" type="vector&lt;string&gt;" />
+            <variable name="005 Accelerate" value="[w]" type="vector&lt;string&gt;" />
+            <variable name="010 Decelerate" value="[s]" type="vector&lt;string&gt;" />
+            <variable name="020 Turn left" value="[a]" type="vector&lt;string&gt;" />
+            <variable name="030 Turn right" value="[d]" type="vector&lt;string&gt;" />
+            <variable name="031 Fire Cannon" value="[LeftButton]" type="vector&lt;string&gt;" />
+            <variable name="032 Fire Secondary Weapon" value="[RightButton]" type="vector&lt;string&gt;" />
+            <variable name="033 Use First Skill" value="[f]" type="vector&lt;string&gt;" />
+            <variable name="034 Use Second Skill" value="[LSHIFT]" type="vector&lt;string&gt;" />        
+            <variable name="040 Handbrake" value="[SPACE]" type="vector&lt;string&gt;" />
+            <variable name="050 Pickup/Drop Beacon" value="[e]" type="vector&lt;string&gt;" />
+            <variable name="060 Flip Tank" value="[j]" type="vector&lt;string&gt;" />
+
+
+
+            <variable name="100 Game Controls" value="[]" type="vector&lt;string&gt;" />
+            <variable name="102 Change Team" value="[m]" type="vector&lt;string&gt;" />
+            <variable name="110 Talk" value="[t]" type="vector&lt;string&gt;" />
+            <variable name="111 Team Message 1" value="[5]" type="vector&lt;string&gt;" />     
+            <variable name="112 Team Message 2" value="[6]" type="vector&lt;string&gt;" />   
+            <variable name="120 Show Score" value="[TAB]" type="vector&lt;string&gt;" />
+            <variable name="130 Show Help" value="[h]" type="vector&lt;string&gt;" />
+            <variable name="140 Show Upgrade Screen" value="[u]" type="vector&lt;string&gt;" />
+            <variable name="141 Show Tank Equipment Screen" value="[i]" type="vector&lt;string&gt;" />                  
+            <variable name="160 Upgrade Weapons" value="[1]" type="vector&lt;string&gt;" />
+            <variable name="170 Upgrade Armor" value="[2]" type="vector&lt;string&gt;" />
+            <variable name="180 Upgrade Speed" value="[3]" type="vector&lt;string&gt;" />
+            <variable name="185 Take Screenshot" value="[p]" type="vector&lt;string&gt;" />
+            <variable name="186 Show Console" value="[F12]" type="vector&lt;string&gt;" />
+
+            <variable name="190 Camera Controls" value="[]" type="vector&lt;string&gt;" />
+            <variable name="220 1st Person Camera" value="[F1]" type="vector&lt;string&gt;" />
+            <variable name="222 Tracking Camera"   value="[F2]" type="vector&lt;string&gt;" />
+            <variable name="230 3rd Person Camera" value="[F3]" type="vector&lt;string&gt;" />
+            <variable name="240 TV Camera"         value="[F4]" type="vector&lt;string&gt;" />
+            <variable name="250 Free Camera"       value="[F5]" type="vector&lt;string&gt;" />
+            <variable name="260 Toggle camera control mode" value="[c]" type="vector&lt;string&gt;" /> 
+        </section>
+    </super_section>
+</parameters>

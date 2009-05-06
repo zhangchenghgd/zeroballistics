@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="matchsummary/window">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.05,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.8,0},{0.8,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="Alpha" Value="0.9" />
+  
+            <!-- ######## Match text ########### -->
+              <Window Type="WindowsLook/StaticText" Name="matchsummary/match_text_left" >
+                <Property Name="Text" Value="" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.05,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.5,0},{0.35,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="VertFormatting" Value="TopAligned" />
+                <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                  
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+            
+              <Window Type="WindowsLook/StaticText" Name="matchsummary/match_text_right" >
+                <Property Name="Text" Value="" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.55,0},{0.05,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.45,0},{0.35,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="VertFormatting" Value="TopAligned" />
+                <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                   
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>          
+
+  
+            <!-- ######## List  ########### -->
+            <Window Type="WindowsLook/MultiColumnList" Name="matchsummary/list" >
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.45,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.9,0},{0.36,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />	
+            </Window>
+
+
+            <!-- ######## Info label ########### -->
+              <Window Type="WindowsLook/StaticText" Name="matchsummary/info_label" >
+                <Property Name="Text" Value="Check your global rank at www.fullmetalsoccer.com" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.84,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.9,0},{0.03,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="VertFormatting" Value="TopAligned" />
+                <Property Name="HorzFormatting" Value="HorzCentred" />                  
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+
+
+            <!-- ######## Button  ########### -->
+            <Window Type="WindowsLook/Button" Name="matchsummary/ok_btn">
+                <Property Name="UnifiedPosition" Value="{{0.45,0},{0.9,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Ok" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>            
+
+ </Window>  
+</GUILayout>

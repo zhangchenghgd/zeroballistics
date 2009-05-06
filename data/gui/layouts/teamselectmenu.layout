@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="teamselectmenu/menu">
+    <Property Name="UnifiedPosition" Value="{{0.05,0},{0.4,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.16,0},{0.25,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="Alpha" Value="0.9" />
+  
+	<Window Type="WindowsLook/Static" Name="teamselectmenu/title">
+	    <Property Name="UnifiedPosition" Value="{{0.22,0},{0.09,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.9,0},{0.12,0}}" />
+	    <Property Name="Text" Value="Select Team:" />
+	    <Property Name="InheritsAlpha" Value="False" />	    
+	    <Property Name="FrameEnabled" Value="False" />
+	    <Property Name="BackgroundEnabled" Value="False" />
+	    <Property Name="Font" Value="main_menu_font" />
+	</Window> 
+
+            <Window Type="WindowsLook/Button" Name="teamselectmenu/btn1">
+               <Property Name="UnifiedPosition" Value="{{0.2,0},{0.25,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.6,0},{0.16,0}}" />
+                <Property Name="Text" Value="" />
+	      <Property Name="InheritsAlpha" Value="False" />
+	      
+			<Window Type="WindowsLook/StaticText" Name="teamselectmenu/btn1/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="1. " />
+				<Property Name="Font" Value="main_menu_font" />
+			</Window>	    
+	      
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="teamselectmenu/btn2">
+               <Property Name="UnifiedPosition" Value="{{0.2,0},{0.47,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.6,0},{0.16,0}}" />
+                <Property Name="Text" Value="" />
+	      <Property Name="InheritsAlpha" Value="False" />
+
+			<Window Type="WindowsLook/StaticText" Name="teamselectmenu/btn2/text">			
+				<Property Name="Disabled" Value="True" /> 
+				<Property Name="HorzFormatting" Value="WordWrapCentred" />
+				<Property Name="VertFormatting" Value="VertCentred" />
+				<Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+				<Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />	
+				<Property Name="FrameEnabled" Value="False" />
+				<Property Name="BackgroundEnabled" Value="False" />
+				<Property Name="Text" Value="2. " />
+				<Property Name="Font" Value="main_menu_font" />
+			</Window>	 
+
+
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="teamselectmenu/btn3">
+               <Property Name="UnifiedPosition" Value="{{0.2,0},{0.72,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.6,0},{0.16,0}}" />
+                <Property Name="Text" Value="3. Spectator" />
+	      <Property Name="InheritsAlpha" Value="False" />
+	      <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+ </Window>  
+</GUILayout>

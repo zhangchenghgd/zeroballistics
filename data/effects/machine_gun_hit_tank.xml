@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="machine_gun_hit_tank_3" delay="0" comment="dust" />
+	<ParticleEffect name="machine_gun_hit_tank" delay="0" comment="sparks" />
+    <ParticleEffect name="machine_gun_hit_tank_2" delay="0" comment="fire" />
+   
+</EffectGroup>

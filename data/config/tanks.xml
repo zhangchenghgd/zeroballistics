@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<parameters>
+
+    <!-- BASE tank config -->
+    <section name="tank">
+
+        <variable name="visual_steer_factor"     value="[1;1;0.5;0.5;0;0]" type="vector<float>" />	
+        <variable name="visual_handbraked"       value="[0;0;1;1;1;1]"     type="vector<bool>" />	
+
+        <variable name="delta_max_speed" value="3.5" type="float"  console="1" />
+        <variable name="max_steer_angle" value="0.6" type="float"  console="1" />
+        <variable name="steer_speed" value="0.6" type="float"  console="1" />
+        <variable name="steer_retreat_factor" value="0.8" type="float"  console="1" />
+        <!--  -->
+        <variable name="rolling_mu" value="0.001" type="float"  console="1" />
+        <variable name="engine_brake_mu" value="5" type="float"  console="1" />
+        <!--  -->
+        <variable name="static_mu_long_acc" value="3" type="float"  console="1" />
+        <variable name="static_mu_long_brake" value="5" type="float"  console="1" />
+        <variable name="static_mu_lat" value="5" type="float"  console="1" />
+        <variable name="static_mu_lat_brake" value="2" type="float"  console="1" />
+        <variable name="force_dependent_slip" value="0.2" type="float"  console="1" />	
+        <!--  -->	
+        <variable name="suspension_k" value="60" type="float"  console="1" />
+        <variable name="suspension_d" value="5" type="float"  console="1" />	
+        <!--  -->	
+        <variable name="aloft_ang_dampening" value="1" type="float"  console="1" />
+        <variable name="aloft_lin_dampening" value="0.02" type="float"  console="1" />
+        <variable name="drag_point_offset" value="0.8" type="float"  console="1" />
+
+        <variable name="turret_proxy_interpolation_factor" value="0.1" type="float"  console="1" />
+        <!--  -->	
+        <variable name="wheel_driven" value="[0;0;1;1]" type="vector<bool>" />
+        <variable name="wheel_handbraked" value="[0;0;1;1]" type="vector<bool>" />
+        <variable name="steer_factor" value="[1;1;0;0]" type="vector<float>" />	
+        <!--  -->	
+        <variable name="max_yaw_speed" value="5" type="float" />
+        <variable name="max_barrel_yaw" value="0" type="float" />	
+        <!--  -->
+        <variable name="max_pitch_speed" value="2" type="float" />
+        <variable name="max_barrel_pitch" value="0.4" type="float" />
+        <variable name="min_barrel_pitch" value="-0.3" type="float" />	
+        <!--  -->	
+        <variable name="delta_max_hitpoints" value="100" type="int" />	
+        <variable name="hp_smoking_threshold" value="30" type="unsigned" />	
+        <!--  -->
+        <variable name="docking_pos" value="[0.0; 0.21; -0.7]" type="Vector" console="1" />	
+        <!--  -->	
+        <variable name="collision_damage_speed_threshold" value="3.0" type="float" />
+        <variable name="collision_min_damage" value="0" type="float" />
+        <variable name="collision_max_damage" value="25" type="float" />
+        <!--  -->	
+        <variable name="front_armor_factor"     value="0.9" type="float" />
+        <variable name="front_armor_factor_ram" value="0.85" type="float" />
+        <variable name="rear_armor_factor"      value="1.2" type="float" />
+        <!--  -->	
+        <variable name="additional_projectile_damage" value="0" type="unsigned" />
+
+        <!-- start tank with dummy weapon systems -->	
+        <variable name="weapon_slot" value="[0;WeaponSystem;dummy_weapon_system]"     type="vector<string>" />
+        <variable name="weapon_slot" value="[1;WeaponSystem;dummy_weapon_system]"     type="vector<string>" />
+        <variable name="weapon_slot" value="[2;WeaponSystem;dummy_weapon_system]"     type="vector<string>" />        
+        <variable name="weapon_slot" value="[3;WeaponSystem;dummy_weapon_system]"     type="vector<string>" />  
+        
+        <variable name="ram_upgrade"          value="0" type="bool" />	
+        <variable name="heal_skill"               value="0" type="bool" />	
+        
+        <variable name="turret_stabilization_threshold" value="0.89" type="float" />			
+        <variable name="turret_stabilization_disable_time" value="0.5" type="float" />			
+    </section>
+
+
+    <super_section name="hornet">
+	<section name="tank">
+
+
+	</section>
+    </super_section>
+
+
+    <super_section name="brummbaer">
+	<section name="tank">
+
+
+	</section>
+    </super_section>
+
+
+    <super_section name="sc_hornet">
+	<section name="tank">
+
+	    <variable name="delta_max_speed" value="0.4" type="float" console="1" />
+
+            <variable name="static_mu_long_acc" value="4" type="float"  console="1" />
+            <variable name="static_mu_long_brake" value="6" type="float"  console="1" />
+            <variable name="static_mu_lat" value="7" type="float"  console="1" />
+            <variable name="static_mu_lat_brake" value="3" type="float"  console="1" />
+
+	</section>
+    </super_section>
+
+
+    <super_section name="sc_brummbaer">
+	<section name="tank">
+
+	    <variable name="delta_max_speed" value="0.4" type="float" console="1" />
+
+            <variable name="static_mu_long_acc" value="4" type="float"  console="1" />
+            <variable name="static_mu_long_brake" value="6" type="float"  console="1" />
+            <variable name="static_mu_lat" value="7" type="float"  console="1" />
+            <variable name="static_mu_lat_brake" value="3" type="float"  console="1" />
+
+	</section>
+    </super_section>
+
+</parameters>

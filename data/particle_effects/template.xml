@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+    <Particle>
+        <Texture name="" />
+        <Emissive value="" type="bool" comment="(true) SRC_ALPHA to ONE, (false) SRC_ALPHA to ONE_MINUS_SRC_ALPHA" />
+        <Lighting value="" type="bool" comment="" />
+        <SizeRange min="" max="" type="float" comment="" />
+        <ColorRange min_r="" min_g="" min_b="" min_a=""
+                    max_r="" max_g="" max_b="" max_a="" type="float rgba" comment="" />
+		<AlphaRange min="" max="" type="float" comment="" />
+		<!--    these are start/end values for the linear interpolation during the lifetime of a single particle
+		-->
+        <LifeTime value="" type="float" comment="Lifetime of a single particle in seconds" />
+        <Mass value="" type="float" comment="in kilograms" />
+    </Particle>
+
+    <Emitter>
+        <LifeTime value="" type="float" comment="Lifetime of the particle system itself in seconds, zero = endless" />
+        <MovementCompensationRatio value="" type="float" comment="particle emitting ratio to compensate movement of emitter" />	
+
+        <Counter>
+            <RandomRateRange min="" max="" type="float" comment="defines emitted at a random range" />
+            <!--
+            <ConstantRate value="" type="float" comment="defines emitted particles per second" />           
+            -->
+        </Counter>
+	
+        <Placer>
+	<CenteredPlacer>
+		<Center x="0" y="0.0" z="0" type="float xyz" comment="in particle matrix, y and z swapped" />
+         <InitalRotationRange min_x="0.0" min_y="0.0" min_z="0"
+                                    max_x="0.0" max_y="0.0" max_z="0" type="float vec3" comment="in degrees" />          
+	</CenteredPlacer>    
+	<!--
+	<BoxedPlacer>
+		<Center x="0" y="0.0" z="0" type="float xyz" comment="in particle matrix" />
+         <InitalRotationRange min_x="0.0" min_y="0.0" min_z="0"
+                                    max_x="0.0" max_y="0.0" max_z="0" type="float vec3" comment="in degrees" />           
+		<RangeX min="0.1" max="0.2" type="float" comment="" />
+		<RangeY min="0.1" max="0.2" type="float" comment="" />
+		<RangeZ min="0.1" max="0.2" type="float" comment="this means forward" />		
+	</BoxedPlacer>
+	-->
+        </Placer>
+	
+        <Shooter>
+            <InitialSpeedRange min="" max="" type="float" comment="in meter/seconds" />
+            <RotationalSpeedRange   min_x="0.0" min_y="0.0" min_z="0.0"
+                                            max_x="0.0" max_y="0.0" max_z="0.0" type="float vec3" comment="in degrees/second (?)" />	    
+            <ThetaRange min="" max="" type="float" comment="in degrees, around y axis, zero is at pos. z" />
+            <PhiRange min="" max="" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+
+            <VelocityScale factor="0" comment="This is valid only for global effects. If velocity scale is set to 1, the particles will inherit the exact translation of the emitter at the time they are spawned. If it is set to 2, the particles will inherit double the emitter's translation when they are spawned. 3 is triple the translation, etc." />
+
+        </Shooter>
+    </Emitter>
+
+    <Program>
+        <AccelerationOperator x="" y="" z="" type="float" comment="in meter/seconds, world matrix" />        
+
+        <AlignWithVelocityVectorOperator comment="if this element exists, particles are aligned like sparks to velocity" />
+        <AirFrictionOperator comment="if this element exists, particle speed is calculated together with air friction" />
+        <LocalEffectOperator comment="if this element exists, particles exist in parent object's coordinate system" />   
+    </Program>
+</ParticleEffect>

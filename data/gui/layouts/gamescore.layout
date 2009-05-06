@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="gamescore/window">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.05,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.8,0},{0.9,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="Alpha" Value="0.9" />
+  
+            <!-- ######## List 1 ########### -->
+              <Window Type="WindowsLook/StaticText" Name="gamescore/teamname1" >
+                <Property Name="Text" Value="" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.02,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.5,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+            
+              <Window Type="WindowsLook/StaticText" Name="gamescore/label_teamscore1" >
+                <Property Name="Text" Value="Team Score:" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.80,0},{0.02,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.2,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>            
+  
+              <Window Type="WindowsLook/StaticText" Name="gamescore/text_teamscore1" >
+                <Property Name="Text" Value="" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.93,0},{0.02,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.2,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>  
+  
+            <Window Type="WindowsLook/MultiColumnList" Name="gamescore/list1" >
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.07,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.9,0},{0.25,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />		
+            </Window>
+  
+            <!-- ######## List 2 ########### -->
+              <Window Type="WindowsLook/StaticText" Name="gamescore/teamname2" >
+                <Property Name="Text" Value="" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.32,0}}" />
+                <Property Name="UnifiedSize" Value="{{1.0,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>  
+  
+              <Window Type="WindowsLook/StaticText" Name="gamescore/label_teamscore2" >
+                <Property Name="Text" Value="Team Score:" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.80,0},{0.32,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.2,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>            
+  
+              <Window Type="WindowsLook/StaticText" Name="gamescore/text_teamscore2" >
+                <Property Name="Text" Value="" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.93,0},{0.32,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.2,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>    
+  
+  
+            <Window Type="WindowsLook/MultiColumnList" Name="gamescore/list2" >
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.37,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.9,0},{0.25,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />	
+            </Window>
+  
+            <!-- ######## Big List 1 ########### -->  
+            <Window Type="WindowsLook/MultiColumnList" Name="gamescore/big_list" >
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.07,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.9,0},{0.55,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />		
+            </Window>
+
+            <!-- ######## Spectator List ########### -->
+              <Window Type="WindowsLook/StaticText" Name="gamescore/spectators/label" >
+                <Property Name="Text" Value="Spectators:" />
+                <Property Name="InheritsAlpha" Value="False" />		
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.63,0}}" />
+                <Property Name="UnifiedSize" Value="{{1.0,0},{0.05,0}}" />
+                <Property Name="FrameEnabled" Value="False" />	
+                <Property Name="BackgroundEnabled" Value="False" />    
+                <Property Name="Font" Value="main_menu_small_font" />
+            </Window>  
+  
+            <Window Type="WindowsLook/MultiColumnList" Name="gamescore/spectators/list" >
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.68,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.9,0},{0.18,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />	
+            </Window>            
+
+	<!--  Accuracy and Efficency Labels -->
+		      <Window Type="WindowsLook/StaticText" Name="gamescore/acc_text" >
+			<Property Name="Text" Value="Accuracy:" />
+			<Property Name="InheritsAlpha" Value="False" />		
+			<Property Name="UnifiedPosition" Value="{{0.05,0},{0.90,0}}" />
+			<Property Name="UnifiedSize" Value="{{0.10,0},{0.05,0}}" />
+			<Property Name="FrameEnabled" Value="False" />	
+			<Property Name="BackgroundEnabled" Value="False" />    
+			<Property Name="Font" Value="main_menu_font" />
+		    </Window>
+
+		      <Window Type="WindowsLook/StaticText" Name="gamescore/acc_value" >
+			<Property Name="Text" Value="" />
+			<Property Name="InheritsAlpha" Value="False" />		
+			<Property Name="UnifiedPosition" Value="{{0.15,0},{0.90,0}}" />
+			<Property Name="UnifiedSize" Value="{{0.10,0},{0.05,0}}" />
+			<Property Name="FrameEnabled" Value="False" />	
+			<Property Name="BackgroundEnabled" Value="False" />    
+			<Property Name="Font" Value="main_menu_font" />
+		    </Window>
+
+		      <Window Type="WindowsLook/StaticText" Name="gamescore/eff_text" >
+			<Property Name="Text" Value="Efficency:" />
+			<Property Name="InheritsAlpha" Value="False" />		
+			<Property Name="UnifiedPosition" Value="{{0.4,0},{0.90,0}}" />
+			<Property Name="UnifiedSize" Value="{{0.10,0},{0.05,0}}" />
+			<Property Name="FrameEnabled" Value="False" />	
+			<Property Name="BackgroundEnabled" Value="False" />    
+			<Property Name="Font" Value="main_menu_font" />
+		    </Window>
+
+		      <Window Type="WindowsLook/StaticText" Name="gamescore/eff_value" >
+			<Property Name="Text" Value="" />
+			<Property Name="InheritsAlpha" Value="False" />		
+			<Property Name="UnifiedPosition" Value="{{0.5,0},{0.90,0}}" />
+			<Property Name="UnifiedSize" Value="{{0.10,0},{0.05,0}}" />
+			<Property Name="FrameEnabled" Value="False" />	
+			<Property Name="BackgroundEnabled" Value="False" />    
+			<Property Name="Font" Value="main_menu_font" />
+		    </Window>
+
+ </Window>  
+</GUILayout>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+	<Particle>
+		<Texture value="m_fire1.dds" />
+		<Emissive value="true" type="bool" comment="" />
+		<Lighting value="false" type="bool" comment="" />
+		<SizeRange min="0.03" max="0.1" type="float" comment="" />
+		<ColorRange min_r="1" min_g="1" min_b="1" min_a="1.0"
+                    max_r="0.8" max_g="0.8" max_b="0.6" max_a="0.0" type="float rgba" comment="" />
+		<AlphaRange min="1.0" max="0.0" type="float" comment="" />
+		<LifeTime value="0.6" type="float" comment="Lifetime of a single particle" />
+		<Mass value="0.01" type="float" comment="in kg" />
+	</Particle>
+
+	<Emitter>
+		<LifeTime value="0.4" type="float" comment="Lifetime of the particle system itself, zero = endless" />
+
+		<Counter>
+			<ConstantRate value="20" type="float" comment="defines emitted particles per second" />
+
+			<!--	    
+             <RandomRateRange min="5" max="10" type="float" comment="" />          
+            -->
+		</Counter>
+		<Placer>
+			<CenteredPlacer>
+				<Center x="0" y="0.0" z="0" type="float xyz" comment="" />
+				<InitalRotationRange min_x="0.0" min_y="0.0" min_z="0"
+						   max_x="0.0" max_y="0.0" max_z="360" type="float vec3" comment="in degrees" />
+			</CenteredPlacer>
+		</Placer>
+		<Shooter>
+			<InitialSpeedRange min="0.1" max="0.3" type="float" comment="in meter/second" />
+			<RotationalSpeedRange   min_x="0.1" min_y="0.0" min_z="0.1"
+								 max_x="0.8" max_y="0.0" max_z="1.8" type="float vec3" comment="in meter/second" />
+			<ThetaRange min="-30" max="30" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+			<PhiRange min="-30" max="30" type="float" comment="in degrees, around z axis, zero is at pos. x" />
+		</Shooter>
+	</Emitter>
+
+	<Program>
+		<AccelerationOperator x="0" y="0.1" z="0" type="float" comment="" />
+
+	</Program>
+</ParticleEffect>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+     <ParticleEffect name="projectile_hit_water" delay="0" comment="splash" />
+	<ParticleEffect name="projectile_hit_water_2" delay="0.1" comment="more watersplashes" />
+	<!-- <ParticleEffect name="projectile_hit_water_3" delay="0" comment="ripples" /> -->
+</EffectGroup>

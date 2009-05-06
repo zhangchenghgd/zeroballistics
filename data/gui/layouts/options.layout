@@ -1,0 +1,624 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static"  Name="options/window">
+	<Property Name="AlwaysOnTop" Value="True" />
+	<Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+	<Property Name="UnifiedSize" Value="{{0.9,0},{0.8,0}}" />
+	<Property Name="FrameEnabled" Value="False" />
+	<Property Name="BackgroundEnabled" Value="False" />
+	<Property Name="Alpha" Value="0.9" />
+
+
+            <Window Type="WindowsLook/Button" Name="options/tab1_btn">
+                <Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Game" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="options/tab2_btn">
+                <Property Name="UnifiedPosition" Value="{{0.25,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Video" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+	    
+            <Window Type="WindowsLook/Button" Name="options/tab3_btn">
+                <Property Name="UnifiedPosition" Value="{{0.4,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Audio" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>	    
+	    
+            <Window Type="WindowsLook/Button" Name="options/tab4_btn">
+                <Property Name="UnifiedPosition" Value="{{0.55,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Graphics" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>		    
+
+            <Window Type="WindowsLook/Button" Name="options/tab5_btn">
+                <Property Name="UnifiedPosition" Value="{{0.70,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Keys" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+
+	<!--  ######################################
+				Content Window 1
+	########################################## -->
+	<Window Type="WindowsLook/Static" Name="options/tab1_content">
+	    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.18,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.8,0},{0.7,0}}" />
+	    <Property Name="Text" Value="" />
+	    <Property Name="FrameEnabled" Value="True" />
+	    <Property Name="BackgroundEnabled" Value="True" />
+
+        <Window Type="WindowsLook/Static" Name="options/tab1_content/container">
+            <Property Name="UnifiedPosition" Value="{{0.015,0},{0.0,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+            <Property Name="Text" Value="" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+
+                <Window Type="WindowsLook/StaticText" Name="options/tab1_content/name_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.06,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Player Name:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Editbox" Name="options/tab1_content/player_name_editbox">
+                    <Property Name="UnifiedPosition" Value="{{0.22,0},{0.05,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.5,0},{0.08,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Text" Value="Guest" />
+                    <Property Name="Font" Value="main_menu_font" />
+                    <Property Name="MaxTextLength" Value="24" />
+                </Window>	
+
+
+                <Window Type="WindowsLook/StaticText" Name="options/tab1_content/invert_mouse_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.16,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Invert mouse:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Checkbox" Name="options/tab1_content/invert_mouse_checkbox">
+                    <Property Name="UnifiedPosition" Value="{{0.22,0},{0.16,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                </Window>	
+
+                <Window Type="WindowsLook/StaticText" Name="options/tab1_content/mouse_sens_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.26,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.19,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Mouse sensitivity:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+            
+                <Window Type="WindowsLook/Slider" Name="options/tab1_content/mouse_sens_slider" >
+                <Property Name="UnifiedPosition" Value="{{0.22,0},{0.25,0}}" />	
+                <Property Name="UnifiedSize" Value="{{0.37,0.0},{0.07,0}}" />		    
+                <Property Name="CurrentValue" Value="0.5" />
+                <Property Name="MaximumValue" Value="1" />
+                <Property Name="ClickStepSize" Value="0.01" />
+                   <Property Name="InheritsAlpha" Value="False" />
+                </Window>
+                
+            </Window>	
+          
+      </Window>	
+	  
+	<!--  ######################################
+				Content Window 2
+	########################################## -->	  
+	<Window Type="WindowsLook/Static" Name="options/tab2_content">
+	    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.18,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.8,0},{0.7,0}}" />
+	    <Property Name="Text" Value="" />
+	    <Property Name="FrameEnabled" Value="True" />
+	    <Property Name="BackgroundEnabled" Value="True" />	 
+
+        <Window Type="WindowsLook/Static" Name="options/tab2_content/container">
+            <Property Name="UnifiedPosition" Value="{{0.015,0},{0.0,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+            <Property Name="Text" Value="" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+
+                <Window Type="WindowsLook/StaticText" Name="options/tab2_content/res_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.06,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.19,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Window Resolution:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                    <Window Type="WindowsLook/Combobox" Name="options/tab2_content/res_combobox" >
+                    <Property Name="UnifiedPosition" Value="{{0.22,0},{0.05,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.37,0.0},{0.41,0}}" />
+                    <Property Name="ReadOnly" Value="True" />	
+                       <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />			
+                    </Window>
+
+
+                <Window Type="WindowsLook/StaticText" Name="options/tab2_content/fullscreen_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.16,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Fullscreen:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Checkbox" Name="options/tab2_content/fullscreen_checkbox">
+                    <Property Name="UnifiedPosition" Value="{{0.22,0},{0.16,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                </Window>			
+
+                <!--  ##### Info Text ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab2_content/information_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.94,-10}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.87,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="You need to restart for changes to take effect." />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>
+                
+          </Window>		  
+          
+    </Window>		  
+
+	<!--  ######################################
+				Content Window 3
+	########################################## -->	  
+	<Window Type="WindowsLook/Static" Name="options/tab3_content">
+	    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.18,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.8,0},{0.7,0}}" />
+	    <Property Name="Text" Value="" />
+	    <Property Name="FrameEnabled" Value="True" />
+	    <Property Name="BackgroundEnabled" Value="True" />	
+	    
+        <Window Type="WindowsLook/Static" Name="options/tab3_content/container">
+            <Property Name="UnifiedPosition" Value="{{0.015,0},{0.0,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+            <Property Name="Text" Value="" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />        
+        
+                <!--  ##### Sound Device selection ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab3_content/sound_device_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.06,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Sound Device:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab3_content/sound_device_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.202,0},{0.05,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.60,0.0},{0.35,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	        
+                
+                <!--  ##### Sound Volume ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab3_content/vol_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.18,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Sound Volume:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>		    
+                
+                    <Window Type="WindowsLook/Slider" Name="options/tab3_content/volume_slider" >
+                    <Property Name="UnifiedPosition" Value="{{0.2,0},{0.17,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.37,0.0},{0.07,0}}" />		    
+                    <Property Name="CurrentValue" Value="1" />
+                    <Property Name="MaximumValue" Value="1" />
+                    <Property Name="ClickStepSize" Value="0.01" />
+                       <Property Name="InheritsAlpha" Value="False" />
+                    </Window>
+
+                 <!--  ##### Music Enabled ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab3_content/music_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.28,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Music:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Checkbox" Name="options/tab3_content/music_checkbox">
+                    <Property Name="UnifiedPosition" Value="{{0.21,0},{0.28,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                </Window>
+
+
+          </Window>	
+          
+      </Window>	
+
+	<!--  ######################################
+				Content Window 4
+	########################################## -->	  
+	<Window Type="WindowsLook/Static" Name="options/tab4_content">
+	    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.18,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.8,0},{0.7,0}}" />
+	    <Property Name="Text" Value="" />
+	    <Property Name="FrameEnabled" Value="True" />
+	    <Property Name="BackgroundEnabled" Value="True" />	   
+
+        <Window Type="WindowsLook/Static" Name="options/tab4_content/container">
+            <Property Name="UnifiedPosition" Value="{{0.015,0},{0.0,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+            <Property Name="Text" Value="" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />   
+
+        <Window Type="WindowsLook/ScrollablePane" Name="options/tab4_inner_scrollpane"> <!-- scrollable container -->
+            <Property Name="UnifiedPosition" Value="{{0.02,0},{0.02,10}}" />
+            <Property Name="UnifiedSize" Value="{{0.945,0},{0.92,-30}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+    
+
+                <!--  ##### Shadows enabled ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/shadows_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.08,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Shadows:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Checkbox" Name="options/tab4_content/shadows_enabled_checkbox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.08,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                </Window>	
+                
+                <!--  ##### Shadows Quality ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/shadows_quality_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.18,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.27,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Shadow Quality:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/shadows_quality_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.16,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.3,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>			
+
+                <!--  ##### FSAA Quality ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/fsaa_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.28,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.34,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Fullscreen Antialiasing:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/fsaa_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.26,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.38,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	
+
+                <!--  ##### Anisotropic Filtering ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/aniso_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.38,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.34,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Anisotropic Filtering:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/anisotropic_filtering_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.36,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.38,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+
+
+                <!--  ##### Texture Quality ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/tex_quality_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.48,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.34,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Texture Quality:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/tex_quality_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.46,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.3,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	
+                
+                <!--  ##### Shader Quality ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/shader_quality_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.58,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.34,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Shader Quality:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/shader_quality_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.56,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.3,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	        
+
+                <!--  ##### Terrain View Distance ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/terrain_view_distance_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.68,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.34,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Terrain Quality:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/terrain_view_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.66,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.3,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+
+                <!--  ##### Water Quality ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/water_quality_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.78,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.34,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Water Quality:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+
+                <Window Type="WindowsLook/Combobox" Name="options/tab4_content/water_quality_combobox">
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.76,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.20,0.0},{0.3,0}}" />
+                    <Property Name="ReadOnly" Value="True" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+
+
+
+                <!--  ##### View Distance ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/view_distance_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.88,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.27,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="View Distance:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>		    
+                
+                    <Window Type="WindowsLook/Slider" Name="options/tab4_content/view_distance_slider" >
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.86,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.37,0.0},{0.07,0}}" />		    
+                    <Property Name="CurrentValue" Value="1.0" />            
+                    <Property Name="MaximumValue" Value="3.0" />
+                    <Property Name="ClickStepSize" Value="0.01" />
+                       <Property Name="InheritsAlpha" Value="False" />
+                    </Window>
+
+                <!--  ##### Grass Density ######## -->
+                <Window Type="WindowsLook/StaticText" Name="options/tab4_content/grass_density_text">
+                    <Property Name="UnifiedPosition" Value="{{0.02,0},{0.98,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.27,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Grass Density:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>		    
+                
+                    <Window Type="WindowsLook/Slider" Name="options/tab4_content/grass_density_slider" >
+                    <Property Name="UnifiedPosition" Value="{{0.35,0},{0.96,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.37,0.0},{0.07,0}}" />		    
+                    <Property Name="CurrentValue" Value="0.5" />            
+                    <Property Name="MaximumValue" Value="1.0" />
+                    <Property Name="ClickStepSize" Value="0.05" />
+                       <Property Name="InheritsAlpha" Value="False" />
+                    </Window>
+                 
+          </Window>	 <!-- inner scrollpane content -->
+
+        <!--  ##### Info Text ######## -->
+        <Window Type="WindowsLook/StaticText" Name="options/tab4_content/information_text">
+            <Property Name="UnifiedPosition" Value="{{0.02,0},{0.94,-10}}" />	
+            <Property Name="UnifiedSize" Value="{{0.87,0.0},{0.2,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="Text" Value="You need to restart for changes to take effect." />
+            <Property Name="Font" Value="main_menu_font" />		
+        </Window>
+
+
+          </Window>  <!-- outer container -->
+
+      </Window>		
+	  
+	<!--  ######################################
+				Content Window 5
+	########################################## -->	  
+	<Window Type="WindowsLook/Static" Name="options/tab5_content">
+	    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.18,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.8,0},{0.7,0}}" />
+	    <Property Name="Text" Value="" />
+	    <Property Name="FrameEnabled" Value="True" />
+	    <Property Name="BackgroundEnabled" Value="True" />	
+	    
+            <Window Type="WindowsLook/MultiColumnList" Name="options/tab5_content/key_list" >        
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.05,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.90,0},{0.80,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />		
+            </Window>
+            
+            <Window Type="WindowsLook/StaticText" Name="options/tab5_content/key_list_label">
+                <Property Name="UnifiedPosition" Value="{{0.05,0},{0.89,0}}" />	
+                <Property Name="UnifiedSize" Value="{{0.90,0.0},{0.10,0}}" />
+                <Property Name="VertFormatting" Value="TopAligned" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="FrameEnabled" Value="False" />
+                <Property Name="BackgroundEnabled" Value="False" />
+                <Property Name="Text" Value="Double click an entry on the list to change the key binding." />
+                <Property Name="Font" Value="main_menu_font" />		
+            </Window>            
+            
+            
+          </Window>		  
+      
+      
+      	<!--  ######################################
+				Key capturing Window 
+        ########################################## -->	
+            <Window Type="WindowsLook/Static" Name="options/capturing_window">
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+                <Property Name="Text" Value="" />
+                <Property Name="FrameEnabled" Value="False" />
+                <Property Name="BackgroundEnabled" Value="False" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Alpha" Value="0.9" />
+                                
+                <Window Type="WindowsLook/StaticText" Name="options/capturing_window/label">
+                    <Property Name="UnifiedPosition" Value="{{0.2,0},{0.4,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.6,0.0},{0.2,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="HorzCentred" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="True" />
+                    <Property Name="Text" Value="Capturing Input... (Press ESC to cancel)" />
+                    <Property Name="Font" Value="main_menu_font" />	
+                    <Property Name="Disabled" Value="True" />  
+                    <Property Name="MousePassThroughEnabled" Value="True" />                                           
+                </Window>	    
+                
+                <Window Type="WindowsLook/StaticText" Name="options/capturing_window/key_info">
+                    <Property Name="UnifiedPosition" Value="{{0.2,0},{0.55,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.6,0.0},{0.10,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="HorzCentred" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="True" />
+                    <Property Name="Text" Value="" />
+                    <Property Name="Font" Value="main_menu_font" />	
+                    <Property Name="Disabled" Value="True" />  
+                    <Property Name="MousePassThroughEnabled" Value="True" />  
+                </Window>	                 
+                
+            </Window>	              
+	  
+	<!--  ######################################
+		  Ok & Cancel Button
+	########################################## -->		  
+
+            <Window Type="WindowsLook/Button" Name="options/save_btn">
+                <Property Name="UnifiedPosition" Value="{{0.25,0},{0.9,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+                <Property Name="Text" Value="Ok" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="options/cancel_btn">
+                <Property Name="UnifiedPosition" Value="{{0.6,0},{0.9,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.05,0}}" />
+                <Property Name="Text" Value="Cancel" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>	    
+	    
+	    
+	    
+        </Window>
+</GUILayout>

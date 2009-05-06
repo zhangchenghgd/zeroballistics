@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="mainmenu/loading_screen">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.2,0},{0.2,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.6,0},{0.6,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="Alpha" Value="0.9" />
+  
+  
+	<Window Type="WindowsLook/StaticText" Name="mainmenu/loading_screen/label">
+		<Property Name="UnifiedPosition" Value="{{0.08,0},{0.08,0}}" />	
+		<Property Name="UnifiedSize" Value="{{0.42,0.0},{0.62,0}}" />
+		<Property Name="VertFormatting" Value="TopAligned" />
+		<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+		<Property Name="InheritsAlpha" Value="False" />
+		<Property Name="FrameEnabled" Value="False" />
+		<Property Name="BackgroundEnabled" Value="False" />
+		<Property Name="Text" Value="" />
+	          <Property Name="Font" Value="main_menu_font" />		
+	</Window>	
+	
+	<Window Type="WindowsLook/StaticText" Name="mainmenu/loading_screen/game_hints_label">
+		<Property Name="UnifiedPosition" Value="{{0.08,0},{0.75,0}}" />	
+		<Property Name="UnifiedSize" Value="{{0.90,0.0},{0.10,0}}" />
+		<Property Name="VertFormatting" Value="TopAligned" />
+		<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+		<Property Name="InheritsAlpha" Value="False" />
+		<Property Name="FrameEnabled" Value="False" />
+		<Property Name="BackgroundEnabled" Value="False" />
+	          <Property Name="Font" Value="main_menu_font" />		
+		<Property Name="Text" Value="">
+Game Hint:
+		</Property>
+		
+	</Window>	
+
+
+	<Window Type="WindowsLook/StaticText" Name="mainmenu/loading_screen/game_hints_text">
+		<Property Name="UnifiedPosition" Value="{{0.08,0},{0.80,0}}" />	
+		<Property Name="UnifiedSize" Value="{{0.90,0.0},{0.20,0}}" />
+		<Property Name="VertFormatting" Value="TopAligned" />
+		<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+		<Property Name="InheritsAlpha" Value="False" />
+		<Property Name="FrameEnabled" Value="False" />
+		<Property Name="BackgroundEnabled" Value="False" />
+	          <Property Name="Font" Value="main_menu_font" />		
+		<Property Name="Text" Value="">
+Equip your tank with the weapons that best fit your playing style.
+		</Property>
+		
+	</Window>	
+
+ </Window>  
+</GUILayout>

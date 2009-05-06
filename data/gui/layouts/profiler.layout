@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<GUILayout>    
+
+    <Window Type="WindowsLook/FrameWindow" Name="profiler/window">
+        <Property Name="UnifiedMinSize" Value="{{0.1,0},{0.1,0}}" />
+        <Property Name="UnifiedMaxSize" Value="{{0.99,0},{0.99,0}}" />
+        <Property Name="UnifiedPosition" Value="{{0.005,0},{0.005,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.99,0},{0.6,0}}" />
+        <Property Name="Text" Value="Profiler" />
+        <Property Name="CloseButtonEnabled" Value="True" />
+        <Property Name="Alpha" Value="0.9" />
+
+	<Window Type="WindowsLook/StaticText" Name="profiler/text">
+		<Property Name="UnifiedPosition" Value="{{0,20},{0,10}}" />	
+		<Property Name="UnifiedSize" Value="{{0.98,0},{0.98,0}}" />
+		<Property Name="VertFormatting" Value="TopAligned" />
+		<Property Name="FrameEnabled" Value="False" />
+		<Property Name="BackgroundEnabled" Value="False" />
+          <Property Name="InheritsAlpha" Value="False" />        
+	</Window>	
+	
+  </Window>		
+
+</GUILayout>

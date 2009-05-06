@@ -1,0 +1,397 @@
+<?xml version="1.0" ?>
+<GUILayout>
+
+<Window Type="WindowsLook/Static" Name="serverbrowser/window">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.05,0},{0.03,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.9,0},{0.94,0}}" />
+    <Property Name="FrameEnabled" Value="True" />
+    <Property Name="BackgroundEnabled" Value="True" />
+	<Property Name="Alpha" Value="0.9" />
+    
+        <Window Type="WindowsLook/Static" Name="serverbrowser/upper_button_container">
+            <Property Name="UnifiedPosition" Value="{{0.03,0},{0.03,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.05,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            
+                    <Window Type="WindowsLook/Button" Name="serverbrowser/internet_btn">
+                        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.1,0},{0.8,0}}" />
+                        <Property Name="Text" Value="Internet" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                        <Property Name="Font" Value="main_menu_font" />
+                    </Window>
+
+                    <Window Type="WindowsLook/Button" Name="serverbrowser/lan_btn">
+                        <Property Name="UnifiedPosition" Value="{{0.2,0},{0.0,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.1,0},{0.8,0}}" />
+                        <Property Name="Text" Value="LAN" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                        <Property Name="Font" Value="main_menu_font" />
+                    </Window>
+                                        
+        </Window>
+
+
+      	<!--  ######################################
+				Internet Server Browser List
+        ########################################## -->	
+        <Window Type="WindowsLook/Static" Name="serverbrowser/internet_container">
+            <Property Name="UnifiedPosition" Value="{{0.03,0},{0.1,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.65,0},{0.75,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />        
+            <Property Name="MousePassThroughEnabled" Value="True" /> 
+            
+            <Window Type="WindowsLook/MultiColumnList" Name="serverbrowser/internet/list" >        
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                <Property Name="UnifiedSize" Value="{{1.0,0},{0.8,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />		
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="serverbrowser/internet/update_btn">
+                <Property Name="UnifiedPosition" Value="{{0.85,0},{0.81,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.055,0}}" />
+                <Property Name="Text" Value="Update" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+                                        
+        </Window>
+ 
+       	<!--  ######################################
+				LAN Server Browser List
+        ########################################## -->	
+        <Window Type="WindowsLook/Static" Name="serverbrowser/lan_container">
+            <Property Name="UnifiedPosition" Value="{{0.03,0},{0.1,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.65,0},{0.75,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />        
+            <Property Name="MousePassThroughEnabled" Value="True" /> 
+            
+            <Window Type="WindowsLook/MultiColumnList" Name="serverbrowser/lan/list" >        
+                <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                <Property Name="UnifiedSize" Value="{{1.0,0},{0.8,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />		
+            </Window>
+
+            <Window Type="WindowsLook/Button" Name="serverbrowser/lan/scan_btn">
+                <Property Name="UnifiedPosition" Value="{{0.85,0},{0.81,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.15,0},{0.055,0}}" />
+                <Property Name="Text" Value="Scan LAN" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+                                        
+        </Window>
+ 
+ 
+ 
+       	<!--  ######################################
+				Connect to IP Button
+        ########################################## -->	
+         <Window Type="WindowsLook/Button" Name="serverbrowser/connect_to_ip_btn">
+            <Property Name="UnifiedPosition" Value="{{0.03,0},{0.71,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.15,0},{0.04,0}}" />
+            <Property Name="Text" Value="Connect to IP" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Font" Value="main_menu_font" />
+        </Window>  
+ 
+ 
+
+      	<!--  ######################################
+				Filter Window 
+        ########################################## -->	
+            <Window Type="WindowsLook/Static" Name="serverbrowser/filter_window">
+                <Property Name="UnifiedPosition" Value="{{0.03,0},{0.77,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.65,0},{0.13,0}}" />
+                <Property Name="Text" Value="" />
+                <Property Name="FrameEnabled" Value="True" />
+                <Property Name="BackgroundEnabled" Value="True" />
+                <Property Name="InheritsAlpha" Value="False" />
+                                
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/filter_window/label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.1,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.6,0.0},{0.15,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Filters:" />
+                    <Property Name="Font" Value="main_menu_font" />
+                    <Property Name="Visible" Value="False" />                      
+                </Window>	
+
+                <!--  ######### Server Count ############## -->
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/filter_window/server_count_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.12,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.15,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Servers:" />
+                    <Property Name="Font" Value="main_menu_font" />                    
+                </Window>	
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/filter_window/server_count_internet_text">
+                    <Property Name="UnifiedPosition" Value="{{0.12,13},{0.12,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.15,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_font" />    
+                    <Property Name="HorzFormatting" Value="RightAligned" />
+                </Window>	
+                
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/filter_window/server_count_lan_text">
+                    <Property Name="UnifiedPosition" Value="{{0.12,13},{0.12,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.15,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_font" /> 
+                    <Property Name="HorzFormatting" Value="RightAligned" />                    
+                </Window>	                
+
+
+                <!--  ######### Notification area label ############## -->
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/filter_window/notification_area_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.32,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.9,0.0},{0.4,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />                    
+                    <Property Name="Text" Value="" />
+                    <Property Name="Font" Value="main_menu_font" />                    
+                </Window>
+
+                <!--  ######### Populated ############## -->
+            <Window Type="WindowsLook/Static" Name="serverbrowser/filter_window/populated_container">
+                <Property Name="UnifiedPosition" Value="{{0.01,13},{0.3,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.3,0},{0.22,0}}" />
+                <Property Name="Text" Value="" />
+                <Property Name="FrameEnabled" Value="False" />
+                <Property Name="BackgroundEnabled" Value="False" />
+                <Property Name="InheritsAlpha" Value="False" />    
+                <Property Name="Visible" Value="False" />                    
+                
+                        <Window Type="WindowsLook/Checkbox" Name="serverbrowser/filter_window/populated_checkbox">
+                            <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                            <Property Name="UnifiedSize" Value="{{1.0,0.0},{1.0,0}}" />
+                            <Property Name="InheritsAlpha" Value="False" />
+                        </Window>                     
+                        
+                        <Window Type="WindowsLook/StaticText" Name="serverbrowser/filter_window/populated_text">
+                            <Property Name="UnifiedPosition" Value="{{0.1,0},{0.0,0}}" />	
+                            <Property Name="UnifiedSize" Value="{{0.8,0.0},{1.0,0}}" />
+                            <Property Name="VertFormatting" Value="VertCentred" />
+                            <Property Name="InheritsAlpha" Value="False" />
+                            <Property Name="FrameEnabled" Value="False" />
+                            <Property Name="BackgroundEnabled" Value="False" />
+                            <Property Name="Text" Value="Populated" />
+                            <Property Name="Font" Value="main_menu_small_font" />		
+                        </Window>	
+                </Window>	
+                        
+                    
+            </Window>
+            
+      	<!--  ######################################
+				Server Info Window 
+        ########################################## -->	
+            <Window Type="WindowsLook/Static" Name="serverbrowser/server_info/window">
+                <Property Name="UnifiedPosition" Value="{{0.72,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.25,0},{0.80,0}}" />
+                <Property Name="Text" Value="" />
+                <Property Name="FrameEnabled" Value="True" />
+                <Property Name="BackgroundEnabled" Value="True" />
+                <Property Name="InheritsAlpha" Value="False" />
+                                
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.01,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Server Info:" />
+                    <Property Name="Font" Value="main_menu_font" />	                                      
+                </Window>	
+                
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/name_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.05,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Name:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>                
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/name_text">
+                    <Property Name="UnifiedPosition" Value="{{0.21,0},{0.05,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.7,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>     
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/ip_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.1,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="IP:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>    
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/ip_text">
+                    <Property Name="UnifiedPosition" Value="{{0.13,0},{0.1,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>  
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/port_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.15,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Port:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>                    
+                
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/port_text">
+                    <Property Name="UnifiedPosition" Value="{{0.21,0},{0.15,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>                  
+                
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/map_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.2,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Map:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>                  
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/map_text">
+                    <Property Name="UnifiedPosition" Value="{{0.21,0},{0.2,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>        
+<!--
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/time_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.25,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Time remaining:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>  
+       
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/time_text">
+                    <Property Name="UnifiedPosition" Value="{{0.45,0},{0.25,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>         
+-->       
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/players_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.25,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Players:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>  
+
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/players_text">
+                    <Property Name="UnifiedPosition" Value="{{0.25,13},{0.25,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />                 
+                    <Property Name="Text" Value="-" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window> 
+
+                <!--  ######################################
+                        Minimap Preview
+                ########################################## -->	
+                <Window Type="WindowsLook/StaticText" Name="serverbrowser/server_info/minimap_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,13},{0.6,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Minimap Preview:" />
+                    <Property Name="Font" Value="main_menu_small_font" />	                                      
+                </Window>                  
+                
+                <Window Type="WindowsLook/StaticImage" Name="serverbrowser/server_info/minimap_image">
+                    <Property Name="UnifiedPosition" Value="{{0.01,13},{0.65,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.93,-13},{0.34,-13}}" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                </Window>
+
+            </Window>            
+            
+            
+      	<!--  ######################################
+				Connect & Cancel Button 
+        ########################################## -->	            
+        <Window Type="WindowsLook/Static" Name="serverbrowser/cc_button_container">
+            <Property Name="UnifiedPosition" Value="{{0.03,0},{0.93,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{0.05,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            
+                    <Window Type="WindowsLook/Button" Name="serverbrowser/connect_btn">
+                        <Property Name="UnifiedPosition" Value="{{0.35,0},{0.0,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.1,0},{0.8,0}}" />
+                        <Property Name="Text" Value="Connect" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                        <Property Name="Font" Value="main_menu_font" />
+                    </Window>
+                    
+                    <Window Type="WindowsLook/Button" Name="serverbrowser/cancel_btn">
+                        <Property Name="UnifiedPosition" Value="{{0.55,0},{0.0,0}}" />
+                        <Property Name="UnifiedSize" Value="{{0.1,0},{0.8,0}}" />
+                        <Property Name="Text" Value="Cancel" />
+                        <Property Name="InheritsAlpha" Value="False" />
+                        <Property Name="Font" Value="main_menu_font" />
+                    </Window>    
+                    
+        </Window>            
+            
+</Window>
+
+</GUILayout>

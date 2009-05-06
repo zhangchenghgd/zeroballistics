@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="dirt_explosion_5" delay="0.2" comment="smoke" />
+	<ParticleEffect name="dirt_explosion" delay="0" comment="ground hit" />
+    <ParticleEffect name="dirt_explosion_2" delay="0" comment="debris" />
+    <ParticleEffect name="dirt_explosion_3" delay="0" comment="fire" />
+	<ParticleEffect name="dirt_explosion_4" delay="0.6" comment="fallout" />
+
+</EffectGroup>

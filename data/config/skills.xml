@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<parameters>
+
+    <!-- ----- Active Skills ----- -->
+	<section name="skill.ram">
+            <variable name="description" value="Deals a massive amount of damage if the enemy is rammed with the bucket installed in front of the tank. Cancels all damage in head-on collisions." type="string" />  
+	</section>
+
+
+    <!-- ----- Passive Skills ----- -->
+	<section name="skill.nano_bots">
+            <variable name="description" value="Nanobots repair the tank when it stands still and stays out of combat for a certain amount of time. Find a good hiding place to use them, or you will be an easy target for anyone passing by!" type="string" />  
+	</section>
+    
+	<section name="skill.shield">
+            <variable name="description" value="Absorbs most of the damage of a hit, but needs to recharge for some time after being activated." type="string" />  
+	</section>    
+
+	<section name="skill.boost">
+            <variable name="description" value="Allows the tank to move with highly increased speed for a short duration. After using the boost it needs a certain amount of time to recharge." type="string" />  
+	</section>   
+
+</parameters>

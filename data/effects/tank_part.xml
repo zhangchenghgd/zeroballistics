@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="destroyed_tank_fire" delay="0" comment="smoke" />
+	<ParticleEffect name="destroyed_tank_smoke" delay="0" comment="big fire" />
+</EffectGroup>

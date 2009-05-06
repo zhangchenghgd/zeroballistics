@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+    <Particle>
+        <Texture value="m_spark1.dds" />
+        <Emissive value="true" type="bool" comment="" />
+        <Lighting value="false" type="bool" comment="" />
+        <SizeRange min="0.01" max="0.035" type="float" comment="" />
+        <ColorRange min_r="1.0" min_g="1.0" min_b="0.15" min_a="1.0"
+                    max_r="0.1" max_g="0.1" max_b="0.01" max_a="1.0" type="float rgba" comment="" />
+        <AlphaRange min="1.0" max="1.0" type="float" comment="" />
+        <LifeTime value="1.2" type="float" comment="Lifetime of a single particle" />
+        <Mass value="0.1" type="float" comment="in kg" />
+    </Particle>
+
+    <Emitter>
+        <LifeTime value="0.1" type="float" comment="Lifetime of the particle system itself, zero = endless" />
+
+        <Counter>
+	<!--
+            <ConstantRate value="50" type="float" comment="defines emitted particles per second" />           
+ -->
+            <RandomRateRange min="10" max="20" type="float" comment="" />
+
+        </Counter>
+        <Placer>
+        
+	<BoxedPlacer>
+		<Center x="0" y="0" z="0" type="float xyz" comment="" />
+		<RangeX min="-0.5" max="0.5" type="float" comment="" />
+		<RangeY min="0.4" max="0.6" type="float" comment="" />
+		<RangeZ min="-0.5" max="0.5" type="float" comment="" />		
+	</BoxedPlacer>  
+    
+        </Placer>
+        <Shooter>
+            <InitialSpeedRange min="0.25" max="0.1" type="float" comment="in meter/second" />
+            <RotationalSpeedRange   min_x="0.0" min_y="0.0" min_z="2.0"
+                                            max_x="10.0" max_y="0.0" max_z="44.0" type="float vec3" comment="in meter/second" />            
+                       
+            <ThetaRange min="0" max="360" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+            <PhiRange min="0" max="360" type="float" comment="in degrees, around z axis, zero is at pos. x" />
+        </Shooter>
+    </Emitter>
+
+    <Program>
+        <AccelerationOperator x="0.0" y="-1.1" z="0.0" type="float" comment="" />         
+        <AlignWithVelocityVectorOperator comment="if this element exists, particles are aligned like sparks to velocity" />        
+    </Program>
+</ParticleEffect>

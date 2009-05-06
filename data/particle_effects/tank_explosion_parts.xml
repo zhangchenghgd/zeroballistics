@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ParticleEffect>
+	<Particle>
+		<Texture value="m_dirt1.dds" />
+		<Emissive value="false" type="bool" comment="" />
+		<Lighting value="false" type="bool" comment="" />
+		<SizeRange min="0.02" max="0.04" type="float" comment="" />
+		<ColorRange min_r="0.99" min_g="0.99" min_b="0.99" min_a="1.0"
+                    max_r="0.1" max_g="0.1" max_b="0.1" max_a="1.0" type="float rgba" comment="" />
+		<AlphaRange min="1.0" max="0.0" type="float" comment="" />
+		<LifeTime value="0.9" type="float" comment="Lifetime of a single particle" />
+		<Mass value="0.1" type="float" comment="in kg" />
+	</Particle>
+
+	<Emitter>
+		<LifeTime value="0.1" type="float" comment="Lifetime of the particle system itself, zero = endless" />
+
+		<Counter>
+
+		<RandomRateRange min="100" max="150" type="float" comment="" />
+     
+		</Counter>
+		<Placer>
+			<CenteredPlacer>
+				<Center x="0" y="0.0" z="0" type="float xyz" comment="" />
+				<InitalRotationRange min_x="0.0" min_y="0.0" min_z="0"
+							max_x="0.0" max_y="0.0" max_z="360" type="float vec3" comment="in degrees" />
+			</CenteredPlacer>
+		</Placer>
+		<Shooter>
+			<InitialSpeedRange min="2.4" max="3.4" type="float" comment="in meter/second" />
+			<ThetaRange min="-50" max="50" type="float" comment="in degrees, around x axis, zero is at pos. z" />
+			<PhiRange min="-50" max="50" type="float" comment="in degrees, around z axis, zero is at pos. x" />
+			<RotationalSpeedRange min_x="0.1" min_y="0.0" min_z="-63.1"
+							max_x="0.2" max_y="0.0" max_z="62.2" type="float vec3" comment="in meter/second" />
+		</Shooter>
+	</Emitter>
+
+	<Program>
+		<AccelerationOperator x="0.0" y="-4" z="0.0" type="float" comment="" />
+		<AirFrictionOperator comment="if this element exists, particle speed is calculated together with air friction" />
+
+	</Program>
+</ParticleEffect>

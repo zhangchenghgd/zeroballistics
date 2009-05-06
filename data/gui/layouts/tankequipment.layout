@@ -1,0 +1,238 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static"  Name="tankequipment/window">
+	<Property Name="AlwaysOnTop" Value="True" />
+	<Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />
+	<Property Name="UnifiedSize" Value="{{0.8,0},{0.8,0}}" />
+	<Property Name="FrameEnabled" Value="True" />
+	<Property Name="BackgroundEnabled" Value="True" />
+	<Property Name="Alpha" Value="0.9" />
+
+
+
+        <!--  ################ Primary Weapon ############### -->
+        <Window Type="WindowsLook/StaticText" Name="tankequipment/equipment_label">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.01,13}}" />	
+            <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="Text" Value="Changes take effect after your next respawn." />
+            <Property Name="Font" Value="main_menu_font" />	                                      
+        </Window>   
+
+
+            <!--  ################ Primary Weapon ############### -->
+          <Window Type="WindowsLook/Static" Name="tankequipment/equipment_combobox0_container">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.10,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.5,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="tankequipment/equipment_combobox0_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Primary:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="tankequipment/equipment_combobox0" >
+                    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.5,0},{0.7,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window>    
+
+            <!--  ################ Secondary Weapon ############### -->
+          <Window Type="WindowsLook/Static" Name="tankequipment/equipment_combobox1_container">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.20,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.5,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="tankequipment/equipment_combobox1_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Secondary:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="tankequipment/equipment_combobox1" >
+                    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.5,0},{0.7,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window> 
+
+            <!--  ################ First Skill ############### -->
+          <Window Type="WindowsLook/Static" Name="tankequipment/equipment_combobox2_container">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.3,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.5,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="tankequipment/equipment_combobox2_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="First Skill:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="tankequipment/equipment_combobox2" >
+                    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.5,0},{0.7,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window> 
+
+            <!--  ################ Second Skill ############### -->
+          <Window Type="WindowsLook/Static" Name="tankequipment/equipment_combobox3_container">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.4,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.5,0},{0.27,0}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />             
+            
+                <Window Type="WindowsLook/StaticText" Name="tankequipment/equipment_combobox3_label">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.3,0.0},{0.15,0}}" />
+                    <Property Name="VertFormatting" Value="VertCentred" />
+                    <Property Name="HorzFormatting" Value="LeftAligned" />                    
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="Second Skill:" />
+                    <Property Name="Font" Value="main_menu_font" />		
+                </Window>	
+        
+                <Window Type="WindowsLook/Combobox" Name="tankequipment/equipment_combobox3" >
+                    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.5,0},{0.7,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="ReadOnly" Value="True" />	
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>	  
+        </Window> 
+
+
+        <!--  ######################################
+                Preview Images
+        ########################################## -->	    
+        <Window Type="WindowsLook/Static" Name="tankequipment/preview_image_container">
+            <Property Name="UnifiedPosition" Value="{{0.525,13},{0.1,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.40,0},{0.45,0}}" />
+            <Property Name="FrameEnabled" Value="True" />
+            <Property Name="BackgroundEnabled" Value="False" />
+
+                <Window Type="WindowsLook/StaticImage" Name="tankequipment/preview_image0">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                </Window>
+                
+                <Window Type="WindowsLook/StaticImage" Name="tankequipment/preview_image1">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                </Window>
+                
+                <Window Type="WindowsLook/StaticImage" Name="tankequipment/preview_image2">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                </Window>                
+                
+                <Window Type="WindowsLook/StaticImage" Name="tankequipment/preview_image3">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                </Window>
+                
+                <Window Type="WindowsLook/StaticImage" Name="tankequipment/preview_image4">
+                    <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+                    <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                </Window>                   
+
+        </Window> 
+
+        <!--  ######################################
+                Description Window
+        ########################################## -->	
+        <Window Type="WindowsLook/StaticText" Name="tankequipment/desc_label">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.55,13}}" />	
+            <Property Name="UnifiedSize" Value="{{1.0,0.0},{0.05,0}}" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="Text" Value="Description:" />
+            <Property Name="Font" Value="main_menu_font" />	                                      
+        </Window>                  
+        
+        <Window Type="WindowsLook/Static" Name="tankequipment/desc_frame">
+            <Property Name="UnifiedPosition" Value="{{0.045,13},{0.62,0}}" />
+            <Property Name="UnifiedSize" Value="{{0.88,0},{0.25,0}}" />
+            <Property Name="FrameEnabled" Value="True" />
+            <Property Name="BackgroundEnabled" Value="False" />
+        
+            <Window Type="WindowsLook/Static" Name="tankequipment/desc_text">
+                <Property Name="UnifiedPosition" Value="{{0.0,13},{0.0,13}}" />
+                <Property Name="UnifiedSize" Value="{{0.95,0},{0.9,0}}" />
+                <Property Name="FrameEnabled" Value="False" />
+                <Property Name="BackgroundEnabled" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />	      
+                <Property Name="VertFormatting" Value="TopAligned" />
+                <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+            </Window>
+        
+        </Window>        
+
+
+
+    <Window Type="WindowsLook/Button" Name="tankequipment/ok_btn">
+        <Property Name="UnifiedPosition" Value="{{0.32,0},{0.92,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.14,0},{0.045,0}}" />
+        <Property Name="Text" Value="Ok" />
+        <Property Name="InheritsAlpha" Value="False" />
+        <Property Name="Font" Value="main_menu_font" />
+    </Window>
+
+    <Window Type="WindowsLook/Button" Name="tankequipment/cancel_btn">
+        <Property Name="UnifiedPosition" Value="{{0.52,0},{0.92,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.14,0},{0.045,0}}" />
+        <Property Name="Text" Value="Cancel" />
+        <Property Name="InheritsAlpha" Value="False" />
+        <Property Name="Font" Value="main_menu_font" />
+    </Window>
+
+</Window>
+</GUILayout>

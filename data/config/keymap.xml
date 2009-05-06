@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<parameters>
+    <super_section name="default">
+        <section name="">
+            <variable name="000 view" value="[Mouse]" type="vector&lt;string&gt;" />
+        </section>
+    </super_section>
+    <!-- 
+    
+    -->
+    <super_section name="configurable">
+        <section name="">
+            <variable name="000 Tank Controls" value="[]" type="vector&lt;string&gt;" />
+            <variable name="005 Accelerate" value="[w]" type="vector&lt;string&gt;" />
+            <variable name="010 Decelerate" value="[s]" type="vector&lt;string&gt;" />
+            <variable name="020 Turn left" value="[a]" type="vector&lt;string&gt;" />
+            <variable name="030 Turn right" value="[d]" type="vector&lt;string&gt;" />
+            <variable name="031 Fire Cannon" value="[LeftButton]" type="vector&lt;string&gt;" />
+            <variable name="032 Fire MG" value="[RightButton]" type="vector&lt;string&gt;" />
+            <variable name="033 Drop Mine" value="[f]" type="vector&lt;string&gt;" />
+            <variable name="040 Handbrake" value="[SPACE]" type="vector&lt;string&gt;" />
+            <variable name="050 Pickup/Drop Beacon" value="[e]" type="vector&lt;string&gt;" />
+            <variable name="060 Flip Tank" value="[j]" type="vector&lt;string&gt;" />
+
+
+
+            <variable name="100 Game Controls" value="[]" type="vector&lt;string&gt;" />
+            <variable name="102 Change Team" value="[m]" type="vector&lt;string&gt;" />
+            <variable name="110 Talk" value="[t]" type="vector&lt;string&gt;" />
+            <variable name="111 Team Message 1" value="[5]" type="vector&lt;string&gt;" />   
+            <variable name="112 Team Message 2" value="[6]" type="vector&lt;string&gt;" />   
+            <variable name="120 Show Score" value="[TAB]" type="vector&lt;string&gt;" />
+            <variable name="130 Show Help" value="[h]" type="vector&lt;string&gt;" />
+            <variable name="140 Show Upgrade Screen" value="[u]" type="vector&lt;string&gt;" />
+            <variable name="141 Show Tank Equipment Screen" value="[i]" type="vector&lt;string&gt;" />                        
+            <variable name="150 Take Screenshot" value="[p]" type="vector&lt;string&gt;" />
+            <variable name="160 Upgrade Weapons" value="[1]" type="vector&lt;string&gt;" />
+            <variable name="170 Upgrade Armor" value="[2]" type="vector&lt;string&gt;" />
+            <variable name="180 Upgrade Speed" value="[3]" type="vector&lt;string&gt;" />
+
+            <variable name="190 Camera Controls" value="[]" type="vector&lt;string&gt;" />
+            <variable name="220 1st Person Camera" value="[F1]" type="vector&lt;string&gt;" />
+            <variable name="222 Tracking Camera"   value="[F2]" type="vector&lt;string&gt;" />
+            <variable name="230 3rd Person Camera" value="[F3]" type="vector&lt;string&gt;" />
+            <variable name="240 TV Camera"         value="[F4]" type="vector&lt;string&gt;" />
+            <variable name="250 Free Camera"       value="[F5]" type="vector&lt;string&gt;" />
+            <variable name="260 Toggle camera control mode" value="[c]" type="vector&lt;string&gt;" />
+
+        </section>
+    </super_section>
+</parameters>

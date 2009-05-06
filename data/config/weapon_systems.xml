@@ -1,0 +1,261 @@
+<?xml version="1.0" ?>
+<parameters>
+
+        <section name="dummy_weapon_system">
+            <variable name="cooldown_per_sec" value="0.0" type="float" />  
+            <variable name="heating_per_shot" value="10.0" type="float" />  
+            <variable name="heating_per_sec" value="10.0" type="float" />  
+            <variable name="cooldown_time" value="10.0" type="float" />  
+            <variable name="fire_dt" value="10.0" type="float" />  
+
+            <variable name="max_ammo" value="0" type="unsigned" />
+            <variable name="beacon_damage" value="45" type="unsigned" />            
+        </section>
+
+    
+        <section name="splash_cannon">
+            <variable name="projectile_desc_file" value="projectile" type="string" />
+
+            <variable name="cooldown_per_sec" value="1.0" type="float" />  
+            <variable name="heating_per_shot" value="1.0" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="0.0" type="float" />  
+
+            <variable name="muzzle_velocity" value="35.0" type="float" />	  
+            <variable name="damage" value="35" type="unsigned" />	   
+            <variable name="splash_radius" value="1.3" type="float" />	   
+            <variable name="splash_impulse" value="12.0" type="float" />	   
+            <variable name="mass" value="0.0007" type="float" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   
+            <variable name="recoil" value="0.015" type="float" />		  
+            <variable name="fire_sound" value="a-shot_cannon.wav" type="string" />
+            <variable name="description" value="The splash cannon has only medium strength, but causes a large explosion on impact that damages tanks nearby. This makes it the ideal weapon for long-distance duels, and for beginners who still have a difficult time aiming exactly." type="string" />             
+        </section>
+
+        <section name="armor_piercing_cannon">
+            <variable name="projectile_desc_file" value="projectileup2" type="string" />
+
+            <variable name="cooldown_per_sec" value="1.0" type="float" />  
+            <variable name="heating_per_shot" value="1.0" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="0.0" type="float" />  
+
+            <variable name="muzzle_velocity" value="35.0" type="float" />	  
+            <variable name="damage" value="45" type="unsigned" />	   
+            <variable name="splash_radius" value="0.0" type="float" />	   
+            <variable name="mass" value="0.0007" type="float" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   
+            <variable name="recoil" value="0.025" type="float" />		  
+            <variable name="fire_sound" value="shot_cannon_upgraded.wav" type="string" />
+            <variable name="description" value="Does the highest amount of damage of all primary weapons, but lacks splash damage or impact effect. The best choice for skilled players who quickly want to get rid of their adversaries." type="string" />              
+        </section>
+
+        <section name="heavy_impact_cannon">
+            <variable name="projectile_desc_file" value="projectileup3" type="string" />
+
+            <variable name="cooldown_per_sec" value="1.0" type="float" />  
+            <variable name="heating_per_shot" value="1.0" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="0.0" type="float" />  
+
+            <variable name="muzzle_velocity" value="35.0" type="float" />	  
+            <variable name="damage" value="25" type="unsigned" />	   
+            <variable name="splash_radius" value="0.0" type="float" />	   
+            <variable name="splash_impulse" value="0.0" type="float" />	   
+            <variable name="mass" value="0.007" type="float" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   
+            <variable name="recoil" value="0.015" type="float" />		  
+            <variable name="fire_sound" value="shot_cannon_upgraded.wav" type="string" />
+            <variable name="description" value="Designed to render an enemy tank uncontrollable, this weapon does only a low amount of damage, but applies a massive impact force to the hit target. Sustained hits on an enemy tank make it nearly helpless, but quite a few shots are required to destroy it." type="string" />            
+        </section> 
+
+
+
+       <section name="soccer_cannon">
+            <variable name="projectile_desc_file" value="projectileup3" type="string" />
+
+            <variable name="cooldown_per_sec" value="0.5" type="float" />  
+            <variable name="heating_per_shot" value="1.0" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="0.0" type="float" />  
+
+            <variable name="muzzle_velocity" value="35.0" type="float" />	  
+            <variable name="damage" value="10" type="unsigned" />	   
+            <variable name="splash_radius" value="2.0" type="float" />	   
+            <variable name="splash_impulse" value="20.0" type="float" />	   
+            <variable name="mass" value="0.009" type="float" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   
+            <variable name="recoil" value="0.015" type="float" />		  
+            <variable name="fire_sound" value="shot_cannon_upgraded.wav" type="string" />
+            <variable name="description" value="Only used in soccer mode." type="string" />            
+
+            <variable name="slowdown_factor" value="0.7" type="float" console="1" />
+
+        </section>
+        
+
+        <section name="mine">
+            <variable name="mine_desc_file" value="mine" type="string" />        
+
+            <variable name="cooldown_per_sec" value="0.01" type="float" />  
+            <variable name="heating_per_shot" value="0.25" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="1.0" type="float" />  
+
+            <variable name="lifetime" value="60.0" type="float" />              
+            <variable name="damage" value="70" type="unsigned" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />
+            <variable name="impact_impulse" value="0.09" type="float" />	             
+            <variable name="description" value="Severely damages any tank careless enough to run over it. Can be easily disposed of with MG or cannon, and has a limited life time. Works wonders against tanks trying to ram you from behind!" type="string" />            
+        </section> 
+
+
+        <section name="missile">
+            <variable name="projectile_desc_file" value="missile" type="string" />
+
+            <variable name="agility" value="0.8" type="float" />  
+            <variable name="aiming_delay" value="0.1" type="float" />  
+            <variable name="range" value="100" type="float" />  
+          
+
+            <variable name="cooldown_per_sec" value="0.02" type="float" />  
+            <variable name="heating_per_shot" value="0.5" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="5.0" type="float" />  
+
+            <variable name="muzzle_velocity" value="10.0" type="float" />	  
+            <variable name="damage" value="50" type="unsigned" />	   
+            <variable name="splash_radius" value="2.0" type="float" />	   
+            <variable name="splash_impulse" value="12.0" type="float" />	   
+            <variable name="mass" value="0.0035" type="float" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   
+            <variable name="recoil" value="0.01" type="float" />		  
+            <variable name="fire_sound" value="a-shot_cannon.wav" type="string" />
+            <variable name="description" value="" type="string" />             
+        </section>
+
+
+
+        <section name="mg">
+            <variable name="cooldown_per_sec" value="0.3" type="float" />  
+            <variable name="heating_per_shot" value="0.0" type="float" />  
+            <variable name="heating_per_sec" value="0.4" type="float" />  
+            <variable name="cooldown_time" value="2.0" type="float" />  
+            <variable name="fire_dt" value="0.15" type="float" />  
+
+            <variable name="effect_group"  value="mg_effect"  type="string" />  
+            <variable name="tracer_effect" value="tracer_red" type="string" />  
+
+            <variable name="sound_effect" value="a-machine_gun.wav" type="string" />  
+
+            <variable name="damage" value="2" type="unsigned" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   	  
+            <variable name="range" value="18" type="float" />	  
+
+            <variable name="feedback_interval" value="0.1" type="float" />	
+            <variable name="description" value="Provides a high fire rate and does a small amount of damage with each shell. The range ist limited. Use it as complementary weapon in close combat, or to finish off a badly damaged enemy." type="string" />                 
+        </section> 
+
+
+
+        <section name="flamethrower">
+            <variable name="cooldown_per_sec" value="0.3" type="float" />  
+            <variable name="heating_per_shot" value="0.0" type="float" />  
+            <variable name="heating_per_sec" value="0.6" type="float" />  
+            <variable name="cooldown_time" value="1.0" type="float" />  
+            <variable name="fire_dt" value="0.15" type="float" />  
+
+            <variable name="effect_group"  value="ft_effect"  type="string" />  
+            <variable name="tracer_effect" value="flamethrower" type="string" />  
+
+            <variable name="sound_effect" value="m-flamethrower.wav" type="string" />  
+
+            <variable name="damage" value="5" type="unsigned" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   	  
+            <variable name="range" value="4" type="float" />	  
+
+            <variable name="feedback_interval" value="0.15" type="float" />	
+
+            <variable name="description" value="Does a high amount of damage within a limited range in front of the tank. Care must be taken because the flame thrower overheats quickly." type="string" />
+        </section> 
+
+        <section name="laser">
+            <variable name="cooldown_per_sec" value="0.2" type="float" />  
+            <variable name="heating_per_shot" value="0.15" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="2.0" type="float" />  
+            <variable name="fire_dt" value="0.15" type="float" />  
+
+            <variable name="effect_group"  value="laser_effect"  type="string" />  
+            <variable name="tracer_effect" value="tracer_laser" type="string" />  
+
+            <variable name="sound_effect" value="laser_shot.wav" type="string" />  
+
+            <variable name="damage" value="7" type="unsigned" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   	  
+            <variable name="range" value="18" type="float" />	  
+
+            <variable name="feedback_interval" value="0.15" type="float" />	
+            <variable name="description" value="Does a high amount of damage on long range. Substantial time is needed to reload the laser capacitors for the next shot." type="string" />
+        </section> 
+
+
+        <section name="tractor_beam">
+            <variable name="cooldown_per_sec" value="0.2" type="float" />  
+            <variable name="heating_per_shot" value="0.0" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="2.0" type="float" />  
+            <variable name="fire_dt" value="0.15" type="float" />  
+
+            <variable name="effect_group"  value="laser_effect"  type="string" />  
+            <variable name="tracer_effect" value="tracer_laser" type="string" />  
+
+            <variable name="sound_effect" value="laser_shot.wav" type="string" />  
+
+            <variable name="damage" value="0" type="unsigned" />	   
+            <variable name="max_ammo" value="0" type="unsigned" />	   	  
+            <variable name="range" value="18" type="float" />	  
+
+            <variable name="feedback_interval" value="0.15" type="float" />	
+            <variable name="description" value="Soccer game only." type="string" />
+        </section> 
+
+
+
+        <section name="shield">
+            <variable name="cooldown_per_sec" value="0.0333" type="float" />  
+            <variable name="heating_per_shot" value="1.0" type="float" />  
+            <variable name="heating_per_sec" value="0.0" type="float" />  
+            <variable name="cooldown_time" value="0.0" type="float" />  
+            <variable name="fire_dt" value="1.0" type="float" />  
+
+            <variable name="sound_effect" value="laser_shot.wav" type="string" />  
+
+            <variable name="max_ammo" value="0" type="unsigned" />	   	  
+
+            <variable name="description" value="Does a high amount of damage on long range. Substantial time is needed to reload the laser capacitors for the next shot." type="string" />
+
+            <variable name="duration" value="3.0" type="float"  comment="shield only parameter, set the duration of the active shield" />	   	  
+        </section> 
+
+
+        <section name="boost">
+            <variable name="cooldown_per_sec" value="0.05" type="float" />  
+            <variable name="heating_per_shot" value="0.0" type="float" />  
+            <variable name="heating_per_sec" value="0.33" type="float" />  
+            <variable name="cooldown_time" value="2.0" type="float" />  
+            <variable name="fire_dt" value="1.0" type="float" />  
+
+            <variable name="max_ammo" value="0" type="unsigned" />	   	  
+ 
+             <variable name="max_speed" value="8.0" type="float"  comment="boost only parameter" />	  
+             <variable name="static_mu_long_acc" value="14.0" type="float"  comment="boost only parameter" />	  
+        </section> 
+
+</parameters>

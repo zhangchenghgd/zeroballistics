@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="explosion_6" delay="0.5" comment="fallout" />
+	<ParticleEffect name="explosion_5b" delay="0.1" comment="smoke" />
+	<ParticleEffect name="explosion" delay="0" comment="core" />
+    <ParticleEffect name="explosion_2" delay="0" comment="big sparks" />
+    <ParticleEffect name="explosion_3b" delay="0.05" comment="big fireburst" />
+	<ParticleEffect name="explosion_3c" delay="0.01" comment="big fireburst" />
+	<ParticleEffect name="explosion_4" delay="0" comment="debris" />
+
+</EffectGroup>

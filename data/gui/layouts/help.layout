@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static"  Name="help/window">
+	<Property Name="AlwaysOnTop" Value="True" />
+	<Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />
+	<Property Name="UnifiedSize" Value="{{0.8,0},{0.8,0}}" />
+	<Property Name="FrameEnabled" Value="True" />
+	<Property Name="BackgroundEnabled" Value="True" />
+	<Property Name="Alpha" Value="0.9" />
+
+
+            <Window Type="WindowsLook/Button" Name="help/tab1_btn">
+                <Property Name="UnifiedPosition" Value="{{0.1,0},{0.1,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+                <Property Name="Text" Value="Gameplay" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>
+
+
+	<!--  ######################################
+				Content Window 1
+	########################################## -->	  
+	<Window Type="WindowsLook/Static" Name="help/tab1_content">
+	    <Property Name="UnifiedPosition" Value="{{0.1,0},{0.18,0}}" />
+	    <Property Name="UnifiedSize" Value="{{0.8,0},{0.7,0}}" />
+	    <Property Name="Text" Value="" />
+	    <Property Name="FrameEnabled" Value="False" />
+	    <Property Name="BackgroundEnabled" Value="True" />	 
+
+				<Window Type="WindowsLook/StaticText" Name="help/tab1_content/label">
+					<Property Name="UnifiedPosition" Value="{{0.01,0},{0.01,0}}" />	
+					<Property Name="UnifiedSize" Value="{{0.99,0.0},{1.0,0}}" />
+					<Property Name="VertFormatting" Value="TopAligned" />
+					<Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+					<Property Name="InheritsAlpha" Value="False" />
+					<Property Name="FrameEnabled" Value="False" />
+					<Property Name="BackgroundEnabled" Value="False" />
+					<Property Name="Font" Value="default" />
+					<Property Name="VertScrollbar" Value="True" />
+                         <Property Name="Font" Value="main_menu_font" />                    
+					<Property Name="Text">
+
+AIM OF THE GAME:
+
+Destroy as many enemy tanks as possible to win the game!
+
+
+WEAPONS AND SKILLS
+
+You can select the armament of your tank in the equipment menu. Equip
+your tank with the weapons and skills that best fit your playing
+style! Changes you make here will take effect only after your next
+respawn.
+
+
+SCORING
+
+The score table shows each player's score, kills, deaths, level and
+ping. Your accuracy and efficiency are displayed as well. For each
+kill you are awarded two upgraded points, substantially weaker or
+stronger opponents give one or four upgrade points, respectively.
+
+
+UPGRADES
+
+During the game it is possible to upgrade the tank in the three
+categories weapon, armor and speed. Each category has three levels
+that can be unlocked consecutively by spending upgrade points. Upgrade
+points are earned by killing opponents, or helping somebody else kill
+an opponent.
+
+The upgrade menu shows a short description of each upgrade, together
+with upgrade costs that need to be spent to activate an
+upgrade. Upgrades can also be activated via hotkeys. Choose your
+upgrades wisely to gain an advantage over your enemies!
+
+
+					</Property>					
+				</Window>						
+				
+
+
+
+	</Window>
+
+
+    <Window Type="WindowsLook/Button" Name="help/window/close_btn">
+        <Property Name="UnifiedPosition" Value="{{0.45,0},{0.9,0}}" />
+        <Property Name="UnifiedSize" Value="{{0.1,0},{0.055,0}}" />
+        <Property Name="Text" Value="Close" />
+        <Property Name="InheritsAlpha" Value="False" />
+        <Property Name="Font" Value="main_menu_font" />
+    </Window>
+
+
+</Window>
+</GUILayout>

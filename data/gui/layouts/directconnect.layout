@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="direct_connect/window">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.30,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.5,0},{0.5,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="False" />
+    <Property Name="BackgroundEnabled" Value="False" />
+  
+    <!-- Join Internet Game Container -->
+    <Window Type="WindowsLook/Static" Name="direct_connect_inet">
+        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+        <Property Name="UnifiedSize" Value="{{1.0,0},{0.5,0}}" />
+        <Property Name="FrameEnabled" Value="True" />
+        <Property Name="BackgroundEnabled" Value="True" />  
+        <Property Name="Alpha" Value="0.9" />        
+                
+        <Window Type="WindowsLook/StaticText" Name="direct_connect/connect_inet_label">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.12,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.9,0},{0.2,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />		
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Text" Value="Connect to server:" />
+              <Property Name="Font" Value="main_menu_font" />		
+        </Window>
+            
+        <Window Type="WindowsLook/StaticText" Name="direct_connect/ip">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.28,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.18,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="Text" Value="Host:" />
+            <Property Name="Font" Value="main_menu_font" />		
+        </Window>	
+        
+            <Window Type="WindowsLook/Editbox" Name="direct_connect/host_editbox">
+                <Property Name="UnifiedPosition" Value="{{0.2,0},{0.25,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.5,0},{0.16,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Text" Value="localhost" />
+                <Property Name="Font" Value="main_menu_font" />
+            </Window>	
+        
+        <Window Type="WindowsLook/StaticText" Name="direct_connect/port">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.48,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.17,0},{0.18,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />		
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Text" Value="Port:" />
+            <Property Name="Font" Value="main_menu_font" />	              
+        </Window>		
+
+            <Window Type="WindowsLook/Editbox" Name="direct_connect/port_editbox">
+                <Property Name="UnifiedPosition" Value="{{0.2,0},{0.45,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.5,0},{0.16,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Text" Value="" />
+                <Property Name="Font" Value="main_menu_font" />
+                <Property Name="MaxTextLength" Value="5" />                
+            </Window>
+            
+            
+            
+                <Window Type="WindowsLook/Button" Name="direct_connect/ok_btn">
+                    <Property Name="UnifiedPosition" Value="{{0.2,0},{0.7,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.25,0},{0.18,0}}" />
+                    <Property Name="Text" Value="Connect" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+
+                <Window Type="WindowsLook/Button" Name="direct_connect/cancel_btn">
+                    <Property Name="UnifiedPosition" Value="{{0.55,0},{0.7,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.25,0},{0.18,0}}" />
+                    <Property Name="Text" Value="Cancel" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+                
+     </Window> 
+    
+ </Window>  
+ 
+    <!--  ######################################
+            Scanning LAN Window 
+    ########################################## -->	
+    <!--
+        <Window Type="WindowsLook/Static" Name="direct_connect/scanning_window">
+            <Property Name="AlwaysOnTop" Value="True" />
+            <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+            <Property Name="UnifiedSize" Value="{{1.0,0},{1.0,0}}" />
+            <Property Name="Text" Value="" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="False" />                
+                            
+            <Window Type="WindowsLook/StaticText" Name="direct_connect/scanning_window/label">
+                <Property Name="UnifiedPosition" Value="{{0.20,0},{0.20,0}}" />	
+                <Property Name="UnifiedSize" Value="{{0.6,0.0},{0.6,0}}" />
+                <Property Name="VertFormatting" Value="VertCentred" />
+                <Property Name="HorzFormatting" Value="HorzCentred" />
+                <Property Name="Alpha" Value="0.9" />
+                <Property Name="FrameEnabled" Value="False" />
+                <Property Name="BackgroundEnabled" Value="True" />
+                <Property Name="Text" Value="Scanning LAN for server... (Press ESC to cancel)" />
+                <Property Name="Font" Value="main_menu_font" />	
+                <Property Name="Disabled" Value="True" />  
+                <Property Name="MousePassThroughEnabled" Value="True" />                                           
+            </Window>	    
+            
+        </Window>	
+ 
+ -->
+ 
+</GUILayout>

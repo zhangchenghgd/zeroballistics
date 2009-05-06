@@ -1,0 +1,22 @@
+
+
+
+//------------------------------------------------------------------------------
+float sampleShadowMap(sampler2DShadow shadow_tex, vec4 coord)
+{
+    float ret = shadow2DProj(shadow_tex, coord).r;
+
+#ifdef PERCENTAGE_CLOSER_FILTERING
+
+    ret += shadow2DProj(shadow_tex, coord+vec4(-SHADOW_MAP_DT,0.0,0.0,0.0)).r;
+    ret += shadow2DProj(shadow_tex, coord+vec4(+SHADOW_MAP_DT,0.0,0.0,0.0)).r;
+    ret += shadow2DProj(shadow_tex, coord+vec4(0.0,+SHADOW_MAP_DT,0.0,0.0)).r;
+    ret += shadow2DProj(shadow_tex, coord+vec4(0.0,-SHADOW_MAP_DT,0.0,0.0)).r;
+
+     ret /= 5.0;
+#endif
+     
+    return mix(gl_LightSource[0].ambient.r, 1.0, ret);
+}
+
+

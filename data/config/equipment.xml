@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<parameters>
+
+    <!-- ----- PRIMARY WEAPONS ----- -->
+    <super_section name="primary_weapon0">
+	<section name="tank">
+            <variable name="weapon_slot" value="[0;TankCannon;splash_cannon]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="primary_weapon1">
+	<section name="tank">
+            <variable name="weapon_slot" value="[0;TankCannon;armor_piercing_cannon]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="primary_weapon2">
+	<section name="tank">
+            <variable name="weapon_slot" value="[0;TankCannon;heavy_impact_cannon]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="primary_weapon3">
+	<section name="tank">
+            <variable name="weapon_slot" value="[0;TankCannon;soccer_cannon]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <!-- ----- SECONDARY WEAPONS ----- -->
+    <super_section name="secondary_weapon0">
+	<section name="tank">
+            <variable name="weapon_slot" value="[1;InstantHitWeapon;mg]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="secondary_weapon1">
+	<section name="tank">
+            <variable name="weapon_slot" value="[1;InstantHitWeapon;flamethrower]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="secondary_weapon2">
+	<section name="tank">
+            <variable name="weapon_slot" value="[1;InstantHitWeapon;laser]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="secondary_weapon3">
+	<section name="tank">
+            <variable name="weapon_slot" value="[1;InstantHitWeapon;tractor_beam]" type="vector<string>" />
+	</section>
+    </super_section>
+
+    <!-- ----- SKILL 1 SLOT ----- -->
+    <super_section name="first_skill0">
+	<section name="tank">
+            <variable name="weapon_slot" value="[2;TankMineDispenser;mine]"     type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="first_skill1">
+	<section name="tank">
+            <variable name="ram_upgrade" value="1" type="bool" />
+	</section>
+    </super_section>
+
+    <super_section name="first_skill2">
+	<section name="tank">
+            <variable name="weapon_slot" value="[2;MissileLauncher;missile]"     type="vector<string>" />
+	</section>
+    </super_section>
+
+    <!-- ----- SKILL 2 SLOT ----- -->
+    <super_section name="second_skill0">
+	<section name="tank">
+            <variable name="heal_skill"                value="1" type="bool" />	    
+	</section>
+    </super_section>
+
+    <super_section name="second_skill1">
+	<section name="tank">
+            <variable name="weapon_slot" value="[3;Shield;shield]"     type="vector<string>" />
+	</section>
+    </super_section>
+
+    <super_section name="second_skill2">
+	<section name="tank">
+            <variable name="weapon_slot" value="[3;Boost;boost]"     type="vector<string>" />
+	</section>
+    </super_section>
+
+</parameters>

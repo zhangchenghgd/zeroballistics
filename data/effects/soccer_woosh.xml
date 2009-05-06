@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+	<ParticleEffect name="tank_fire3" delay="0" comment="smoke" />
+	<ParticleEffect name="tank_fire" delay="0" comment="big fire" />
+	<ParticleEffect name="tank_fire2" delay="0" comment="little fire" />
+	<ParticleEffect name="tank_fire4" delay="0.15" comment="sparks1" />
+	<ParticleEffect name="tank_fire5" delay="0.2" comment="smoke1" />
+	<ParticleEffect name="tank_fire6" delay="0.3" comment="sparks2" />
+	<ParticleEffect name="tank_fire7" delay="0.35" comment="smoke2" />
+
+</EffectGroup>

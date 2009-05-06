@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="WindowsLook/Static" Name="clientauthentication/window">
+    <Property Name="AlwaysOnTop" Value="True" />
+    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.30,0}}" />
+    <Property Name="UnifiedSize" Value="{{0.5,0},{0.65,0}}" />
+    <Property Name="Text" Value="" />
+    <Property Name="FrameEnabled" Value="False" />
+    <Property Name="BackgroundEnabled" Value="False" />
+  
+    <!-- Auth Container -->
+    <Window Type="WindowsLook/Static" Name="clientauthentication/container">
+        <Property Name="UnifiedPosition" Value="{{0.0,0},{0.0,0}}" />
+        <Property Name="UnifiedSize" Value="{{1.0,0},{0.5,0}}" />
+        <Property Name="FrameEnabled" Value="True" />
+        <Property Name="BackgroundEnabled" Value="True" />  
+        <Property Name="Alpha" Value="0.9" />        
+                
+        <Window Type="WindowsLook/StaticText" Name="clientauthentication/auth_label">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.10,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.9,0},{0.12,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />		
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Text" Value="Authentication:" />
+              <Property Name="Font" Value="main_menu_font" />		
+        </Window>
+            
+        <Window Type="WindowsLook/StaticText" Name="clientauthentication/username_label">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.22,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.17,0.0},{0.12,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="Text" Value="Username:" />
+            <Property Name="Font" Value="main_menu_font" />		
+        </Window>	
+        
+            <Window Type="WindowsLook/Editbox" Name="clientauthentication/username_editbox">
+                <Property Name="UnifiedPosition" Value="{{0.25,0},{0.20,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.6,0},{0.12,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Text" Value="" />
+                <Property Name="Font" Value="main_menu_font" />
+                <Property Name="MaxTextLength" Value="30" />                        
+            </Window>	
+        
+        <Window Type="WindowsLook/StaticText" Name="clientauthentication/password_label">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.42,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.17,0},{0.12,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />		
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Text" Value="Password:" />
+            <Property Name="Font" Value="main_menu_font" />	              
+        </Window>		
+
+            <Window Type="WindowsLook/Editbox" Name="clientauthentication/password_editbox">
+                <Property Name="UnifiedPosition" Value="{{0.25,0},{0.40,0}}" />
+                <Property Name="UnifiedSize" Value="{{0.6,0},{0.12,0}}" />
+                <Property Name="InheritsAlpha" Value="False" />
+                <Property Name="Text" Value="" />
+                <Property Name="Font" Value="main_menu_font" />
+                <Property Name="MaxTextLength" Value="30" />                
+            </Window>
+            
+
+            <!--  Remember Password -->
+                <Window Type="WindowsLook/Checkbox" Name="clientauthentication/remember_password_checkbox">
+                    <Property Name="UnifiedPosition" Value="{{0.25,0},{0.53,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.05,0.0},{0.05,0}}" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                </Window>            
+            
+                <Window Type="WindowsLook/StaticText" Name="clientauthentication/remember_password_label">
+                    <Property Name="UnifiedPosition" Value="{{0.28,0},{0.525,0}}" />	
+                    <Property Name="UnifiedSize" Value="{{0.37,0.0},{0.12,0}}" />
+                    <Property Name="VertFormatting" Value="TopAligned" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="FrameEnabled" Value="False" />
+                    <Property Name="BackgroundEnabled" Value="False" />
+                    <Property Name="Text" Value="remember password" />
+                    <Property Name="Font" Value="main_menu_small_font" />		
+                </Window>	
+
+
+
+
+            
+        <Window Type="WindowsLook/StaticText" Name="clientauthentication/auth_message_label">
+            <Property Name="UnifiedPosition" Value="{{0.06,0},{0.65,0}}" />	
+            <Property Name="UnifiedSize" Value="{{0.87,0},{0.12,0}}" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />		
+            <Property Name="InheritsAlpha" Value="False" />
+            <Property Name="Text" Value="" />
+            <Property Name="Font" Value="main_menu_font" />	              
+        </Window>	            
+            
+            
+            
+                <Window Type="WindowsLook/Button" Name="clientauthentication/connect_btn">
+                    <Property Name="UnifiedPosition" Value="{{0.08,0},{0.8,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.25,0},{0.12,0}}" />
+                    <Property Name="Text" Value="Connect" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+
+                <Window Type="WindowsLook/Button" Name="clientauthentication/exit_btn">
+                    <Property Name="UnifiedPosition" Value="{{0.38,0},{0.8,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.25,0},{0.12,0}}" />
+                    <Property Name="Text" Value="Exit" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>
+                
+                <Window Type="WindowsLook/Button" Name="clientauthentication/create_account_btn">
+                    <Property Name="UnifiedPosition" Value="{{0.68,0},{0.8,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.25,0},{0.12,0}}" />
+                    <Property Name="Text" Value="Create Account" />
+                    <Property Name="InheritsAlpha" Value="False" />
+                    <Property Name="Font" Value="main_menu_font" />
+                </Window>                
+                
+     </Window> 
+    
+ </Window>  
+ 
+ 
+</GUILayout>

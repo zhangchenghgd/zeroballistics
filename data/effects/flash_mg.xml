@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+    <ParticleEffect name="muzzle_flash_mg" delay="0" comment="flash" />
+<!--	<ParticleEffect name="muzzle_flash_mg_2" delay="0" comment="smoke" /> -->
+</EffectGroup>
