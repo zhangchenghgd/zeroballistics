@@ -267,12 +267,14 @@ def execCmd(cmd, params):
 
     # to avoid messy issues with space in path, change to executable directory...
     cmd_dir = os.path.dirname(cmd)
+    prev_path = os.getcwd()
     if cmd_dir: os.chdir(cmd_dir)
 
     res = os.system(os.path.basename(cmd) + " " + params)
     if res != 0:
         message("\"" + cmd + " " + params + "\" exited with status %d. See console." %res, msg.V_HIGH)
 
+    os.chdir(prev_path)
     return res
 
 
