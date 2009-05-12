@@ -1,4 +1,5 @@
 
+include_directories(${tanks_SOURCE_DIR}/libs/gzstream/src)
 
 set(toolboxSources
 ./src/ConsoleApp.cpp 

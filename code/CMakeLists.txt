@@ -61,11 +61,11 @@ add_definitions(-DZERO_BALLISTICS_MODE)
 endif (ENABLE_ZB_MODE)
 
 
-
+add_subdirectory(libs/gzstream)
 add_subdirectory(libs/toolbox)
 add_subdirectory(libs/bbmloader)
 add_subdirectory(libs/master)
-add_subdirectory(libs/ranking)
+# add_subdirectory(libs/ranking)
 add_subdirectory(libs/network)
 
 add_subdirectory(bluebeard)
@@ -74,7 +74,7 @@ add_subdirectory(games/tank)
 
 
 add_subdirectory(tools/master_server)
-add_subdirectory(tools/ranking_server)
+# add_subdirectory(tools/ranking_server)
 
 add_subdirectory(tools/modelviewer)
 add_subdirectory(tools/particleviewer)
