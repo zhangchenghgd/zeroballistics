@@ -65,7 +65,7 @@ add_subdirectory(libs/gzstream)
 add_subdirectory(libs/toolbox)
 add_subdirectory(libs/bbmloader)
 add_subdirectory(libs/master)
-# add_subdirectory(libs/ranking)
+add_subdirectory(libs/ranking)
 add_subdirectory(libs/network)
 
 add_subdirectory(bluebeard)
