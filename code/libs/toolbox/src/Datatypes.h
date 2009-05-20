@@ -1,32 +1,3 @@
-/*******************************************************************************
- *
- *  Copyright 2004 Muschick Christian
- *  
- *  This file is part of Lear.
- *  
- *  Lear is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *  
- *  Lear is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *  
- *  You should have received a copy of the GNU General Public License
- *  along with Lear; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- * 
- *  -----------------------------------------------------------------------------
- *
- *  filename            : Datatypes.h
- *  author              : Muschick Christian
- *  date of creation    : 14.04.2003
- *  date of last change : 01.12.2004
- *
- *
- *******************************************************************************/
 
 #ifndef STUNTS_DATATYPES_INCLUDED
 #define STUNTS_DATATYPES_INCLUDED
@@ -81,7 +52,7 @@ struct Color
     float getBrightness() const;
 
     std::string getHexString(bool with_alpha = false);
-    
+
     float r_;
     float g_;
     float b_;
@@ -106,7 +77,7 @@ struct Material
     Material() :
     ambient_(Color(1.0f,0.0f,1.0f)), diffuse_(Color(1.0f,0.0f,1.0f)),
     specular_(Color(1.0f,0.0f,1.0f)), shininess_(0) {}
-    
+
     Color ambient_;
     Color diffuse_;
     Color specular_;
@@ -124,15 +95,15 @@ namespace serializer
 {
     class Serializer;
 
-    void putInto(Serializer & s, const Color & c);    
+    void putInto(Serializer & s, const Color & c);
     void getFrom(Serializer & s, Color & c);
 
-    void putInto(Serializer & s, const Material & m);    
+    void putInto(Serializer & s, const Material & m);
     void getFrom(Serializer & s, Material & m);
 
     void putInto(Serializer & s, const TexCoord & t);
     void getFrom(Serializer & s, TexCoord & t);
-    
+
 }
 
 
