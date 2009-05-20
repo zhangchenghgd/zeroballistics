@@ -240,6 +240,7 @@ ${tanks_SOURCE_DIR}/libs/bbmloader/src/LevelData.cpp
 
 
 include_directories(${tanks_SOURCE_DIR}/libs/toolbox/src
+                    ${tanks_SOURCE_DIR}/libs/gzstream/src
                     ${tanks_SOURCE_DIR}/libs/bbmloader/src
                     ${tanks_SOURCE_DIR}/libs/master/src
                     ${tanks_SOURCE_DIR}/libs/network/src
