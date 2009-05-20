@@ -1,6 +1,7 @@
 
 
 include_directories(${tanks_SOURCE_DIR}/libs/toolbox/src
+                    ${tanks_SOURCE_DIR}/libs/gzstream/src
                     ${tanks_SOURCE_DIR}/libs/bbmloader/src
                     ${tanks_SOURCE_DIR}/libs/network/src
                     ${tanks_SOURCE_DIR}/libs/ranking/src
