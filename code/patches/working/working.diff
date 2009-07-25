@@ -1,0 +1,1708 @@
+Index: tools/ranking_server/php/www_protected/constants.php
+===================================================================
+--- tools/ranking_server/php/www_protected/constants.php	(revision 4565)
++++ tools/ranking_server/php/www_protected/constants.php	(working copy)
+@@ -18,8 +18,8 @@
+  * correct.
+  */
+ define("DB_SERVER", "localhost");
+-define("DB_USER", "user_management");
+-define("DB_PASS", "yCuMXxCDpTByQFu7");
++define("DB_USER", "musch");
++define("DB_PASS", "");
+ define("DB_NAME", "user_management");
+ 
+ 
+Index: tools/autopatcher_client/src/PatcherApp.cpp
+===================================================================
+--- tools/autopatcher_client/src/PatcherApp.cpp	(revision 4565)
++++ tools/autopatcher_client/src/PatcherApp.cpp	(working copy)
+@@ -148,7 +148,7 @@
+     bool failure = false;
+     bool fatal = false;
+     
+-    switch (fs->context)
++    switch (fs->context.op)
+     {
+     case PC_HASH_WITH_PATCH:
+         msg = "Patched: ";
+Index: libs/network/src/VersionHandshakePlugin.cpp
+===================================================================
+--- libs/network/src/VersionHandshakePlugin.cpp	(revision 4565)
++++ libs/network/src/VersionHandshakePlugin.cpp	(working copy)
+@@ -434,6 +434,11 @@
+ {
+     const SystemAddress & address = *(const SystemAddress*)ad;
+ 
++    s_log << Log::warning
++          << "closeConnection"
++          << address
++          << "\n\n";
++
+     // Shouldn't be called on server if handshake was successfully
+     // completed.
+     std::map<SystemAddress, HandshakeInfo>::iterator it = handshake_info_.find(address);
+Index: games/tank/src/main_client.cpp
+===================================================================
+--- games/tank/src/main_client.cpp	(revision 4565)
++++ games/tank/src/main_client.cpp	(working copy)
+@@ -20,7 +20,7 @@
+ VersionInfo g_version = VERSION_SOCCER_CLIENT;
+ 
+ 
+-const std::string APP_NAME = "Full Metal Soccer";
++const std::string APP_NAME = "Zero Ballistics";
+ 
+ 
+ #ifdef _WIN32
+Index: games/tank/src/GUIClientAuthentication.h
+===================================================================
+--- games/tank/src/GUIClientAuthentication.h	(revision 4565)
++++ games/tank/src/GUIClientAuthentication.h	(working copy)
+@@ -57,7 +57,7 @@
+     MainMenu * main_menu_;
+ 
+     uint32_t id_;
+-    uint32_t key_;
++    uint32_t session_key_;
+ 
+     RegisteredFpGroup fp_group_;
+ };
+Index: games/tank/src/GameLogicClientCommon.cpp
+===================================================================
+--- games/tank/src/GameLogicClientCommon.cpp	(revision 4565)
++++ games/tank/src/GameLogicClientCommon.cpp	(working copy)
+@@ -605,6 +605,10 @@
+ 
+ 
+ //------------------------------------------------------------------------------
++/**
++ *  Ordinary objects are created by network packets, only helper
++ *  objects etc. are handled here!
++ */
+ void GameLogicClientCommon::onLevelObjectLoaded(const std::string & type, const bbm::ObjectInfo & info)
+ {
+     if (type == "HelperObject")
+Index: games/tank/src/GUIClientAuthentication.cpp
+===================================================================
+--- games/tank/src/GUIClientAuthentication.cpp	(revision 4565)
++++ games/tank/src/GUIClientAuthentication.cpp	(working copy)
+@@ -22,8 +22,8 @@
+ GUIClientAuthentication::GUIClientAuthentication(MainMenu * main_menu) :
+     user_changed_credentials_(false),
+     main_menu_(main_menu),
+-    id_ (network::ranking::INVALID_USER_ID),
+-    key_(network::ranking::INVALID_SESSION_KEY)
++    id_         (network::ranking::INVALID_USER_ID),
++    session_key_(network::ranking::INVALID_SESSION_KEY)
+ {
+     enableFloatingPointExceptions(false);
+ 
+@@ -58,7 +58,7 @@
+                                           uint32_t & session_key)
+ {
+     user_id     = id_;
+-    session_key = key_;
++    session_key = session_key_;
+ }
+ 
+ 
+@@ -376,8 +376,8 @@
+ 
+     network::ranking::ClientLogon * logon = (network::ranking::ClientLogon*)(obsv);
+ 
+-    id_  = logon->getUserId();
+-    key_ = logon->getSessionKey();
++    id_          = logon->getUserId();
++    session_key_ = logon->getSessionKey();
+ 
+     enableUserInput(true);
+     hide();
+Index: games/tank/src/beaconstrike/SpawnStageServer.cpp
+===================================================================
+--- games/tank/src/beaconstrike/SpawnStageServer.cpp	(revision 4565)
++++ games/tank/src/beaconstrike/SpawnStageServer.cpp	(working copy)
+@@ -16,10 +16,9 @@
+ #undef max
+ 
+ 
+-
+ //------------------------------------------------------------------------------
+ SpawnStageServer::SpawnStageServer() :
+-    beacon_(NULL),
++    defender_beacon_(NULL),
+     beacon_spawn_pos_(NULL)
+ {
+ }
+@@ -32,21 +31,21 @@
+ //------------------------------------------------------------------------------
+ TEAM_ID SpawnStageServer::getOwnerTeam() const
+ {
+-    if (beacon_) return TEAM_ID_DEFENDER;
++    if (defender_beacon_) return TEAM_ID_DEFENDER;
+     else return TEAM_ID_ATTACKER;
+ }
+ 
+ //------------------------------------------------------------------------------
+-void SpawnStageServer::setBeacon(Beacon * b)
++void SpawnStageServer::setDefenderBeacon(Beacon * b)
+ {
+-    beacon_ = b;
++    defender_beacon_ = b;
+ }
+ 
+ 
+ //------------------------------------------------------------------------------
+-Beacon * SpawnStageServer::getBeacon()
++Beacon * SpawnStageServer::getDefenderBeacon()
+ {
+-    return beacon_;
++    return defender_beacon_;
+ }
+ 
+ 
+Index: games/tank/src/beaconstrike/GameLogicServerBeaconstrike.cpp
+===================================================================
+--- games/tank/src/beaconstrike/GameLogicServerBeaconstrike.cpp	(revision 4565)
++++ games/tank/src/beaconstrike/GameLogicServerBeaconstrike.cpp	(working copy)
+@@ -41,8 +41,8 @@
+ 
+ /// Name of the geom which defines the beacon dispenser spawn volume.
+ const char * BEACON_SPAWN_POS_NAME = "b_spawn_pos";
++const char * BEACON_DISPENSER_NAME = "beacon_dispenser";
+ 
+-
+ //------------------------------------------------------------------------------
+ GameLogicServerBeaconstrike::GameLogicServerBeaconstrike() :
+     winner_team_(INVALID_TEAM_ID)
+@@ -135,6 +135,14 @@
+         // Send current beacon connections
+         sendBeaconConnections(player->getId(), CST_SINGLE);
+ 
++        // send conquered bases.
++        for (unsigned stage=0; stage<spawn_stage_.size(); ++stage)
++        {
++            if (!spawn_stage_[stage]->getDefenderBeacon())
++            {
++                sendStageConquered(stage, player->getId(), CST_SINGLE);
++            }
++        }
+ 
+         if (state_ == TGS_WON)
+         {
+@@ -172,8 +180,12 @@
+     if (spawn_stage_.empty())
+     {
+         s_log << Log::warning
+-              << "No conquerables\n";
++              << "No defender fixed beacons!\n";
+     }
++
++    assignSpawnPositionsToStages();
++
++    conquerBase(0, false);
+ }
+ 
+ //------------------------------------------------------------------------------
+@@ -203,7 +215,6 @@
+ bool GameLogicServerBeaconstrike::onLevelObjectLoaded(RigidBody * obj,
+                                                       const LocalParameters & params)
+ {
+-    unsigned stage_no = 1;
+     std::string role;
+     std::string team;
+ 
+@@ -221,20 +232,7 @@
+     try
+     {
+         team = params.get<std::string>("logic.team");
+-    } catch (ParamNotFoundException & e) {}
+-    try
+-    {
+-        stage_no = params.get<unsigned>("logic.stage");
+-        // numbering starts with 1 in Grome
+-        if (stage_no == 0)
+-        {
+-            s_log << Log::error
+-                  << "stage numbering starts with 1 in Grome!\n";
+-        } else
+-        {
+-            --stage_no;
+-        }
+-    } catch (ParamNotFoundException & e) {}
++    } catch (ParamNotFoundException & e) {}    
+ 
+     if (team != "attacker" && team != "defender" && !team.empty())
+     {
+@@ -245,46 +243,13 @@
+         return false;
+     }
+     TEAM_ID team_id = team == "attacker" ? TEAM_ID_ATTACKER : TEAM_ID_DEFENDER;
+-
+-    // Create as many stages as neccessary to accomodate the new
+-    // stage.
+-    if (stage_no >= spawn_stage_.size()) 
+-    {
+-        unsigned old_size = spawn_stage_.size();
+-        spawn_stage_.resize(std::max((unsigned)spawn_stage_.size(), stage_no+1), NULL);
+-
+-        for (unsigned i=old_size; i<spawn_stage_.size(); ++i)
+-        {
+-            spawn_stage_[i] = new SpawnStageServer();
+-        }
+-    }    
+-    SpawnStageServer * stage = spawn_stage_[stage_no];
+-
+-
+-
+     
+ 
+-
+     SpawnPos * spawn_pos = extractSpawnPos(obj, params);
+     if (spawn_pos)
+     {
+-        stage->addPlayerSpawnPos(spawn_pos, team_id);
++        unassigned_player_spawn_pos_[team_id].push_back(spawn_pos);
+         return true;
+-    } else if (role == "dispenser")
+-    {
+-        unsigned i = obj->getTarget()->getGeomIndex(BEACON_SPAWN_POS_NAME);
+-
+-        if (i == (unsigned)-1)
+-        {
+-            s_log << Log::error << "Beacon dispenser has no geom " << BEACON_SPAWN_POS_NAME << "\n";
+-        } else
+-        {
+-            physics::OdeGeom * geom = obj->getTarget()->getGeoms()[i];
+-            obj->getTarget()->detachGeom(i);
+-            geom->setSpace(sensor_space_.get());
+-            
+-            stage->setBeaconSpawnPos(std::auto_ptr<SpawnPos>(new SpawnPos(geom, NULL, team)));
+-        }
+     } else if (role == "fixed_beacon")
+     {
+         if (obj->getType() != "Beacon")
+@@ -297,13 +262,45 @@
+ 
+         Beacon * beacon = (Beacon*)obj;
+ 
++
++        // Create as many stages as neccessary to accomodate the new
++        // beacon
++        unsigned stage_no = 1;
++        try
++        {
++            stage_no = params.get<unsigned>("logic.stage");
++            // numbering starts with 1 in Grome
++            if (stage_no == 0)
++            {
++                s_log << Log::error
++                      << "stage numbering starts with 1 in Grome!\n";
++            } else
++            {
++                --stage_no;
++            }
++        } catch (ParamNotFoundException & e) {}
++        if (stage_no >= spawn_stage_.size()) 
++        {
++            unsigned old_size = spawn_stage_.size();
++            spawn_stage_.resize(std::max((unsigned)spawn_stage_.size(), stage_no+1), NULL);
++
++            for (unsigned i=old_size; i<spawn_stage_.size(); ++i)
++            {
++                spawn_stage_[i] = new SpawnStageServer();
++            }
++        }    
++        SpawnStageServer * stage = spawn_stage_[stage_no];
++
++        
+         if (team == "defender")
+         {
+             beacon->setTeamId(TEAM_ID_DEFENDER);
+-            stage->setBeacon(beacon);
++            stage->setDefenderBeacon(beacon);
+         } else
+         {
+             beacon->setTeamId(TEAM_ID_ATTACKER);
++            s_log << Log::warning
++                  << "attacker fixed beacon found. Is this intentional?\n";
+         }
+         beacon->setFixed();
+     }
+@@ -621,7 +618,8 @@
+ 
+     
+ 
+-
++/* There is no ammo limit at the moment....
++   
+     // reload ammo code for tank inside beacon boundary
+     // Traverse all controllables and reload if in active area
+     for (PuppetMasterServer::PlayerContainer::iterator it = puppet_master_->getPlayers().begin();
+@@ -642,19 +640,21 @@
+ 
+         }
+     }
+-
+-
++*/
+     
++    
+     // check if beacon spawn pos is free and spawn beacon if queued
+-    // beacons available. At the same time count free bases.
++    // beacons are available. At the same time count free bases.
+     unsigned num_free_bases = 0;
+     for (unsigned b=0; b<spawn_stage_.size(); ++b)
+     {
+-        if (spawn_stage_[b]->getBeacon()) ++num_free_bases;
+-        else if ( spawn_stage_[b]->getBeaconSpawnPos()               &&
+-                 !spawn_stage_[b]->getBeaconSpawnPos()->isOccupied() &&
+-                 team_[TEAM_ID_ATTACKER].getBeaconFromQueue())
++        if (spawn_stage_[b]->getDefenderBeacon())
+         {
++            ++num_free_bases;
++        } else if ( spawn_stage_[b]->getBeaconSpawnPos()                &&
++                    !spawn_stage_[b]->getBeaconSpawnPos()->isOccupied() &&
++                    team_[TEAM_ID_ATTACKER].getBeaconFromQueue())
++        {
+             Beacon * beacon = (Beacon*)createRigidBody(team_[TEAM_ID_ATTACKER].getBeaconName(),
+                                                        "Beacon");
+                 
+@@ -663,43 +663,18 @@
+ 
+             puppet_master_->addGameObject(beacon);
+         }
+-    }    
++    }
++    
+ 
+     // See if base was conquered...
+     for (unsigned c=0; c<spawn_stage_.size(); ++c)
+     {
+-        Beacon * def_beacon = spawn_stage_[c]->getBeacon();
++        Beacon * def_beacon = spawn_stage_[c]->getDefenderBeacon();
+         if (!def_beacon) continue;
+         
+         if (beacon_boundary_->isInsideArea(def_beacon->getBodyGeom())[TEAM_ID_ATTACKER])
+         {
+-            spawn_stage_[c]->setBeacon(NULL);
+-            def_beacon->scheduleForDeletion();
+-
+-            Matrix new_pos = def_beacon->getTransform();
+-            new_pos.getTranslation().y_ += BEACON_CONQUERED_HEIGHT_OFFSET;
+-            
+-            Beacon * new_beacon = (Beacon*)createRigidBody(team_[TEAM_ID_ATTACKER].getBeaconName(),
+-                                                           "Beacon");
+-            new_beacon->setTeamId(TEAM_ID_ATTACKER);
+-            new_beacon->setTransform(new_pos);
+-            new_beacon->setFixed();
+-            puppet_master_->addGameObject(new_beacon);
+-
+-            updateBoundary(true);
+-
+-            // Don't send "base conquered" message for last stage, as
+-            // "game won" will be sent.
+-            if (num_free_bases > 1)
+-            {
+-                sendStageConquered(c, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_READY);
+-                score_.setTimeLeft(score_.getTimeLeft() + s_params.get<float>("server.logic_beaconstrike.time_extension"));
+-                sendScoreUpdate(UNASSIGNED_SYSTEM_ADDRESS, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
+-            } else
+-            {
+-                gameWon();
+-                sendGameWon(TEAM_ID_ATTACKER, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
+-            }
++            conquerBase(c, num_free_bases == 1);
+         }
+     }    
+ }
+@@ -899,7 +874,98 @@
+ }
+ 
+ 
++
++
+ //------------------------------------------------------------------------------
++/**
++ *  When loading a level, it is not clear which stage camera positions
++ *  etc belong to. Cycle them here and assign to nearest stage.
++ */
++void GameLogicServerBeaconstrike::assignSpawnPositionsToStages()
++{
++    for (unsigned team=0; team<NUM_TEAMS_BS; ++team)
++    {    
++        for (unsigned pos=0; pos<unassigned_player_spawn_pos_[team].size(); ++pos)
++        {
++            unsigned best_stage = 0;
++            float best_dist     = 0.0f;
++            for (unsigned stage=0; stage<spawn_stage_.size(); ++stage)
++            {
++                SpawnStageServer * cur_stage = spawn_stage_[stage];
++                if (!cur_stage->getDefenderBeacon()) continue;
++            
++                float dist = (unassigned_player_spawn_pos_[team][pos]->getTransform().getTranslation() -
++                              cur_stage->getDefenderBeacon()->getPosition()).length();
++                if (stage==0 || dist<best_dist)
++                {
++                    best_dist = dist;
++                    best_stage = stage;
++                }
++            }
++
++            spawn_stage_[best_stage]->addPlayerSpawnPos(unassigned_player_spawn_pos_[team][pos], team);
++        }
++        unassigned_player_spawn_pos_[team].clear();
++    }    
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicServerBeaconstrike::conquerBase(unsigned base, bool game_won)
++{
++    Beacon * def_beacon = spawn_stage_[base]->getDefenderBeacon();
++    spawn_stage_[base]->setDefenderBeacon(NULL);
++    def_beacon->scheduleForDeletion();
++    
++
++    Matrix new_beacon_pos = def_beacon->getTransform();
++    new_beacon_pos.getTranslation().y_ += BEACON_CONQUERED_HEIGHT_OFFSET;
++            
++    Beacon * new_beacon = (Beacon*)createRigidBody(team_[TEAM_ID_ATTACKER].getBeaconName(),
++                                                   "Beacon");
++    new_beacon->setTeamId(TEAM_ID_ATTACKER);
++    new_beacon->setTransform(new_beacon_pos);
++    new_beacon->setFixed();
++    puppet_master_->addGameObject(new_beacon);
++
++
++    // Create the beacon dispenser, put the beacon spawn pos
++    // into sensor space and update stage...
++    RigidBody * new_dispenser = createRigidBody(BEACON_DISPENSER_NAME,
++                                                "RigidBody");
++    new_dispenser->setTransform(def_beacon->getTransform());
++    unsigned i = new_dispenser->getTarget()->getGeomIndex(BEACON_SPAWN_POS_NAME);
++    if (i == (unsigned)-1)
++    {
++        s_log << Log::error << "Beacon dispenser has no geom " << BEACON_SPAWN_POS_NAME << "\n";
++    } else
++    {
++        physics::OdeGeom * geom = new_dispenser->getTarget()->getGeoms()[i];
++        new_dispenser->getTarget()->detachGeom(i);
++        geom->setSpace(sensor_space_.get());
++        spawn_stage_[base]->setBeaconSpawnPos(
++            std::auto_ptr<SpawnPos>( new SpawnPos(geom, NULL, team_[TEAM_ID_ATTACKER].getName())));
++    }
++    puppet_master_->addGameObject(new_dispenser);
++
++
++            
++    updateBoundary(true);
++
++    if (game_won)
++    {
++        gameWon();
++        sendGameWon(TEAM_ID_ATTACKER, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
++    } else
++    {
++        sendStageConquered(base, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
++        score_.setTimeLeft(score_.getTimeLeft() + s_params.get<float>("server.logic_beaconstrike.time_extension"));
++        sendScoreUpdate(UNASSIGNED_SYSTEM_ADDRESS, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
++    }    
++}
++
++
++//------------------------------------------------------------------------------
+ void GameLogicServerBeaconstrike::sendPickupBeacon(uint16_t tank_id, uint16_t beacon_id,
+                                                 const SystemAddress & target_id,
+                                                 COMMAND_SEND_TYPE type)
+Index: games/tank/src/beaconstrike/SpawnStageServer.h
+===================================================================
+--- games/tank/src/beaconstrike/SpawnStageServer.h	(revision 4565)
++++ games/tank/src/beaconstrike/SpawnStageServer.h	(working copy)
+@@ -30,8 +30,8 @@
+ 
+     TEAM_ID getOwnerTeam() const;
+     
+-    void setBeacon(Beacon * b);
+-    Beacon * getBeacon();
++    void setDefenderBeacon(Beacon * b);
++    Beacon * getDefenderBeacon();
+ 
+     void addPlayerSpawnPos(SpawnPos * pos, TEAM_ID team);
+     void setBeaconSpawnPos(std::auto_ptr<SpawnPos> pos);
+@@ -42,13 +42,12 @@
+     
+  protected:
+ 
+-    Beacon * beacon_; ///< Conquerable beacon. Belongs to defender
+-                      ///team first.
++    Beacon * defender_beacon_; ///< Conquerable beacon. Is set to NULL
++                               ///when stage is conquered.
+     
+     /// Need a pointer here because we register a collision callback...    
+     std::vector<SpawnPos*> player_spawn_pos_[NUM_TEAMS_BS]; 
+     std::auto_ptr<SpawnPos> beacon_spawn_pos_;
+-
+ };
+ 
+ 
+Index: games/tank/src/beaconstrike/BeaconVisual.cpp
+===================================================================
+--- games/tank/src/beaconstrike/BeaconVisual.cpp	(revision 4565)
++++ games/tank/src/beaconstrike/BeaconVisual.cpp	(working copy)
+@@ -12,6 +12,7 @@
+ #include "ParameterManager.h"
+ #include "OsgNodeWrapper.h"
+ #include "EffectManager.h"
++#include "TeamBs.h"
+ 
+ 
+ 
+@@ -52,7 +53,8 @@
+     float time = (float)nv->getFrameStamp()->getSimulationTime();
+     
+     Beacon * beacon = (Beacon*)object_;
+-    if (beacon->isDeployed() || beacon->getState() == BS_HOVERING)
++    if (beacon->getTeamId() == TEAM_ID_ATTACKER &&
++        (beacon->isDeployed() || beacon->getState() == BS_HOVERING))
+     {
+         Vector pos = beacon->getTarget()->getPosition();
+         pos.y_ += sin(time*BEACON_HOVER_OMEGA) * BEACON_HOVER_AMPLITUDE;
+@@ -65,22 +67,19 @@
+     // set health bars value depending on beacons health
+     float health_percentage = (float)beacon->getHitpoints()/(float)beacon->getMaxHitpoints();
+     health_bar_->setValue(health_percentage);
++
++
+     
+-//     if (outer_node_.get() &&
+-//         beacon->getState() == BS_DEPLOYED ||
+-//         beacon->getState() == BS_HOVERING ||
+-//         beacon->getState() == BS_FIXED)
+-    {
+-        osg::Matrix mat;
+-        mat.makeRotate(BEACON_ROTATE_SPEED * time, 0.0f, 1.0f, 0.0f);
+-        outer_node_->setMatrix(mat);
+-    }
++    osg::Matrix mat;
++    mat.makeRotate(BEACON_ROTATE_SPEED * time, 0.0f, 1.0f, 0.0f);
++    outer_node_->setMatrix(mat);
+ 
+ 
+ 
+ 
+ 
+ 
++
+     
+     // make billboard invisible on full health or if beacon is carried
+     if (beacon->getHitpoints() == beacon->getMaxHitpoints() ||
+@@ -167,6 +166,10 @@
+     outer_node_ = s_scene_manager.insertLocalTransformNode(outer_node_v[0]);
+ 
+     onBeaconStateChanged();
++
++
++    // static beacons are not updated otherwise (rotation!).
++    osg_wrapper_->getOsgNode()->setUpdateCallback(this);    
+ }
+ 
+ 
+Index: games/tank/src/beaconstrike/SpawnStageClient.cpp
+===================================================================
+--- games/tank/src/beaconstrike/SpawnStageClient.cpp	(revision 4565)
++++ games/tank/src/beaconstrike/SpawnStageClient.cpp	(working copy)
+@@ -4,10 +4,12 @@
+ 
+ #include "TeamBs.h"
+ 
++
++
+ //------------------------------------------------------------------------------
+ SpawnStageClient::SpawnStageClient() :
+     owner_team_(TEAM_ID_ATTACKER),
+-    camera_(true)
++    camera_position_(true)
+ {
+ }
+ 
+@@ -30,12 +32,12 @@
+ //------------------------------------------------------------------------------
+ void SpawnStageClient::setCameraPosition(const Matrix & pos) 
+ {
+-    camera_ = pos;
++    camera_position_ = pos;
+ }
+ 
+ 
+ //------------------------------------------------------------------------------
+ const Matrix & SpawnStageClient::getCameraPosition() const
+ {
+-    return camera_;
++    return camera_position_;
+ }
+Index: games/tank/src/beaconstrike/GameLogicServerBeaconstrike.h
+===================================================================
+--- games/tank/src/beaconstrike/GameLogicServerBeaconstrike.h	(revision 4565)
++++ games/tank/src/beaconstrike/GameLogicServerBeaconstrike.h	(working copy)
+@@ -85,6 +85,9 @@
+     void updateBoundary(bool broadcast_connections);
+ 
+ 
++    void assignSpawnPositionsToStages();
++    void conquerBase(unsigned base, bool game_won);
++    
+     // -------------------- Custom command send functions --------------------
+     void sendPickupBeacon     (uint16_t tank_id, uint16_t beacon_id,
+                                const SystemAddress & target_id,
+@@ -112,6 +115,11 @@
+ 
+     TEAM_ID winner_team_; ///< Only valid if state_ is TGS_WON
+     
++
++    /// When loading the level, it is yet unclear which stage the
++    /// spawn positions belong to (they are assigned to their nearest
++    /// beacon). Store them here intermediately.
++    std::vector<SpawnPos*>  unassigned_player_spawn_pos_[NUM_TEAMS_BS];
+ };
+ 
+ #endif
+Index: games/tank/src/beaconstrike/GameLogicClientBeaconstrike.cpp
+===================================================================
+--- games/tank/src/beaconstrike/GameLogicClientBeaconstrike.cpp	(revision 4565)
++++ games/tank/src/beaconstrike/GameLogicClientBeaconstrike.cpp	(working copy)
+@@ -118,8 +118,12 @@
+ //------------------------------------------------------------------------------
+ void GameLogicClientBeaconstrike::loadLevel(const std::string & lvl_name)
+ {
++    unassigned_camera_position_.clear();
++    
+     GameLogicClientCommon::loadLevel(lvl_name);
+ 
++    assignToStages();
++    
+     for (unsigned t=0; t<NUM_TEAMS_BS; ++t)
+     {
+         team_[t].createBoundary(puppet_master_->getGameState()->getSimulator()->getStaticSpace());
+@@ -206,6 +210,10 @@
+ 
+ 
+ //------------------------------------------------------------------------------
++/**
++ *  Ordinary objects are created by network packets, only helper
++ *  objects etc. are handled here!
++ */
+ void GameLogicClientBeaconstrike::onLevelObjectLoaded(const std::string & type,
+                                                       const bbm::ObjectInfo & info)
+ {
+@@ -215,28 +223,31 @@
+     {
+         if (info.params_.get<std::string>("logic.role") == "spawn_camera")
+         {
+-            // stage index is 1--based!
+-            unsigned stage_no = info.params_.get<unsigned>("logic.stage");
+-            assert(stage_no > 0);
+-            stage_.resize(std::max(stage_.size(), stage_no));
+-            stage_[stage_no-1].setCameraPosition(info.transform_);
++            unassigned_camera_position_.push_back(info.transform_);
+         }
+     } else if (type == "Beacon")
+     {
+-        // look for defender beacon, set stage owner accordingly.
+-        if (info.params_.get<std::string>("logic.role") == "fixed_beacon" &&
+-            info.params_.get<std::string>("logic.team") == "defender")
++        // look for defender beacon, set stage owner accordingly. This
++        // is neccessary so we can determine valid spawning positions
++        // for the local player.
++        if (info.params_.get<std::string>("logic.role") == "fixed_beacon")
+         {
+             unsigned stage_no = info.params_.get<unsigned>("logic.stage");
+             assert(stage_no > 0);
+-            stage_.resize(std::max(stage_.size(), stage_no));
++            stage_.resize(std::max(stage_.size(), stage_no));    
+ 
+-            stage_[stage_no-1].setOwnerTeam(TEAM_ID_DEFENDER);
++            Matrix preliminary_camera_transform = info.transform_;
++            preliminary_camera_transform.getTranslation().y_ += 10.0f;
++            stage_[stage_no-1].setCameraPosition(preliminary_camera_transform);
++            
++            if (info.params_.get<std::string>("logic.team") == "defender")
++            {
++                stage_[stage_no-1].setOwnerTeam(TEAM_ID_DEFENDER);
++            }
+         }
+     }
+ }
+ 
+-
+ //------------------------------------------------------------------------------
+ void GameLogicClientBeaconstrike::onTeamAssignmentChanged(Player * player)
+ {
+@@ -482,6 +493,35 @@
+ 
+ 
+ //------------------------------------------------------------------------------
++/**
++ *  When loading a level, it is not clear which stage camera positions
++ *  etc belong to. Cycle them here and assign to nearest stage.
++ */
++void GameLogicClientBeaconstrike::assignToStages()
++{
++    for (unsigned pos=0; pos<unassigned_camera_position_.size(); ++pos)
++    {
++        unsigned best_stage = 0;
++        float best_dist     = 0.0f;
++        for (unsigned stage=0; stage<stage_.size(); ++stage)
++        {
++            float dist = (unassigned_camera_position_[pos].getTranslation() -
++                          stage_[stage].getCameraPosition().getTranslation()).length();
++            if (stage==0 || dist<best_dist)
++            {
++                best_dist = dist;
++                best_stage = stage;
++            }
++        }
++
++        stage_[best_stage].setCameraPosition(unassigned_camera_position_[pos]);
++    }
++
++    unassigned_camera_position_.clear();
++}
++
++
++//------------------------------------------------------------------------------
+ void GameLogicClientBeaconstrike::pickupBeacon(RakNet::BitStream & args)
+ {
+     uint16_t tank_id, beacon_id;
+Index: games/tank/src/beaconstrike/SpawnStageClient.h
+===================================================================
+--- games/tank/src/beaconstrike/SpawnStageClient.h	(revision 4565)
++++ games/tank/src/beaconstrike/SpawnStageClient.h	(working copy)
+@@ -20,7 +20,9 @@
+  protected:
+     TEAM_ID owner_team_; ///< Current owner of this spawn stage. 
+     
+-    Matrix camera_; ///< The camera position for spawn stage selection
++    Matrix camera_position_; ///< The camera position for spawn stage
++                             ///selection. Initially is set to hover
++                             ///directly above the beacon position.    
+ };
+ 
+ 
+Index: games/tank/src/beaconstrike/GameLogicClientBeaconstrike.h
+===================================================================
+--- games/tank/src/beaconstrike/GameLogicClientBeaconstrike.h	(revision 4565)
++++ games/tank/src/beaconstrike/GameLogicClientBeaconstrike.h	(working copy)
+@@ -46,6 +46,8 @@
+ 
+  protected:
+ 
++    void assignToStages();
++    
+     // -------------------- Custom command handlers --------------------
+     void pickupBeacon           (RakNet::BitStream & args);
+     void dropBeacon             (RakNet::BitStream & args);
+@@ -68,6 +70,10 @@
+     
+     std::vector<SpawnStageClient> stage_;
+     
++    /// When loading the level, it is yet unclear which stage the
++    /// camera positions belong to (they are assigned to the nearest
++    /// beacon). Store them here intermediately.
++    std::vector<Matrix> unassigned_camera_position_;
+ };
+ 
+ 
+Index: games/tank/src/ctf/GameLogicServerCtf.h
+===================================================================
+--- games/tank/src/ctf/GameLogicServerCtf.h	(revision 0)
++++ games/tank/src/ctf/GameLogicServerCtf.h	(revision 0)
+@@ -0,0 +1,70 @@
++#ifndef TANK_GAMELOGIC_SERVER_CTF_DEFINED
++#define TANK_GAMELOGIC_SERVER_CTF_DEFINED
++
++
++#include "../GameLogicServerCommon.h"
++
++//------------------------------------------------------------------------------
++/**
++ *  Used to distinguish CustomServerCmd types.
++ */
++enum CUSTOM_SERVER_COMMAND_TYPE_CTF
++{
++    CSCTCTF_GAME_WON = CSCT_LAST
++};
++
++
++//------------------------------------------------------------------------------
++class GameLogicServerCtf : public GameLogicServerCommon
++{
++ public:
++    GameLogicServerCtf();
++
++
++    virtual void init(PuppetMasterServer * master);    
++    
++    virtual void addPlayer(const Player * player, bool newly_connected);
++
++    virtual void loadLevel(const std::string & name);
++    
++
++    virtual bool onLevelObjectLoaded(RigidBody * obj, const LocalParameters & params);
++    
++
++
++    // -------------------- Common virtual functions --------------------
++    virtual Matrix getRespawnPos(const SystemAddress & pid, unsigned stage);
++    virtual Tank * createNewPlayerTank(const SystemAddress & pid);
++
++    virtual void onTankKilled(Tank * tank, const SystemAddress & killer_id);
++    virtual void onProjectileHit(Projectile * projectile,
++                                 RigidBody * hit_object,
++                                 float hit_percentage,
++                                 const physics::CollisionInfo & info,
++                                 bool create_feedback);
++
++    virtual void onTimeLimitExpired();
++
++    
++    static GameLogicServer * create();    
++ protected:
++    
++    // -------------------- Custom command send functions --------------------
++    void sendGameWon(const SystemAddress & player,
++                     const SystemAddress & target_id,
++                     COMMAND_SEND_TYPE type);
++
++
++    // -------------------- Custom command handlers --------------------
++    virtual void onTeamMessage        (RakNet::BitStream & args);
++    
++    void handleLogic    (float dt);
++
++    SystemAddress winner_; ///< Only valid if state is TGS_WON
++
++    Team team_; ///< Only one dummy team to distinguish spectators from players
++};
++
++
++#endif
++
+Index: games/tank/src/ctf/GameLogicClientCtf.cpp
+===================================================================
+--- games/tank/src/ctf/GameLogicClientCtf.cpp	(revision 0)
++++ games/tank/src/ctf/GameLogicClientCtf.cpp	(revision 0)
+@@ -0,0 +1,298 @@
++
++#include "GameLogicClientCtf.h"
++
++#include "AutoRegister.h"
++#include "LevelData.h"
++#include "../GameHudTank.h"
++#include "GameHud.h"
++#include "GameLogicServerCtf.h"
++#include "../GUIScore.h"
++#include "../GUITankEquipment.h"
++#include "../GUITeamSelect.h"
++#include "InputHandler.h"
++#include "ControllableVisual.h"
++#include "../TankMineVisual.h"
++#include "SdlApp.h"
++#include "HudMessageColors.h"
++
++#ifdef ZERO_BALLISTICS_MODE
++REGISTER_CLASS(GameLogicClient, GameLogicClientCtf);
++#endif
++
++//------------------------------------------------------------------------------
++GameLogicClientCtf::GameLogicClientCtf()
++{
++}
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::init(PuppetMasterClient * master)
++{
++    GameLogicClientCommon::init(master);
++    
++    team_.setId(0);
++    team_.setConfigName("team_deathmatch");
++    score_.addTeam(&team_);
++
++    std::vector<Team*> team_for_sel(1, &team_);
++    gui_score_->setTeams(team_for_sel);
++
++    gui_teamselect_->setTeams(team_for_sel);
++}
++
++
++//------------------------------------------------------------------------------
++bool GameLogicClientCtf::handleInput(PlayerInput & input)
++{
++    if (score_.getTeam(puppet_master_->getLocalPlayer()->getId()) != NULL &&
++        !puppet_master_->getLocalPlayer()->getControllable() &&
++        input.fire1_ &&
++        !respawn_input_blocked_)
++    {
++        sendRespawnRequest(0);
++        // immediately update msg
++        handleRespawnCounter(0.0f);        
++    }
++
++    return GameLogicClientCommon::handleInput(input);
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::onRequestReady()
++{
++    s_log << Log::debug('l')
++          << "onRequestReady\n";
++    GameLogicClientCommon::onRequestReady();
++
++    if (s_params.get<bool>("server.logic_deathmatch.allow_spawn_stage_selection"))
++    {
++        changeToSpawnSelectionCam(NULL);
++        handleRespawnCounter(0.0f);
++    } 
++
++    gui_teamselect_->show(true);
++
++    // also update mine warning billboards
++    TankMineVisual::setLocalPlayerId(puppet_master_->getLocalPlayer()->getId());
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::executeCustomCommand(unsigned type, RakNet::BitStream & args)
++{
++    switch (type)
++    {
++    case CSCTCTF_GAME_WON:
++        gameWon(args);
++        break;
++    default:
++        GameLogicClientCommon::executeCustomCommand(type, args);
++    }    
++}
++
++
++//------------------------------------------------------------------------------
++/**
++ *  Remember all spawning postions so they can be cycled in dev mode.
++ */
++void GameLogicClientCtf::onLevelObjectLoaded(const std::string & type,
++                                                    const bbm::ObjectInfo & info)
++{
++    GameLogicClientCommon::onLevelObjectLoaded(type, info);
++
++    std::string role;
++    
++    try
++    {
++        role = info.params_.get<std::string>("logic.role");
++    } catch (ParamNotFoundException & e)
++    {
++        return;
++    }
++    
++    if (role == "start_pos")
++    {
++        spawn_pos_.push_back(info.transform_);
++    }
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::onTeamAssignmentChanged(Player * player)
++{
++    GameLogicClientCommon::onTeamAssignmentChanged(player);
++
++    if (player == puppet_master_->getLocalPlayer())
++    {
++        TEAM_ID team_id = score_.getTeamId(puppet_master_->getLocalPlayer()->getId());
++        
++        if (team_id != INVALID_TEAM_ID)
++        {
++        } else
++        {
++            setInputMode(IM_CONTROL_CAMERA);
++        }
++    }
++
++    
++    Team * team = score_.getTeam(player->getId());
++
++    // Determine whether this is the initial transmission of team
++    // assignments based on whether level data was already set for
++    // replay sim
++    std::string msg;
++    if (player == puppet_master_->getLocalPlayer())
++    {
++
++        if (team == NULL)
++        {
++            msg = "You are now spectator.";
++
++            // Hide respawn counter
++            show_respawn_text_ = false;
++            handleRespawnCounter(0.0f);
++        } else
++        {
++            show_respawn_text_ = true;
++            msg = "You have joined the match.";
++
++            sendRespawnRequest(0);
++        }
++
++    } else if (puppet_master_->getLocalPlayer()->isLevelDataSet())
++    {
++        if (team)
++        {
++            msg = player->getName() + " has joined the match.";
++        }
++        else
++        {
++            msg = player->getName() + " is now spectator.";
++        }
++    }
++    
++//    puppet_master_->getHud()->addMessage(msg, MC_JOINED_DM);
++}
++
++
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::onLocalControllableSet()
++{
++    GameLogicClientCommon::onLocalControllableSet();
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::onLocalPlayerKilled(Player * killer)
++{
++    if (s_params.get<bool>("server.logic_deathmatch.allow_spawn_stage_selection"))
++    {
++        GameLogicClientCommon::onLocalPlayerKilled(killer);
++    } else
++    {
++        blockRespawnInput();
++        
++        // free camera is automatically used if there is no
++        // controllable.
++        setupDeathCam(killer ? killer->getControllable() : NULL,
++                      puppet_master_->getLocalPlayer()->getControllable());
++
++        startRespawnCounter();
++    }
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::handleMinimapIcon(RigidBody * object, bool force_reveal)
++{
++    if (object->getType() == "Tank" &&
++        (object->getOwner() == puppet_master_->getLocalPlayer()->getId() || force_reveal))
++    {
++        hud_->getMinimap()->addIcon(object, "tank_" + object->getName() + ".dds");
++    }
++}
++
++
++//------------------------------------------------------------------------------
++Matrix GameLogicClientCtf::selectValidSpawnStage(int delta)
++{
++    assert(!spawn_pos_.empty());
++    if(selected_spawn_stage_ >= spawn_pos_.size()) selected_spawn_stage_ = 0;
++
++    selected_spawn_stage_ = (selected_spawn_stage_+spawn_pos_.size()+delta) % spawn_pos_.size();
++
++    return spawn_pos_[selected_spawn_stage_];
++}
++
++
++
++//------------------------------------------------------------------------------
++GameLogicClient * GameLogicClientCtf::create()
++{
++    return new GameLogicClientCtf();
++}
++
++//------------------------------------------------------------------------------
++void GameLogicClientCtf::gameWon (RakNet::BitStream & args)
++{
++    GameLogicClientCommon::gameWon();
++    
++    SystemAddress winner_id;
++    args.Read(winner_id);
++
++    std::string game_info_label;
++
++    Player * winning_player;
++    if (winner_id == puppet_master_->getLocalPlayer()->getId())
++    {
++        winning_player = puppet_master_->getLocalPlayer();
++        game_info_label = "Congratulations! You are the winner!";
++    } else
++    {
++        winning_player = puppet_master_->getRemotePlayer(winner_id);
++        if (!winning_player)
++        {
++            game_info_label = "Round draw.";
++        } else
++        {
++            game_info_label = winning_player->getName() + " has won the match!";
++        }
++    }
++
++    s_log << Log::debug('l') << game_info_label;
++
++    puppet_master_->getHud()->setStatusLine(game_info_label);
++
++//    gui_score_->show(1.0f);
++
++//     SoundSource * snd = NULL;
++//     if(team_id == TEAM_ID_ATTACKER)
++//     {
++//         snd = s_soundmanager.playSimpleEffect(s_params.get<std::string>("sfx.attacker_wins"),
++//                                               s_soundmanager.getListenerInfo().position_);
++//     } else
++//     {
++//         snd = s_soundmanager.playSimpleEffect(s_params.get<std::string>("sfx.defender_wins"),
++//                                               s_soundmanager.getListenerInfo().position_);
++//     }
++//     snd->setRolloffFactor(0.0f);
++
++
++
++    // winning camera
++    if (winning_player && winning_player->getControllable())
++    {
++        const Vector OFFSET = Vector(0,1,3);
++        ControllableVisual * visual = (ControllableVisual*)winning_player->getControllable()->getUserData();
++        Matrix new_pos = visual->getTrackingPos(Vector(0,0,0));
++
++        new_pos.getTranslation() += new_pos.transformVector(OFFSET);
++        new_pos.loadOrientation(winning_player->getControllable()->getPosition() - new_pos.getTranslation(), Vector(0,1,0));
++    
++        spectator_camera_.trackPlayer(winning_player->getId());
++        spectator_camera_.setMode(CM_TRACKING_3RD_CONSTANT_DIR);
++        spectator_camera_.setTransform(new_pos);
++    }    
++}
++
+Index: games/tank/src/ctf/GameLogicClientCtf.h
+===================================================================
+--- games/tank/src/ctf/GameLogicClientCtf.h	(revision 0)
++++ games/tank/src/ctf/GameLogicClientCtf.h	(revision 0)
+@@ -0,0 +1,45 @@
++
++#ifndef TANK_GAMELOGIC_CLIENT_CTF_DEFINED
++#define TANK_GAMELOGIC_CLIENT_CTF_DEFINED
++
++#include "../GameLogicClientCommon.h"
++
++
++//------------------------------------------------------------------------------
++class GameLogicClientCtf : public GameLogicClientCommon
++{    
++ public:
++
++    GameLogicClientCtf();
++    
++    virtual void init(PuppetMasterClient * master);
++
++    virtual bool handleInput(PlayerInput & input);
++
++    virtual void onRequestReady();
++    virtual void executeCustomCommand(unsigned type, RakNet::BitStream & args);
++    
++    // -------------------- Common virtual functions --------------------
++    virtual void onLevelObjectLoaded(const std::string & type, const bbm::ObjectInfo & info);
++    virtual void onTeamAssignmentChanged(Player * player);
++    virtual void onLocalControllableSet();
++    virtual void onLocalPlayerKilled(Player * killer);
++
++    virtual void handleMinimapIcon(RigidBody * object, bool force_reveal = false);
++    
++    virtual Matrix selectValidSpawnStage(int delta);
++    
++    static GameLogicClient * create();    
++ protected:
++
++    // -------------------- Custom command handlers --------------------
++    void gameWon (RakNet::BitStream & args);
++
++    Team team_; ///< Dummy team.
++    
++    std::vector<Matrix> spawn_pos_;
++};
++
++
++#endif
++
+Index: games/tank/src/ctf/GameLogicServerCtf.cpp
+===================================================================
+--- games/tank/src/ctf/GameLogicServerCtf.cpp	(revision 0)
++++ games/tank/src/ctf/GameLogicServerCtf.cpp	(revision 0)
+@@ -0,0 +1,285 @@
++
++#include "GameLogicServerCtf.h"
++
++#include <limits>
++
++#include "AutoRegister.h"
++#include "../Tank.h"
++#include "../SpawnPos.h"
++#include "NetworkCommandServer.h"
++#include "../Projectile.h"
++
++
++#undef min
++#undef max
++
++#ifdef ZERO_BALLISTICS_MODE
++REGISTER_CLASS(GameLogicServer, GameLogicServerCtf);
++#endif
++
++//------------------------------------------------------------------------------
++GameLogicServerCtf::GameLogicServerCtf() :
++    winner_(UNASSIGNED_SYSTEM_ADDRESS)
++{
++}
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::init(PuppetMasterServer * master)
++{
++    GameLogicServerCommon::init(master);
++    
++    team_.setId(0);
++    team_.setConfigName("team_deathmatch");
++    score_.addTeam(&team_);
++}
++
++
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::addPlayer(const Player * player, bool newly_connected)
++{
++    GameLogicServerCommon::addPlayer(player, newly_connected);
++
++    if (state_ == TGS_BEFORE_MATCH_START) onMatchStart();
++    
++    if (newly_connected)
++    {
++        if (state_ == TGS_WON)
++        {
++            sendGameWon(winner_,
++                        player->getId(),
++                        CST_SINGLE);
++        }
++
++        puppet_master_->requestPlayerReady(player->getId());
++    }
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::loadLevel(const std::string & name)
++{
++    winner_ = UNASSIGNED_SYSTEM_ADDRESS;
++    
++    GameLogicServerCommon::loadLevel(name);    
++}
++
++
++//------------------------------------------------------------------------------
++bool GameLogicServerCtf::onLevelObjectLoaded(RigidBody * obj,
++                                                    const LocalParameters & params)
++{
++    return GameLogicServerCommon::onLevelObjectLoaded(obj, params);
++}
++
++
++//------------------------------------------------------------------------------
++Matrix GameLogicServerCtf::getRespawnPos(const SystemAddress & pid,
++                                                unsigned stage)
++{
++    if (s_params.get<bool>("server.logic_deathmatch.allow_spawn_stage_selection"))
++    {
++        assert(!spawn_pos_.empty());
++        assert(stage < spawn_pos_.size());
++    
++        stage = std::min(spawn_pos_.size()-1, stage);
++    
++        return spawn_pos_[stage]->getTransform();
++    } else
++    {
++        return getRandomSpawnPos(spawn_pos_);
++    }
++}
++
++
++//------------------------------------------------------------------------------
++Tank * GameLogicServerCtf::createNewPlayerTank(const SystemAddress & pid)
++{
++    // XXXX make this go into parameterfile, use skins....
++    RigidBody * rb;
++    if (rand() <(RAND_MAX>>1)) rb = createRigidBody("hornet",    "Tank");
++    else                       rb = createRigidBody("brummbaer", "Tank");
++    return dynamic_cast<Tank*>(rb);    
++}
++
++
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::onTankKilled(Tank * tank, const SystemAddress & killer_id)
++{
++    assert(killer_id != tank->getOwner()); // suicide is always "killed by UNASSIGNED_SYSTEM_ADDRESS"
++
++    // Update player score
++    PlayerScore * killed_score = score_.getPlayerScore(tank->getOwner());
++    assert(killed_score);
++
++    ++killed_score->deaths_;
++    if (killer_id == UNASSIGNED_SYSTEM_ADDRESS)
++    {
++        // Suicide - reduce score by one, upgrade points by one
++        --killed_score->score_;
++        if (killed_score->upgrade_points_) --killed_score->upgrade_points_;
++    } else 
++    {
++        PlayerScore * killer_score = score_.getPlayerScore(killer_id);
++
++        // killing player doesn't neccessarily exist on server
++        // anymore...
++        if (killer_score)
++        {
++            // Ordinary kill - add to score
++            killer_score->score_          += KILL_SCORE_VALUE;
++            killer_score->kills_          += KILL_VALUE;
++            killer_score->upgrade_points_ += KILL_UPGRADE_VALUE;
++                
++            // if killing strong opponent, more than 2 upgrade levels above, killer gets
++            // twice the upgrade points, vice versa on weak opponent
++            int killed_num_upgrades =   (killed_score->active_upgrades_[0] + 
++                                         killed_score->active_upgrades_[1] + 
++                                         killed_score->active_upgrades_[2]);
++            int killer_num_upgrades =   (killer_score->active_upgrades_[0] + 
++                                         killer_score->active_upgrades_[1] + 
++                                         killer_score->active_upgrades_[2]);
++
++            if((killed_num_upgrades - killer_num_upgrades) >=  2) killer_score->upgrade_points_ += KILL_UPGRADE_VALUE;
++            if((killed_num_upgrades - killer_num_upgrades) <= -2) killer_score->upgrade_points_ -= KILL_UPGRADE_VALUE;
++
++
++            sendScoreUpdate(killer_id, UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
++        }
++    }
++    sendScoreUpdate(tank->getOwner(), UNASSIGNED_SYSTEM_ADDRESS, CST_BROADCAST_ALL);
++
++    // Kill damage assist
++    float assist_damage_percentage;
++    SystemAddress assist_killer_id = tank->getTopAssistant(killer_id, assist_damage_percentage);
++    handleAssist(assist_killer_id,
++                 tank->getOwner(), 
++                 assist_damage_percentage,
++                 KILL_ASSIST_SCORE_VALUE,
++                 KILL_ASSIST_UPGRADE_VALUE,
++                 false);
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::onProjectileHit(Projectile * projectile,
++                                                RigidBody * hit_object,
++                                                float hit_percentage,
++                                                const physics::CollisionInfo & info,
++                                                bool create_feedback)
++{
++    GameLogicServerCommon::onProjectileHit(projectile, hit_object, hit_percentage, info, create_feedback);
++
++    
++    // score & accuracy calculation
++    // Need different calculation here
++    // because all players are in the same team...
++    PlayerScore * shooter_score = score_.getPlayerScore(projectile->getOwner());
++
++    // player score is null if firing tank left game while his
++    // projectile was in progress
++    if (shooter_score && hit_object && hit_object->getType() == "Tank")
++    {
++        if (hit_percentage == 1.0f)
++        {
++            if (hit_object->getOwner() != UNASSIGNED_SYSTEM_ADDRESS)
++            {
++                shooter_score->shots_++;
++                shooter_score->hits_++;
++            } else
++            {
++                // tank wrecks are neutral w.r.t. accuracy
++            }
++        } else
++        {
++            // only count direct hits for accuracy
++            shooter_score->shots_++;
++        }
++
++        // sends score for acc, eff calc. to shooting player only
++        sendScoreUpdate(projectile->getOwner(), projectile->getOwner(), CST_SINGLE);
++    }    
++}
++
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::onTimeLimitExpired()
++{
++    PlayerScore * best_score = NULL;
++    bool draw = false;
++    // find player with most kills
++    for (PuppetMasterServer::PlayerContainer::iterator it = puppet_master_->getPlayers().begin();
++         it != puppet_master_->getPlayers().end();
++         ++it)
++    {
++        PlayerScore * score = score_.getPlayerScore(it->getId());
++
++        if (!best_score)
++        {
++            best_score = score;
++        } else
++        {
++            if (score->score_ >  best_score->score_)
++            {
++                draw = false;
++                best_score = score;
++            } else if (score->score_ == best_score->score_)
++            {
++                draw = true;
++            }
++        }        
++    }
++
++    // we might be without players...
++    if (best_score)
++    {
++        winner_ = draw ? UNASSIGNED_SYSTEM_ADDRESS : best_score->getPlayer()->getId();
++        sendGameWon(winner_,
++                    UNASSIGNED_SYSTEM_ADDRESS,
++                    CST_BROADCAST_ALL);
++    }
++
++    gameWon();
++}
++
++
++
++
++//------------------------------------------------------------------------------
++GameLogicServer * GameLogicServerCtf::create()
++{
++    return new GameLogicServerCtf();
++}
++
++//------------------------------------------------------------------------------
++void GameLogicServerCtf::sendGameWon(const SystemAddress & player_id,
++                                            const SystemAddress & target_id,
++                                            COMMAND_SEND_TYPE type)
++{
++    RakNet::BitStream args;
++    args.Write(player_id);
++    
++    network::CustomServerCmd game_won_cmd(CSCTCTF_GAME_WON, args);
++    puppet_master_->sendNetworkCommand(game_won_cmd, target_id, type);
++
++    Player * player = puppet_master_->getPlayer(player_id);
++    if (player)
++    {
++        s_log << player->getName()
++              << " has won the match.\n";
++    } else
++    {
++        s_log << "Round draw.\n";
++    }
++}
++
++
++//------------------------------------------------------------------------------
++/**
++ *  Ignore all team messages in deathmatch mode.
++ */
++void GameLogicServerCtf::onTeamMessage(RakNet::BitStream & args)
++{
++}
++
+Index: games/tank/src/Tank.cpp
+===================================================================
+--- games/tank/src/Tank.cpp	(revision 4565)
++++ games/tank/src/Tank.cpp	(working copy)
+@@ -129,7 +129,7 @@
+         firing |= weapon_system_[1]->handleInput(input_.fire2_);
+         firing |= weapon_system_[2]->handleInput(input_.fire3_);
+         firing |= weapon_system_[3]->handleInput(input_.fire4_);
+-    }
++    }        
+ 
+     if (getLocation() != CL_REPLAY_SIM)
+     {
+Index: games/tank/config_server.xml
+===================================================================
+--- games/tank/config_server.xml	(revision 4565)
++++ games/tank/config_server.xml	(working copy)
+@@ -2,14 +2,14 @@
+ <parameters>
+ 
+     <section name="ranking_server">
+-        <variable name="hosts" value="[ranking.fullmetalsoccer.com;quanticode.dyndns.org]" type="vector<string>" />
+-        <variable name="ports" value="[23509;23509]" type="vector<unsigned>" />
++        <variable name="hosts" value="[gameisle]" type="vector<string>" />
++        <variable name="ports" value="[23509]" type="vector<unsigned>" />
+     </section>
+ 
+ 
+     <section name="master_server">
+         <variable name="host" value="master.fullmetalsoccer.com" type="string" />
+-        <variable name="port" value="23505" type="unsigned" />
++        <variable name="port" value="3505" type="unsigned" />
+         <variable name="heartbeat_interval" value="180" type="unsigned" />
+     </section>
+     <!-- 
+@@ -29,7 +29,7 @@
+         <variable name="login_passwd" value="testpasswd"     type="string"/> 
+ 
+ 
+-        <variable name="map_names" value="[[fms_stadion;Soccer]]" type="vector<vector<string> >" />
++        <variable name="map_names" value="[[bs_almrausch;Ctf]]" type="vector<vector<string> >" />
+     </section>
+     <!-- 
+     -->
+Index: games/tank/documents/server_config/config.txt
+===================================================================
+--- games/tank/documents/server_config/config.txt	(revision 4565)
++++ games/tank/documents/server_config/config.txt	(working copy)
+@@ -3,11 +3,50 @@
+ 
+ ------------------------------------------------------------------------------
+ /etc/inetd.conf:
+-svn-binary  stream tcp nowait musch /usr/bin/svnserv svnserv -i -r /home/swentwicklung/svn-binary  --listen-port=60060
+-svn-artwork stream tcp nowait musch /usr/bin/svnserv svnserv -i -r /home/swentwicklung/svn-artwork --listen-port=60061
+-svn-code    stream tcp nowait musch /usr/bin/svnserv svnserv -i -r /home/swentwicklung/svn-artwork --listen-port=60062
++svn-binary  stream tcp nowait musch /usr/bin/svnserve svnserve -i -r /home/svn/svn-binary  --listen-port=60060
++svn-artwork stream tcp nowait musch /usr/bin/svnserve svnserve -i -r /home/svn/svn-artwork --listen-port=60061
++svn-code    stream tcp nowait musch /usr/bin/svnserve svnserve -i -r /home/svn/svn-code    --listen-port=60062
+ 
++------------------------------------------------------------------------------
++/etc/xinetd.d:
+ 
++svn@v52:~$ cat /etc/xinetd.d/svn
++service svn-binary
++{
++        port = 60060
++        protocol = tcp
++        disable = no
++        socket_type = stream
++        wait = no
++        user = svn
++        server = /usr/bin/svnserve
++        server_args =  -i -r /home/svn/svn-binary    --listen-port=60060
++} 
++service svn-artwork
++{
++        port = 60061
++        protocol = tcp
++        disable = no
++        socket_type = stream
++        wait = no
++        user = svn
++        server = /usr/bin/svnserve
++        server_args =  -i -r /home/svn/svn-artwork    --listen-port=60061
++} 
++service svn-code
++{
++        port = 60062
++        protocol = tcp
++        disable = no
++        socket_type = stream
++        wait = no
++        user = svn
++        server = /usr/bin/svnserve
++        server_args =  -i -r /home/svn/svn-code    --listen-port=60062
++} 
++
++
++
+ ------------------------------------------------------------------------------
+ /etc/services:
+ # Local services
+Index: games/tank/documents/todo.dox
+===================================================================
+--- games/tank/documents/todo.dox	(revision 4565)
++++ games/tank/documents/todo.dox	(working copy)
+@@ -1,16 +1,52 @@
+ 
++
++define additional property "game mode" for level objects, objects not
++designated for active game mode are silently ignored when loading
++level
++distinguish assets in grome based on color, prefix
++
++
++Capture the Flag:
++
++required assets:
++-) beacon spawn position for both teams
++-) base area inside of which beacon is captured
++
++
++define game modes for which level can be used
++- as property?
++=> prefix scheme obsolete!
++need to know this when listing available modes.
++
++
++------------------------------------------------------------------------------
++
++BARNY:
++
++role "dispenser" is obsolete, remove all dispensers
++only stage numbering of defender beacon is important
++don't need to place first fixed beacon for attacker, stage 0 is automatically conquered.
++
++
++------------------------------------------------------------------------------
++------------------------------------------------------------------------------
++------------------------------------------------------------------------------
++------------------------------------------------------------------------------
++
+ nat-punchthrough problems!!!
+ 
+ try raknet sample...
+ 
+ ------------------------------------------------------------------------------
+ 
++degrade score over time
++
+ skill into scoreboard
+ 
+ match summary:
+ verweis auf hp, show winning team
+ 
+-increase version number
++increase version number?
+ 
+ ------------------------------------------------------------------------------
+ 
+Index: games/tank/CMakeLists.txt
+===================================================================
+--- games/tank/CMakeLists.txt	(revision 4565)
++++ games/tank/CMakeLists.txt	(working copy)
+@@ -117,6 +117,10 @@
+ ./src/beaconstrike/BeaconVisual.cpp 
+ ./src/beaconstrike/SpawnStageServer.cpp 
+ ./src/beaconstrike/SpawnStageClient.cpp 
++
++
++./src/ctf/GameLogicServerCtf.cpp 
++./src/ctf/GameLogicClientCtf.cpp 
+ )
+ 
+ 
