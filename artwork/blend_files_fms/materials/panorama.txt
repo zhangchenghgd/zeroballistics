@@ -1,0 +1,1 @@
+{'parallax_strength': 0.073752693831920624, 'name': 'panorama', 'specularity': 0.14998461306095123, 'bump_map': 0, 'color': (0.055763888700708697, 0.090245428854942578, 0.89267551225664454), 'alpha_test': 1, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 1, 'cull_faces': 0, 'hardness': 20, 'alpha_blend': 0}

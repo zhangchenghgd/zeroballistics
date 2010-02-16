@@ -1,0 +1,1 @@
+{'parallax_strength': 0.076254174113273621, 'name': 'barkverbau', 'specularity': 0.26247203350067139, 'bump_map': 1, 'color': (0.18569234013557434, 0.030721032992005348, 0.063929192721843719), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': True, 'hardness': 42, 'alpha_blend': 0}

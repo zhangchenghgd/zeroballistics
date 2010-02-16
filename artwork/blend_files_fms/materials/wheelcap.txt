@@ -1,0 +1,1 @@
+{'parallax_strength': 0.068728417158126831, 'name': 'wheelcap', 'specularity': 0.52514910697937012, 'bump_map': 1, 'color': (0.98267877101898193, 0.93921977281570435, 0.62407255172729492), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 1, 'cull_faces': 1, 'hardness': 138, 'alpha_blend': 0}

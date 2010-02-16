@@ -1,0 +1,1 @@
+{'parallax_strength': 0.0, 'name': 'bunker', 'specularity': 0.0, 'bump_map': 1, 'color': (1.0, 0.0, 0.72549009323120117), 'alpha_test': 0, 'normal_strength': 1.7362853288650513, 'lighting': True, 'emissive_map': False, 'cull_faces': True, 'gloss_map': False, 'hardness': 255, 'alpha_blend': 0}

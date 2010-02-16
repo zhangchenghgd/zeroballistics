@@ -1,0 +1,1 @@
+{'parallax_strength': 0.073752693831920624, 'name': 'wood', 'specularity': 0.14998461306095123, 'bump_map': 1, 'color': (0.43627223372459412, 0.53522628545761108, 0.31414559483528137), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': 1, 'cull_faces': True, 'hardness': 20, 'alpha_blend': 0}

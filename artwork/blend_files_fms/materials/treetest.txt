@@ -1,0 +1,1 @@
+{'parallax_strength': 0.10000000149011612, 'name': 'treetest', 'specularity': 0.51298463344573975, 'bump_map': 0, 'color': (0.28907195715980927, 0.46671388799073454, 0.5128693400442802), 'alpha_test': 0, 'normal_strength': 1.9500000476837158, 'lighting': 1, 'emissive_map': False, 'cull_faces': 0, 'gloss_map': False, 'hardness': 55, 'alpha_blend': 1}

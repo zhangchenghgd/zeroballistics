@@ -1,0 +1,1 @@
+{'parallax_strength': 0.057511299848556519, 'name': 'tire2', 'specularity': 0.40000000596046448, 'bump_map': 1, 'color': (0.030806648383567281, 0.64775922113598405, 0.83673840257402476), 'alpha_test': 0, 'normal_strength': 1.9500000476837158, 'lighting': 1, 'hardness': 211, 'cull_faces': 0, 'gloss_map': False, 'emissive_map': False, 'alpha_blend': 0}

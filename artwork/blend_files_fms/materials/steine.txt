@@ -1,0 +1,1 @@
+{'parallax_strength': 0.083752445876598358, 'name': 'steine', 'specularity': 0.40000000596046448, 'bump_map': 1, 'color': (0.93000000715255737, 0.82999998331069946, 0.81000000238418579), 'alpha_test': 0, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': True, 'hardness': 140, 'alpha_blend': 0}

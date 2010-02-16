@@ -1,0 +1,1 @@
+{'parallax_strength': 0.073752693831920624, 'name': 'fahne', 'specularity': 0.3999442458152771, 'bump_map': 0, 'color': (0.79841648518159858, 0.16915581975366289, 0.44953393736884584), 'alpha_test': 1, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': 0, 'hardness': 71, 'alpha_blend': 0}

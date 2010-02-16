@@ -1,0 +1,1 @@
+{'parallax_strength': 0.011247524991631508, 'name': 'schindeln', 'specularity': 0.0099999997764825821, 'bump_map': 1, 'color': (0.82787597179412842, 0.73703837394714355, 0.068109676241874695), 'alpha_test': False, 'shader': '', 'normal_strength': 1.9500000476837158, 'lighting': True, 'cull_faces': True, 'hardness': 255, 'alpha_blend': False}
