@@ -83,7 +83,7 @@ Matrix GameLogicServerDeathmatch::getRespawnPos(const SystemAddress & pid,
         assert(!spawn_pos_.empty());
         assert(stage < spawn_pos_.size());
     
-        stage = std::min(spawn_pos_.size()-1, stage);
+        stage = std::min(spawn_pos_.size()-1, (size_t)stage);
     
         return spawn_pos_[stage]->getTransform();
     } else

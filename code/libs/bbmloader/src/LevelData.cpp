@@ -201,7 +201,7 @@ const std::vector<ObjectInfo> & LevelData::getObjectInfo() const
 //------------------------------------------------------------------------------
 void LevelData::setDetailTexInfo(unsigned num, const DetailTexInfo & info)
 {
-    detail_texture_.resize(std::max(detail_texture_.size(), num+1));
+    detail_texture_.resize(std::max(detail_texture_.size(), (size_t)num+1));
     detail_texture_[num] = info;
 }
 

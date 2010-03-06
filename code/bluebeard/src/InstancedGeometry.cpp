@@ -548,7 +548,7 @@ InstancedGeometryDescription::~InstancedGeometryDescription()
 //------------------------------------------------------------------------------
 void InstancedGeometryDescription::addGeometry(const osg::Geometry * geometry, unsigned lod)
 {
-    lod_info_.resize(std::max(lod_info_.size(), lod+1));
+    lod_info_.resize(std::max(lod_info_.size(), (size_t)lod+1));
 
     InstancingInfo & cur_info = lod_info_[lod];
     cur_info.primitive_.push_back(new InstancedPrimitive(*geometry, cur_info));
@@ -630,7 +630,7 @@ InstanceData InstancedGeometryDescription::removeInstance(const InstanceProxy * 
     {
         assert(!lod_info_.empty());
 
-        lod_level = std::min(lod_info_.size()-1, lod_level);
+        lod_level = std::min(lod_info_.size()-1, (size_t)lod_level);
 
         return lod_info_[lod_level].removeInstance(proxy);
     }
@@ -661,7 +661,7 @@ InstanceData & InstancedGeometryDescription::getInstanceData(const InstanceProxy
     {
         assert(!lod_info_.empty());
 
-        lod_level = std::min(lod_info_.size()-1, lod_level);
+        lod_level = std::min(lod_info_.size()-1, (size_t)lod_level);
     
         return lod_info_[lod_level].getInstanceData(proxy);
     }

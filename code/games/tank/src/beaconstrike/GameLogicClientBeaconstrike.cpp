@@ -234,7 +234,7 @@ void GameLogicClientBeaconstrike::onLevelObjectLoaded(const std::string & type,
         {
             unsigned stage_no = info.params_.get<unsigned>("logic.stage");
             assert(stage_no > 0);
-            stage_.resize(std::max(stage_.size(), stage_no));    
+            stage_.resize(std::max(stage_.size(), (size_t)stage_no));
 
             Matrix preliminary_camera_transform = info.transform_;
             preliminary_camera_transform.getTranslation().y_ += 10.0f;
