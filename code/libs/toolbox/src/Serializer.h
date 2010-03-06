@@ -91,7 +91,8 @@ const unsigned TAGGED_MARKER = 0xFA0DAFCE;
 
 class ISerializable;
 
-typedef unsigned IdType;
+/// Use unsigned long to accomodate 64 bit systems.
+typedef unsigned long IdType;
 const IdType NULL_PTR_ID = ~IdType(0);
 
 typedef std::map<IdType, ISerializable*> IdMap;
