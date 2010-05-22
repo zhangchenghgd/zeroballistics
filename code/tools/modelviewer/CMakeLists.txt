@@ -33,6 +33,6 @@ set(modelViewerSources
 
 )
 
-add_executable       (model_viewer EXCLUDE_FROM_ALL ${modelViewerSources})
+add_executable       (model_viewer ${modelViewerSources})
 target_link_libraries(model_viewer ${model_viewer_libs})
 

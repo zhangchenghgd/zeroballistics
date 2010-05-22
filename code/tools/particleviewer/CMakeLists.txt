@@ -32,6 +32,6 @@ set(particleViewerSources
 ./src/ParticleViewer.cpp
 )
 
-add_executable       (particle_viewer EXCLUDE_FROM_ALL ${particleViewerSources})
+add_executable       (particle_viewer ${particleViewerSources})
 target_link_libraries(particle_viewer ${particle_viewer_libs})
 

@@ -73,12 +73,11 @@ add_subdirectory(bluebeard)
 add_subdirectory(games/tank)
 
 
-add_subdirectory(tools/master_server)
-# add_subdirectory(tools/ranking_server)
+add_subdirectory(tools/master_server EXCLUDE_FROM_ALL)
 
 add_subdirectory(tools/modelviewer)
 add_subdirectory(tools/particleviewer)
 
-add_subdirectory(tools/autopatcher_client)
-add_subdirectory(tools/autopatcher_server)
+add_subdirectory(tools/autopatcher_client EXCLUDE_FROM_ALL)
+add_subdirectory(tools/autopatcher_server EXCLUDE_FROM_ALL)
 
