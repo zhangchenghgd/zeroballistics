@@ -173,8 +173,14 @@ void SdlApp::run(MetaTask * initial_task)
                 break;
 
             case SDL_ACTIVEEVENT:
-                if (!event.active.gain)
+            	// For some reasons, this can be emitted with gain==0 and state==SDL_APPMOUSEFOCUS
+            	// if just firing without a modifier...
+                if (event.active.gain == false &&
+                    ((event.active.state & SDL_APPINPUTFOCUS) ||
+                	 (event.active.state & SDL_APPACTIVE)))
                 {
+                	s_log << Log::debug('k') << "App lost focus -> decapturing mouse.\n";
+                	s_log << Log::debug('k') << "state is " << (int)event.active.state << "\n";
                     captureMouse(false, true);
                 }
                 break;
