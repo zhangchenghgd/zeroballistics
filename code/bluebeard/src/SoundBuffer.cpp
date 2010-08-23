@@ -105,7 +105,7 @@ void SoundBuffer::loadBufferFromFile(const std::string & filename)
     }
 
     // now check whether sound file is supported file type from ALut
-    id_ = alutCreateBufferFromFile((ALbyte*)total_filename.c_str());
+    id_ = alutCreateBufferFromFile(total_filename.c_str());
     if(id_ != AL_NONE)
     {
         // file type supported and file loaded automatically into buffer
