@@ -1,6 +1,7 @@
 #ifndef TANK_INTEGRATED_SERVER_INCLUDED
 #define TANK_INTEGRATED_SERVER_INCLUDED
 
+#include <memory>
 
 #include "MetaTask.h"
 #include "RegisteredFpGroup.h"

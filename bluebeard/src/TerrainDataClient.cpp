@@ -96,7 +96,7 @@ uint32_t TerrainDataClient::getDetailAtGridInterpol(int x, int z, unsigned level
         for (unsigned d=0; d<8; ++d)
         {
             uint32_t mask = 0xf << (4*d);
-            uint32_t val = ((d1&mask) >> 1) + ((d2&mask) >> 1) & mask;
+            uint32_t val = (((d1&mask) >> 1) + ((d2&mask) >> 1)) & mask;
             val >>= (4*d);
 
             sum += val;

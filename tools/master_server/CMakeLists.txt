@@ -9,7 +9,7 @@ add_executable       (master_server
 
 set (libs
 toolbox master
-loki raknet tinyxml
+loki RakNet tinyxml
 pthread # only for bsd compilation
 )
 

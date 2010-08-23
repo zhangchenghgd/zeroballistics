@@ -1,6 +1,7 @@
 #ifndef TANK_MAINMENU_INCLUDED
 #define TANK_MAINMENU_INCLUDED
 
+#include <memory>
 
 #include "MetaTask.h"
 #include "RegisteredFpGroup.h"

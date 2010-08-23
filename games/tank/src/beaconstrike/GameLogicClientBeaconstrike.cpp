@@ -618,9 +618,9 @@ void GameLogicClientBeaconstrike::beaconConnections(RakNet::BitStream & args)
         }
 
         if ((beacon1->getTeamId() == INVALID_TEAM_ID && beacon2->getTeamId() == INVALID_TEAM_ID) ||
-            beacon1->getTeamId() != beacon2->getTeamId() &&
-            beacon1->getTeamId() != INVALID_TEAM_ID    &&
-            beacon2->getTeamId() != INVALID_TEAM_ID)
+            (beacon1->getTeamId() != beacon2->getTeamId() &&
+             beacon1->getTeamId() != INVALID_TEAM_ID    &&
+             beacon2->getTeamId() != INVALID_TEAM_ID))
         {
             s_log << Log::warning
                   << "Received invalid beacon combination in GameLogicClientBeaconstrike::beaconConnections: "

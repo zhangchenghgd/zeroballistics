@@ -4,7 +4,7 @@
 
 #include <string>
 #include <vector>
-
+#include <memory>
 
 #include "PlayerInput.h"
 #include "Datatypes.h"

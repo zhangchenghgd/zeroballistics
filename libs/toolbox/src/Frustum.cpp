@@ -12,6 +12,8 @@
 #include "Frustum.h"
 
 #include <limits>
+#include <memory>
+#include <cstring>
 
 #undef min
 #undef max
@@ -171,8 +173,8 @@ std::vector<Vector2d> Frustum::intersectHorzPlane(float h, bool include_camera_p
     // plane.
     for (unsigned i=0; i<4; ++i)
     {
-        if (eye_.y_ < h && edge_[i].y_ > EPSILON ||
-            eye_.y_ > h && edge_[i].y_ < -EPSILON)
+        if ((eye_.y_ < h && edge_[i].y_ > EPSILON) ||
+            (eye_.y_ > h && edge_[i].y_ < -EPSILON))
         {
             Vector ip = Vector2d(eye_.x_ + (h - eye_.y_)*edge_[i].x_ / edge_[i].y_,
                                  eye_.z_ + (h - eye_.y_)*edge_[i].z_ / edge_[i].y_);

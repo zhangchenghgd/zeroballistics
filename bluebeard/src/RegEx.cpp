@@ -2,7 +2,7 @@
 
 #include "RegEx.h"
 
-
+#include <cstring>
 #include <pcre.h>
 
 

@@ -2,6 +2,8 @@
 
 #include "OggVorbis.h"
 
+#include <cstring>
+#include <cstdlib>
 
 ALboolean loadOgg(  const char *fname,
                     void **wave,

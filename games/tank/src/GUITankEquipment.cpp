@@ -60,12 +60,6 @@ void GUITankEquipment::show(bool s)
 }
 
 //------------------------------------------------------------------------------
-void GUITankEquipment::show_ptr(void * p)
-{
-    show((bool)&p);
-}
-
-//------------------------------------------------------------------------------
 void GUITankEquipment::toggleShow()
 {
     show(!equipment_window_->isVisible());

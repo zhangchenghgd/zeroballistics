@@ -7,7 +7,7 @@ set (full_libs
 
 bluebeard bbmloader toolbox master
 
-SDL GL GLU loki raknet openal alut vorbisfile ode tinyxml
+SDL GL GLU loki RakNet openal alut vorbisfile ode tinyxml
 
 osg osgDB osgUtil osgText osgParticle osgViewer
 
@@ -34,7 +34,7 @@ set (dedicated_libs
 
 toolbox master
 
-loki raknet ode tinyxml 
+loki RakNet ode tinyxml 
 
 boost_filesystem
 

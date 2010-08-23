@@ -4,7 +4,7 @@ set (particle_viewer_libs
 
 bluebeard bbmloader toolbox master
 
-SDL GL GLU gzstream z loki raknet openal alut vorbisfile ode tinyxml
+SDL GL GLU gzstream z loki RakNet openal alut vorbisfile ode tinyxml
 
 osg osgDB osgUtil osgText osgParticle osgViewer
 

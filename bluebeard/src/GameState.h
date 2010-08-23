@@ -3,6 +3,7 @@
 #define TANK_GAMESTATE_INCLUDED
 
 #include <map>
+#include <memory>
 
 #include <raknet/RakNetTypes.h>
 

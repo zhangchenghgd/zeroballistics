@@ -20,7 +20,6 @@ class GUITankEquipment
     virtual ~GUITankEquipment();
   
     void show(bool s);
-    void show_ptr(void * p);  ///< used for scheduler calls
     void toggleShow();
 
     void sendEquipmentSelection();
