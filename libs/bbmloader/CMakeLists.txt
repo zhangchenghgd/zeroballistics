@@ -1,6 +1,7 @@
 
 
-include_directories(${tanks_SOURCE_DIR}/libs/toolbox/src)
+include_directories(${tanks_SOURCE_DIR}/libs/toolbox/src
+                    ${tanks_SOURCE_DIR}/libs/gzstream/src)
 
 
 set(bbmloaderSources
