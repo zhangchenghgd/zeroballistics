@@ -36,11 +36,8 @@ extern VersionInfo g_version;
 const VersionInfo VERSION_PATCH_CLIENT('p', 1, 0);
 const VersionInfo VERSION_PATCH_SERVER('P', 1, 0);
 
-const VersionInfo VERSION_SOCCER_CLIENT('s', 1, 0);
-const VersionInfo VERSION_SOCCER_SERVER('S', 1, 0);
-
-const VersionInfo VERSION_ZB_CLIENT('z', 1, 0);
-const VersionInfo VERSION_ZB_SERVER('Z', 1, 0);
+const VersionInfo VERSION_ZB_CLIENT('z', 2, 0);
+const VersionInfo VERSION_ZB_SERVER('Z', 2, 0);
 
 const VersionInfo VERSION_RANKING_SERVER('R', 1, 0);
 

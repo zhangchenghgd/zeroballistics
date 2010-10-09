@@ -24,9 +24,7 @@
 #include "GameLogicServerSoccer.h"
 #include "SoccerBall.h"
 
-#ifdef FULL_METAL_SOCCER_MODE
 REGISTER_CLASS(GameLogicClient, GameLogicClientSoccer);
-#endif
 
 
 

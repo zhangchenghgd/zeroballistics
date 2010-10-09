@@ -19,9 +19,7 @@
 #undef min
 #undef max
 
-#ifdef FULL_METAL_SOCCER_MODE
 REGISTER_CLASS(GameLogicServer, GameLogicServerSoccer);
-#endif
 
 const int GOAL_SCORE     =  2;
 const int ASSIST_SCORE   =  1;

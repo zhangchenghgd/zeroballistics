@@ -51,16 +51,6 @@ add_definitions(-DDISABLE_NETWORK_OPTIMIZATIONS)
 endif (DISABLE_NETWORK_OPTIMIZATIONS)
 
 
-
-if    (ENABLE_SOCCER_MODE)
-add_definitions(-DFULL_METAL_SOCCER_MODE)
-endif (ENABLE_SOCCER_MODE)
-
-if    (ENABLE_ZB_MODE)
-add_definitions(-DZERO_BALLISTICS_MODE)
-endif (ENABLE_ZB_MODE)
-
-
 add_subdirectory(libs/gzstream)
 add_subdirectory(libs/toolbox)
 add_subdirectory(libs/bbmloader)

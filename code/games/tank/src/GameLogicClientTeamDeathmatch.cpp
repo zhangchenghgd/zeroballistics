@@ -13,9 +13,7 @@
 #include "TankMineVisual.h"
 
 
-#ifdef ZERO_BALLISTICS_MODE
 REGISTER_CLASS(GameLogicClient, GameLogicClientTeamDeathmatch);
-#endif
 
 //------------------------------------------------------------------------------
 GameLogicClientTeamDeathmatch::GameLogicClientTeamDeathmatch()

@@ -10,18 +10,7 @@
 
 #include "VersionInfo.h"
 
-
-#ifdef ZERO_BALLISTICS_MODE
-#ifdef FULL_METAL_SOCCER_MODE
-#error both modes defined
-#endif
 VersionInfo g_version = VERSION_ZB_SERVER;
-
-#elif defined FULL_METAL_SOCCER_MODE
-
-VersionInfo g_version = VERSION_SOCCER_SERVER;
-
-#endif
 
 
 

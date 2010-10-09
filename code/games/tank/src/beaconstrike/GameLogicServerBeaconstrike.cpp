@@ -31,11 +31,7 @@
 #undef min
 #undef max
 
-#ifdef ENABLE_DEV_FEATURES
-#ifdef ZERO_BALLISTICS_MODE
 REGISTER_CLASS(GameLogicServer, GameLogicServerBeaconstrike);
-#endif
-#endif
 
 const float BEACON_CONQUERED_HEIGHT_OFFSET = 1.5f;
 

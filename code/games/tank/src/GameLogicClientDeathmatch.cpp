@@ -15,9 +15,7 @@
 #include "SdlApp.h"
 #include "HudMessageColors.h"
 
-#ifdef ZERO_BALLISTICS_MODE
 REGISTER_CLASS(GameLogicClient, GameLogicClientDeathmatch);
-#endif
 
 //------------------------------------------------------------------------------
 GameLogicClientDeathmatch::GameLogicClientDeathmatch()

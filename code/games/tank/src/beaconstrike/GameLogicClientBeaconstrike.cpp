@@ -31,11 +31,7 @@
 
 #include "../HudMessageColors.h"
 
-#ifdef ENABLE_DEV_FEATURES
-#ifdef ZERO_BALLISTICS_MODE
 REGISTER_CLASS(GameLogicClient, GameLogicClientBeaconstrike);
-#endif
-#endif
 
 
 //------------------------------------------------------------------------------

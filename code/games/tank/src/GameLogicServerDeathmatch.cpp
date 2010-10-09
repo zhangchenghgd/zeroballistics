@@ -14,9 +14,7 @@
 #undef min
 #undef max
 
-#ifdef ZERO_BALLISTICS_MODE
 REGISTER_CLASS(GameLogicServer, GameLogicServerDeathmatch);
-#endif
 
 //------------------------------------------------------------------------------
 GameLogicServerDeathmatch::GameLogicServerDeathmatch() :
