@@ -1,0 +1,11 @@
+textures
+sounds
+particle_effects
+shaders
+fonts
+effects
+gui
+models/**bbm
+.svn
+exclude_server.txt
+*dds
