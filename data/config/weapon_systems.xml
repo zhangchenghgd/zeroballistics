@@ -213,8 +213,8 @@
             <variable name="cooldown_time" value="2.0" type="float" />  
             <variable name="fire_dt" value="0.15" type="float" />  
 
-            <variable name="effect_group"  value="laser_effect"  type="string" />  
-            <variable name="tracer_effect" value="tracer_laser" type="string" />  
+            <variable name="effect_group"  value="tractor_effect"  type="string" />  
+            <variable name="tracer_effect" value="tracer_tractor" type="string" />  
 
             <variable name="sound_effect" value="laser_shot.wav" type="string" />  
 

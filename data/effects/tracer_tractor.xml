@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<EffectGroup>
+    <ParticleEffect name="tracer_tractor" delay="0" comment="delay in seconds" />
+</EffectGroup>

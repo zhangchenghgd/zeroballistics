@@ -1,0 +1,128 @@
+
+
+<?xml version="1.0" ?>
+<parameters>
+
+<!-- see hud.xml for comments -->
+
+
+
+
+<!-- Text Parameter Sections -->
+
+  <section name="hud.time_limit">
+        <variable name="position" value="[290;130]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="28" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0" type="float" />
+	<variable name="font_name" value="aispec.ttf" type="string" />
+	<variable name="text_align" value="11" type="unsigned" />
+	<variable name="ref_corner" value="[1;1]" type="Vector2d" />
+    </section>  
+
+  <section name="hud.score">
+        <variable name="position" value="[260;80]" type="Vector2d" />
+	<variable name="num_lines" value="1" type="unsigned" />
+	<variable name="char_size" value="54" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="backdrop_offset" value="0" type="float" />
+	<variable name="font_name" value="aispec.ttf" type="string" />
+	<variable name="text_align" value="11" type="unsigned" />
+	<variable name="ref_corner" value="[1;1]" type="Vector2d" />
+    </section>  
+
+
+<!-- Texture Element Parameter Sections -->
+
+
+
+
+    <section name="hud.crosshair_primary_weapon3">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="400" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="crosshair_soc.dds" type="string" />		
+    </section>    
+
+    <section name="hud.hit_feedback">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="130" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="hit_feedback.dds" type="string" />		
+    </section>  
+
+   <section name="hud.timescore_back">
+        <variable name="position" value="[35;28]" type="Vector2d" />
+	<variable name="vert_size" value="245" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;1]" type="Vector2d" />
+	<variable name="texture" value="timescore.dds" type="string" />		
+    </section>
+
+    <section name="hud.health_bar">
+        <variable name="position" value="[0;-25]" type="Vector2d" />
+	<variable name="vert_size" value="42" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="texture" value="health_bar_soc.dds" type="string" />		
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="fill_direction" value="BU" type="string" />
+    </section>    
+
+    <section name="hud.reload_bar">
+        <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="30" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="reload_bar_soc.dds" type="string" />		
+	<variable name="fill_direction" value="LR" type="string" />
+    </section>
+
+
+    <section name="hud.reload_bar_skill2">
+        <variable name="position" value="[0; -4]" type="Vector2d" />
+	<variable name="vert_size" value="95" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="overheat_bar_soc.dds" type="string" />		
+	<variable name="fill_direction" value="LR" type="string" />
+    </section>
+
+
+
+
+    <section name="hud.minimap">
+     <variable name="position" value="[28;20]" type="Vector2d" />
+	<variable name="vert_size" value="259" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[1;1]" type="Vector2d" />
+	<variable name="map_extents" value="60" type="float" console="1" />
+	<variable name="icon_size" value="0.08" type="float" />
+	<variable name="icon_flash_period" value="1" type="float" />
+	<variable name="icon_flash_percentage" value="0.5" type="float" />		
+    </section>
+    
+    <section name="hud.minimap_background">
+     <variable name="position" value="[0;0]" type="Vector2d" />
+	<variable name="vert_size" value="1024" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="" type="string" />		
+    </section>    
+    
+    <section name="hud.minimap_icons">
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="texture" value="" type="string" />		
+    </section>        
+    
+        
+    <section name="hud.hit_marker">
+	<variable name="vert_size" value="65" type="float" />
+	<variable name="color" value="[1;1;1;1]" type="Color" />
+	<variable name="ref_corner" value="[0;0]" type="Vector2d" />
+	<variable name="texture" value="hit.dds" type="string" />		
+    </section>
+
+</parameters>
