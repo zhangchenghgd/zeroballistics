@@ -132,7 +132,7 @@
         
                 <Window Type="WindowsLook/Combobox" Name="hostmenu/server_map_combobox" >
                     <Property Name="UnifiedPosition" Value="{{0.30,0},{0.0,0}}" />
-                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.8,0}}" />
+                    <Property Name="UnifiedSize" Value="{{0.4,0},{0.95,0}}" />
                     <Property Name="InheritsAlpha" Value="False" />
                     <Property Name="ReadOnly" Value="True" />	
                     <Property Name="Font" Value="main_menu_font" />
