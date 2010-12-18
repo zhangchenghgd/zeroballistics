@@ -1,0 +1,141 @@
+<?xml version="1.0" standalone="yes" ?>
+<LevelData>
+    <Properties>
+        <section name="metadata">
+            <variable name="valid_gamemodes" value="[Soccer;Deathmatch;TeamDeathmatch]" type="vector<string>" />
+        </section>
+        <section name="fog">
+            <variable name="color" value="[175;238;238]" type="Vector" />
+            <variable name="density" value="0" type="float" />
+            <variable name="offset" value="10" type="float" />
+        </section>
+        <section name="light">
+            <variable name="ambient" value="0.5" type="float" />
+        </section>
+        <section name="skydome">
+            <variable name="model" value="sky" type="string" />
+        </section>
+    </Properties>
+    <Object name="spawn_pos_ball">
+        <Transform _11="1" _21="0" _31="0" _12="0" _22="1" _32="0" _13="0" _23="0" _33="1" _14="32" _24="2.48384" _34="32" />
+    </Object>
+    <Object name="start_pos_defender">
+        <Transform _11="-0.173648" _21="1.51808e-008" _31="-0.984808" _12="1.73517e-007" _22="1" _32="-1.51808e-008" _13="0.984808" _23="-1.73517e-007" _33="-0.173648" _14="45.8292" _24="-2.40376" _34="27.6206" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_pos" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="team_soccer_red" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="start_pos_defender">
+        <Transform _11="0.173648" _21="0" _31="-0.984808" _12="0" _22="1" _32="0" _13="0.984808" _23="-0" _33="0.173648" _14="45.8292" _24="-2.40376" _34="36.3495" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_pos" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="team_soccer_red" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="start_pos_defender">
+        <Transform _11="0.0283721" _21="7.91802e-009" _31="-0.999597" _12="2.36412e-007" _22="1" _32="1.46314e-008" _13="0.999597" _23="-2.36732e-007" _33="0.0283721" _14="51.5004" _24="-2.40376" _34="31.6952" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_pos" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="team_soccer_red" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="stadium2">
+        <Transform _11="-4.37114e-008" _21="0" _31="1" _12="0" _22="1" _32="0" _13="-1" _23="0" _33="-4.37114e-008" _14="32.004" _24="2.38419e-007" _34="32.0442" />
+    </Object>
+    <Object name="start_pos_attacker">
+        <Transform _11="0.173648" _21="0" _31="0.984808" _12="0" _22="1" _32="0" _13="-0.984808" _23="-0" _33="0.173648" _14="18.1766" _24="-1.67206" _34="36.3233" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_pos" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="team_soccer_blue" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="start_pos_attacker">
+        <Transform _11="-0.173648" _21="1.51808e-008" _31="0.984808" _12="1.32815e-009" _22="1" _32="-1.51808e-008" _13="-0.984808" _23="-1.32815e-009" _33="-0.173648" _14="18.1766" _24="-1.67206" _34="27.6536" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_pos" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="team_soccer_blue" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="start_pos_attacker">
+        <Transform _11="0.016098" _21="1.60534e-010" _31="0.99987" _12="-6.06144e-010" _22="1" _32="-1.50796e-010" _13="-0.99987" _23="-6.03637e-010" _33="0.016098" _14="12.4931" _24="-1.67206" _34="31.6712" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_pos" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="team_soccer_blue" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="void">
+        <Transform _11="-0.145705" _21="0.989202" _31="-0.0158177" _12="0.989306" _22="0.14579" _32="0.00431402" _13="0.00657349" _23="-0.01502" _33="-0.999866" _14="-2.45367" _24="7.94282" _34="74.1098" />
+    </Object>
+    <Object name="void">
+        <Transform _11="0.994159" _21="0" _31="0.107925" _12="0" _22="1" _32="0" _13="-0.107925" _23="-0" _33="0.994159" _14="77.1357" _24="-7.35692" _34="89.2059" />
+    </Object>
+    <Object name="void">
+        <Transform _11="-0.145705" _21="0.989202" _31="-0.0158177" _12="-0.983424" _22="-0.146562" _32="-0.10676" _13="-0.107925" _23="1.58325e-008" _33="0.994159" _14="54.2249" _24="44.6141" _34="100.822" />
+    </Object>
+    <Object name="void">
+        <Transform _11="-0.145705" _21="0.989202" _31="-0.0158177" _12="0.00808117" _22="-0.0147977" _32="-0.999858" _13="-0.989295" _23="-0.145813" _33="-0.00583779" _14="41.89" _24="25.3453" _34="63.9675" />
+    </Object>
+    <Object name="void">
+        <Transform _11="-0.145705" _21="0.989202" _31="-0.0158177" _12="-0.000211586" _22="0.0159571" _32="0.999873" _13="0.989328" _23="0.14569" _33="-0.00211574" _14="42.4072" _24="15.6324" _34="-0.669003" />
+    </Object>
+    <Object name="light_dir">
+        <Transform _11="-1" _21="-8.74228e-008" _31="0" _12="-3.82137e-015" _22="4.37114e-008" _32="1" _13="-8.74228e-008" _23="1" _33="-4.37114e-008" _14="-46.342" _24="6.07182" _34="-39.5786" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="light_direction" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="defender" type="string" />
+            </section>
+            <section name="type">
+                <variable name="type" value="HelperObject" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <Object name="default_camera">
+        <Transform _11="0.289399" _21="0.102264" _31="-0.95173" _12="-0.0550982" _22="0.994408" _32="0.090096" _13="0.955621" _23="0.0263649" _33="0.293415" _14="44.8407" _24="1.33203" _34="39.7363" />
+        <Properties>
+            <section name="logic">
+                <variable name="role" value="start_camera" type="string" />
+                <variable name="stage" value="1" type="unsigned" />
+                <variable name="team" value="defender" type="string" />
+            </section>
+            <section name="type">
+                <variable name="type" value="HelperObject" type="string" />
+            </section>
+        </Properties>
+    </Object>
+    <DetailTex0 name="grass08.dds" grass_density="5.000000">
+        <Transform _11="0.9375" _21="0" _31="0" _12="0" _22="0" _32="1" _13="0" _23="-0.9375" _33="0" _14="0" _24="60" _34="0" />
+        <Grass model="grass2" prob="1" />
+        <Grass model="grassblau" prob="0.05" />
+    </DetailTex0>
+    <DetailTex1 name="grass06.dds" grass_density="5.000000">
+        <Transform _11="3.90625" _21="0" _31="0" _12="0" _22="0" _32="1" _13="0" _23="-3.90625" _33="0" _14="0" _24="250" _34="0" />
+        <Grass model="grass2" prob="1" />
+        <Grass model="grassblau" prob="0.05" />
+    </DetailTex1>
+    <DetailTex2 name="flowers01.dds" grass_density="5.000000">
+        <Transform _11="3.90625" _21="0" _31="0" _12="0" _22="0" _32="1" _13="0" _23="-3.90625" _33="0" _14="0" _24="250" _34="0" />
+        <Grass model="grass3" prob="1" />
+        <Grass model="grassrot" prob="0.05" />
+    </DetailTex2>
+</LevelData>
