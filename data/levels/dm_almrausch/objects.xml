@@ -1,6 +1,9 @@
 <?xml version="1.0" standalone="yes" ?>
 <LevelData>
     <Properties>
+        <section name="metadata">
+            <variable name="valid_gamemodes" value="[Deathmatch;TeamDeathmatch]" type="vector<string>" />
+        </section>
         <section name="fog">
             <variable name="color" value="[210;180;140]" type="Vector" />
             <variable name="density" value="5" type="float" />
