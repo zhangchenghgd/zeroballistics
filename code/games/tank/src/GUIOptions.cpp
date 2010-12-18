@@ -174,8 +174,6 @@ void GUIOptions::loadWidgets()
                                              PLAYER_NAME_ALLOWED_CHARS + 
                                              "\\s]{0,20})");
 
-    player_name_editbox_->setEnabled(false); ////< XXXX disabled due to auth. username setting
-
     // add options to widget tree
     parent->addChildWindow(options_window_);
 }

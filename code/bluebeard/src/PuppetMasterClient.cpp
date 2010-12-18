@@ -734,13 +734,11 @@ void PuppetMasterClient::replaceGameObject(uint16_t replaced_id,
 
 //------------------------------------------------------------------------------
 /**
- *  XXXX unimplemented at the moment.
+ *  has been commented while ranking server was in use
+ *  make it possible to change the player name again for ZB/FMS final SF release
  */ 
 std::string PuppetMasterClient::changePlayerName(const std::vector<std::string> & args)
 {
-    return "Not implemented.";    
-
-    /*
     assert(game_logic_.get());
 
     std::string name = "";
@@ -768,7 +766,7 @@ std::string PuppetMasterClient::changePlayerName(const std::vector<std::string> 
     {
         if(name == local_player_.getName()) return "Name remains unchanged.";
         
-        network::SetPlayerDataCmd cmd(name);
+        network::SetPlayerDataCmd cmd(name, 0, 0);
         cmd.NetworkCommandClient::send(client_interface_);
 
         s_params.set("client.app.player_name",name);
@@ -779,7 +777,7 @@ std::string PuppetMasterClient::changePlayerName(const std::vector<std::string> 
     {
         return "Invalid player name: " + name + " Needs to be 3-20 characters. Not allowed: \\, /";
     }
-    */
+
 }
 
 
