@@ -196,10 +196,6 @@
 				RelativePath=".\src\LevelData.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\src\NvMeshMender.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -211,10 +207,6 @@
 			</File>
 			<File
 				RelativePath=".\src\LevelData.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\NvMeshMender.h"
 				>
 			</File>
 		</Filter>

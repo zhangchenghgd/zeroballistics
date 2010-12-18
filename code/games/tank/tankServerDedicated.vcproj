@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\libs\bbmloader\src;..\..\libs\toolbox\src;..\..\bluebeard\src;..\..\libs\master\src"
+				AdditionalIncludeDirectories="..\..\libs\bbmloader\src;..\..\libs\toolbox\src;..\..\bluebeard\src;..\..\libs\master\src;..\..\libs\ranking\src;..\..\libs\network\src"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE;TIXML_USE_STL;DEDICATED_SERVER"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -196,6 +196,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\src\AIPlayerDeathmatch.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\AIPlayerSoccer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Boost.cpp"
 				>
 			</File>
@@ -248,6 +256,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\SoccerBall.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\SpawnPos.cpp"
 				>
 			</File>
@@ -282,6 +294,10 @@
 			<Filter
 				Name="bluebeard"
 				>
+				<File
+					RelativePath="..\..\bluebeard\src\AIPlayer.cpp"
+					>
+				</File>
 				<File
 					RelativePath="..\..\bluebeard\src\Controllable.cpp"
 					>
@@ -374,6 +390,10 @@
 					RelativePath="..\..\bluebeard\src\Water.cpp"
 					>
 				</File>
+				<File
+					RelativePath="..\..\bluebeard\src\WaypointManagerServer.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="beaconstrike"
@@ -409,6 +429,14 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\src\AIPlayerDeathmatch.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\AIPlayerSoccer.h"
+				>
+			</File>
 			<File
 				RelativePath=".\src\Boost.h"
 				>
@@ -458,6 +486,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\SoccerBall.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\SpawnPos.h"
 				>
 			</File>
@@ -492,6 +524,10 @@
 			<Filter
 				Name="bluebeard"
 				>
+				<File
+					RelativePath="..\..\bluebeard\src\AIPlayer.h"
+					>
+				</File>
 				<File
 					RelativePath="..\..\bluebeard\src\Controllable.h"
 					>
@@ -582,6 +618,10 @@
 				</File>
 				<File
 					RelativePath="..\..\bluebeard\src\Water.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\bluebeard\src\WaypointManagerServer.h"
 					>
 				</File>
 			</Filter>
