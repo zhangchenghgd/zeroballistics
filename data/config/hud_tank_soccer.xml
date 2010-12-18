@@ -11,7 +11,7 @@
 <!-- Text Parameter Sections -->
 
   <section name="hud.time_limit">
-        <variable name="position" value="[290;130]" type="Vector2d" />
+        <variable name="position" value="[300;180]" type="Vector2d" />
 	<variable name="num_lines" value="1" type="unsigned" />
 	<variable name="char_size" value="28" type="float" />
 	<variable name="color" value="[1;1;1;1]" type="Color" />
@@ -22,7 +22,7 @@
     </section>  
 
   <section name="hud.score">
-        <variable name="position" value="[260;80]" type="Vector2d" />
+        <variable name="position" value="[260;95]" type="Vector2d" />
 	<variable name="num_lines" value="1" type="unsigned" />
 	<variable name="char_size" value="54" type="float" />
 	<variable name="color" value="[1;1;1;1]" type="Color" />
