@@ -197,8 +197,11 @@ Log & Log::logMillis()
 
     float passed_millis = getTimeDiff(cur_time, start_time_);
 
-    unsigned h,m;
+    unsigned d,h,m;
     float s;
+
+    d = (unsigned)(passed_millis / 1000 / 60 / 60 / 24);
+    passed_millis -= d*1000*60*60*24;
 
     h = (unsigned)(passed_millis / 1000 / 60 / 60);
     passed_millis -= h*1000*60*60;
@@ -207,7 +210,8 @@ Log & Log::logMillis()
     passed_millis  -= m*1000*60;
     s = passed_millis / 1000;
     
-    *this << h << "h"
+    *this << d << "d"
+          << h << "h"
           << m << "m"
           << s;
 
