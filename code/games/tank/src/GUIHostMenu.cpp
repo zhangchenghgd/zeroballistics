@@ -12,6 +12,7 @@
 
 #include "ClassLoader.h"
 #include "GameLogicServer.h"
+#include "LevelData.h"
 
 //------------------------------------------------------------------------------
 GUIHostMenu::GUIHostMenu(MainMenu * main_menu) :
@@ -54,10 +55,14 @@ void GUIHostMenu::hide()
 //------------------------------------------------------------------------------
 void GUIHostMenu::registerCallbacks()
 {
-    host_btn_->subscribeEvent(CEGUI::ButtonBase::EventMouseClick, CEGUI::Event::Subscriber(&GUIHostMenu::clickedHostBtn, this));
-    cancel_btn_->subscribeEvent(CEGUI::ButtonBase::EventMouseClick, CEGUI::Event::Subscriber(&GUIHostMenu::clickedCancelBtn, this));
-
-    hostmenu_window_->subscribeEvent(CEGUI::Window::EventKeyDown, CEGUI::Event::Subscriber(&GUIHostMenu::onKeyDownHostMenuWindow, this));
+    host_btn_->subscribeEvent         (CEGUI::ButtonBase::EventMouseClick,
+                                       CEGUI::Event::Subscriber(&GUIHostMenu::clickedHostBtn, this));
+    cancel_btn_->subscribeEvent       (CEGUI::ButtonBase::EventMouseClick,
+                                       CEGUI::Event::Subscriber(&GUIHostMenu::clickedCancelBtn, this));
+    hostmenu_window_->subscribeEvent  (CEGUI::Window::EventKeyDown,
+                                       CEGUI::Event::Subscriber(&GUIHostMenu::onKeyDownHostMenuWindow, this));
+    map_name_combobox_->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted,
+                                       CEGUI::Event::Subscriber(&GUIHostMenu::onLevelNameChanged, this));
 }
 
 //------------------------------------------------------------------------------
@@ -105,15 +110,6 @@ void GUIHostMenu::fillComboboxes()
     // fill resolution combobox
     CEGUI::ListboxTextItem * itm;
 
-    // fill game type
-    std::vector<std::string> game_types = s_server_logic_loader.getRegisteredClassNames();
-    for(unsigned t=0; t < game_types.size(); t++)
-    {
-        std::string name = game_types[t].replace(0,std::string("GameLogicServer").length(),"");
-        itm = new GameTextListboxItem(name, t, name);
-        game_type_combobox_->addItem(itm);
-    }
-
     // fill map combo
     using namespace boost::filesystem;
     std::vector<std::string> maps;
@@ -125,14 +121,21 @@ void GUIHostMenu::fillComboboxes()
         for (directory_iterator it(lvl_path);
              it != directory_iterator();
              ++it)
-        {       
-            maps.push_back(it->path().leaf());
+        {
+            path cur_path = it->path();
+            cur_path /= "objects.xml";
+            if (is_regular(cur_path))
+            {
+                maps.push_back(it->path().leaf());
+            }
         }
         
     } catch (basic_filesystem_error<path> & be)
     {
         s_log << Log::error << "Could not retrieve map names in GUIHostMenu\n";
     }
+
+    std::sort(maps.begin(), maps.end());
 
     for(unsigned t=0; t < maps.size(); t++)
     {
@@ -163,6 +166,47 @@ void GUIHostMenu::fillComboboxes()
 }
 
 //------------------------------------------------------------------------------
+void GUIHostMenu::fillGameTypes()
+{
+    game_type_combobox_->resetList();
+    std::vector<std::string> game_types;
+
+    bbm::LevelData level_data;
+    try
+    {
+        level_data.load(map_name_combobox_->getText().c_str());
+        game_types = level_data.getParams().
+            get<std::vector<std::string> >("metadata.valid_gamemodes");
+    } catch (Exception& e)
+    {
+        s_log << Log::error << "failed to determine valid game types: "
+              << e
+              << "\nListing all possible game types.";
+        game_types = s_server_logic_loader.getRegisteredClassNames();
+        std::sort(game_types.begin(), game_types.end());
+    }
+
+    for(unsigned t=0; t < game_types.size(); t++)
+    {
+        std::string name = game_types[t];
+        if (name.find("GameLogicServer") == 0)
+        {
+            name = name.substr(std::string("GameLogicServer").size());
+        }
+        game_type_combobox_->addItem(new GameTextListboxItem(name, t, name));
+    }
+
+    if (!game_types.empty())
+    {
+        game_type_combobox_->setItemSelectState((size_t)0, true);
+        game_type_combobox_->setText(game_type_combobox_->getListboxItemFromIndex(0)->getText());
+    }
+}
+
+//------------------------------------------------------------------------------
+/**
+ *  Just save the parameters to our config files so they can be used later on.
+ */
 bool GUIHostMenu::clickedHostBtn(const CEGUI::EventArgs& e)
 {
     hostmenu_window_->setVisible(false);
@@ -203,6 +247,16 @@ bool GUIHostMenu::onKeyDownHostMenuWindow(const CEGUI::EventArgs& e)
     }
 
     return false;
+}
+
+//------------------------------------------------------------------------------
+/**
+ *  Change contents of game type combo dependent on the selected level.
+ */
+bool GUIHostMenu::onLevelNameChanged(const CEGUI::EventArgs& e)
+{
+    fillGameTypes();
+    return true;
 }
 
 //------------------------------------------------------------------------------
@@ -273,6 +327,8 @@ bool GUIHostMenu::loadValues()
             time_limit_combobox_->setText(time_limit_combobox_->getListboxItemFromIndex(item)->getText());
         }
     }
+
+    fillGameTypes();
 
     return true;
 }

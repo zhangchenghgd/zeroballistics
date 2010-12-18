@@ -23,11 +23,13 @@ class GUIHostMenu
     void registerCallbacks();
     void loadWidgets();
     void fillComboboxes();
+    void fillGameTypes();
 
     bool clickedHostBtn(const CEGUI::EventArgs& e);
     bool clickedCancelBtn(const CEGUI::EventArgs& e);
 
     bool onKeyDownHostMenuWindow(const CEGUI::EventArgs& e);
+    bool onLevelNameChanged(const CEGUI::EventArgs& e);
 
     bool loadValues();
     bool saveValues();
