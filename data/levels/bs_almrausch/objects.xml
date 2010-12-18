@@ -2558,7 +2558,7 @@
 
 
     <Object name="beacon_defender">
-        <Transform _11="1" _21="0" _31="0" _12="0" _22="1" _32="0" _13="0" _23="0" _33="1" _14="142.536" _24="1.549565" _34="152.48" />
+        <Transform _11="1" _21="0" _31="0" _12="0" _22="1" _32="0" _13="0" _23="0" _33="1" _14="142.536" _24="2.15" _34="152.48" />
         <Properties>
             <section name="logic">
                 <variable name="role" value="fixed_beacon" type="string" />
