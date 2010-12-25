@@ -13,7 +13,7 @@ option(ENABLE_CWD             "Build with libcwd support" OFF)
 option(DISABLE_NETWORK_OPTIMIZATIONS "Disable quantization etc to find CSP bugs" OFF)
 
 option(ENABLE_ZB_MODE         "Enable ZB game mode" ON)
-option(ENABLE_SOCCER_MODE     "Enable FMS game mode" OFF)
+option(ENABLE_SOCCER_MODE     "Enable FMS game mode" ON)
 
 set (CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG}   -Wall -Werror -O0 -ggdb --no-inline -D_DEBUG")
 
