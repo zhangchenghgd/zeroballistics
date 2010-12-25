@@ -3,7 +3,7 @@
 #define MASTER_SERVER_REQUEST_DEFINED
 
 
-#include <raknet/PluginInterface.h>
+#include <raknet/PluginInterface2.h>
 
 #include "RegisteredFpGroup.h"
 #include "Observable.h"
@@ -31,7 +31,7 @@ enum MASTER_SERVER_REQUEST_EVENT
  *  This request deletes itself after success or failure, or when the
  *  used interface is shut down.
  */
-class MasterServerRequest : public Observable, public PluginInterface
+class MasterServerRequest : public Observable, public PluginInterface2
 {
  public:
     MasterServerRequest(RakPeerInterface * rak_peer_interface,
@@ -39,7 +39,7 @@ class MasterServerRequest : public Observable, public PluginInterface
                         uint8_t response_id);
     ~MasterServerRequest();
 
-    virtual PluginReceiveResult OnReceive(RakPeerInterface *peer, Packet *packet);
+    virtual PluginReceiveResult OnReceive(Packet *packet);
     virtual void OnShutdown(RakPeerInterface *peer);
 
     const SystemAddress & getServerAddress() const;
@@ -56,7 +56,6 @@ class MasterServerRequest : public Observable, public PluginInterface
     std::vector<char*> data_; ///< The packet to send to the server.
 
     SystemAddress server_address_;
-    RakPeerInterface * interface_;
     
     RegisteredFpGroup fp_group_;
 };

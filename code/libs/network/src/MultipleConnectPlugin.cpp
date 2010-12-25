@@ -17,8 +17,7 @@ namespace network
 //------------------------------------------------------------------------------
 MultipleConnectPlugin::MultipleConnectPlugin() :
     had_no_free_incoming_connections_(false),
-    cur_server_(0),
-    interface_(NULL)
+    cur_server_(0)
 {
 }
 
@@ -28,7 +27,6 @@ void MultipleConnectPlugin::connect(const std::vector<std::string> & hosts,
                                     const std::vector<unsigned>    & ports,
                                     unsigned num_retries)
 {
-    assert(interface_);
     had_no_free_incoming_connections_ = false;
     
     if (hosts.size() != ports.size())
@@ -45,32 +43,22 @@ void MultipleConnectPlugin::connect(const std::vector<std::string> & hosts,
     connect(cur_server_);
 }
 
-
 //------------------------------------------------------------------------------
-void MultipleConnectPlugin::OnAttach(RakPeerInterface *peer)
+void MultipleConnectPlugin::OnRakPeerShutdown()
 {
-    assert(interface_ == NULL);
-    interface_ = peer;
-}
-
-
-//------------------------------------------------------------------------------
-void MultipleConnectPlugin::OnShutdown(RakPeerInterface *peer)
-{
-    assert(peer==interface_);
-    interface_->DetachPlugin(this);
+    rakPeerInterface->DetachPlugin(this);
     delete this;
 }
     
 
 //------------------------------------------------------------------------------
-PluginReceiveResult MultipleConnectPlugin::OnReceive(RakPeerInterface *peer, Packet *packet)
+PluginReceiveResult MultipleConnectPlugin::OnReceive(Packet *packet)
 {
     switch(packet->data[0])
     {
     case ID_CONNECTION_REQUEST_ACCEPTED:
 
-        interface_->DetachPlugin(this);
+        rakPeerInterface->DetachPlugin(this);
         delete this;
         return RR_CONTINUE_PROCESSING;
         break;
@@ -126,7 +114,7 @@ PluginReceiveResult MultipleConnectPlugin::OnReceive(RakPeerInterface *peer, Pac
 
             
             // suicide...
-            interface_->DetachPlugin(this);
+            rakPeerInterface->DetachPlugin(this);
             delete this;
             
             return RR_CONTINUE_PROCESSING;
@@ -148,9 +136,7 @@ PluginReceiveResult MultipleConnectPlugin::OnReceive(RakPeerInterface *peer, Pac
 //------------------------------------------------------------------------------
 void MultipleConnectPlugin::connect(unsigned server_index)
 {
-    assert (interface_);
-    
-    bool ret = interface_->Connect(hosts_[cur_server_].c_str(),
+    bool ret = rakPeerInterface->Connect(hosts_[cur_server_].c_str(),
                                    ports_[cur_server_],
                                    NULL, 0, 0);
 
@@ -164,10 +150,10 @@ void MultipleConnectPlugin::connect(unsigned server_index)
               << "\n";
 
         // Inject ID_CONNECTION_ATTEMPT_FAILED for unified handling...
-        Packet * new_packet = interface_->AllocatePacket(1);
+        Packet * new_packet = rakPeerInterface->AllocatePacket(1);
         new_packet->data[0]       = ID_CONNECTION_ATTEMPT_FAILED;
         new_packet->systemAddress = UNASSIGNED_SYSTEM_ADDRESS;
-        interface_->PushBackPacket(new_packet, true);        
+        rakPeerInterface->PushBackPacket(new_packet, true);
     }
 }
 

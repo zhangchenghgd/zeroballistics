@@ -5,7 +5,7 @@
 #include <raknet/RakNetworkFactory.h>
 #include <raknet/RakNetTypes.h>
 #include <raknet/RakNetStatistics.h>
-#include <raknet/NatPunchthrough.h>
+#include <raknet/NatPunchthroughServer.h>
 
 #include "physics/OdeSimulator.h"
 
@@ -57,7 +57,8 @@ NetworkServer::~NetworkServer()
     // let puppet master deregister raknet plugin...
     puppet_master_.reset(NULL);
 
-    interface_->DetachPlugin(nat_plugin_.get());
+    // TODO CM
+//    interface_->DetachPlugin(nat_plugin_.get());
     interface_->Shutdown(300);
 
     if (s_params.get<bool>("server.log.print_network_summary"))
@@ -129,9 +130,10 @@ void NetworkServer::start()
                            s_params.get<unsigned>("server.network.mtu_size"),
                            NULL);
 
-    nat_plugin_.reset(new NatPunchthrough);
-    nat_plugin_->FacilitateConnections(false);
-    interface_->AttachPlugin(nat_plugin_.get());
+//    nat_plugin_.reset(new NatPunchthroughServer);
+    // TODO CM fix nat punchthrough code
+//    nat_plugin_->FacilitateConnections(false);
+//    interface_->AttachPlugin(nat_plugin_.get());
     
     interface_->ApplyNetworkSimulator(s_params.get<float>   ("server.network.max_bps"),
                                       s_params.get<unsigned>("server.network.min_ping"),

@@ -12,7 +12,7 @@
 #include "ServerInterface.h"
 
 
-class NatPunchthrough;
+class NatPunchthroughServer;
 class PuppetMasterServer;
 
 
@@ -53,7 +53,8 @@ class NetworkServer : public Observable, public network::ServerInterface
     
     
     std::auto_ptr<PuppetMasterServer> puppet_master_;
-    std::auto_ptr<NatPunchthrough> nat_plugin_;
+    // TODO CM fix NAT punchthrough code
+//    std::auto_ptr<NatPunchthroughServer> nat_plugin_;
 
     RegisteredFpGroup fp_group_;
 };

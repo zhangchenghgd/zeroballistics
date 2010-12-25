@@ -106,8 +106,9 @@ TankApp::TankApp(MainMenu * task,
                                           input_handler::SingleInputHandler(this, &TankApp::takeScreenshot),
                                           &fp_group_);
                                           
-    
-    interface_->SetMTUSize(s_params.get<unsigned>("client.network.mtu_size"));
+
+    // TODO CM MTU size?
+//    interface_->SetMTUSize(s_params.get<unsigned>("client.network.mtu_size"));
     interface_->SetOccasionalPing(true); // need this for timestamping to work
     interface_->SetUnreliableTimeout(UNRELIABLE_PACKET_TIMEOUT);
 }
@@ -400,11 +401,14 @@ void TankApp::connectPunch(const SystemAddress & address,
         throw Exception(text);
     }
 
+    // TODO CM fix punchthrough code
+    /*
     // punch plugin will commit suicide.
     master::MasterServerPunchthrough * punch = new master::MasterServerPunchthrough();
     punch->FacilitateConnections(false);
     interface_->AttachPlugin(punch);
     punch->connect(address, internal_port);
+*/
 
     interface_->AttachPlugin(new VersionHandshakePlugin(
                                  AcceptVersionCallbackClient(this, &TankApp::acceptVersionCallback)));

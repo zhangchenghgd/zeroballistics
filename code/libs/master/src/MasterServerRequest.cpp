@@ -29,14 +29,13 @@ MasterServerRequest::MasterServerRequest(RakPeerInterface * rak_peer_interface,
                                          uint8_t response_id) :
     num_remaining_retries_(NUM_RETRIES),
     response_id_(response_id),
-    data_(num_bytes),
-    interface_(rak_peer_interface)
+    data_(num_bytes)
 {
     memcpy(&data_[0], data, num_bytes);
     
     // Lookup for master server
-    const char * host = SocketLayer::Instance()->DomainNameToIP(
-        s_params.get<std::string>("master_server.host").c_str());
+    const char * host = SocketLayer::DomainNameToIP(
+                    s_params.get<std::string>("master_server.host").c_str());
     if (host == NULL) throw Exception("Unknown host for master server: " +
                                       s_params.get<std::string>("master_server.host"));
 
@@ -50,23 +49,20 @@ MasterServerRequest::MasterServerRequest(RakPeerInterface * rak_peer_interface,
                         &fp_group_);
 
 
-    interface_->AttachPlugin(this);
+    rak_peer_interface->AttachPlugin(this);
 }
 
 
 //------------------------------------------------------------------------------
 MasterServerRequest::~MasterServerRequest()
 {
-    assert(interface_);
-    interface_->DetachPlugin(this);
+    rakPeerInterface->DetachPlugin(this);
 }
 
 
 //------------------------------------------------------------------------------
-PluginReceiveResult MasterServerRequest::OnReceive(RakPeerInterface *peer, Packet *packet)
+PluginReceiveResult MasterServerRequest::OnReceive(Packet *packet)
 {
-    assert(peer == interface_);
-            
     if (packet->systemAddress != server_address_ ||    
         packet->length < 2                       ||
         packet->data[0] != ID_ADVERTISE_SYSTEM   || 
@@ -106,7 +102,7 @@ void MasterServerRequest::send(float dt)
         delete this;
     } else
     {
-        interface_->AdvertiseSystem(server_address_.ToString(false),
+        rakPeerInterface->AdvertiseSystem(server_address_.ToString(false),
                                     server_address_.port,
                                     (const char*)&data_[0],
                                     data_.size());

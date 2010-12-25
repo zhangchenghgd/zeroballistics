@@ -4,7 +4,7 @@
 
 
 #include <raknet/BitStream.h>
-#include <raknet/PluginInterface.h>
+#include <raknet/PluginInterface2.h>
 
 #include "ServerInfo.h"
 
@@ -27,7 +27,7 @@ namespace master
  *  Registers the server with the master server and periodically sends
  *  heartbeat messages.
  */
-class MasterServerRegistrator : public PluginInterface
+class MasterServerRegistrator : public PluginInterface2
 {
  public:
     MasterServerRegistrator();
@@ -36,10 +36,9 @@ class MasterServerRegistrator : public PluginInterface
     void sendServerInfo(const ServerInfo & info);
 
 
-    virtual void OnAttach (RakPeerInterface *peer);
-    virtual void OnDetach (RakPeerInterface *peer);
+    virtual void OnDetach();
 
-    virtual PluginReceiveResult OnReceive (RakPeerInterface *peer, Packet *packet);
+    virtual PluginReceiveResult OnReceive (Packet *packet);
     
  protected:
 
@@ -49,7 +48,6 @@ class MasterServerRegistrator : public PluginInterface
 
     ServerInfo cur_info_;
 
-    RakPeerInterface * interface_;
     RegisteredFpGroup fp_group_;
 
     SystemAddress master_server_address_;

@@ -91,10 +91,12 @@ void ServerInterface::start(const std::string & name,
                             const char * private_key)
 {
     assert(interface_ && !interface_->IsActive());
-    
-    interface_->SetMTUSize(mtu_size);
+
+    // TODO CM can MTU size be set?
+//    interface_->SetMTUSize(mtu_size);
     interface_->SetMaximumIncomingConnections(num_connections);
-    if (private_key) initializeSecurity(interface_, private_key, false);
+    // TODO CM fix encryption?
+//    if (private_key) initializeSecurity(interface_, private_key, false);
     
     SocketDescriptor desc(port, 0);
     bool success = interface_->Startup(num_connections,

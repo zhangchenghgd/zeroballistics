@@ -5,7 +5,7 @@
 
 #include <map>
 
-#include <raknet/PluginInterface.h>
+#include <raknet/PluginInterface2.h>
 
 #include <loki/Functor.h>
 
@@ -88,17 +88,15 @@ class HandshakeInfo
  *  All in all, version handshake should happen transparently, with
  *  added VHPI_VERSION_INFO or VHPI_VERSION_MISMATCH messages.
  */
-class VersionHandshakePlugin : public PluginInterface
+class VersionHandshakePlugin : public PluginInterface2
 {
  public:
     VersionHandshakePlugin(AcceptVersionCallbackServer cb);
     VersionHandshakePlugin(AcceptVersionCallbackClient cb);
 
-    virtual void OnAttach(RakPeerInterface *peer);
-    virtual void OnDetach(RakPeerInterface *peer);
-    virtual void OnShutdown(RakPeerInterface *peer);
+    virtual void OnRakPeerShutdown();
     
-    virtual PluginReceiveResult OnReceive(RakPeerInterface *peer, Packet *packet);
+    virtual PluginReceiveResult OnReceive(Packet *packet);
     
  protected:
 
@@ -123,8 +121,6 @@ class VersionHandshakePlugin : public PluginInterface
     bool server_side_;
     AcceptVersionCallbackServer accept_version_server_;
     AcceptVersionCallbackClient accept_version_client_;
-
-    RakPeerInterface * interface_;
 
     RegisteredFpGroup fp_group_;
 };

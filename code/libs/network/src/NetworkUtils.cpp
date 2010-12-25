@@ -48,6 +48,7 @@ namespace network
  *  Reads either public or private key from the given file and
  *  initializes raknet security.
  */
+/* TODO CM fix security
 void initializeSecurity(RakPeerInterface * iface,
                         const std::string & keyfile,
                         bool public_key)
@@ -90,7 +91,7 @@ void initializeSecurity(RakPeerInterface * iface,
         iface->InitializeSecurity(NULL, NULL, (const char*)&p, (const char*)&q);
     }
 }
-
+*/
 
 //------------------------------------------------------------------------------
 void writeAngleToBitstream(RakNet::BitStream & stream, float angle)
@@ -379,6 +380,8 @@ NetworkStatistics::NetworkStatistics(RakPeerInterface * i) :
     prev_sent_(0)
     
 {
+    // TODO CM fix stats
+    /*
     RakNetStatistics * cur_stats = interface_->GetStatistics(UNASSIGNED_SYSTEM_ADDRESS);
 
     prev_sent_     = cur_stats->totalBitsSent;
@@ -391,6 +394,7 @@ NetworkStatistics::NetworkStatistics(RakPeerInterface * i) :
 
     s_console.addVariable("kb_per_sec_sent",     &kb_per_sec_sent_,     &fp_group_);
     s_console.addVariable("kb_per_sec_received", &kb_per_sec_received_, &fp_group_);
+    */
 }
 
 
@@ -398,6 +402,8 @@ NetworkStatistics::NetworkStatistics(RakPeerInterface * i) :
 //------------------------------------------------------------------------------
 void NetworkStatistics::update(float dt)
 {
+    // TODO CM fix stats
+    /*
     RakNetStatistics * cur_stats = interface_->GetStatistics(UNASSIGNED_SYSTEM_ADDRESS);
 
 
@@ -406,6 +412,7 @@ void NetworkStatistics::update(float dt)
 
     prev_sent_     = cur_stats->totalBitsSent;
     prev_received_ = cur_stats->bitsReceived;
+    */
 }
 
 

@@ -611,19 +611,20 @@ void SetGameObjectStateCmd::writeToBitstream (RakNet::BitStream & stream)
 //------------------------------------------------------------------------------
 void SetGameObjectStateCmd::readFromBitstream(RakNet::BitStream & stream)
 {
-    char packet_id;
+    uint8_t packet_id;
 
     stream.Read(packet_id);
+    assert(packet_id == ID_TIMESTAMP);
     stream.Read(timestamp_);
 
     stream.Read(packet_id);
-    stream.Read(id_);
-
-    network::readFromBitstream(stream, object_state_stream_);
-
     if (packet_id == TPI_SET_GAME_OBJECT_STATE_CORE)  type_ = OST_CORE;  else
     if (packet_id == TPI_SET_GAME_OBJECT_STATE_EXTRA) type_ = OST_EXTRA; else
     if (packet_id == TPI_SET_GAME_OBJECT_STATE_BOTH)  type_ = OST_BOTH;  else assert(false);
+
+    stream.Read(id_);
+
+    network::readFromBitstream(stream, object_state_stream_);
 }
 
 

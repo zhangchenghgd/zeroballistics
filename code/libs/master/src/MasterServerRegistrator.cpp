@@ -50,39 +50,28 @@ MasterServerRegistrator::~MasterServerRegistrator()
  */
 void MasterServerRegistrator::sendServerInfo(const ServerInfo & info)
 {
-    assert(interface_);
-    
     cur_info_ = info;
     sendAuthTokenRequest(0.0f);
 }
 
-
 //------------------------------------------------------------------------------
-void MasterServerRegistrator::OnAttach (RakPeerInterface *peer)
-{
-    interface_ = peer;
-}
-
-//------------------------------------------------------------------------------
-void MasterServerRegistrator::OnDetach (RakPeerInterface *peer)
+void MasterServerRegistrator::OnDetach ()
 {
     RakNet::BitStream args;
     args.Write((uint8_t)MPI_REMOVE_SERVER);
     args.Write(last_token_); // to avoid fake removal messages, authenticate with last token.
     args.Write(cur_info_.address_.port); // master needs to know internal port to identify this server
-    interface_->AdvertiseSystem(master_server_address_.ToString(false),
+    rakPeerInterface->AdvertiseSystem(master_server_address_.ToString(false),
                                 master_server_address_.port,
                                 (const char*)args.GetData(),
                                 args.GetNumberOfBytesUsed());
-    
-    
-    interface_ = NULL;
+
     fp_group_.deregisterAllOfType(TaskFp());
 }
 
 
 //------------------------------------------------------------------------------
-PluginReceiveResult MasterServerRegistrator::OnReceive (RakPeerInterface *peer, Packet *packet)
+PluginReceiveResult MasterServerRegistrator::OnReceive (Packet *packet)
 {
     if (packet->length == 0) return RR_CONTINUE_PROCESSING;
 
@@ -143,13 +132,11 @@ PluginReceiveResult MasterServerRegistrator::OnReceive (RakPeerInterface *peer, 
 //------------------------------------------------------------------------------
 void MasterServerRegistrator::sendAuthTokenRequest(float dt)
 {
-    assert(interface_);
-
     if (master_server_address_ == UNASSIGNED_SYSTEM_ADDRESS)
     {
         // Lookup for master server
-        const char * host = SocketLayer::Instance()->DomainNameToIP(
-            s_params.get<std::string>("master_server.host").c_str());
+        const char * host = SocketLayer::DomainNameToIP(
+                        s_params.get<std::string>("master_server.host").c_str());
         if (host == NULL) throw Exception("Unknown host for master server: " +
                                           s_params.get<std::string>("master_server.host"));
 
@@ -170,7 +157,7 @@ void MasterServerRegistrator::sendAuthTokenRequest(float dt)
     
     RakNet::BitStream args;
     args.Write((uint8_t)MPI_REQUEST_AUTH_TOKEN);
-    interface_->AdvertiseSystem(master_server_address_.ToString(false),
+    rakPeerInterface->AdvertiseSystem(master_server_address_.ToString(false),
                                 master_server_address_.port,
                                 (const char*)args.GetData(),
                                 args.GetNumberOfBytesUsed());
@@ -181,14 +168,12 @@ void MasterServerRegistrator::sendAuthTokenRequest(float dt)
 //------------------------------------------------------------------------------
 void MasterServerRegistrator::sendHeartbeat(uint32_t token)
 {
-    assert(interface_);
-    
     RakNet::BitStream stream;
     stream.Write(token);
     stream.Write((uint8_t)MPI_HEARTBEAT);
     cur_info_.writeToBitstream(stream);
                 
-    interface_->AdvertiseSystem(master_server_address_.ToString(false),
+    rakPeerInterface->AdvertiseSystem(master_server_address_.ToString(false),
                                 master_server_address_.port,
                                 (const char*)stream.GetData(),
                                 stream.GetNumberOfBytesUsed());

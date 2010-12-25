@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 
-#include <raknet/PluginInterface.h>
+#include <raknet/PluginInterface2.h>
 
 namespace network
 {
@@ -19,7 +19,7 @@ namespace network
  *  suicide after successful connection / after all options have
  *  failed.
  */
-class MultipleConnectPlugin : public PluginInterface
+class MultipleConnectPlugin : public PluginInterface2
 {
  public:
 
@@ -29,12 +29,9 @@ class MultipleConnectPlugin : public PluginInterface
                  const std::vector<unsigned> & ports,
                  unsigned num_retries = 1);
 
-
-
-    virtual void OnAttach(RakPeerInterface *peer);
-    virtual void OnShutdown(RakPeerInterface *peer);
+    virtual void OnRakPeerShutdown();
     
-    virtual PluginReceiveResult OnReceive(RakPeerInterface *peer, Packet *packet);
+    virtual PluginReceiveResult OnReceive(Packet *packet);
     
  protected:
 
@@ -47,8 +44,6 @@ class MultipleConnectPlugin : public PluginInterface
     bool had_no_free_incoming_connections_;
     
     unsigned cur_server_;
-    
-    RakPeerInterface * interface_;
 };
 
 

@@ -42,10 +42,12 @@ void ClientInterface::connect(const std::vector<std::string> & hosts,
     
     interface_->AttachPlugin(new VersionHandshakePlugin(cb));
 
+    /* TODO CM fix encryption?
     if (public_key)
     {
         initializeSecurity(interface_, public_key, true);
     }
+    */
 
     SocketDescriptor desc;
     if (!interface_->Startup(1, sleep_timer, &desc, 1))

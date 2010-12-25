@@ -23,8 +23,7 @@ const float AUTO_CLOSE_TIMEOUT = 8.0f;
 //------------------------------------------------------------------------------
 VersionHandshakePlugin::VersionHandshakePlugin(AcceptVersionCallbackServer cb) :
     server_side_(true),
-    accept_version_server_(cb),
-    interface_(NULL)
+    accept_version_server_(cb)
 {
 }
 
@@ -32,35 +31,18 @@ VersionHandshakePlugin::VersionHandshakePlugin(AcceptVersionCallbackServer cb) :
 //------------------------------------------------------------------------------
 VersionHandshakePlugin::VersionHandshakePlugin(AcceptVersionCallbackClient cb) :
     server_side_(false),
-    accept_version_client_(cb),
-    interface_(NULL)    
+    accept_version_client_(cb)
 {
 }
 
-    
 //------------------------------------------------------------------------------
-void VersionHandshakePlugin::OnAttach(RakPeerInterface *peer)
+void VersionHandshakePlugin::OnRakPeerShutdown()
 {
-    assert(!interface_);
-    interface_ = peer;
+    rakPeerInterface->DetachPlugin(this);
 }
 
 //------------------------------------------------------------------------------
-void VersionHandshakePlugin::OnDetach(RakPeerInterface *peer)
-{
-    assert(interface_ == peer);
-    interface_ = NULL;
-}
-
-//------------------------------------------------------------------------------
-void VersionHandshakePlugin::OnShutdown(RakPeerInterface *peer)
-{
-    assert(peer == interface_);
-    peer->DetachPlugin(this);
-}
-
-//------------------------------------------------------------------------------
-PluginReceiveResult VersionHandshakePlugin::OnReceive(RakPeerInterface *peer, Packet *packet)
+PluginReceiveResult VersionHandshakePlugin::OnReceive(Packet *packet)
 {
     if (packet->length == 0) return RR_CONTINUE_PROCESSING;
 
@@ -181,7 +163,7 @@ PluginReceiveResult VersionHandshakePlugin::OnReceive(RakPeerInterface *peer, Pa
             s_log << "Invalid version info from "
                   << packet->systemAddress
                   << ". Closing connection.\n";
-            peer->CloseConnection(packet->systemAddress, true);
+            rakPeerInterface->CloseConnection(packet->systemAddress, true);
             return RR_STOP_PROCESSING_AND_DEALLOCATE;
         }
 
@@ -221,7 +203,7 @@ PluginReceiveResult VersionHandshakePlugin::OnReceive(RakPeerInterface *peer, Pa
             info.writeToBitstream(stream);
             pushPacket(stream, packet->systemAddress);
             
-            peer->CloseConnection(packet->systemAddress, true);
+            rakPeerInterface->CloseConnection(packet->systemAddress, true);
 
             suicideIfNeccessary();
             return RR_STOP_PROCESSING_AND_DEALLOCATE;
@@ -347,7 +329,7 @@ void VersionHandshakePlugin::suicideIfNeccessary()
 {
     if (!server_side_)
     {
-        interface_->DetachPlugin(this);
+        rakPeerInterface->DetachPlugin(this);
         delete this;
     }
 }
@@ -361,7 +343,7 @@ void VersionHandshakePlugin::sendVersionInfo(const SystemAddress & dest, const V
     stream.Write((uint8_t)VHPI_VERSION_INFO_INTERNAL);
     info.writeToBitstream(stream);
 
-    interface_->Send(   &stream,
+    rakPeerInterface->Send(   &stream,
                         MEDIUM_PRIORITY,
                         RELIABLE_ORDERED,
                         0, dest, false);
@@ -374,7 +356,7 @@ void VersionHandshakePlugin::sendVersionAck(const SystemAddress & dest)
     RakNet::BitStream stream;
 
     stream.Write((uint8_t)VHPI_VERSION_ACK);
-    interface_->Send(   &stream,
+    rakPeerInterface->Send(   &stream,
                         MEDIUM_PRIORITY,
                         RELIABLE_ORDERED,
                         0, dest, false);
@@ -395,7 +377,7 @@ void VersionHandshakePlugin::sendMismatch(const SystemAddress & dest, const Vers
     }
     info.writeToBitstream(stream);
 
-    interface_->Send(   &stream,
+    rakPeerInterface->Send(   &stream,
                         MEDIUM_PRIORITY,
                         RELIABLE_ORDERED,
                         0, dest, false);
@@ -406,10 +388,10 @@ void VersionHandshakePlugin::sendMismatch(const SystemAddress & dest, const Vers
 void VersionHandshakePlugin::pushPacket(RakNet::BitStream & stream,
                                         const SystemAddress & address)
 {
-    Packet * new_packet = interface_->AllocatePacket(stream.GetNumberOfBytesUsed());
+    Packet * new_packet = rakPeerInterface->AllocatePacket(stream.GetNumberOfBytesUsed());
     memcpy(new_packet->data, stream.GetData(), stream.GetNumberOfBytesUsed());
     new_packet->systemAddress = address;
-    interface_->PushBackPacket(new_packet, true);
+    rakPeerInterface->PushBackPacket(new_packet, true);
     
 }
 
@@ -454,7 +436,7 @@ void VersionHandshakePlugin::closeConnection(void * ad)
     info.writeToBitstream(stream);
     pushPacket(stream, address);
 
-    interface_->CloseConnection(address, true);
+    rakPeerInterface->CloseConnection(address, true);
 
     delete &address;
 }

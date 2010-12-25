@@ -4,7 +4,7 @@
 #define MASTER_SERVER_PUNCHTHROUGH_INCLUDED
 
 
-#include <raknet/NatPunchthrough.h>
+#include <raknet/NatPunchthroughServer.h>
 
 #include "Datatypes.h"
 #include "RegisteredFpGroup.h"
@@ -44,15 +44,14 @@ class MasterServerRequest;
  *
  *  -) master disconnects from game server
  */
-class MasterServerPunchthrough : public NatPunchthrough
+class MasterServerPunchthrough : public NatPunchthroughServer
 {
 public:
     MasterServerPunchthrough();
 
-    virtual void OnAttach(RakPeerInterface *peer);
-    virtual PluginReceiveResult OnReceive(RakPeerInterface *peer, Packet *packet);
+    virtual PluginReceiveResult OnReceive(Packet *packet);
 
-    virtual void OnShutdown(RakPeerInterface *peer);
+    virtual void OnRakPeerShutdown();
 
     void connect(const SystemAddress & address, unsigned internal_port);
     
@@ -65,8 +64,6 @@ public:
 
     SystemAddress target_server_address_; ///< Stored until nat punchthrough is requested.
     SystemAddress facilitator_address_;
-
-    RakPeerInterface * interface_;
 
     MasterServerRequest * request_;
 
