@@ -690,7 +690,7 @@ void MasterServer::onNatPunchthroughRequested(const SystemAddress & address,
     if (server_it == game_server_.end())
     {
         s_log << Log::debug('P')
-              << "server is not known to us.";
+              << "server is not known to us.\n";
         // connect & immediately disconnect to notify client
         interface_->Connect(address.ToString(false),
                             address.port,
