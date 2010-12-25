@@ -23,7 +23,7 @@ enum MASTER_SERVER_REQUEST_EVENT
 
 //------------------------------------------------------------------------------
 /**
- *  Sends a sepcified packet as "advertise system" message to the
+ *  Sends a specified packet as "advertise system" message to the
  *  master server, and waits for a response packet with a specified
  *  ID. This is done a specified number of times, after success or
  *  failure an event is triggered.
