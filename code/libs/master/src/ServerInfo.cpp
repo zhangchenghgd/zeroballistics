@@ -20,7 +20,8 @@ ServerInfo::ServerInfo() :
     max_players_((uint8_t)-1),
     num_players_((uint8_t)-1),
     address_(UNASSIGNED_SYSTEM_ADDRESS),
-    internal_port_(0)
+    internal_port_(0),
+    guid_(0)
 {
 }
 
@@ -42,6 +43,7 @@ void ServerInfo::writeToBitstream (RakNet::BitStream & stream) const
 
     stream.Write(address_);
     stream.Write(internal_port_);
+    stream.Write(guid_);
 }
 
 
@@ -66,6 +68,8 @@ bool ServerInfo::readFromBitstream(RakNet::BitStream & stream)
     ret &= stream.Read(address_);
     ret &= stream.Read(internal_port_);
 
+    ret &= stream.Read(guid_);
+
     return ret;
 }
 
@@ -80,7 +84,7 @@ void ServerInfo::writeString(RakNet::BitStream & stream, std::string str)
     stream.Write((uint8_t)str.length());
 
     if (str.empty()) return;
-    
+
     stream.WriteAlignedBytes((unsigned char*)&str[0], str.length());
 }
 
@@ -93,7 +97,7 @@ void ServerInfo::writeString(RakNet::BitStream & stream, std::string str)
 bool ServerInfo::readString (RakNet::BitStream & stream, std::string & str)
 {
     bool ret = true;
-    
+
     uint8_t len = 0;
     ret &= stream.Read(len);
 

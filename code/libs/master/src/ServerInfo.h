@@ -46,8 +46,12 @@ class ServerInfo
                              ///neccessarily the one seen by the
                              ///master server.
 
+    //! Used for NAT punchthrough, see
+    //! http://www.jenkinssoftware.com/raknet/manual/natpunchthrough.html
+    RakNetGUID guid_;
+
     bool operator==(const SystemAddress & ad) { return address_ == ad; }
-    
+
 
     // XXXX hack because string functions don't work on ference
     static void writeString(RakNet::BitStream & stream, std::string str);

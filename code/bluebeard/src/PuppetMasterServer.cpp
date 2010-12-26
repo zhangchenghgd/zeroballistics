@@ -1124,7 +1124,7 @@ void PuppetMasterServer::updateServerInfo()
     info.num_players_   = player_.size();
     info.max_players_   = s_params.get<unsigned>("server.settings.max_connections");
     info.address_.port  = s_params.get<unsigned>("server.settings.listen_port");
-
+    info.guid_          = interface_->GetGuidFromSystemAddress(UNASSIGNED_SYSTEM_ADDRESS);
 
     std::vector<std::string> interfaces = network::enumerateInterfaces();
     if (interfaces.empty())
