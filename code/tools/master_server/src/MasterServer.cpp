@@ -871,8 +871,8 @@ void MasterServer::sendServerList(const SystemAddress & address, const VersionIn
         args.Write((uint8_t)MPI_CUSTOM_MESSAGE);
 
         ServerInfo::writeString(args,
-                                "There is a new version of ZB available. "
-                                "Go to zeroballistics.com to download it.");
+                                "There is a new version of ZB available on sourceforge.net/projects/zeroballistics.\n"
+                                "The master server for this version will be shut down soon.");
         
         interface_->AdvertiseSystem(address.ToString(false),
                                     address.port,
