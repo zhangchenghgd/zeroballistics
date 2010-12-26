@@ -8,7 +8,7 @@
 
 
     <section name="master_server">
-        <variable name="host" value="master.fullmetalsoccer.com" type="string" />
+        <variable name="host" value="master.quanticode.com" type="string" />
         <variable name="port" value="23505" type="unsigned" />
         <variable name="heartbeat_interval" value="180" type="unsigned" />
     </section>
@@ -29,7 +29,7 @@
         <variable name="login_passwd" value="testpasswd"     type="string"/> 
 
 
-        <variable name="map_names" value="[[dm_almrausch;TeamDeathmatch]]" type="vector<vector<string> >" />
+        <variable name="map_names" value="[[dm_almrausch;Deathmatch]]" type="vector<vector<string> >" />
     </section>
     <!-- 
     -->
