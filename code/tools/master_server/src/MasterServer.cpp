@@ -118,7 +118,7 @@ void MasterServer::start()
                                        &desc, 1);
     if (success)
     {
-        s_log << "Master server started.\n";
+        s_log << "Master server started, listening on port " << port << ".\n";
     } else
     {
         Exception e("Failed to start master server on port ");

@@ -27,6 +27,8 @@
     try
     {
         s_params.loadParameters("config_master.xml");
+        s_params.mergeCommandLineParams(argc, argv);
+
         s_log.open("./", "master");
         s_log.appendCr(true);
 
