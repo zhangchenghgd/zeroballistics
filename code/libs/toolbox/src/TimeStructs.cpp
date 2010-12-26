@@ -43,3 +43,12 @@ void getCurTime(TimeValue & time)
 #endif
 }
 
+//------------------------------------------------------------------------------
+void sleepMs(unsigned msecs)
+{
+#ifdef _WIN32
+    ::Sleep((DWORD)msecs);
+#else
+    usleep(1000*msecs);
+#endif
+}

@@ -11,6 +11,7 @@ typedef DWORD TimeValue;
 #else
 
 #include <sys/time.h>
+#include <unistd.h>
 
 typedef timeval TimeValue;
 
@@ -20,7 +21,7 @@ typedef timeval TimeValue;
 float getMillis(const TimeValue & time);
 float getTimeDiff(const TimeValue & t2, const TimeValue & t1);
 void getCurTime(TimeValue & time);    
-
+void sleepMs(unsigned msecs);
 
 
 #endif // #ifndef LIB_TIME_INCLUDED
