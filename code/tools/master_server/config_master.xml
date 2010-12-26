@@ -8,9 +8,6 @@
 	<variable name="max_connection_duration" value="20" type="float" />
 	<variable name="max_nat_punchthrough_connections" value="128" type="unsigned" />
 
-	<variable name="new_player_cmd" value="/home/quanticode/tank/on_new_player.sh" type="string" />
-	<variable name="new_server_cmd" value="/home/qunaticode/tank/on_new_server.sh" type="string" />
-
     </section>
 
     <section name="server.app">
