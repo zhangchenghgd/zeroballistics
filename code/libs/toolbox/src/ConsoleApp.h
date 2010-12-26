@@ -26,7 +26,6 @@ class ConsoleApp
 
     std::string quit(const std::vector<std::string>&);
 
-    void sleep(int msecs);
     void handleInput();
     void handleInputWin32();
 

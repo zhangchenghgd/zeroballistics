@@ -12,8 +12,6 @@
 #include <conio.h>
 #include <stdio.h>
 #include <wincon.h>
-#else
-#include <unistd.h>
 #endif
 
 #include <limits>
@@ -135,7 +133,7 @@ void ConsoleApp::run()
         int sleep_time = (int)(1000.0f / s_params.get<float>("server.app.target_fps") -
                                getTimeDiff(cur_time, last_time));
 
-        if (sleep_time > 0) sleep(sleep_time);
+        if (sleep_time > 0) sleepMs(sleep_time);
     }        
 }
 
@@ -182,17 +180,6 @@ std::string ConsoleApp::quit(const std::vector<std::string>&)
 {
     quit_ = true;
     return "";
-}
-
-
-//------------------------------------------------------------------------------
-void ConsoleApp::sleep(int msecs)
-{
-#ifdef _WIN32
-    ::Sleep((DWORD)msecs);    
-#else
-    usleep(1000*msecs);
-#endif    
 }
 
 //------------------------------------------------------------------------------
