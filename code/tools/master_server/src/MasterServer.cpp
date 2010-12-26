@@ -11,7 +11,7 @@
 #include <raknet/MessageIdentifiers.h>
 #include <raknet/RakNetworkFactory.h>
 #include <raknet/BitStream.h>
-#include <raknet/NatPunchthrough.h>
+#include <raknet/NatPunchthroughServer.h>
 
 #include "ParameterManager.h"
 #include "Scheduler.h"
@@ -90,8 +90,9 @@ MasterServer::MasterServer() :
                           ConsoleFun(this, &MasterServer::generateTestData),
                           &fp_group_);
 
-    
-    interface_->SetMTUSize(s_params.get<unsigned>("network.mtu_size"));
+
+    // TODO CM MTU?
+//    interface_->SetMTUSize(s_params.get<unsigned>("network.mtu_size"));
     interface_->SetUnreliableTimeout(UNRELIABLE_PACKET_TIMEOUT);    
 }
 
@@ -130,7 +131,7 @@ void MasterServer::start()
                              &fp_group_);
 
 
-    nat_plugin_.reset(new NatPunchthrough());
+    nat_plugin_.reset(new NatPunchthroughServer());
     interface_->AttachPlugin(nat_plugin_.get());
 }
 
@@ -866,6 +867,7 @@ void MasterServer::sendServerList(const SystemAddress & address, const VersionIn
     
     if (greater_version_available)
     {
+        s_log << "Notifying client of newer version.\n";
         args.Write((uint8_t)MPI_CUSTOM_MESSAGE);
 
         ServerInfo::writeString(args,

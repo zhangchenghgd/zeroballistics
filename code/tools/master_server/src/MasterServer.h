@@ -15,7 +15,7 @@
 
 
 class RakPeerInterface;
-class NatPunchthrough;
+class NatPunchthroughServer;
 class VersionInfo;
 
 
@@ -168,7 +168,7 @@ protected:
     std::vector<NatRequest> nat_punchthrough_request_;
     std::map<SystemAddress, hTask> task_disconnect_;
 
-    std::auto_ptr<NatPunchthrough> nat_plugin_;
+    std::auto_ptr<NatPunchthroughServer> nat_plugin_;
 };
 
 
