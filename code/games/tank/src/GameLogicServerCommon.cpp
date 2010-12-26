@@ -771,7 +771,8 @@ void GameLogicServerCommon::onMatchStart()
                       UNASSIGNED_SYSTEM_ADDRESS, 
                       CST_BROADCAST_READY);
     
-    match_events_->logMatchStart();
+    // disable ranking
+//    match_events_->logMatchStart();
     state_ = TGS_IN_PROGRESS;
 }
 

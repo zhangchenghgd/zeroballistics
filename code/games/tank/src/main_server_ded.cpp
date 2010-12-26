@@ -122,6 +122,10 @@ void startMapRotation()
                                      PMOE_AUTH_DATA_SET,
                                      &g_fp_group);
         
+        // disabled ranking
+        // required to start map cycle
+        g_puppet_master->setAuthData(0,0);
+
         ConsoleApp app;
         app.run();
 
