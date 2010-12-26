@@ -59,6 +59,10 @@ NetworkServer::~NetworkServer()
 
     // TODO CM
 //    interface_->DetachPlugin(nat_plugin_.get());
+
+    // Raknet will not wait for packets sent via AdvertiseSystem.
+    // Allow some time to let server deregister from master server.
+    sleepMs(300);
     interface_->Shutdown(300);
 
     if (s_params.get<bool>("server.log.print_network_summary"))

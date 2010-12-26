@@ -57,6 +57,7 @@ void MasterServerRegistrator::sendServerInfo(const ServerInfo & info)
 //------------------------------------------------------------------------------
 void MasterServerRegistrator::OnDetach ()
 {
+    s_log << "Telling master server that we are going offline.\n";
     RakNet::BitStream args;
     args.Write((uint8_t)MPI_REMOVE_SERVER);
     args.Write(last_token_); // to avoid fake removal messages, authenticate with last token.
