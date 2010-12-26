@@ -543,6 +543,10 @@ void TankApp::handleNetwork(float dt)
                 throw Exception(std::string("Failed to connect to ") + packet->systemAddress.ToString());
                 break;
             case ID_NAT_TARGET_NOT_CONNECTED:
+            case ID_NAT_TARGET_UNRESPONSIVE:
+            case ID_NAT_CONNECTION_TO_TARGET_LOST:
+            case ID_NAT_ALREADY_IN_PROGRESS:
+            case ID_NAT_PUNCHTHROUGH_FAILED:
                 throw Exception("Could not perform NAT punchthrough.");
                 break;
 			
