@@ -821,28 +821,30 @@ void PuppetMasterServer::sendNetworkCommand(network::NetworkCommandServer & cmd,
  */
 void PuppetMasterServer::onGameFinished()
 {
-    game_logic_->getMatchEvents()->addObserver(
-        ObserverCallbackFunUserData(this, &PuppetMasterServer::onStatsTransmissionFinished),
-        network::ranking::MEOE_TRANSMISSION_FINISHED,
-        &fp_group_);
-    
-    game_logic_->getMatchEvents()->addObserver(
-        ObserverCallbackFunUserData(this, &PuppetMasterServer::onStatsTransmissionFailed),
-        network::ranking::MEOE_TRANSMISSION_FAILED,
-        &fp_group_);    
-
-    try
-    {
-        game_logic_->getMatchEvents()->transmitToServer();
-    } catch (Exception & e)
-    {
-        s_log << Log::error
-              << e
-              << "\n";
-
-        std::string msg = e.getMessage();
-        onStatsTransmissionFailed(NULL, &msg, 0);
-    }
+    // disabled ranking
+    emit(PMOE_GAME_FINISHED);
+//    game_logic_->getMatchEvents()->addObserver(
+//        ObserverCallbackFunUserData(this, &PuppetMasterServer::onStatsTransmissionFinished),
+//        network::ranking::MEOE_TRANSMISSION_FINISHED,
+//        &fp_group_);
+//
+//    game_logic_->getMatchEvents()->addObserver(
+//        ObserverCallbackFunUserData(this, &PuppetMasterServer::onStatsTransmissionFailed),
+//        network::ranking::MEOE_TRANSMISSION_FAILED,
+//        &fp_group_);
+//
+//    try
+//    {
+//        game_logic_->getMatchEvents()->transmitToServer();
+//    } catch (Exception & e)
+//    {
+//        s_log << Log::error
+//              << e
+//              << "\n";
+//
+//        std::string msg = e.getMessage();
+//        onStatsTransmissionFailed(NULL, &msg, 0);
+//    }
 }
 
 //------------------------------------------------------------------------------

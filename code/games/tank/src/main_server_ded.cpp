@@ -107,7 +107,9 @@ void startMapRotation()
         
         NetworkServer server;
 
-        server.logon();
+        // disabled ranking
+//        server.logon();
+        server.start();
 
         g_puppet_master = server.getPuppetMaster();
         g_puppet_master->addObserver(ObserverCallbackFun0(&onGameFinished),
