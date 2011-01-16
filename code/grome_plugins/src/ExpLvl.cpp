@@ -9,10 +9,10 @@
 #include <float.h>
 
 
-#include "toolbox/Serializer.h"
-#include "toolbox/Utils.h"
-#include "toolbox/TextValue.h"
-#include "bbmloader/LevelData.h"
+#include "Serializer.h"
+#include "Utils.h"
+#include "TextValue.h"
+#include "LevelData.h"
 
 
 #undef max

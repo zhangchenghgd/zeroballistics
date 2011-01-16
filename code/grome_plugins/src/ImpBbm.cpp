@@ -3,7 +3,7 @@
 #include "ImpBbm.h"
 #include <stdio.h>
 
-#include "bbmloader/BbmImporter.h"
+#include "BbmImporter.h"
 
 
 #include "UtilsGrome.h"

@@ -4,7 +4,7 @@
 #define BBM_GROME_CONVERTER_INCLUDED_
 
 
-#include <bbmloader/BbmImporter.h>
+#include <BbmImporter.h>
 #include <Engine/sdk.h>
 
 using namespace csdk;
