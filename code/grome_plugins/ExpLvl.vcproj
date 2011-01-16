@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../../../"
+				AdditionalIncludeDirectories="..\libs\toolbox\src;..\libs\bbmloader\src;GromeSDK"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;D_UNICODE;D_DEBUG;WIN32;_DEBUG;_WINDOWS;_USRDLL;TIXML_USE_STL"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -122,12 +122,12 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../../../../"
-				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE,D_UNICODE;WIN32;NDEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="..\libs\toolbox\src;..\libs\bbmloader\src;GromeSDK"
+				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;D_UNICODE;WIN32;NDEBUG;_WINDOWS;_USRDLL;TIXML_USE_STL"
 				StringPooling="true"
-				RuntimeLibrary="0"
-				EnableEnhancedInstructionSet="1"
-				UsePrecompiledHeader="2"
+				RuntimeLibrary="2"
+				EnableEnhancedInstructionSet="0"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
@@ -143,14 +143,16 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../../../../../Plugins/Exporter.plug"
-				LinkIncremental="1"
-				AdditionalLibraryDirectories=""
+				AdditionalDependencies="toolbox.lib gzstream.lib winmm.lib loki.lib tinyxml_STL.lib zlibd.lib bbmloader.lib dbghelp.lib"
+				OutputFile="Plugins/ExpLvl.plug"
+				LinkIncremental="0"
+				AdditionalLibraryDirectories="..\libs\toolbox\bin;..\libs\bbmloader\bin;"
+				IgnoreDefaultLibraryNames="MSVCRTD"
 				GenerateDebugInformation="true"
 				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				ImportLibrary="./Exporter.lib"
+				OptimizeReferences="0"
+				EnableCOMDATFolding="0"
+				ImportLibrary=".Release/ExpLvl.lib"
 				TargetMachine="1"
 			/>
 			<Tool

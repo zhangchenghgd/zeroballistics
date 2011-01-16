@@ -214,6 +214,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\AIPlayerTeamDeathmatch.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Boost.h"
 				>
 			</File>
@@ -485,6 +489,10 @@
 			</File>
 			<File
 				RelativePath=".\src\AIPlayerSoccer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\AIPlayerTeamDeathmatch.cpp"
 				>
 			</File>
 			<File
