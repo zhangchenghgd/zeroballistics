@@ -39,16 +39,16 @@ class AIPlayerDeathmatch : public AIPlayer
 
  protected:
 
-    void handleStuck(float dt, PlayerInput & input, Tank * tank);
-    void handleFire(float dt, PlayerInput & input, Tank * tank);
-    void handleMineLaying(float dt, PlayerInput & input, Tank * tank, float target_yaw);
-    void handleWaypoints(float dt, PlayerInput & input, Tank * tank);
-    void handleHeal(float dt, PlayerInput & input, Tank * tank);
+    virtual void handleStuck(float dt, PlayerInput & input, Tank * tank);
+    virtual void handleFire(float dt, PlayerInput & input, Tank * tank);
+    virtual void handleMineLaying(float dt, PlayerInput & input, Tank * tank, float target_yaw);
+    virtual void handleWaypoints(float dt, PlayerInput & input, Tank * tank);
+    virtual void handleHeal(float dt, PlayerInput & input, Tank * tank);
 
-    void assignToTeam() const;
+    virtual void assignToTeam() const;
     
-    void getNearestEnemy(Tank * tank);
-    void onEnemyDestroyed();
+    virtual void getNearestEnemy(Tank * tank);
+    virtual void onEnemyDestroyed();
 
     std::deque<WaypointServer*> ai_target_positions_;
 

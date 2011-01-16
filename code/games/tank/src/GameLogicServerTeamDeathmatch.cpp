@@ -9,6 +9,7 @@
 #include "NetworkCommandServer.h"
 #include "Projectile.h"
 #include "Tank.h"
+#include "AIPlayerTeamDeathmatch.h"
 
 #undef min
 #undef max
@@ -262,7 +263,7 @@ GameLogicServer * GameLogicServerTeamDeathmatch::create()
  */
 AIPlayer * GameLogicServerTeamDeathmatch::createAIPlayer() const
 {
-    return NULL;
+    return new AIPlayerTeamDeathmatch(puppet_master_);
 } 
 
 //------------------------------------------------------------------------------

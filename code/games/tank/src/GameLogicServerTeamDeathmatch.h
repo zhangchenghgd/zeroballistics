@@ -20,6 +20,8 @@ const std::string TEAM_CONFIG_TDM[] = { "team_tdm_a", "team_tdm_b" };
 //------------------------------------------------------------------------------
 class GameLogicServerTeamDeathmatch : public GameLogicServerCommon
 {
+    friend class AIPlayerTeamDeathmatch;
+
  public:
     GameLogicServerTeamDeathmatch();
 

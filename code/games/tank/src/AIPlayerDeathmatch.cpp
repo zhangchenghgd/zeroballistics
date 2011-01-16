@@ -172,6 +172,7 @@ void AIPlayerDeathmatch::handleStuck(float dt, PlayerInput & input, Tank * tank)
     if(stuck_dt_ > STUCK_THRESHOLD1 && stuck_dt_ <= STUCK_THRESHOLD2)
     {
 
+        /*  /// TODO: implement healing correctly
         // avoid registering of HitpointTracker::heal all the time here,
         // had serious performance impact
         if(tank->getHitpoints() < tank->getMaxHitpoints())
@@ -179,23 +180,26 @@ void AIPlayerDeathmatch::handleStuck(float dt, PlayerInput & input, Tank * tank)
             state_ = APS_HEALING;
             return;    
         }
-
+        */
 
          // drive randomly left or right backwards
-         bool l_r = (bool)(rand()%2);
+         //bool l_r = (bool)(rand()%2);
+
+         // NEW: just drive straight backw.
 
 		 input.up_ = false;
          input.down_ = true;
-         input.left_ = l_r;
-         input.right_ = !l_r;
+         input.left_ = false;
+         input.right_ = false;
          tank->setPlayerInput(input);
          return;
-    } else if(stuck_dt_ > STUCK_THRESHOLD2 && stuck_dt_ <= STUCK_THRESHOLD_SUICIDE)  // if stuck even longer, try jump
+
+    } /*else if(stuck_dt_ > STUCK_THRESHOLD2 && stuck_dt_ <= STUCK_THRESHOLD_SUICIDE)  // if stuck even longer, try jump
     {
          input.action3_ = IKS_DOWN;
          tank->setPlayerInput(input);
          return;
-    } else if(stuck_dt_ > STUCK_THRESHOLD_SUICIDE)  // stuck for very long time -> suicide
+    } */else if(stuck_dt_ > STUCK_THRESHOLD_SUICIDE)  // stuck for very long time -> suicide
     {
        GameLogicServerDeathmatch * glsd = dynamic_cast<GameLogicServerDeathmatch*>(puppet_master_->getGameLogic());
        glsd->kill(PKT_SUICIDE, tank);
@@ -372,6 +376,7 @@ void AIPlayerDeathmatch::handleWaypoints(float dt, PlayerInput & input, Tank * t
 //------------------------------------------------------------------------------
 void AIPlayerDeathmatch::handleHeal(float dt, PlayerInput & input, Tank * tank)
 {
+    /*  /// TODO: implement healing correctly
     // if tank is not firing and heal below threshold -> stop to heal
     if(tank->getHitpoints() < HEAL_HP_THRESHOLD &&
 	   state_ != APS_FIRING &&
@@ -396,6 +401,7 @@ void AIPlayerDeathmatch::handleHeal(float dt, PlayerInput & input, Tank * tank)
     }
 
     return;
+    */
 }
 
 //------------------------------------------------------------------------------
