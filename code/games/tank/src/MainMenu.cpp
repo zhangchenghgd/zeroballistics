@@ -387,14 +387,15 @@ void MainMenu::startMusic(bool fade)
     }
 }
 
-
 //------------------------------------------------------------------------------
-void MainMenu::connectPunch(const SystemAddress & address, unsigned internal_port)
+void MainMenu::connectPunch(const RakNetGUID& guid,
+                            const SystemAddress & address,
+                            unsigned internal_port)
 {
     try
     {
         preConnect(address.ToString());
-        client_task_->connectPunch(address, internal_port);
+        client_task_->connectPunch(guid, address, internal_port);
     } catch (Exception & e)
     {
         onExceptionCaught(NULL, &e, EE_EXCEPTION_CAUGHT);        

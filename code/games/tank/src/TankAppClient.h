@@ -56,7 +56,8 @@ class TankApp : public MetaTask, public Observable
     bool isConnected() const;
     
     void connect(const std::string & host, unsigned port);
-    void connectPunch(const SystemAddress & address,
+    void connectPunch(const RakNetGUID& guid,
+                      const SystemAddress & address,
                       unsigned internal_port);
     
  protected:

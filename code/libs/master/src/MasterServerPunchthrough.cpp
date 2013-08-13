@@ -37,12 +37,13 @@ MasterServerPunchthrough::MasterServerPunchthrough() :
 //------------------------------------------------------------------------------
 PluginReceiveResult MasterServerPunchthrough::OnReceive(Packet *packet)
 {
-    if (packet->length == 0) return NatPunchthroughServer::OnReceive(packet);
-            
+    if (packet->length == 0) return NatPunchthroughClient::OnReceive(packet);
+
+    s_log << packet->data[0] << "\n";
     switch (packet->data[0])
     {
     case ID_CONNECTION_ATTEMPT_FAILED:
-        if (!punchthrough_port_) return NatPunchthroughServer::OnReceive(packet);
+        if (punchthrough_port_ == 0) return NatPunchthroughClient::OnReceive(packet);
         
         s_log << "Direct connect failed. Attempting NAT punchthrough...\n";
         target_server_address_.port = punchthrough_port_;
@@ -65,7 +66,7 @@ PluginReceiveResult MasterServerPunchthrough::OnReceive(Packet *packet)
                 rakPeerInterface->CloseConnection(facilitator_address_, true);
             }
         }
-        return NatPunchthroughServer::OnReceive(packet);
+        return NatPunchthroughClient::OnReceive(packet);
                 
         break;
     case ID_NEW_INCOMING_CONNECTION:
@@ -93,15 +94,8 @@ PluginReceiveResult MasterServerPunchthrough::OnReceive(Packet *packet)
             delete request_;
             request_ = NULL;            
             
-            // TODO CM fix punchthrough code
-            assert(false);
-//            if (!NatPunchthroughServer::Connect(target_server_address_,
-//                                          0,0,
-//                                          facilitator_address_))
-            {
-                rakPeerInterface->CloseConnection(packet->systemAddress, true);
-                throw Exception("Failed to connect to server.");
-            }
+            s_scheduler.addEvent(SingleEventCallback(this, &MasterServerPunchthrough::openNat),
+                                 0, 0, "openNat", &fp_group_);
         }
 
         return RR_STOP_PROCESSING_AND_DEALLOCATE;
@@ -130,9 +124,20 @@ PluginReceiveResult MasterServerPunchthrough::OnReceive(Packet *packet)
             }
         } 
         break;
+    case ID_NAT_PUNCHTHROUGH_SUCCEEDED:
+        s_log << "Nat punchthrough succeeded. Now attempting direct connection to "
+              << packet->systemAddress.ToString(true) << "\n";
+        rakPeerInterface->Connect(packet->systemAddress.ToString(false), packet->systemAddress.port,
+                                  0, 0);
+
+        // Our job is done, suicide
+        rakPeerInterface->DetachPlugin(this);
+        delete this;
+
+        return RR_STOP_PROCESSING_AND_DEALLOCATE;
     }
             
-    return NatPunchthroughServer::OnReceive(packet);
+    return NatPunchthroughClient::OnReceive(packet);
 }
 
 //------------------------------------------------------------------------------
@@ -145,13 +150,24 @@ void MasterServerPunchthrough::OnRakPeerShutdown()
 
 
 //------------------------------------------------------------------------------
-void MasterServerPunchthrough::connect(const SystemAddress & address,
+void MasterServerPunchthrough::connect(const RakNetGUID& guid,
+                                       const SystemAddress & address,
                                        unsigned internal_port)
 {
     // Juggle ports for direct connection attempt
     punchthrough_port_ = address.port;
     target_server_address_ = address;
     target_server_address_.port = internal_port;
+    target_guid_ = guid;
+
+//      testing code to immendiately do NAT punchthrough attempt, without first trying the direct
+//      connection.
+
+        target_server_address_.port = punchthrough_port_;
+        punchthrough_port_ = 0;
+        connectWithPunchThrough();
+        return;
+
 
     s_log << "Attempting direct connection to "
           << target_server_address_.ToString()
@@ -217,6 +233,17 @@ void MasterServerPunchthrough::onTokenReceived(Observable*, void * s, unsigned)
 void MasterServerPunchthrough::onMasterUnreachable()
 {
     throw Exception("Could not connect.");
+}
+
+//------------------------------------------------------------------------------
+void MasterServerPunchthrough::openNat(void*)
+{
+    s_log << "MasterServerPunchthrough::openNat " << target_guid_.ToString() << " " << facilitator_address_.ToString(true) << "\n";
+    if (!OpenNAT(RakNetGUID()/*target_guid_*/, facilitator_address_))
+    {
+        rakPeerInterface->CloseConnection(facilitator_address_, true);
+        s_log << Log::error << "OpenNAT call failed.\n";
+    }
 }
 
 

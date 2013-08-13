@@ -19,7 +19,7 @@
 
 VersionInfo g_version = VERSION_ZB_CLIENT;
 const std::string APP_NAME = "Zero Ballistics";
-
+#include "NetworkCommand.h"
 
 #ifdef _WIN32
 #include "Exception.h"
@@ -55,6 +55,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
     try
     {
+
         USER_DATA_SUBDIR = "QuantiCode/" + APP_NAME + "/";
 
 
@@ -73,6 +74,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
         s_log.open(getOrCreateUserDataDir(), "client");
         s_log << "Version " << g_version << "\n";
+    s_log << "last packet id " << network::TPI_LAST << "\n";
+
 
 #ifdef _WIN32
         if(s_params.get<bool>("client.intro.enable"))

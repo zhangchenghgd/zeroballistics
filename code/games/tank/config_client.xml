@@ -124,7 +124,7 @@ on Linux:
 	-->
     <section name="client.log">
         <variable name="filename" value="log_client.txt" type="string" />
-        <variable name="debug_classes" value="-" type="string" comment="possible values: idsrtNMlohH" console="1" />
+        <variable name="debug_classes" value="m" type="string" comment="possible values: idsrtNMlohH" console="1" />
         <variable name="append" value="0" type="bool" />
         <variable name="always_flush" value="1" type="bool" />
         <variable name="osg_notify_level" value="0" type="unsigned" comment="0-6" />

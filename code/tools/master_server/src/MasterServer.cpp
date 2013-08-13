@@ -610,9 +610,9 @@ void MasterServer::onConnectionRequestAccepted(const SystemAddress & address)
             // initiate NAT punchthrough if connection to the master
             // server is established.
             s_log << Log::debug('P')
-                  << "server "
+                  << "connected to server "
                   << address.ToString()
-                  << " connected, connecting to client " << it->client_.ToString() << "\n";
+                  << ", now attempting to connect to client " << it->client_.ToString() << "\n";
         
             if (!interface_->Connect(it->client_.ToString(false),
                                      it->client_.port,
@@ -696,7 +696,7 @@ void MasterServer::onNatPunchthroughRequested(const SystemAddress & address,
         interface_->Connect(address.ToString(false),
                             address.port,
                             0,0,0);
-                            return;
+        return;
     }
     
     
@@ -730,6 +730,8 @@ void MasterServer::onNatPunchthroughRequested(const SystemAddress & address,
         
     } else
     {
+        s_log << Log::debug('P')
+              << "attempting to connect to server\n";
         interface_->Connect(server_address.ToString(false),
                             server_address.port,
                             0,0,0);
@@ -820,14 +822,15 @@ void MasterServer::sendServerList(const SystemAddress & address, const VersionIn
         
         // Now we need to determine whether to send the local ip, and
         // whether nat punchthrough needs to be done....
-        if (address.binaryAddress == it->external_address_.binaryAddress)
-        {
-            // Same subnet, send local IP
-            s_log << Log::debug('L')
-                  << "client is in same subnet as "
-                  << it->external_address_.ToString()
-                  << "\n";
-        } else 
+//        if (address.binaryAddress == it->external_address_.binaryAddress)
+//        {
+//            // Same subnet, send local IP
+//            s_log << Log::debug('L')
+//                  << "client is in same subnet as "
+//                  << it->external_address_.ToString()
+//                  << "\n";
+//        }
+//        else
         {
             // report both external port (for NAT punchthrough) and
             // internal port ( for initial direct connection attempt)

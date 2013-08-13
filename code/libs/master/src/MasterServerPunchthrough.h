@@ -4,7 +4,7 @@
 #define MASTER_SERVER_PUNCHTHROUGH_INCLUDED
 
 
-#include <raknet/NatPunchthroughServer.h>
+#include <raknet/NatPunchthroughClient.h>
 
 #include "Datatypes.h"
 #include "RegisteredFpGroup.h"
@@ -44,7 +44,7 @@ class MasterServerRequest;
  *
  *  -) master disconnects from game server
  */
-class MasterServerPunchthrough : public NatPunchthroughServer
+class MasterServerPunchthrough : public NatPunchthroughClient
 {
 public:
     MasterServerPunchthrough();
@@ -53,7 +53,7 @@ public:
 
     virtual void OnRakPeerShutdown();
 
-    void connect(const SystemAddress & address, unsigned internal_port);
+    void connect(const RakNetGUID& guid, const SystemAddress & address, unsigned internal_port);
     
  protected:
 
@@ -62,7 +62,15 @@ public:
     void onTokenReceived(Observable*, void * s, unsigned);
     void onMasterUnreachable();
 
+    //! Callable as scheduled event: we want to initate openNat as soon as the facilitator has
+    //! connected to us, but when handling the ID_NEW_INCOMING_CONNECTION, the connection is not
+    //! yet complete.
+    void openNat(void*);
+
     SystemAddress target_server_address_; ///< Stored until nat punchthrough is requested.
+    //! Identifier of the server we want to connect to; we got this in the server list from the
+    //! master server.
+    RakNetGUID    target_guid_;
     SystemAddress facilitator_address_;
 
     MasterServerRequest * request_;

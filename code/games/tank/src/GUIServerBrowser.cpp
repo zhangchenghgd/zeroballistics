@@ -280,20 +280,23 @@ bool GUIServerBrowser::clickedConnectBtn(const CEGUI::EventArgs& e)
 
     hide();
 
+    main_menu_->connectPunch(info_element->info_.guid_,
+                             info_element->info_.address_,
+                             info_element->info_.internal_port_);
 
-    // Check whether we are in the same subnet. If so, connect
-    // directly, else use nat-punchthrough.
-    std::vector<std::string> interfaces = network::enumerateInterfaces();
-    if (interfaces.empty() ||
-        !network::isSameSubnet(interfaces[0], info_element->info_.address_.ToString(false)))
-    {
-        main_menu_->connectPunch(info_element->info_.address_,
-                                 info_element->info_.internal_port_);
-    } else
-    {
-        main_menu_->connect(info_element->info_.address_.ToString(false),
-                            info_element->info_.address_.port);
-    }
+//    // Check whether we are in the same subnet. If so, connect
+//    // directly, else use nat-punchthrough.
+//    std::vector<std::string> interfaces = network::enumerateInterfaces();
+//    if (interfaces.empty() ||
+//        !network::isSameSubnet(interfaces[0], info_element->info_.address_.ToString(false)))
+//    {
+//        main_menu_->connectPunch(info_element->info_.address_,
+//                                 info_element->info_.internal_port_);
+//    } else
+//    {
+//        main_menu_->connect(info_element->info_.address_.ToString(false),
+//                            info_element->info_.address_.port);
+//    }
 
     return true;
 }

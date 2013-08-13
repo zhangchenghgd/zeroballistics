@@ -63,7 +63,7 @@ add_subdirectory(bluebeard)
 add_subdirectory(games/tank)
 
 
-add_subdirectory(tools/master_server EXCLUDE_FROM_ALL)
+add_subdirectory(tools/master_server)
 
 add_subdirectory(tools/modelviewer)
 add_subdirectory(tools/particleviewer)

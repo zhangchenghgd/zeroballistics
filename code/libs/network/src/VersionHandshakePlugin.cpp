@@ -18,7 +18,7 @@ namespace network
 
 /// Time after which connection is closed automatically in case
 /// version handshake doesn't succeed.
-const float AUTO_CLOSE_TIMEOUT = 8.0f;
+const float AUTO_CLOSE_TIMEOUT = 8000.0f;
 
 //------------------------------------------------------------------------------
 VersionHandshakePlugin::VersionHandshakePlugin(AcceptVersionCallbackServer cb) :

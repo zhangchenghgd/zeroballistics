@@ -10,7 +10,7 @@
 
 
 struct SystemAddress;
-
+struct RakNetGUID;
 
 class TankApp;
 class IntegratedServer;
@@ -60,7 +60,8 @@ public:
     void stopMusic(bool fade);
     void startMusic(bool fade);
 
-    void connectPunch(const SystemAddress & address,
+    void connectPunch(const RakNetGUID& guid,
+                      const SystemAddress & address,
                       unsigned internal_port);
     void connect(const std::string & host, unsigned port);
     void hostServer();

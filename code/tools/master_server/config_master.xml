@@ -18,7 +18,7 @@
 
 
     <section name="network">
-        <variable name="listen_port" value="23505" type="unsigned" />
+        <variable name="listen_port" value="23506" type="unsigned" />
 	<variable name="sleep_timer" value="1" type="unsigned" />
         <variable name="mtu_size" value="1460" type="unsigned" />    
     </section>
@@ -26,7 +26,7 @@
 
     <section name="master.log">
         <variable name="filename" value="master_server.log" type="string" />
-        <variable name="debug_classes" value="PHLN" comment="TPHLN" type="string" console="1"/>
+        <variable name="debug_classes" value="+PHLN" comment="TPHLN" type="string" console="1"/>
         <variable name="append" value="1" type="bool" />
         <variable name="print_to_cout" value="1" type="bool" />
         <variable name="always_flush" value="1" type="bool" />

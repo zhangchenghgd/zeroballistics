@@ -382,7 +382,8 @@ void TankApp::connect(const std::string & host, unsigned port)
  *  Connect to address that was received from master server. NAT
  *  punchthrough is done.
  */
-void TankApp::connectPunch(const SystemAddress & address,
+void TankApp::connectPunch(const RakNetGUID& guid,
+                           const SystemAddress & address,
                            unsigned internal_port)
 {
     s_log << Log::debug('m')
@@ -401,14 +402,10 @@ void TankApp::connectPunch(const SystemAddress & address,
         throw Exception(text);
     }
 
-    // TODO CM fix punchthrough code
-    /*
     // punch plugin will commit suicide.
     master::MasterServerPunchthrough * punch = new master::MasterServerPunchthrough();
-    punch->FacilitateConnections(false);
     interface_->AttachPlugin(punch);
-    punch->connect(address, internal_port);
-*/
+    punch->connect(guid, address, internal_port);
 
     interface_->AttachPlugin(new VersionHandshakePlugin(
                                  AcceptVersionCallbackClient(this, &TankApp::acceptVersionCallback)));
