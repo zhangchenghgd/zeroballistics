@@ -1,0 +1,11 @@
+language: c
+dist: trusty
+before_script:
+- sudo apt-get update
+- sudo apt-get install cmake
+script:
+- cd code
+- cmake .
+- make -j16
+# there's no `check` and no `test` `make` target
+- sudo make install
